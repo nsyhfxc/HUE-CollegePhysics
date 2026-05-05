@@ -1,0 +1,314 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{config}[2026/05/05 College physics local config]
+
+% Page layout and links
+\RequirePackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm,top=2cm,bottom=2cm}
+\RequirePackage[breaklinks,colorlinks,bookmarksnumbered,linkcolor=black,urlcolor=blue]{hyperref}
+
+% Text and spacing
+\RequirePackage{indentfirst}
+\setlength{\parindent}{2em}
+\RequirePackage{setspace}
+\setstretch{1.35}
+\RequirePackage{ulem}
+\normalem
+
+% Core math
+\RequirePackage{amsmath,amssymb,mathtools,amsthm,bm}
+\RequirePackage{physics}
+\RequirePackage[=v2]{siunitx}
+\sisetup{inter-unit-product=\ensuremath{{}\cdot{}}}
+\RequirePackage{relsize}
+\RequirePackage{extarrows}
+\RequirePackage{yhmath}
+\RequirePackage{esint}
+\RequirePackage{polynom}
+\RequirePackage{mhchem}
+\allowdisplaybreaks
+\everymath{\displaystyle}
+
+% Graphics and tables
+\RequirePackage[dvipsnames,svgnames,x11names]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+\RequirePackage{float}
+\RequirePackage{subfigure}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,through,intersections,quotes,angles,graphs,positioning}
+\RequirePackage{circuitikz}
+\RequirePackage{array}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{longtable}
+\RequirePackage{colortbl}
+\RequirePackage{makecell}
+\RequirePackage{diagbox}
+\RequirePackage{multicol}
+\RequirePackage{enumitem}
+\RequirePackage{appendix}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{breakable,most,skins,theorems}
+
+% Listings
+\RequirePackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    frame=tb,
+    aboveskip=2mm,
+    belowskip=2mm,
+    showstringspaces=false,
+    columns=flexible,
+    framerule=1pt,
+    rulecolor=\color{gray!35},
+    backgroundcolor=\color{gray!5},
+    basicstyle={\footnotesize\ttfamily\baselineskip=0.9\baselineskip},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    lineskip=-1pt
+}
+
+% Lists
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\arabic*).}
+\newlist{choices}{enumerate}{1}
+\setlist[choices,1]{label=\Alph*.,leftmargin=1.5em,itemsep=0em,before=\begin{multicols}{2},after=\end{multicols}}
+
+% Figure files moved from old/build/*.pdf are now included as cleaned TeX.
+\NewDocumentCommand{\inputfigure}{O{}m}{%
+    \begingroup
+    \adjustbox{#1}{\input{chapter/#2.tex}}%
+    \endgroup
+}
+
+% Keep compilation working when generated Python/Octave figures are absent.
+\let\OriginalIncludeGraphics\includegraphics
+\RenewDocumentCommand{\includegraphics}{O{}m}{%
+    \IfFileExists{#2}{%
+        \ifstrempty{#1}{\OriginalIncludeGraphics{#2}}{\OriginalIncludeGraphics[#1]{#2}}%
+    }{%
+        \fbox{\parbox{0.72\linewidth}{\centering\small 缺少图像文件：\texttt{\detokenize{#2}}}}%
+    }%
+}
+
+% Common references used by the old notes.
+\NewDocumentCommand{\Refx}{mm}{[\textbf{#1 \ref{#1:#2}} #2]}
+
+% Math shorthands
+\NewDocumentCommand{\cub}{m}{\left\{#1\right\}}
+\NewDocumentCommand{\set}{mm}{\left\{#1\ \middle|\ #2\right\}}
+\providecommand{\sgn}{\operatorname{sgn}}
+\providecommand{\arccot}{\operatorname{arccot}}
+\providecommand{\arcsec}{\operatorname{arcsec}}
+\providecommand{\arccsc}{\operatorname{arccsc}}
+\providecommand{\arsinh}{\operatorname{arsinh}}
+\providecommand{\arcosh}{\operatorname{arcosh}}
+\providecommand{\artanh}{\operatorname{artanh}}
+\NewDocumentCommand{\N}{}{\mathbb{N}}
+\NewDocumentCommand{\Z}{}{\mathbb{Z}}
+\NewDocumentCommand{\Q}{}{\mathbb{Q}}
+\NewDocumentCommand{\R}{}{\mathbb{R}}
+\NewDocumentCommand{\Ur}{}{\mathring{U}}
+\NewDocumentCommand{\cmax}{m}{\max\cub{#1}}
+\NewDocumentCommand{\cmin}{m}{\min\cub{#1}}
+\NewDocumentCommand{\Cb}{mm}{\mathrm{C}_{#1}^{#2}}
+\NewDocumentCommand{\Pm}{mm}{\mathrm{P}_{#1}^{#2}}
+\NewDocumentCommand{\Lim}{mmm}{\lim_{#1\rightarrow#2}#3}
+\NewDocumentCommand{\LimS}{m}{\Lim{n}{\infty}{#1}}
+\NewDocumentCommand{\LimFI}{m}{\Lim{x}{\infty}{#1}}
+\NewDocumentCommand{\LimFX}{m}{\Lim{x}{x_0}{#1}}
+\NewDocumentCommand{\LimDX}{m}{\Lim{\Delta x}{0}{#1}}
+\NewDocumentCommand{\Limb}{mmm}{\lim_{#1\rightarrow#2}\left(#3\right)}
+\NewDocumentCommand{\LimbS}{m}{\Limb{n}{\infty}{#1}}
+\NewDocumentCommand{\LimbFI}{m}{\Limb{x}{\infty}{#1}}
+\NewDocumentCommand{\LimbFX}{m}{\Limb{x}{x_0}{#1}}
+\NewDocumentCommand{\LimbDX}{m}{\Limb{\Delta x}{0}{#1}}
+\NewDocumentCommand{\dif}{g}{\IfNoValueTF{#1}{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d}#1}}
+\ProvideDocumentCommand{\dx}{}{\dif{x}}
+\ProvideDocumentCommand{\dy}{}{\dif{y}}
+\ProvideDocumentCommand{\du}{}{\dif{u}}
+\ProvideDocumentCommand{\dv}{}{\dif{v}}
+\ProvideDocumentCommand{\dt}{}{\dif{t}}
+\NewDocumentCommand{\Fdif}{ggE{^}{{}}}{%
+    \IfValueTF{#2}{\dfrac{\dif^{#3}{#1}}{\dif{#2}^{#3}}}{%
+        \IfValueTF{#1}{\dfrac{\dif^{#3}}{\dif{#1}^{#3}}}{\dfrac{\dif^{#3}{y}}{\dif{x}^{#3}}}%
+    }%
+}
+\NewDocumentCommand{\delt}{g}{\IfNoValueTF{#1}{\Delta}{\Delta #1}}
+\NewDocumentCommand{\Fdet}{gg}{%
+    \IfValueTF{#2}{\dfrac{\delt{#1}}{\delt{#2}}}{%
+        \IfValueTF{#1}{\dfrac{\delt}{\delt{#1}}}{\dfrac{\delt{y}}{\delt{x}}}%
+    }%
+}
+\NewDocumentCommand{\pdif}{g}{\IfNoValueTF{#1}{\partial}{\partial #1}}
+\NewDocumentCommand{\Fpif}{mgsE{^}{{}}}{%
+    \IfBooleanTF{#3}{%
+        \IfValueTF{#2}{\dfrac{\pdif^{#4}{#1}}{\pdif{#2}}}{\dfrac{\pdif^{#4}}{\pdif{#1}}}%
+    }{%
+        \IfValueTF{#2}{\dfrac{\pdif^{#4}{#1}}{\pdif{#2}^{#4}}}{\dfrac{\pdif^{#4}}{\pdif{#1}^{#4}}}%
+    }%
+}
+\NewDocumentCommand{\uzz}{}{\dfrac{0}{0}}
+\NewDocumentCommand{\uii}{}{\dfrac{\infty}{\infty}}
+\NewDocumentCommand{\Intd}{O{}O{}mG{x}}{\int_{#1}^{#2}#3\dif{#4}}
+\NewDocumentCommand{\Int}{O{}O{}m}{\int_{#1}^{#2}#3}
+\NewDocumentCommand{\IntAB}{m}{\Int[a][b]{#1}}
+\NewDocumentCommand{\IntAX}{m}{\Int[a][x]{#1}}
+\NewDocumentCommand{\IntXB}{m}{\Int[x][b]{#1}}
+\NewDocumentCommand{\Sum}{mmm}{\sum_{#1}^{#2}#3}
+\NewDocumentCommand{\SumIN}{m}{\Sum{i=1}{n}{#1}}
+\NewDocumentCommand{\vi}{}{\vb*{i}}
+\NewDocumentCommand{\vj}{}{\vb*{j}}
+\NewDocumentCommand{\vk}{}{\vb*{k}}
+\NewDocumentCommand{\para}{}{\hspace{0.55em}/\kern -0.8em /\hspace{0.55em}}
+\NewDocumentCommand{\bars}{m}{\overline{#1}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\NewDocumentCommand{\vang}{mm}{\qty(\vb*{#1}\hat{,}\vb*{#2})}
+\NewDocumentCommand{\Idnt}{O{D}m}{\iint\limits_{#1}{#2}}
+\NewDocumentCommand{\Itnt}{O{\Omega}m}{\iiint\limits_{#1}{#2}}
+\NewDocumentCommand{\Ilnt}{O{L}m}{\int\nolimits_{#1}{#2}}
+\NewDocumentCommand{\Ilot}{O{L}m}{\oint\nolimits_{#1}{#2}}
+\NewDocumentCommand{\Isnt}{O{\Sigma}m}{\iint\nolimits_{#1}{#2}}
+\NewDocumentCommand{\Isot}{O{\Sigma}m}{\oiint\nolimits_{#1}{#2}}
+\NewDocumentCommand{\tspc}{}{\vphantom{$\Biggl(\Biggr)$}}
+\NewDocumentCommand{\vmix}{smmm}{\IfBooleanTF{#1}{[#2~#3~#4]}{[\vb*{#2}~\vb*{#3}~\vb*{#4}]}}
+\NewDocumentCommand{\ek}{}{\frac{1}{4\pi\varepsilon_0}}
+\NewDocumentCommand{\mk}{}{\frac{\mu_0}{4\pi}}
+
+% Theorem-like and proof-like environments
+\numberwithin{equation}{section}
+\newenvironment{Proof}{\begin{proof}[\indent\bfseries 证明]}{\end{proof}}
+\newenvironment{Solution}{\begin{proof}[\indent\bfseries 解]}{\end{proof}}
+\theoremstyle{definition}
+\newtheorem{definition}{\indent 定义}[section]
+\newtheorem{theorem}{\indent 定理}[section]
+\newtheorem{lemma}[theorem]{\indent 引理}
+\newtheorem{corollary}[theorem]{\indent 推论}
+\newtheorem{proposition}[theorem]{\indent 命题}
+\newtheorem{example}{\indent 例}[section]
+\newenvironment{Definition}[1][]{\begin{definition}[#1]\label{定义:#1}}{\end{definition}}
+\newenvironment{Theorem}[1][]{\begin{theorem}[#1]\label{定理:#1}}{\end{theorem}}
+\newenvironment{Lemma}[1][]{\begin{lemma}[#1]\label{引理:#1}}{\end{lemma}}
+\newenvironment{Corollary}[1][]{\begin{corollary}[#1]\label{推论:#1}}{\end{corollary}}
+\newenvironment{Proposition}[1][]{\begin{proposition}[#1]\label{命题:#1}}{\end{proposition}}
+\newenvironment{Example}[1][]{\begin{example}[#1]\label{例:#1}}{\end{example}}
+
+% Original boxed-note environments, centralized here instead of in chapters.
+\newcounter{box}[section]
+\renewcommand{\thebox}{\thesection.\arabic{box}}
+\NewDocumentCommand{\boxadd}{}{\refstepcounter{box}\thebox}
+\NewDocumentCommand{\BoxLabelIfNamed}{mm}{\ifstrempty{#1}{}{\ifstrempty{#2}{}{\label{#2:#1}}}}
+\NewDocumentEnvironment{BoxBase}{O{}m}{%
+    \begin{tcolorbox}[breakable,arc=0mm,title={\footnotesize #2(\boxadd\BoxLabelIfNamed{#1}{#2})\hfill #1}]%
+}{%
+    \end{tcolorbox}%
+}
+\NewDocumentEnvironment{BoxGeneral}{O{}O{}}{\begin{BoxBase}[#1]{#2}\small}{\end{BoxBase}}
+\NewDocumentEnvironment{BoxPrinciple}{O{}}{\begin{BoxBase}[#1]{定律}\centering\small}{\end{BoxBase}}
+\NewDocumentEnvironment{BoxEquation}{O{}}{\begin{BoxBase}[#1]{公式}\begin{equation*}}{\end{equation*}\end{BoxBase}}
+\NewDocumentEnvironment{BoxDefinition}{O{}}{\begin{BoxBase}[#1]{定义}\begin{equation*}}{\end{equation*}\end{BoxBase}}
+\NewDocumentEnvironment{BoxEq}{o}{\normalsize\begin{equation*}}{\end{equation*}\small}
+\NewDocumentEnvironment{Equation}{o}{\begin{equation}\IfValueT{#1}{\label{式:#1}}}{\end{equation}}
+\NewDocumentEnvironment{EquationBox}{o}{%
+    \IfValueTF{#1}{\begin{tcolorbox}[breakable,arc=0mm,title={\footnotesize\hfill #1}]}{\begin{tcolorbox}[breakable,arc=0mm]}%
+    \begin{equation}\IfValueT{#1}{\label{式:#1}}%
+}{%
+    \end{equation}\end{tcolorbox}%
+}
+
+% Figure and table helpers used by the notes.
+\NewDocumentEnvironment{Figure}{O{H}m}{%
+    \begin{figure}[#1]\centering
+}{%
+    \caption{#2}\label{图:#2}\end{figure}%
+}
+\NewDocumentEnvironment{Tikz}{O{H}mO{}}{%
+    \begin{figure}[#1]\centering\begin{tikzpicture}[#3]%
+}{%
+    \end{tikzpicture}\caption{#2}\label{图:#2}\end{figure}%
+}
+\NewDocumentEnvironment{Table}{O{H}mO{\small}m}{%
+    \begin{table}[#1]\label{表:#2}\caption{#2}#3\centering\begin{tabular}{#4}%
+}{%
+    \end{tabular}\end{table}%
+}
+\NewDocumentEnvironment{TableLong}{O{H}mmm}{%
+    \begin{longtable}[#1]{#3}
+    \caption{#2\label{表:#2}}\\
+    \hline
+    #4
+    \hline
+    \endfirsthead
+    \caption{#2（续表）}\\
+    \endhead
+    \hline
+    \endfoot
+    \hline
+    \endlastfoot
+}{%
+    \end{longtable}%
+}
+
+% TikZ point helpers.
+\NewDocumentCommand{\lPoint}{mmoo}{%
+    \IfNoValueTF{#3}{\coordinate (#1) at (#2);}{%
+        \IfNoValueTF{#4}{\coordinate[label=#3:$#1$] (#1) at (#2);}{\coordinate[label=#3:$#4$] (#1) at (#2);}%
+    }%
+}
+\NewDocumentCommand{\lShift}{mmmoo}{%
+    \IfNoValueTF{#4}{\coordinate (#1) at ([shift={+(#3)}] #2);}{%
+        \IfNoValueTF{#5}{\coordinate[label=#4:$#1$] (#1) at ([shift={+(#3)}] #2);}{\coordinate[label=#4:$#5$] (#1) at ([shift={+(#3)}] #2);}%
+    }%
+}
+\NewDocumentCommand{\lRatio}{mmmmoo}{%
+    \IfNoValueTF{#5}{\coordinate (#1) at ($(#2)!#4!(#3)$);}{%
+        \IfNoValueTF{#6}{\coordinate[label=#5:$#1$] (#1) at ($(#2)!#4!(#3)$);}{\coordinate[label=#5:$#6$] (#1) at ($(#2)!#4!(#3)$);}%
+    }%
+}
+\NewDocumentCommand{\lRoate}{mmmmmoo}{%
+    \IfNoValueTF{#6}{\coordinate (#1) at ($(#2)!#4!#5:(#3)$);}{%
+        \IfNoValueTF{#7}{\coordinate[label=#6:$#1$] (#1) at ($(#2)!#4!#5:(#3)$);}{\coordinate[label=#6:$#7$] (#1) at ($(#2)!#4!#5:(#3)$);}%
+    }%
+}
+\NewDocumentCommand{\lIntersect}{mmmmmoo}{%
+    \lRatio{TempIntersect1}{#2}{#3}{20cm}
+    \lRatio{TempIntersect2}{#3}{#2}{20cm}
+    \lRatio{TempIntersect3}{#4}{#5}{20cm}
+    \lRatio{TempIntersect4}{#5}{#4}{20cm}
+    \path[name path=TempIntersectPathA] (TempIntersect1)--(TempIntersect2);
+    \path[name path=TempIntersectPathB] (TempIntersect3)--(TempIntersect4);
+    \coordinate[name intersections={of=TempIntersectPathA and TempIntersectPathB,by={#1}}];
+    \IfNoValueF{#6}{\IfNoValueTF{#7}{\node[#6] at (#1) {$#1$};}{\node[#6] at (#1) {$#7$};}}%
+}
+\NewDocumentCommand{\lProject}{mmmmoo}{%
+    \lRatio{TempProject1}{#3}{#4}{20cm}
+    \lRatio{TempProject2}{#4}{#3}{20cm}
+    \coordinate (#1) at ($(TempProject1)!(#2)!(TempProject2)$);
+    \IfNoValueF{#5}{\IfNoValueTF{#6}{\node[#5] at (#1) {$#1$};}{\node[#5] at (#1) {$#6$};}}%
+}
+\NewDocumentCommand{\lEroject}{mmmmmoo}{%
+    \lRoate{TempEroject1}{#2}{#3}{1cm}{90}
+    \lIntersect{#1}{#2}{TempEroject1}{#4}{#5}
+    \IfNoValueF{#6}{\IfNoValueTF{#7}{\node[#6] at (#1) {$#1$};}{\node[#6] at (#1) {$#7$};}}%
+}
+\NewDocumentCommand{\lAngle}{O{}mmmO{0.25}O{2.3}D(){}}
+    {\draw pic["$#1$",draw=black,angle radius=#5cm,angle eccentricity=#6,#7]{angle=#2--#3--#4};}
+\NewDocumentCommand{\lRightAngle}{O{}mmmO{0.1}O{2.3}D(){}}
+    {\draw pic["$#1$",draw=black,angle radius=#5cm,angle eccentricity=#6,#7]{right angle=#2--#3--#4};}
+
+% Simple question/solution environments retained for existing local notes.
+\definecolor{LightBlue}{RGB}{250,255,255}
+\newtcolorbox{question}[2][breakable]{colback=LightBlue,colframe=cyan,fonttitle=\bfseries,title=#2,#1}
+\newenvironment{solution}{\noindent\textbf{\color{cyan}解答}\quad}{\par}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}

@@ -1,0 +1,14 @@
+\begin{tikzpicture}[scale=1.25]
+    \clip(-0.05,-0.05) rectangle (2,2);
+    \draw[dotted,gray](0,0)--(2,0);
+    \draw[dotted,gray](0,0)--(1,1);
+    \draw[dotted,gray](0,0)--(0,2);
+    \draw[-latex](0,0)--(1.5,0.0);
+    \draw[-latex,blue!50!white](0,0)--(25:1);
+    \draw[-latex,red!50!white](0,0)--(0.0,1.5);
+    \node[above] at (1.5,0) {\scriptsize $\vb*{v}$};
+    \node[right,blue!50!white] at (25:1) {\scriptsize $\vb*{B}$};
+    \node[right,red!50!white] at (0,1.5) {\scriptsize $\vb*{F}$};
+    \draw[gray,ultra thin,-{>[width=1.2pt,length=1.2pt]}] (0.4,0) arc (0:50:0.4 and 0.15);
+    \draw[gray,ultra thin,-{>[width=1.2pt,length=1.2pt]}] (0.05,0.15)--(0.05,0.5);
+\end{tikzpicture}

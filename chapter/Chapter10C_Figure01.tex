@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{P}{0,0.5}[below right]
+    \foreach \x in {-4,-3.75,...,4}
+    {
+        \node at (\x,+1.5) {$\odot$};
+        \node at (\x,-1.5) {$\otimes$};
+    }
+    \lPoint{O}{0,0}
+    \lPoint{X1}{-4.5,0}
+    \lPoint{X2}{+4.5,0}[above][x]
+    \lPoint{Y1}{0,-2.25}
+    \lPoint{Y2}{0,+2.25}[right][y]
+    \draw[->,dotted] (X1)--(X2);
+    \draw[->,dotted] (Y1)--(Y2);
+    
+    \lShift{B}{P}{2,0}[right][\vb*{B}]
+    \lShift{B2}{P}{2,0.5}[right][\vb*{B}']
+
+    \draw[-latex] (P)--(B);
+    \draw[-latex] (P)--(B2);
+
+    \draw[fill=white] (P) circle (0.04);
+    \clip (-4.6,-2.25) rectangle (4.6,2.25);
+\end{tikzpicture}

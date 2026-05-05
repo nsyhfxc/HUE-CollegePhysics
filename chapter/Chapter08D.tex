@@ -1,0 +1,35 @@
+\section{静电场中的电偶极子}
+我们知道，对于由等量异号的电荷构成的电偶极子，两者在匀强电场受到的电场力是等大反向的，但是并不共线，因此会产生电力矩的作用，考虑到正负电荷受力的对称性，我们在计算合力矩时只要考虑其中一个电荷的力矩并乘以二就可以了，这里我们考虑正电荷。
+\begin{Figure}{静电场中的电偶极子}
+    \inputfigure[scale=0.6]{Chapter08D_Figure01}
+\end{Figure}
+根据\Refx{公式}{电场力}，这里正电荷受到的电场力为
+\begin{equation*}
+    \vb*{F}=q\vb*{E}
+\end{equation*}
+设由负电荷指向正电荷的矢量为$\vb*{l}$，那么正电荷相对于电偶极子中心的位矢即为$\vb*{l}/2$。这里电偶极子受到的力矩，是正电荷产生的力矩的两倍，因此根据\Refx{定义}{力矩}
+\begin{Equation}
+    \vb*{M}=2\qty[\frac{\vb*{l}}{2}\times(q\vb*{E})]=\vb*{l}\times(q\vb*{E})
+\end{Equation}
+将这里的$q$提出
+\begin{Equation}
+    \vb*{M}=q\vb*{l}\times\vb*{E}
+\end{Equation}
+根据\Refx{定义}{电偶极矩}
+\begin{BoxEquation}[电偶极子的电力矩]
+    \vb*{M}=\vb*{p}\times\vb*{E}
+\end{BoxEquation}
+\Refx{公式}{电偶极子的电力矩}指出，电偶极子在匀强电场中所受\uwave{电力矩}的方向，是右手四指由电偶极矩转向电场强度时右手拇指的方向，而其旋转方向即这里右手四指的转向。\vspace{90pt}
+
+\Refx{公式}{电偶极子的电力矩}中，如果我们记$\vb*{p},\vb*{E}$的夹角为$\theta$，那么当$\theta=\pi/2$时电力矩最大，而当$\theta=0$或$\theta=\pi$时电力矩为零，但前者是稳定平衡，而后者是不稳定平衡。
+\begin{Figure}{电偶极子的平衡}
+    \subfigure[稳定平衡]
+    {
+        \inputfigure[scale=0.5]{Chapter08D_Figure02}
+    }\qquad
+    \subfigure[不稳定平衡]
+    {
+        \inputfigure[scale=0.5]{Chapter08D_Figure03}
+    }
+\end{Figure}
+因此，电偶极子在电力矩的作用下，总是会偏转至电偶极矩与电场强度一致的方向。

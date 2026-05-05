@@ -1,0 +1,454 @@
+\section{参考系与时空观}
+
+\subsection{参考系}
+由于运动本身的绝对性，因此绝对静止的物质是不存在的。
+
+所以如果要描述一个物体的运动，必须选择其他物体或其他几个相互之间保持静止的物体作为参考，我们将被选作参考用的物体或物体系，称为\uwave{参考系}。
+
+对于同一物体的运动，相对于不同的参考系会有不同的描述结果，例如一个自由落体的物体
+\begin{itemize}
+    \item 以地面作为参考系时，观察到物体作直线运动。
+    \item 以运动的列车作为参考系，观察到物体作曲线运动。
+\end{itemize}
+这个事实，称为\uwave{描述运动的相对性}。由于描述运动具有相对性，当我们描述一个物体的运动时，就必须确定是相对于哪个参考系而言的，否则这种描述是毫无意义的。
+
+确定了参考系之后，为了定量描述物体在各个时刻相对于参考系的位置，我们还需要在参考系上，固定一个坐标系，安置位于坐标系各处的一系列计时器。
+\begin{itemize}
+    \item \uwave{计时器}用于记录各个时刻。
+    \item \uwave{坐标系}用于记录物体在各个时刻的位置。
+\end{itemize}
+常用的坐标系有直角坐标系，极坐标系，自然坐标系。
+
+\subsection{时间和空间}
+人类关于时间和空间的概念的形成，首先起源于对自己周围物质世界和物质运动的直觉。
+\begin{enumerate}
+    \item 所谓\uwave{时间}，是一切不同时刻的概括和抽象，反映了事件的顺序性和持续性。
+    \item 所谓\uwave{空间}，是一切不同位置的概括和抽象，反映了物质的广延性。
+\end{enumerate}
+物理学中的时间是指测量到的时间，例如一个物体从空间中的$A$点移动到$B$点，这是一个简单的物理过程，在经典理论下，对于这个过程，无论是在相对物体静止的参考系，还是在相对物体运动的参考系，所测量到的物体移动过程的持续时间都是相同的。
+
+时间与观察者的相对运动无关，与事件发生的空间位置无关，简述为
+\begin{center}
+    \textbf{时间是绝对的。}
+\end{center}
+
+物理学中的空间是通过物体的存在而表现出来的，例如空间某处有一个六面体，我们可以通过它的边长，面，角，来确定它所占据的空间，在经典理论下，无论六面体作何种取向，无论它相对于观察者如何运动，所测得的六面体的边长，面，角，都是一样的。
+
+空间与观察者的相对运动无关，与物体所处在的空间位置无关，简述为
+\begin{center}
+    \textbf{空间是绝对的。}
+\end{center}
+以上，“时间是绝对的”，“空间是绝对的”，就构成了经典理论中的\uwave{绝对时空观}。
+
+\section{质点与运动状态}
+
+\subsection{质点}
+任何实际物体都具有一定的大小，形状，质量，内部结构，即便是微观粒子也不例外。
+
+一般地说，实际物体在运动过程中，其内部各部分的位置变化和速度变化是各不相同的，其大小和形状也可能发生变化。所以精确的描述实际物体的一般运动并不是一件容易的事，因此需要对所研究的物体的大小和形状作合理的近似和抽象。
+
+如果物体的大小和形状在所研究的问题中不起作用或所起的作用可以忽略，那么十分合理的，我们可以将物体近似作为，一个只有质量而没有形状大小的点，这样的点称为\uwave{质点}。
+
+质点是物体在满足上述条件下抽象出的一个理想化模型。
+
+质点运动的研究，实质是在研究物体质量中心的运动。
+
+物体能否作为质点处理，并不取决于物体的大小和形状，应该根据所研究的问题的性质决定，或者说同一物体，在某一问题中可以作为质点处理，在另一些问题中则不行，例如
+\begin{enumerate}
+    \item 研究地球公转时，地球可以视为质点。
+    \item 研究地球自转时，地球不能视为质点。
+    \item 研究刚性物体平动规律时，虽然物体的大小和形状对所研究的空间范围不可忽略，但是由于物体内的各点在运动中的状态完全相同，物体中的任一点都可以代表整体运动，因此在刚性物体平动规律的研究中，刚性物体也可以作为质点处理。
+\end{enumerate}
+
+\subsection{位矢}
+在坐标系中，质点$P$在任意时刻所处的位置常用\uwave{位置矢量}或\uwave{位矢}表示。
+
+位矢是从坐标系的原点$O$指向质点$P$所处位置的一个矢量，使用符号$\vb*{r}$表示。
+
+位矢在国际单位制中的单位是\si{m}，量纲是\si{[L]}。
+
+位矢说明了质点$P$相对于参考系固定点$O$的方位和距离，当质点运动时，它的位置是按照一定规律随着时刻$t$变化的，也就是说位矢是时刻$t$的函数，称为\uwave{质点的运动方程}
+\begin{BoxEquation}[质点的运动方程]
+    \vb*{r}=\vb*{r}(t)
+\end{BoxEquation}
+在直角坐标系中，引入由原点$O$沿$x,y,z$三轴正方向的单位矢量$\vb*{i},\vb*{j},\vb*{k}$，那么在某一时刻$t$，设质点$P$的坐标是$(x,y,z)$，根据运动叠加原理，可将\Refx{公式}{质点的运动方程}表示为
+\begin{BoxEquation}[质点在直角坐标系的运动方程]
+    \vb*{r}=x(t)\vb*{i}+y(t)\vb*{j}+z(t)\vb*{k}
+\end{BoxEquation}
+关注到运动分量$x,y,z$均是关于时刻$t$的函数，如果我们能找到某个函数方程$f=0$，无关时刻$t$的表达出运动分量$x,y,z$间的关系\footnote{例如，假设$x=2t,y=3t,z=5t$，则可以找到$f(x,y,z)=4x-y-z$使得$f=0$恒成立，即“无关时刻$t$的关系”。}，那么将所得到的方程，称为\uwave{质点的轨迹方程}
+\begin{BoxEquation}[质点在直角坐标系的轨迹方程]
+    f(x,y,z)=0    
+\end{BoxEquation}
+根据以上在直角坐标系中的具体讨论可知，运动方程表征\textbf{质点在任意时刻的位置}，轨迹方程则表征\textbf{质点的运动轨迹}，轨迹方程总是可以由运动方程推出。
+
+位矢$\vb*{r}$的大小可以表示为
+\begin{equation*}
+    r=\qty|\vb*{r}|=\sqrt{x^2+y^2+z^2}
+\end{equation*}
+位矢$\vb*{r}$的方向可以由其方向余弦体现
+\begin{equation*}
+    \cos\alpha=\frac{x}{r}\quad\cos\beta=\frac{y}{r}\quad\cos\gamma=\frac{z}{r}
+\end{equation*}
+显然方向余弦满足
+\begin{equation*}
+    \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1
+\end{equation*}
+
+
+位矢的增量$\delt{\vb*{r}}$称为\uwave{位移矢量}或\uwave{位移}，显然在直角坐标系中有公式$\delt{\vb*{r}}=\delt{x}\vi+\delt{y}\vj+\delt{z}\vk$和$|\delt{\vb*{r}}|=\sqrt{\delt{x}^2+\delt{y}^2+\delt{z}^2}$，位移的概念在运用要注意辨析以下两点
+\begin{enumerate}
+    \item 位移的大小$|\delt{\vb*{r}}|$与路程$\delt{s}$的概念是完全不同的，位移是代表质点的位置改变的矢量，路程是描述质点运动的轨迹长度的标量，可以从曲线运动中考察两者的差异，在轨迹上选取$A,B$两点，弦$AB=\qty|\delt{\vb*{r}}|$，弧$\wideparen{AB}=\delt{s}$，只有当$\delt{t}\rightarrow 0$两者才近似相等\footnote{即位移$\delt{\vb*{r}}$和路程$\delt{s}$是$\delt{t}\rightarrow 0$时的等价无穷小。}。
+    \item 位移的大小$|\delt{\vb*{r}}|$与$\delt{r}=\delt{|\vb*{r}|}$是完全不同的，前者代表运动轨迹两点间的距离（位矢差的绝对值），后者代表运动轨迹中两点到原点的距离差（位矢绝对值的差），即
+    \begin{equation*}
+        \delt{r}=r_2-r_1=\sqrt{x_1^2+y_1^2+z_1^2}-\sqrt{x_2^2+y_2^2+z_2^2}
+    \end{equation*}
+\end{enumerate}
+
+\subsection{速度}
+质点位移$\delt{\vb*{r}}$和对应的时间增量$\delt{t}$的比值称为这段时间内的\uwave{平均速度}，记作$\bars{\vb*{v}}$
+\begin{BoxDefinition}[平均速度]
+    \bars{\vb*{v}}=\frac{\delt{\vb*{r}}}{\delt{t}}
+\end{BoxDefinition}
+根据\Refx{定义}{平均速度}，平均速度的方向就是位移的方向。
+
+质点路程$\delt{s}$和对应的时间增量$\delt{t}$的比值称为这段时间内的\uwave{平均速率}，记作$\bars{v}$
+\begin{BoxDefinition}[平均速率]
+    \bars{v}=\frac{\delt{s}}{\delt{t}}
+\end{BoxDefinition}
+平均速度是矢量，代表单位时间的位移变化，平均速率是标量，代表单位时间的路程变化，不考虑运动的方向，同时应当注意，由于$\delt{s}\neq |\delt{r}|$，有
+\begin{equation*}
+    |\bars{\vb*{v}}|\neq \bars{v}
+\end{equation*}
+即平均速度的大小和平均速率\textbf{不相等}。
+
+平均速度和平均速率分别从位移和路程的变化描述物体运动快慢，但均是关于“一段时间”而不是“一个时刻”的物理量，为此可以使用极限思想，即取一个很小的时间间隔$\delt{t}$。
+
+定义平均速度在$\delt{t}\rightarrow 0$时的极限为\uwave{瞬时速度}或简称为\uwave{速度}，记作$\vb*{v}$
+\begin{BoxDefinition}[瞬时速度]
+    \vb*{v}=\Lim{t}{0}{\Fdet{\vb*{r}}{t}}=\Fdif{\vb*{r}}{t}
+\end{BoxDefinition}
+瞬时速度是关于时间$t$的函数，即$\vb*{v}=\vb*{v}(t)$
+
+瞬时速度在直角坐标系中可以表达为
+\begin{equation*}
+    \vb*{v}=v_x\vi+v_y\vj+v_z\vk    
+\end{equation*}
+\begin{equation*}
+    \makeatletter
+    \quad
+    \@for\s:={x,y,z}\do
+    {
+        v_{\s}=\Fdif{\s}{t}\quad  
+    }  
+    \makeatother
+\end{equation*}
+瞬时速度的方向是位移$\delt{\vb*{r}}$的极限方向，沿着轨迹的切线指向质点前进的一侧。
+
+瞬时速度的大小可以表示为
+\begin{BoxEquation}[瞬时速度的大小]
+    v=|\vb*{v}|=\sqrt{v_x^2+v_y^2+v_z^2}
+\end{BoxEquation}
+
+定义平均速率在$\delt{t}\rightarrow 0$时的极限为\uwave{瞬时速率}或简称为\uwave{速率}，记作$v$
+\begin{BoxDefinition}[瞬时速率]
+    v=\Lim{t}{0}{\Fdet{s}{t}}=\Fdif{s}{t}
+\end{BoxDefinition}
+关注到此处的符号$v$出现了二义性，在\Refx{定义}{瞬时速率}中表示“瞬时速率”，而在\Refx{公式}{瞬时速度的大小}中表示“瞬时速度的大小”，现在证明两者的等价性。
+
+因为当$\delt{t}\rightarrow 0$时，路程$\delt{s}$和位移的大小$|\delt{r}|$是等价无穷小，所以
+\begin{equation*}
+    v_{\text{速率}}=\Lim{\delt{t}}{0}{\Fdet{s}{t}}=\Lim{\delt{t}}{0}{\qty|\Fdet{\vb*{r}}{t}|}=v_{\text{速度大小}}
+\end{equation*}
+因此“速率”和“速度大小”虽然定义来源不同，但数学上是等价的，可以不加区分。
+
+速度和速率在国际单位制中的单位是\si{m.s^{-1}}，量纲是\si{[LT^{-1}]}。
+
+\subsection{加速度}
+质点速度增量$\delt{\vb*{v}}$和对应的时间增量$\delt{t}$的比值称为这段时间内的\uwave{平均加速度}，记作$\bars{\vb*{a}}$
+\begin{BoxDefinition}[平均加速度]
+    \bars{\vb*{a}}=\Fdif{\vb*{v}}{t}
+\end{BoxDefinition}
+根据\Refx{定义}{平均加速度}，平均加速度的方向就是速度增量的方向。
+
+定义平均加速度在$\delt{t}\rightarrow 0$时的极限为\uwave{瞬时加速度}或简称为\uwave{加速度}，记作$\vb*{a}$
+\begin{BoxDefinition}[瞬时加速度]
+    \vb*{a}=\Lim{t}{0}{\Fdet{\vb*{v}}{t}}=\Fdif{\vb*{v}}{t}
+\end{BoxDefinition}
+瞬时加速度是关于时间$t$的函数，即$\vb*{a}=\vb*{a}(t)$
+
+瞬时加速度在直角坐标系中可以表达为
+\begin{equation*}
+    \vb*{a}=a_x\vi+a_y\vj+a_z\vk    
+\end{equation*}
+\begin{equation*}
+    \makeatletter
+    \quad
+    \@for\s:={x,y,z}\do
+    {
+        a_{\s}=\Fdif{v_\s}{t}=\Fdif{\s}{t}^2\quad  
+    }  
+    \makeatother
+\end{equation*}
+瞬时加速度的大小可以表示为
+\begin{BoxEquation}[瞬时加速度的大小]
+    a=|\vb*{a}|=\sqrt{a_x^2+a_y^2+a_z^2}
+\end{BoxEquation}
+
+瞬时加速度$\vb*{a}$的方向是速度增量$\delt{\vb*{v}}$的极限方向，与速度$\vb*{v}$的方向无关。
+
+瞬时加速度$\vb*{a}$的方向的规律可以总结如下
+\begin{Table}{瞬时加速度的方向}{llp{55pt}p{55pt}p{55pt}}
+    \hline
+    运动&规律&速率增大&速率不变&速率减小 \\
+    \hline
+    直线运动&加速度和速度的方向是同一直线&$\vb*{a},\vb*{v}$方向相同&$\vb*{a}=\vb*{0}$&$\vb*{a},\vb*{v}$方向相反\\ \hline
+    曲线运动&加速度总是指向运动轨迹的内侧&$\vb*{a},\vb*{v}$呈锐角&$\vb*{a},\vb*{v}$呈直角&$\vb*{a},\vb*{v}$呈钝角\\ \hline
+\end{Table}
+即在曲线运动中，速度总是沿着轨迹的切线，加速度总是指向轨迹内侧。
+
+加速度在国际单位制中的单位是\si{m.s^{-2}}，量纲是\si{[LT^{-2}]}。
+
+\subsection{关于逆运算}
+我们知道，位矢的导数即速度，速度的导数即加速度，那么这一关系能否用积分反向表达？
+
+根据\Refx{定义}{瞬时速度}，可得
+\begin{BoxEquation}[由速度计算位矢]
+    \vb*{r}=\vb*{r_0}+\Int[0][t]{\vb*{v}\dif{t}}
+\end{BoxEquation}
+根据\Refx{定义}{瞬时加速度}，可得
+\begin{BoxEquation}[由加速度计算速度]
+    \vb*{v}=\vb*{v_0}+\Int[0][t]{\vb*{a}\dif{t}}
+\end{BoxEquation}
+我们知道，速度和加速度均是通过求导的定义，那么自然而然的会有对应的逆过程，即积分，但是应当何种积分，如何优雅且恰当的处理初值的问题，上式的结论在数学上为什么是严谨的，这是我们需要解决的问题，我们以\Refx{公式}{由加速度计算速度}为例予以证明。
+
+根据\Refx{定义}{瞬时加速度}，我们有下式成立
+\begin{equation*}
+    \vb*{a}(t)=\Fdif{\vb*{v(t)}}{t}
+\end{equation*}
+将右式由导数拆分为微分的商，并在等式两侧同乘以微分$\dt$
+\begin{equation}
+    \vb*{a}(t)\dt=\dif{\vb*{v(t)}}
+\end{equation}
+将等式两侧同时在对时间$t$做变上限积分，积分下限为$0$
+\begin{equation*}
+    \Int[0][t]{\vb*{a}(t)\dt}=\Int[0][t]{\dif{\vb*{v}(t)}}
+\end{equation*}
+使用$\vb*{v}=\vb*{v}(t)$进行换元，使得右式由对$t$积分转化为对$\vb*{v}$的积分，且积分下限$\vb*{v}(0)=\vb*{v_0}$，而积分上限$\vb*{v}(t)=\vb*{v}$（此步的严谨性由定积分的第一类换元积分法保证）
+\begin{equation}
+    \Int[0][t]{\vb*{a}(t)\dt}=\Int[\vb*{v_0}][\vb*{v}]{\dif{\vb*{v}}}
+\end{equation}
+即
+\begin{equation*}
+    \Int[0][t]{\vb*{a}(t)\dt}=\vb*{v}-\vb*{v_0}
+\end{equation*}
+将上式移项整理即得\Refx{公式}{由加速度计算速度}。
+
+以上过程中有几个要点
+\begin{enumerate}
+    \item 我们不使用不定积分表达，是因为尽管我们已知加速度$\vb*{a}$是速度$\vb*{v}$的导数，从数学上看加速度$\vb*{a}$的全体原函数（即不定积分）都是速度$\vb*{v}$的可能解，但实际情况下我们常常已知某些初值条件，例如$t=0$时有初速度$\vb*{v}=\vb*{v_0}$，在这种情况下，速度的函数是可以被唯一确定，而不定积分却表达的是一系列原函数，与需求不匹配。
+    \item 我们使用变上限积分表达，是因为变上限积分首先可以确定\textbf{一个特定的原函数}，在这里得到的变上限积分$\Int[0][t]{\vb*{a}(t)\dt}$的含义是在$t$时刻相较$t=0$时的速度增量函数$\delt{\vb*{v}}(0,t)$，因此在此基础上加上$t=0$时的速度$\vb*{v}_0$即得我们所需的速度的绝对值\footnote{此处的“绝对值”与“相对值”对应，并非是$|\vb*{v}|$含义的绝对值}$\vb*{v}$。
+    \item 有时我们难以理解上述过程，是因为物理上往往不区分$\vb*{v}$和$\vb*{v}(t)$的差异，这会导致我们无法分辨现在的式子究竟是关于$t$的还是关于$\vb*{v}$的，进而出于直觉的直接由$\vb*{a}\dt=\dif{\vb*{v}}$得出$\Int[0][t]{\vb*{a}\dt}=\Int[\vb*{v_0}][\vb*{v}]{\dif{\vb*{v}}}$，从而困惑于为何式子两侧可以对两个不同的变量积分，上述讨论论证了这种直觉的正确性（时间由$0$积分至$t$，速度就对应的由$\vb*{v_0}$积分至$\vb*{v}$）。
+    \item 有时我们无法理解$\Int[0][t]{\vb*{v}\dt}$的含义，为什么$t$可以同时作为被积变量和积分上限？这是因为$t$在两个位置上的作用是不同的，位于积分上限的$t$会取一系列定值$b_1,b_2,b_3,\cdots$，对于每一定值，再将$\vb*{a}$对被积变量$t$在区间$[0,b_i]$上积分，数学上为了避免这样的歧义常常会通过“被积变量的形式于积分结果无关”将被积变量临时的替换为另一个变量，但物理不能如此奢侈的消耗命名空间（几乎每个英文字母和希腊都已有具体的物理量对应），因此没有这样做，我们需要习惯于这样的表达方式。
+\end{enumerate}
+以上以加速度和速度为例，给出了物理中如何将由导数定义的物理量的定义过程反转为积分的方式，以及这样做的依据和逻辑，这样的思想也适用于一般的物理量。
+
+\section{直线和圆周运动}
+
+\subsection{直线运动}
+当质点作\uwave{直线运动}时，我们将该直线段设为$Ox$轴，这时质点的位矢$\vb*{r}=x\vi$，速度$\vb*{v}=v_x\vi$，加速度$\vb*{a}=a_x\vi$均在同一直线上，我们可以将矢量$\vb*{r},\vb*{v},\vb*{a}$简化为代数形式，使用其在$x$轴的分量表述，记作$x,v,a$\footnote{注意，在直线运动的语境下，符号$v,a$事实上表达的是$v_x,a_x$，而不是通常意义上的$|\vb*{v}|,|\vb*{a}|$。}，使用值的正负标识其方向（指向$x$正轴还是$x$负轴）。
+
+当质点做直线运动时，按照上方的符号约定，有
+\begin{equation*}
+    v=\Fdif{x}{t}\qquad a=\Fdif{v}{t}
+\end{equation*}
+
+在\uwave{匀加速直线运动}中，加速度$a$保持不变，设$t=0$时有初位矢$x_0$和初速度$v_0$。
+
+根据\Refx{定义}{瞬时加速度}，并考虑到加速度$a$为常数
+\begin{equation*}
+    v=v_0+\Int[0][t]{a\dt}=\eval{at}_0^t+v_0=at+v_0
+\end{equation*}
+根据\Refx{定义}{瞬时速度}，以及上式得到的速度$v=at+v_0$
+\begin{equation*}
+    x=x_0+\Int[0][t]{(at+v_0)\dt}=\eval{\qty(\frac{1}{2}at^2+v_0t)}_0^t+x_0=\frac{1}{2}at^2+v_0t+x_0
+\end{equation*}
+通过简单的代数运算可以证明$v^2-v_0^2=2a(x-x_0)$的成立，这是一个无关时间的关系式。
+
+\subsection{圆周运动}
+
+\subsubsection{匀速率圆周运动}
+在\uwave{匀速率圆周运动}中，经过$\delt{t}$的时间后，质点从点$A$运动到点$B$，速度由$\vb*{v_A}$变化至$\vb*{v_B}$，且速率不变$|\vb*{v_A}|=|\vb*{v_B}|=v$，设速度方向变化带来的速度增量为$\delt{v}$。
+\begin{Figure}{匀速率圆周运动}
+    \subfigure[匀速率圆周运动的轨迹图像]
+    {
+        \label{图:匀速率圆周运动的轨迹图像}
+        \begin{tikzpicture}
+            \lPoint{O}{0,0}[below]
+            \lShift{B}{O}{90:2}[above]
+            \lShift{A}{O}{35:2}[right]
+            \lRoate{vb}{B}{O}{1.1}{-90}[above][\vb*{v_B}]
+            \lRoate{va}{A}{O}{1.1}{-90}[above][\vb*{v_A}]
+            \draw (O) circle (2);
+            \draw (B)--(O)--(A);
+            \draw[-latex] (A)--(B);
+            \draw[-latex] (B)--(vb);
+            \draw[-latex] (A)--(va);
+            \lAngle[\delt{\theta}]{A}{O}{B}
+            \lRightAngle{vb}{B}{O}
+            \lRightAngle{va}{A}{O}
+            \lRatio{R}{O}{B}{0.5}[left]
+            \lRatio{dr}{A}{B}{0.6}[below][\delt{\vb*{r}}]
+        \end{tikzpicture}
+    }
+    \hspace{40pt}
+    \subfigure[匀速率圆周运动的速度三角]
+    {
+        \hspace{8pt}
+        \begin{tikzpicture}
+            \lPoint{O}{0,0}
+            \lPoint{va}{$(va)-(A)+(O)$}[above][\vb*{v_A}]
+            \lPoint{vb}{$(vb)-(B)+(O)$}[left][\vb*{v_B}]
+            \draw[-latex] (O)--(va);
+            \draw[-latex] (O)--(vb);
+            \draw[-latex] (va)--(vb);
+            \lRatio{dv}{va}{vb}{0.5}[left][\delt{\vb*{v}}]
+            \lAngle[\delt{\theta}]{va}{O}{vb}
+            \lAngle[\beta]{vb}{va}{O}[0.2][2.2]
+        \end{tikzpicture}
+        \hspace{8pt}
+    }
+\end{Figure}
+速度矢量$\vb*{v_A},\vb*{v_B}$和$\delt{\vb*{v}}$构成一个等腰三角形，且$\vb*{v_A}\perp OA,\vb*{v_B}\perp OB$。
+
+速度矢量$\vb*{v_A},\vb*{v_B}$间的夹角与$\angle AOB=\delt{\theta}$相同，因此速度三角形与$\triangle OAB$相似，故
+\begin{equation*}
+    \frac{|\delt{\vb*{v}}|}{v}=\frac{|\delt{\vb*{r}}|}{R}
+\end{equation*}
+加速度的大小可以表达为
+\begin{equation*}
+    a
+    =\Lim{\delt{t}}{0}{\frac{|\delt{\vb*{v}}|}{\delt{t}}}
+    =\Lim{\delt{t}}{0}{\frac{v}{R}\cdot\frac{|\delt{\vb*{r}}|}{\delt{t}}}
+    =\frac{v^2}{R}
+\end{equation*}
+加速度的方向是$\delt{t}\rightarrow 0$时$\delt{\vb*{v}}$的方向，而我们可以关注到$\beta=\frac{\pi}{2}-\frac{\delt{\theta}}{2}$，那么当$\delt{t}\rightarrow 0$时，有$\delt{\theta}\rightarrow 0$，故$\beta\rightarrow\frac{\pi}{2}$，即取极限时有$\delt{v}\perp\vb*{v_A}$，因此$\delt{v}$的极限方向垂直于速度方向指向圆心，所以匀速率圆周运动的加速度始终指向圆心，称为\uwave{向心加速度}。
+\begin{BoxEquation}[向心加速度]
+    a=\frac{v^2}{R}
+\end{BoxEquation}
+
+\subsubsection{变速率圆周运动}
+在\uwave{变速率圆周运动中}，经过$\delt{t}$的时间后，质点从点$A$运动到点$B$，速度由$\vb*{v_A}$变化至$\vb*{v_B}$，但此时速率是发生变化的，在这里我们假定速率是增大的。
+\begin{Figure}{变速率圆周运动}
+    \subfigure[变速率圆周运动的轨迹图像]
+    {
+        \label{图:变速率圆周运动的轨迹图像}
+        \begin{tikzpicture}
+            \lPoint{O}{0,0}[below]
+            \lShift{B}{O}{90:2}[above]
+            \lShift{A}{O}{35:2}[right]
+            \lRoate{vb}{B}{O}{2.2}{-90}[above][\vb*{v_B}]
+            \lRoate{va}{A}{O}{1.1}{-90}[above][\vb*{v_A}]
+            \draw (O) circle (2);
+            \draw (B)--(O)--(A);
+            \draw[-latex] (A)--(B);
+            \draw[-latex] (B)--(vb);
+            \draw[-latex] (A)--(va);
+            \lAngle[\delt{\theta}]{A}{O}{B}
+            \lRightAngle{vb}{B}{O}
+            \lRightAngle{va}{A}{O}
+            \lRatio{R}{O}{B}{0.5}[left]
+            \lRatio{dr}{A}{B}{0.6}[below][\delt{\vb*{r}}]
+        \end{tikzpicture}
+    }
+    \hspace{20pt}
+    \subfigure[变速率圆周运动的速度三角]
+    {
+        \label{图:变速率圆周运动的速度三角}
+        \begin{tikzpicture}
+            \lPoint{O}{0,0}
+            \lPoint{va}{$(va)-(A)+(O)$}[above][\vb*{v_A}]
+            \lPoint{vb}{$(vb)-(B)+(O)$}[left][\vb*{v_B}]
+            \lRoate{C}{O}{va}{1}{55}
+            \lRatio{vn}{va}{C}{0.5}[left][\delt{\vb*{v_n}}]
+            \lRatio{vt}{vb}{C}{0.5}[above][\delt{\vb*{v_t}}]
+            \draw[-latex] (O)--(va);
+            \draw[-latex] (O)--(vb);
+            \draw[-latex] (va)--(vb);
+            \draw[-latex] (va)--(C);
+            \lRatio{dv}{va}{vb}{0.5}[above left][\delt{\vb*{v}}]
+            \lAngle[\delt{\theta}]{va}{O}{vb}
+            \lAngle[\beta]{C}{va}{O}[0.2][2.2]
+        \end{tikzpicture}
+    }
+\end{Figure}
+我们关注到速度增量可以分为两部分$\delt{\vb*{v}}=\delt{\vb*{v_n}}+\delt{\vb*{v_t}}$
+\begin{enumerate}
+    \item $\delt{\vb*{v_n}}$只改变速度的方向，当$\delt{t}\rightarrow 0$时有$\delt{\vb*{v_n}}\perp\vb*{v_A}$，即沿速度的法向方向。
+    \item $\delt{\vb*{v_t}}$只改变速度的大小，当$\delt{t}\rightarrow 0$时有$\delt{\vb*{v_t}}\para\vb*{v_A}$，即沿速度的切向方向。
+\end{enumerate}
+加速度可以表达为
+\begin{equation*}
+    \vb*{a}
+    =\Lim{\delt{t}}{0}{\Fdet{\vb*{v}}{t}}
+    =\Lim{\delt{t}}{0}{\Fdet{\vb*{v_n}}{t}}+\Lim{\delt{t}}{0}{\Fdet{\vb*{v_t}}{t}}
+\end{equation*}
+记$\mathlarger{\vb*{a_n}=\Lim{\delt{t}}{0}{\Fdet{\vb*{v_n}}{t}}}$为\uwave{法向加速度}，由速度方向变化引起，指向法线方向，其值为\footnote{这一步的推导逻辑，与上一子节中向心加速度的推导完全一致（利用位移三角形和速度三角形的相似性），事实上向心加速度就是法向加速度在匀速率圆周运动中的特别称呼（匀速率圆周运动，只有法向加速度，没有切向加速度）。}
+\begin{BoxEquation}[法向加速度]
+    a_n
+    =\Lim{\delt{t}}{0}{\frac{|\delt{\vb*{v_n}}|}{\delt{t}}}
+    =\Lim{\delt{t}}{0}{\frac{v}{R}\cdot\frac{|\delt{\vb*{r}}|}{\delt{t}}}
+    =\frac{v^2}{R}
+\end{BoxEquation}
+记$\mathlarger{\vb*{a_t}=\Lim{\delt{t}}{0}{\Fdet{\vb*{v_t}}{t}}}$为\uwave{切向加速度}，由速度大小变化引起，指向法线方向，其值为
+\begin{BoxEquation}[切向加速度]
+    a_t
+    =\Lim{\delt{t}}{0}{\frac{|\delt{\vb*{v_t}}|}{\delt{t}}}
+    =\Lim{\delt{t}}{0}{\frac{\delt{v}}{\delt{t}}}=\Fdif{v}{t}
+\end{BoxEquation}
+\Refx{公式}{切向加速度}的核心逻辑在于，由于$\delt{\vb*{v_t}}$只改变速度的大小，因此其模恰为速率的变化量，即$\delt{v}=|\delt{\vb*{v_t}}|$，然而该式仅考虑了速率增大的情况，因为变化量可正可负，但是矢量的模始终为正，如果是速率减小的情况，则$\delt{v}=-|\delt{\vb*{v_t}}|$。
+
+\Refx{公式}{切向加速度}的结论$a_t=\Fdif{v}{t}$被期望是始终成立的，这就意味着
+\begin{itemize}
+    \item 当速率增大时，要求有$a_t>0$，此时第一步的定义是$\mathlarger{a_t=\Lim{\delt{t}}{0}{\frac{|\delt{\vb*{v_t}}|}{\delt{t}}}}$
+    \item 当速率减小时，要求有$a_t<0$，此时第一步的定义是$\mathlarger{a_t=\Lim{\delt{t}}{0}{\frac{-|\delt{\vb*{v_t}}|}{\delt{t}}}}$
+\end{itemize}
+因此$a_t$从严格意义上不再是切向加速度$\vb*{a_t}$的模（矢量的模必须恒正），即$a_t\neq|\vb*{a_t}|$\footnote{这是首个在符号运用上不符合以下规范的情况：如果$\vb*{q}$是一个向量，那么使用$q=|\vb*{q}|$表示向量的模。}。
+
+\subsubsection{圆周运动的角量表示}
+质点做圆周运动时与圆心的距离始终不变，因此我们可以用角量来描述质点的位置。
+
+设质点绕圆心$O$作半径为$R$的圆周运动，在$t$时刻位于$A$点，位置矢量$\vec{OA}$与$x$轴正方向的夹角为$\theta=\theta(t)$称为\uwave{角位置}，而角位移的增量$\delt{\theta}$称为\uwave{角位移}。
+
+类似的，定义\uwave{角速度}
+\begin{BoxDefinition}[角速度]
+    \omega=\Lim{\delt{t}}{0}{\Fdet{\theta}{t}}=\Fdif{\theta}{t}
+\end{BoxDefinition}
+
+类似的，定义\uwave{角加速度}
+\begin{BoxDefinition}[角加速度]
+    \alpha=\Lim{\delt{t}}{0}{\Fdet{\omega}{t}}=\Fdif{\omega}{t}=\Fdif{\theta}{t}^2
+\end{BoxDefinition}
+
+根据弧长的定义，质点由$A$至$B$的路程$\delt{s}$与角位移$\delt{\theta}$存在关系$\delt{s}=R\delt{\theta}$。
+
+质点的速率与角速度的数值关系可以表达为
+\begin{BoxEquation}[速率和角量的关系]
+    v=\Lim{\delt{t}}{0}{\Fdet{s}{t}}=\Lim{\delt{t}}{0}{R\Fdet{\theta}{t}}=R\omega
+\end{BoxEquation}
+对上式两侧同时对$t$取微分，则得到$\dif{v}=R\dif{\omega}$。
+
+质点的切向加速度和角量的关系
+\begin{BoxEquation}[切向加速度和角量的关系]
+    a_t=\Fdif{v}{t}=R\Fdif{\omega}{t}=R\alpha
+\end{BoxEquation}
+质点的法向加速度和角量的关系
+\begin{BoxEquation}[法向加速度和角量的关系]
+    a_n=\frac{v^2}{R}=\frac{R^2\omega^2}{R}=R\omega^2
+\end{BoxEquation}
+
+当质点做匀角速圆周运动时，角速度$\omega$和速率$v$均为常数，则运动的周期为
+\begin{equation*}
+    T=\frac{2\pi R}{v}=\frac{2\pi}{\omega}
+\end{equation*}
+当质点做匀角加速度圆周运动时，有类似于匀加速直线运动的公式$$\omega=\alpha t+\omega_0\qquad\theta=\dfrac{1}{2}\alpha t^2+\omega_0 t+\theta_0$$
+角位置，角速度，角加速度的单位分别是\si{rad}，\si{rad.s^{-1}}，\si{rad.s^{-2}}，三者均是通过正负标定二元方向的标量，通常我们规定，表达逆时针时值为正，表达顺时针时值为负。

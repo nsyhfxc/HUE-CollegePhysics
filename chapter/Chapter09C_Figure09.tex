@@ -1,0 +1,40 @@
+\NewDocumentCommand{\frameb}{}
+{
+    \foreach \x in {0.05,0.25,...,2.45}
+    {
+        \draw[gray,thin] (-2,\x)--(-1.5,\x);
+        \draw[-latex,gray,thin] (1.5,\x)--(2,\x);
+    }
+    \draw[dotted] (-2.0,-0.1) rectangle (2.0,2.6);
+    \draw[fill=white] (-1.5,0) rectangle (1.5,2.5);
+    \foreach \x in {0.2,0.6,...,2.41}
+    {
+        \node[right] at (-1.52,\x) {\scriptsize $-$};
+        \node[left]  at (+1.52,\x) {\scriptsize $+$};
+    }
+}
+
+\NewDocumentCommand{\ele}{mm}
+{
+    \lPoint{O}{#1}
+    \lShift{P}{O}{#2:0.2}
+    \lShift{N}{O}{#2:-0.2}
+    \lShift{Pt}{O}{#2:0.15}
+    \lShift{Nt}{O}{#2:-0.15}
+    \node at (P) {\tiny $+$};
+    \node at (N) {\tiny $-$};
+    \draw (P) circle (0.05);
+    \draw (N) circle (0.05);
+    \draw[thin,-latex] (Nt)--(Pt);
+}
+
+\begin{tikzpicture}[scale=2.0]
+    \frameb
+    \foreach \x in {-0.9,-0.3,0.3,0.9}
+    {
+        \foreach \y in {0.5,1.0,1.5,2.0}
+        {
+            \ele{\x,\y}{0}
+        }
+    }
+\end{tikzpicture}

@@ -1,0 +1,287 @@
+\section{相同方向的简谐振动的合成}
+
+\subsection{相同方向相同频率的简谐振动的合成}
+设两个同方向的简谐振动，它们的角频率都是$\omega$，振幅分别是$A_1,A_2$，初相位分别是$\phi_1,\phi_2$，那么根据\Refx{公式}{简谐振动的位矢}，两者的运动方程可以表达为
+\begin{Equation}[相同方向相同频率的简谐振动]
+    \begin{cases}
+        x_1=A_1\cos(\omega t+\phi_1)\\
+        x_2=A_2\cos(\omega t+\phi_2)
+    \end{cases}
+\end{Equation}
+由于两组振动的方向相同，因此合振动仍然在该方向上。
+
+从而合振动的位矢$x$可以用$x_1,x_2$的代数和表示，即
+\begin{equation*}
+    x=x_1+x_2=A_1\cos(\omega t+\phi_1)+A_2\cos(\omega t+\phi_2)
+\end{equation*}
+根据余弦和差公式$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$
+\begin{equation*}
+    x=A_1[
+        \cos\omega t
+        \cos\phi_1
+        -
+        \sin\omega t
+        \sin\phi_1]-
+      A_2[
+        \cos\omega t
+        \cos\phi_2
+        -
+        \sin\omega t
+        \sin\phi_2]
+\end{equation*}
+将上式整理得到
+\begin{equation*}
+    x=\cos\omega t[A_1\cos\phi_1-A_2\cos\phi_2]-\sin\omega t[A_1\sin\phi_1-A_2\sin\phi_2]
+\end{equation*}
+根据辅助角公式$a\sin\theta+b\cos\theta=\sqrt{a^2+b^2}\cos(x-\arctan\dfrac{a}{b})$，上式中
+\begin{equation*}
+    a=-[A_1\sin\phi_1-A_2\sin\phi_2]\qquad 
+    b=[A_1\cos\phi_1-A_2\cos\phi_2]
+\end{equation*}
+设合振动的初相为$\phi$，那么
+\begin{equation*}
+    \phi=-\arctan\frac{a}{b}=-\arctan(-\frac{A_1\sin\phi_1-A_2\sin\phi_2}{A_1\cos\phi_1-A_2\cos\phi_2})\xlongequal{\text{$\arctan$为奇}}\arctan\frac{A_1\sin\phi_1-A_2\sin\phi_2}{A_1\cos\phi_1-A_2\cos\phi_2}
+\end{equation*}
+设合振动的振幅为$A$，那么
+\begin{align*}
+    A&=\sqrt{a^2+b^2}\\
+    &=\sqrt{A_1^2\sin^2\phi_1+A_2^2\sin^2\phi_2+A_1^2\cos^2\phi_1+A_2^2\cos_2^2\phi-2A_1A_2(\sin\phi_1\sin\phi_2-\cos\phi_1\cos\phi_2)}\\
+    &=\sqrt{A_1^2+A_2^2-2A_1A_2(\sin\phi_1\sin\phi_2-\cos\phi_1\cos\phi_2)}\\
+    &=\sqrt{A_1^2+A_2^2+2A_1A_2\cos(\phi_1-\phi_2)}
+\end{align*}
+上式的第三步利用了$\sin^2\phi_1+\cos^2\phi_1=1$和$\sin^2\phi_2+\cos^2\phi_2=1$。
+
+上式的第四步逆向使用了余弦和差公式$\cos(\phi_1-\phi_2)=\cos\phi_1\cos\phi_2-\sin\phi_1\sin\phi_2$。
+
+\begin{BoxGeneral}[相同方向相同频率的简谐振动合成][公式]
+    \centering
+    相同方向相同频率的简谐振动的合成，仍然为简谐振动。
+    \begin{BoxEq}
+        x=\sqrt{A_1^2+A_2^2+2A_1A_2\cos(\phi_1-\phi_2)}\cos(\omega t+\arctan\frac{A_1\sin\phi_1-A_2\sin\phi_2}{A_1\cos\phi_1-A_2\cos\phi_2})
+    \end{BoxEq}
+\end{BoxGeneral}
+
+接下来我们讨论\Refx{公式}{相同方向相同频率的简谐振动合成}的一些特殊情形。
+
+设$\delt{\phi}$为两个同频简谐振动的\uwave{相位差}，其定义为$\delt{\phi}=\phi_2-\phi_1$。
+\begin{itemize}
+    \item 如果$\delt{\phi}>0$，则称简谐振动$x_2$在相位上\uwave{超前}简谐振动$x_1$。
+    \item 如果$\delt{\phi}<0$，则称简谐振动$x_2$在相位上\uwave{落后}简谐振动$x_1$。
+    \item 当$\delt\phi=0$，或更一般的当$\delt\phi=2k\pi$即为$\pi$的偶数倍时，称两个简谐振动\uwave{同相}。
+    \item 当$\delt\phi=\pi$，或更一般的当$\delt\phi=2k\pi+\pi$即为$\pi$的奇数倍时，称两个简谐振动\uwave{反相}。
+\end{itemize}
+对于两个同向的简谐振动$x_1,x_2$，合振动的初相位$\phi$与两个简谐振动均相同。
+
+此时$\cos(\phi_1-\phi_2)=\cos(\delt\phi)=+1$，振幅$A=\sqrt{A_1^2+A_2^2+2A_1A_2}=|A_1+A_2|$取最大值。
+\begin{BoxGeneral}[同相简谐振动的叠加]
+    \centering
+    两个简谐振动在同相叠加时，合振幅最大。
+    \begin{BoxEq}
+        x=|A_1+A_2|\cos(\omega t+\phi)
+    \end{BoxEq}
+\end{BoxGeneral}
+\begin{Figure}{同相简谐振动的旋转矢量}
+    \inputfigure[scale=0.9]{Chapter06C_Figure01}
+\end{Figure}
+对于两个反向的简谐振动$x_1,x_2$，合振动的初相位$\phi$是两者间振幅较大者的初相。
+
+此时$\cos(\phi_1-\phi_2)=\cos(\delt\phi)=-1$，振幅$A=\sqrt{A_1^2+A_2^2-2A_1A_2}=|A_1-A_2|$取最小值。
+\begin{BoxGeneral}[同相简谐振动的叠加]
+    \centering
+    两个简谐振动在反相叠加时，合振幅最小。
+    \begin{BoxEq}
+        x=|A_1-A_2|\cos(\omega t+\phi)
+    \end{BoxEq}
+\end{BoxGeneral}
+\begin{Figure}{反相简谐振动的旋转矢量}
+    \inputfigure[scale=0.9]{Chapter06C_Figure02}
+\end{Figure}
+形象的说，同相的简谐振动“步调一致，相长”，反相的简谐振动“步调相反，相消”。
+
+\subsection{相同方向不同频率的简谐振动的合成}
+现在考虑频率不同的简谐振动合成问题，为了简便起见，假定振幅和初相相同。
+
+设两个同方向的简谐振动，它们的角频率分别是$\omega_1,\omega_2$，振幅相同均为$A$，初相位均为$\phi$，那么根据\Refx{公式}{简谐振动的位矢}，两者的运动方程可以表达为
+\begin{Equation}[相同方向不同频率的简谐振动]
+    \begin{cases}
+        x_1=A\cos(\omega_1 t+\phi)\\
+        x_2=A\cos(\omega_2 t+\phi)
+    \end{cases}
+\end{Equation}
+两者相加得到
+\begin{equation*}
+    x=x_1+x_2=A\qty[\cos(\omega_1t+\phi)+(\cos\omega_2t+\phi)]
+\end{equation*}
+根据余弦和差公式$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$
+\begin{equation*}
+    x=A\qty[(\cos\omega_1 t\cos\phi-\sin\omega_1 t\sin\phi)+(\cos\omega_2 t\cos\phi-\sin\omega_2 t\sin\phi)]
+\end{equation*}
+将上式整理得到
+\begin{equation*}
+    x=A\qty[(\cos\omega_1 t+\cos\omega_2 t)\cos\phi-(\sin\omega_1 t+\sin\omega_2 t)\sin\phi]
+\end{equation*}
+根据余弦的和差化积公式$\mathlarger{\cos\alpha+\cos\beta=\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}}$
+\begin{equation*}
+    (\cos\omega_1 t+\cos\omega_2 t)\cos\phi=2\cos(\frac{\omega_1+\omega_2}{2}t)\cos(\frac{\omega_1-\omega_2}{2}t)\cos\phi
+\end{equation*}
+根据余弦的和差化积公式$\mathlarger{\sin\alpha+\sin\beta=\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}}$
+\begin{equation*}
+    (\sin\omega_1 t+\sin\omega_2 t)\sin\phi=2\sin(\frac{\omega_1+\omega_2}{2}t)\cos(\frac{\omega_1-\omega_2}{2}t)\sin\phi
+\end{equation*}
+故有
+\begin{equation*}
+    x=2A\cos(\frac{\omega_1-\omega_2}{2}t)\qty[\cos(\frac{\omega_1-\omega_2}{2}t)\cos\phi-\sin(\frac{\omega_1-\omega_2}{2}t)\sin\phi]
+\end{equation*}
+根据余弦和差公式$\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta$
+\begin{BoxEquation}[相同方向不同频率的简谐振动合成]
+    x=2A\cos(\frac{\omega_1-\omega_2}{2}t)\cos(\frac{\omega_1+\omega_2}{2}t+\phi)
+\end{BoxEquation}
+\Refx{公式}{相同方向不同频率的简谐振动合成}指出，两个频率不同的简谐振动在合成后，表现为两个频率不同的余弦函数的积，存在两个周期因子，因此合振动不再是简谐振动。
+
+事实上，如果从数学的观点上看，两个频率不同的简谐运动在合成后甚至都未必是周期性的振动，我们知道，两个周期函数的和的周期，是两者周期的最小公倍数\footnote{我们通常所说的最小公倍数都是对于自然数而言的，而周期通常是实数，例如$2\pi$，故拓展定义为，对于实数$n_1,n_2$，如果存在整数$\lambda_1,\lambda_2$，使得$L=\lambda_1 n_1=\lambda_2 n_2$，那么就称$L$是$n_1,n_2$的公倍数，其中最小的$L$称为最小公倍数。}，这就意味着，如果两者周期的比是无理数，那么两者不存在最小公倍数\footnote{我们知道，整数的公倍数总是存在的，但对于实数则未必如此，如果两个实数$n_1,n_2$的比是有理数，那么两者一定可以表示为某个实数$c$的有理数倍，即$n_1=\frac{p_1}{q_1}c$和$n_2=\frac{p_2}{q_2}c$，此时只需要取$\lambda_1=p_2q_1$和$\lambda_2=p_1q_2$即可求出一个公倍数（未必是最小），例如$2\pi,3\pi$的最小公倍数是$6\pi$，例如$\frac{2}{3}\pi,\frac{1}{5}\pi$的最小公倍数是$2\pi$。但当比是无理数时，就无法找到整数$\lambda_1,\lambda_2$。}，即和函数不是周期函数。
+
+例如$\sin(2x)$和$\sin(2\pi x)$均为周期函数，但由于周期比为无理数$\pi$，因此两者的和不是周期函数，不过这种情况在物理上通常是不考虑的，因此我们仍然可以得出结论，\textbf{两个频率不同的简谐振动在合成后，尽管不再是简谐振动，但运动仍然是周期性的振动}。
+
+当$\omega_1,\omega_2$取一般的值时，两者的合振动是较为复杂的
+\begin{Figure}{频率不同的简谐振动的叠加}
+    \subfigure[$\cos(2x)+\cos(3x)$]
+    {
+        \inputfigure[scale=0.85]{Chapter06C_Figure03}
+    }\qquad
+    \subfigure[$\cos(2x)+\cos(1x)$]
+    {
+        \inputfigure[scale=0.85]{Chapter06C_Figure04}
+    }
+\end{Figure}
+
+当$\omega_1,\omega_2$的取值非常接近时，即$\omega_1-\omega_2\ll\omega_1+\omega+2$，此时可以将\Refx{公式}{相同方向不同频率的简谐振动合成}分为两部分，$2A\cos(\frac{\omega_1-\omega_2}{2}t)$称为低频部分，$\cos(\frac{\omega_1+\omega_2}{2}t+\phi)$称为高频部分，关注到高频部分是一个简谐振动，而低频部分可以视作该简谐振动的振幅随时间缓慢的周期性变化，振幅的变化范围是$[0,2A]$，如\Refx{图}{简谐振动的拍现象}所示。
+\begin{Figure}{简谐振动的拍现象}
+    \subfigure[拍频与合振动频率相同的情况]
+    {
+        \label{图:拍频与合振动频率相同的情况}
+        \inputfigure[scale=0.85]{Chapter06C_Figure05}
+    }
+    \subfigure[拍频与合振动频率不同的情况]
+    {
+        \label{图:拍频与合振动频率不同的情况}
+        \inputfigure[scale=0.85]{Chapter06C_Figure06}
+    }
+\end{Figure}
+
+通常把这样振幅和初相位相同，角频率相差很小，同方向的两个简谐振动的合成，产生的合振动的振幅随时间做周期性变化的现象，称为\uwave{拍}，合振幅变化的角频率，称为\uwave{拍频}。
+
+\Refx{图}{简谐振动的拍现象}中的包络线$x_B=\pm 2A\cos(\frac{\omega_1-\omega_2}{2})$即为振幅随时间的变化，尽管该函数的角频率为$\frac{\omega_1-\omega_2}{2}$，但考虑到正负对振幅没有意义，因此拍频$\omega_B$是该值的一倍
+\begin{BoxGeneral}[拍频][公式]
+    \centering
+    拍频是分振动角频率之差的绝对值。
+    \begin{BoxEq}
+        \omega_B=\abs*{\omega_1-\omega_2}
+    \end{BoxEq}
+\end{BoxGeneral}
+拍的周期与合振动的周期未必等同，拍的周期具有公式$T_B=\frac{2\pi}{\omega_B}=\frac{2\pi}{|\omega_1-\omega_2|}$，合振动的周期则由分振动的最小公倍数确定。为了充分理解这一点，我们可以通过旋转矢量法考察拍的形成过程。设想两个半径相同的圆，设两组简谐振动的初相均为零，因此两者的旋转矢量在初始时向上，随着矢量的旋转，频率稍高的矢量与频率稍低的矢量出现逐渐增大的夹角。
+\begin{itemize}
+    \item 当频率高的矢量超前相位$\pi$时，此时两者构成反向，合振幅为零。
+    \item 当频率高的矢量超前相位$2\pi$时，此时两者构成同相，合振幅最大。
+\end{itemize}
+问题在于，两者的相位差异的扩大的过程中，两者的旋转矢量始终在旋转，因此每次频率较高的矢量超前$2\pi$相位与频率较低的矢量重合时，两者未必处在上一次发生重合的位置。
+
+具体的说，假设两组旋转矢量最初都是朝上的，如果第一次发生重合时
+\begin{itemize}
+    \item 若矢量的重合位置是朝上的，这就意味着每次当振幅达到$2A$时，振动的相位均是朝上的，振动的位移位于最大正值处，这就是\Refx{图}{拍频与合振动频率相同的情况}。
+    \item 若矢量的重合位置是朝下的，这就意味着当振幅达到$2A$时，振动的相位交替朝上朝下的，振动的位移交替位于最大正值和负值处，此时合振动频率与拍频不同步，每经过两拍振动状态才会完全重复一次，这就是\Refx{图}{拍频与合振动频率相同的情况}。
+\end{itemize}
+根据以上示例和讨论，容易归纳出拍频与合振动角频率同步的条件
+\begin{BoxPrinciple}[拍频与合振动同步的条件]
+    当分振动的角频率$\omega_1,\omega_2$是拍频$\omega_B$的整数倍时，拍频与合振动的角频率相同。
+\end{BoxPrinciple}
+最后我们说明，在讨论拍与拍频时，我们要求分振动的频率相近，这是因为当分振动的频率相差较大时，尽管我们也可以定义拍和拍频的概念，但是在拍的每一个包络内的振动曲线可能还不足一个周期，这就无法直观体现振幅随时间变化的属性（看起来不像“拍”了）。
+
+\section{相互垂直的简谐振动的合成}
+当一个质点同时参与两个互相垂直的简谐振动时，质点的位矢将是这两个振动的位矢和，在一般情况下质点将在平面上作曲线运动，不妨设质点同时参与$x,y$方向的简谐振动。
+
+我们首先考虑$x,y$频率相同的情况，此时质点的运动学方程为
+\begin{equation*}
+    x=A_1\cos(\omega t+\phi_1)\qquad
+    y=A_2\cos(\omega t+\phi_2)
+\end{equation*}
+
+可以证明，当消去时间$t$后，合振动的轨迹方程为
+\begin{BoxEquation}[相互垂直的同频简谐振动的合成]
+    \frac{x^2}{A_1^2}+\frac{y^2}{A_2^2}-2\frac{xy}{A_1A_2}\cos(\phi_2-\phi_1)=\sin^2(\phi_2-\phi_1)
+\end{BoxEquation}
+上式的正向推导是极为困难的，我们仅对其进行验证。
+
+对第一第二项分别应用余弦降幂公式$\cos^2\theta=\dfrac{1+\cos 2\theta}{2}$
+\begin{equation*}
+    \frac{x^2}{A_1^2}=\frac{1+\cos(2\omega t+2\phi_1)}{2}\qquad\frac{y^2}{A_2^2}=\frac{1+\cos(2\omega t+2\phi_2)}{2}
+\end{equation*}
+将前两项的加和，并应用和差化积公式$\cos\alpha+\cos\beta=2\cos(\dfrac{\alpha+\beta}{2})\cos(\dfrac{\alpha-\beta}{2})$
+\begin{Equation}[李萨如1]
+    \frac{x^2}{A_1^2}+\frac{y^2}{A_2^2}=1+\cos(2\omega t+\phi_1+\phi_2)\cos(\phi_1-\phi_2)
+\end{Equation}
+第三项的前半部分可以应用积化和差公式$2\cos\alpha\cos\beta=\cos(\alpha-\beta)+\cos(\alpha+\beta)$
+\begin{equation*}
+    \frac{2xy}{A_1A_2}=2\cos(\omega_1t+\phi_1)\cos(\omega_2t+\phi_2)=\cos(2\omega t+\phi_1+\phi_2)+\cos(\phi_1-\phi_2)
+\end{equation*}
+第三项是在上式的基础上乘以$\cos(\phi_1-\phi_2)$，即
+\begin{Equation}[李萨如2]
+    \frac{2xy}{A_1A_2}\cos(\phi_1-\phi_2)=\qty[\cos(2\omega t+\phi_1+\phi_2)+\cos(\phi_1-\phi_2)]\cos(\phi_1-\phi_2)
+\end{Equation}
+将式\ref{式:李萨如1}减去式\ref{式:李萨如2}，约去$\cos(2\omega t+\phi_1+\phi_2)\cos(\phi_1-\phi_2)$
+\begin{equation*}
+    \frac{x^2}{A_1^2}+\frac{y^2}{A_2^2}-\frac{2xy}{A_1A_2}\cos(\phi_1-\phi_2)=1-\cos^2(\phi_1-\phi_2)=\sin^2(\phi_1-\phi_2)
+\end{equation*}
+由于$\cos(t)$与$\sin^2(t)$均为偶函数，因此$(\phi_1-\phi_2)$均可替换为$(\phi_2-\phi_1)$.这就证明了结论。
+
+\Refx{公式}{相互垂直的同频简谐振动的合成}指出，相互垂直的同频简谐振动的合振动的轨迹方程是一个椭圆方程，椭圆的形状与角度由振幅$A_1,A_2$和相位差$\phi_2-\phi_1$决定。
+\begin{table}[H]
+    \begin{center}
+        \inputfigure{Chapter06C_Figure07}
+    \end{center}
+    \caption{相互垂直的同频简谐振动的合成}
+    \label{表:相互垂直的同频简谐振动的合成}
+\end{table}
+\Refx{表}{相互垂直的同频简谐振动的合成}描绘了合振动的运动轨迹，依$\phi_1=0$绘制\footnote{图形只与相位差有关，此处指定相位的原因是为了确定质点在半周期的奇数倍和偶数倍时的位置。}，图中的点表示$t=kT$时的质点位置，图中的箭头表示$t=kT+\frac{T}{2}$时的质点位置和其运动方向。
+
+关注到运动轨迹总是位于$x\in[-A_1,A_1],~y\in[-A_2,A_2]$的矩形内，这是由运动方程决定的。
+
+我们来考察一些特殊情况
+\begin{enumerate}
+    \item 当相位差$\delt\phi=0$时，此时轨迹方程为$\frac{x^2}{A_1^2}-\frac{2xy}{A_1A_2}+\frac{y^2}{A_2^2}=0$，化简为$\frac{x}{A_1}-\frac{y}{A_2}=0$，这是一条正斜率的直线，质点由直线的右上点到左下点，再返回右上点。
+    \item 当相位差$\delt\phi=\pi$时，此时轨迹方程为$\frac{x^2}{A_1^2}+\frac{2xy}{A_1A_2}+\frac{y^2}{A_2^2}=0$，化简为$\frac{x}{A_1}+\frac{y}{A_2}=0$，这是一条负斜率的直线，质点由直线的右下点到左上点，再返回右下点。
+    \item 当相位差$\delt\phi=\frac{\pi}{2}$时，此时轨迹方程为$\frac{x^2}{A_1^2}+\frac{y^2}{A_2^2}=1$，这是一个正椭圆形，质点沿顺时针绕行运动，在每个周期中，质点由椭圆右顶点出发，经过椭圆左顶点后返回。
+    \item 当相位差介于$\frac{\pi}{2}$和$0$之间，此时的轨迹是一个顺时针绕行，向右倾斜的椭圆。
+    \item 当相位差介于$\frac{\pi}{2}$和$\pi$之间，此时的轨迹是一个顺时针绕行，向左倾斜的椭圆。
+\end{enumerate}
+此外，当相位差位于$\delt\phi\in[\pi,2\pi]$时，其运动轨迹与$2\pi-\delta\phi$完全相同，且半周期的奇数倍和偶数倍点的位置均不变，但是运动方向与原先相反，即顺时针的椭圆均变为逆时针。
+
+\subsection{李萨如图形}
+如果$x,y$方向的振动不相同，若两者的角频率之比$\omega_1:\omega_2$是一个有理数，那么可以证明，此时的运动轨迹仍然是周期性的封闭曲线，这一族曲线的图形被称为\uwave{李萨如图形}。
+
+李萨如曲线最初在1815年由鲍迪奇首先研究，在1857年由李萨如做了更详细的研究。
+
+李萨如图形较为复杂，即便对于两个角频率一定的简谐振动，随着相位差的变化曲线也会发生变化，但仍然具有共性规律，设李萨如曲线与平行$x,y$轴的直线最多有$n_x,n_y$个交点，那么可以证明$x,y$方向的简谐振动的角频率比是$n_x,n_y$的反比，即$\omega_x:\omega_y=n_y:n_x$。
+\begin{Figure}{李萨如图形和角频率}
+    \subfigure[$f_x:f_y=1:2$]
+    {
+        \inputfigure{Chapter06C_Figure09}
+    }\qquad\qquad
+    \subfigure[$f_x:f_y=2:3$]
+    {
+        \inputfigure{Chapter06C_Figure10}
+    }
+\end{Figure}
+在左图中，横向最多四个交点，纵向最多两个交点，故横纵频率比为$1:2$。
+
+在右图中，横向最多六个交点，纵向最多三个交点，故横纵频率比为$2:3$。
+
+以下列出了一些频率呈简单整数比在不同相位差下的李萨如图形。
+\begin{table}[H]
+    \begin{center}
+        \inputfigure{Chapter06C_Figure08}
+    \end{center}
+    \caption{李萨如图形}
+    \label{表:李萨如图形}
+\end{table}
+
+李萨如图形常见于示波器，当示波器处于X-Y模式，在X,Y分别输入一对频率呈整数比的正弦电信号，此时示波器的屏幕上就会显示出对应的李萨如图形，利用李萨如图形的性质，如果此时我们已知一路信号的频率，就可以通过图形求出另一路信号的频率。

@@ -1,0 +1,38 @@
+\begin{tikzpicture}[scale=1.2]
+    \lPoint{O}{0,0}
+    \draw[fill=black,fill opacity=0.3] (O) ellipse (0.66 and 2);
+    \draw[ultra thick,black!80!white] (O) ellipse (0.396 and 1.2);
+    \node[below right] at (-0.07,0.07){$O$};
+    \lPoint{X}{6.5,0}[right][x]
+    \lPoint{Y1}{0,-2.8}
+    \lPoint{Y2}{0,2.8}[right][y]
+    \lPoint{Z1}{1.5,1.5}
+    \lPoint{Z2}{-1.5,-1.5}[left][z]
+    \draw[dotted,->] (O)--(X);
+    \draw[dotted,->] (Y1)--(Y2);
+    \draw[dotted,->] (Z1)--(Z2);
+    \begin{scope}
+        \clip (O) ellipse (0.66 and 2);
+        \draw[gray] (Y1)--(Y2);
+        \draw[gray] (Z1)--(Z2);
+    \end{scope}
+
+    \lPoint{P1}{0,2}
+    \lPoint{P2}{0,-2}
+    \lShift{P2R}{P2}{-0.12,-0.7}
+
+    \lRatio{R}{O}{P2R}{0.5}[right]
+    \lPoint{P}{4.5,0}[above]
+
+    \draw[<->] (O)--(P2);
+
+    \lPoint{P3}{0,1.2}
+    \node[right] at (0,1.35) {\scriptsize $\dif{r}$};
+    \node[right] at (0,0.5) {\scriptsize $r$};
+    \draw[<->] (O)--(P3);
+
+    \draw[fill=white] (O) circle (0.035);
+    \draw[fill=white] (P) circle (0.035);
+
+    \lRatio{x}{O}{P}{0.5}[below]
+\end{tikzpicture}

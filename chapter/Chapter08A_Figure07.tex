@@ -1,0 +1,52 @@
+\begin{tikzpicture}[scale=1.2]
+    \lPoint{O}{0,0}
+    \draw[ultra thick] (O) ellipse (0.66 and 2);
+    \node[above left] at (0,-0.1){$O$};
+    \lPoint{X}{6.5,0}[right][x]
+    \lPoint{Y1}{0,-2.8}
+    \lPoint{Y2}{0,2.8}[right][y]
+    \lPoint{Z1}{1.5,1.5}
+    \lPoint{Z2}{-1.5,-1.5}[left][z]
+    \draw[dotted,->] (O)--(X);
+    \draw[dotted,->] (Y1)--(Y2);
+    \draw[dotted,->] (Z1)--(Z2);
+    \begin{scope}
+        \clip (O) ellipse (0.66 and 2);
+        \draw[gray] (Y1)--(Y2);
+        \draw[gray] (Z1)--(Z2);
+    \end{scope}
+
+    \lPoint{P1}{0,2}
+    \lPoint{P2}{0,-2}
+
+    \draw[<->] (O)--(P2);
+
+    \draw[ultra thick,red!50!white] (P1) arc (90:110:0.66 and 2); 
+    \draw[ultra thick,red!50!white] (P1) arc (90:70:0.66 and 2);
+    
+    \draw[ultra thick,blue!50!white] (P2) arc (-90:-110:0.66 and 2); 
+    \draw[ultra thick,blue!50!white] (P2) arc (-90:-70:0.66 and 2);
+
+
+    \lRatio{R}{O}{P2}{0.5}[right]
+    \lPoint{P}{4.5,0}[above]
+    \lRatio{P1x}{P1}{P}{1.25}
+    \lRatio{P2x}{P2}{P}{1.25}
+
+    \draw[red!50!white,dotted] (P1)--(P);
+    \draw[blue!50!white,dotted] (P2)--(P);
+    \draw[red!50!white,-latex] (P)--(P1x);
+    \draw[blue!50!white,-latex] (P)--(P2x);
+    \node[red!50!white,right] at (P1x) {$\dif\vb*{E_{1}}$};
+    \node[blue!50!white,right] at (P2x) {$\dif\vb*{E_{2}}$};
+    
+    \lRatio{x}{O}{P}{0.5}[below]
+    \lRatio{r}{P2}{P}{0.45}[right][\text{$r=\sqrt{R^2+x^2}$}]
+
+    \draw[fill=white] (P1) circle (0.035);
+    \draw[fill=white] (P2) circle (0.035);
+    \draw[fill=white] (O) circle (0.035);
+    \draw[fill=white] (P) circle (0.035);
+
+    \lAngle[\theta]{P1}{P}{O}[0.65][1.5]
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=1.0]
+    \lPoint{O}{0,0}
+    \draw[thick,fill=black,fill opacity=0.07] (O) circle (3);
+    \draw[thick,fill=white] (O) circle (2.0);
+
+    \draw[thick,fill=black,fill opacity=0.15] (O) circle (0.5);
+
+    \lPoint{A}{0,0.0}[center]
+    \lPoint{B}{0,2.5}[center]
+    \lPoint{E}{240:1.25}[center][\text{$\vb*{E}$}]
+    \lPoint{At}{180:0.5}[left][(q)]
+    \lPoint{Bt}{0:2}[left][(-q)]
+
+    \lShift{G1}{O}{-45:3}
+    \lShift{G2}{G1}{0.5,0}
+    \lShift{G3}{G2}{0,-0.65}
+    \foreach \a/\b in {0.18/0,0.11/0.07,0.06/0.14}
+    {
+        \lShift{TL}{G3}{-\a,-\b}
+        \lShift{TR}{G3}{\a,-\b}
+        \draw(TL)--(TR);
+    }
+    \lShift{Gt}{O}{-37:3.05}
+    \node[right] at (Gt) {$V=0$};
+    \draw (G1)--(G2)--(G3);
+\end{tikzpicture}

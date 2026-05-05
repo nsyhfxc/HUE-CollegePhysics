@@ -1,0 +1,50 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{X1}{-7,0}
+    \lPoint{X2}{+7,0}[above][x]
+    \lPoint{Y1}{0,-3}
+    \lPoint{Y2}{0,+3}[right][B]
+    \draw[->,dotted] (X1)--(X2);
+    \draw[->,dotted] (Y1)--(Y2);
+    \draw[domain=-6.5:6.5,samples=250,thick] plot (\x,
+    {
+        (-(\x-6/2)/(0.5^2+(\x-6/2)^2)^0.5)-
+        (-(\x+6/2)/(0.5^2+(\x+6/2)^2)^0.5)
+    });
+    \draw[domain=-6.5:6.5,samples=1000,very thin,red!50!white] plot (\x,
+    {
+        (-(\x-6/2)/(0.2^2+(\x-6/2)^2)^0.5)-
+        (-(\x+6/2)/(0.2^2+(\x+6/2)^2)^0.5)
+    });
+    \draw[domain=-6.5:6.5,samples=200,very thin,blue!50!white] plot (\x,
+    {
+        (-(\x-6/2)/(2^2+(\x-6/2)^2)^0.5)-
+        (-(\x+6/2)/(2^2+(\x+6/2)^2)^0.5)
+    });
+    \lPoint{C}{0,1.97}
+    \lPoint{A1}{-3,0.985}
+    \lPoint{A2}{+3,0.985}
+    \lPoint{B1}{-3,1.5}
+    \lPoint{B2}{+3,1.5}
+    \lPoint{C1}{-3,0}
+    \lPoint{C2}{+3,0}
+    \lPoint{D1}{-3,-3}
+    \lPoint{D2}{+3,-3}
+    \draw[dashed,gray,thin] (B1)--(D1);
+    \draw[dashed,gray,thin] (B2)--(D2);
+    \foreach \x in {-3,-2.75,...,3}
+    {
+        \node at (\x,-0.75) {$\odot$};
+        \node at (\x,-2.25) {$\otimes$};
+    }
+    \draw[fill=white] (C) circle (0.04);
+    \draw[fill=white] (A1) circle (0.04);
+    \draw[fill=white] (A2) circle (0.04);
+    \draw[fill=white] (C1) circle (0.04);
+    \draw[fill=white] (C2) circle (0.04);
+    \draw[fill=white] (0,0) circle (0.04);
+    \node[below left] at (C1) {$-\frac{L}{2}$};
+    \node[below right] at (C2) {$\frac{L}{2}$};
+    \node[right] at (A1) {$\frac{\mu_0nI}{2}$};
+    \node[left] at (A2) {$\frac{\mu_0nI}{2}$};
+    \node[above left] at (C) {\footnotesize $\mu_0nI$};
+\end{tikzpicture}

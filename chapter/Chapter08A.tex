@@ -1,0 +1,431 @@
+\section{电荷与电荷守恒定律}
+
+\subsection{电荷的概念}
+对于电的认识，最初来自摩擦起电和自然界的雷电现象，我们将物体经摩擦后能吸引轻微物体的状态称为带电，并称物体带有\uwave{电荷}，将表示物体所带的电荷多寡的物理量称为\uwave{电荷量}。
+
+通过实验表明
+\begin{itemize}
+    \item 两根用\uwave{毛皮}摩擦过的\uwave{橡胶棒}相互排斥。
+    \item 两根用\uwave{绸子}摩擦过的\uwave{玻璃棒}相互排斥。
+\end{itemize}
+但是，两根分别用毛皮和绸子摩擦过的橡胶棒和玻璃棒却会相互吸引，这就说明，橡胶棒和玻璃棒上的电荷是不同的，而且在实践中，我们发现其他任何物体无论通过何种方式带电，其所带电荷的性质，要么与橡胶棒相同，要么与玻璃棒相同，因此
+\begin{center}
+    自然界的电荷有且仅有两种。
+\end{center}
+为了区别两种电荷，称毛皮摩擦的橡胶棒带\uwave{正电荷}，称绸子摩擦的橡胶棒带\uwave{负电荷}，两者的电荷量分别用正数和负数表示，事实上两种电荷，哪一种为“正”，哪一种为“负”，本应是任意的，上述命名在历史上是由富兰克林首先提出的，从而一直沿用至今。
+
+正负电荷间的相互作用关系，可以通过先前橡胶棒和玻璃棒间的排斥和吸引关系得出
+\begin{center}
+    同种电荷相互排斥，异种电荷相互吸引。
+\end{center}
+正负电荷互相完全抵消的状态称为\uwave{中和}，从微观上看，所谓的不带电状态是指物体，并不是指物体内没有任何电荷，而是所带电荷量处于等量异号的中和状态，因此对外不现电性。
+
+电荷在国际单位制中的单位是\si{C=A\cdot s}，量纲是\si{[TI]}，称为\uwave{库仑}。
+
+\subsection{电荷的量子化}
+电荷的一个重要特征就是其具有量子性，任何带电体所带的电荷量只能是某一基本单元的整数倍，这种性质称为\uwave{电荷的量子化}，研究表明，电子和质子所带的电荷量的值就是这个基本单元，称为\uwave{元电荷}，通常用$e$表示，其数值大约是$e=1.602\times 10^{-19}$\si{C}，这就表示$1$库仑的电荷中大约包含$6.24\times 10^{18}$个元电荷，该常数由密里根通过油滴实验首先测定。
+
+\subsection{电荷守恒定律}
+在摩擦起电的过程中，相互摩擦的两个物体总是同时带电的，而且所带的电荷为等量异号，事实上任何起电过程都是如此，这一规律的一般化即为\uwave{电荷守恒定律}
+\begin{BoxPrinciple}[电荷守恒定律]
+    电荷既不能被创生，也不能被消灭，
+    
+    它们只能从一个物体转移动另一个物体，或者从物体的一部分转移到另一部分，
+
+    但是在转移的过程中，电荷的代数和是守恒的。
+\end{BoxPrinciple}
+电荷守恒定律不仅在一切宏观过程中成立，其在一切微观过程中也是普遍成立的。
+
+电荷守恒定律也是物理学的基本定律之一。
+
+\subsection{电荷的相对论不变性}
+电荷量是参照系无关的物理量，而且不同于质量和力，电荷量不仅在经典力学的体系下是不变的，在相对论的体系也是不变的，该性质称为\uwave{电荷的相对论不变性}。
+
+\section{库仑定律}
+
+\subsection{点电荷}
+带电体间具有相互作用，通过电学实验表明，这种相互作用和\textbf{带电体的间距}有关，也与\textbf{带电体所带的电荷量}有关，还与带电体的\textbf{形状大小}和\textbf{电荷分布}有关。
+
+带电体的几何线度比带电体的间距小的多时，在测量的精密范围内，带电体的形状大小与电荷分布对作用力的影响是极小的，是可以被忽略的，此时可以引入\uwave{点电荷}的概念，将带电体抽象为带等同电荷量的几何点，而点电荷间的相互作用仅与距离和电荷量有关。
+
+点电荷的概念“带有电荷的几何点”，与先前力学中的质点“带有质量的几何点”是类似的。
+
+\subsection{库仑定律}
+我们将两个静止点电荷间的相互作用力，称为\uwave{库仑力}，实验表明其遵循\uwave{库仑定律}
+
+\begin{BoxPrinciple}[库仑定律]
+    真空中两个静止点电荷之间的相互作用力的大小，
+
+    与两者电荷量的乘积成正比，与两者间的距离成反比，
+
+    作用力的方向沿着它们的连线，同号电荷相斥，异号电荷相吸。
+    \begin{BoxEq}
+        F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{库仑定律}是一个标量式，当我们研究某一个电荷受到的库仑力$\vb*{F}$时，记$\vu*{r}$为该电荷（相对于另一电荷）的位矢$\vb*{v}$的单位矢量，那么就可以写出库仑定律的矢量形式
+\begin{BoxEquation}[库仑定律的矢量形式]
+    \vb*{F}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vu*{r}
+\end{BoxEquation}
+即，受到同性电荷的库仑力与位矢相同，受到异性电荷的库仑力与位矢相反。
+\begin{Figure}{库仑力的方向性}
+    \subfigure[同性电荷的库仑力作用]
+    {
+        \inputfigure{Chapter08A_Figure01}
+    }\qquad\quad
+    \subfigure[异性电荷的库仑力作用]
+    {
+        \inputfigure{Chapter08A_Figure02}
+    }
+\end{Figure}
+\Refx{定律}{库仑定律}中的$\varepsilon_0$称为\uwave{真空电容率}或称为\uwave{真空介电常数}，这是一个非常重要的物理常数，其数值大约是$\varepsilon_0=8.85\times 10^{-12}$\si{C^2\cdot N^{-1}\cdot m^{-2}}，虽然在高中我们常用$k=\frac{1}{4\pi\varepsilon_0}$来表示库仑定律的比例系数，但是在大学阶段我们不再这么做了，因为尽管引入了$4\pi$使得库仑定律的数学形式变得复杂了一些，但是在此后导出的一些常用公式中原本应出现的$4\pi$的地方将因此而消失，这使得运算反而会变得更为简单，这一做法称为\uwave{单位制的有理化}。
+
+\section{电场与电场强度}
+
+\subsection{电场}
+库仑定律描述了电荷间的相互作用，那么电荷间的相互作用力通过什么方式实现？
+
+历史上，对电荷间的相互作用曾经有过两种观点
+\begin{enumerate}
+    \item 第一种观点认为其是通过充满空间的弹性介质\uwave{以太}实现，称为\uwave{近距作用}。
+    \item 第二种观点认为其不需要介质和时间，称为\uwave{超距作用}。
+\end{enumerate}
+近代物理研究表明，这两种观点都是错误的，实验表明以太并不存在，理论表明以太若存在则将具有自相矛盾的机械特性，同时尽管库仑力的传播以光速传播，但并非不需要时间。
+
+电荷间的相互作用，事实上是通过一种称为\uwave{电场}的特殊物质实现的。
+
+电荷存在于空间中时，其会对周围区域的电场的性质产生一定的影响，即在其周围\uwave{激发电场}，而处于电场中的电荷将会受到电场的作用，这种作用的大小与其被激发的程度有关。
+
+电场是一种客观存在的物质，因为它具有能量和动量，也能参与力的相互作用，例如事实上，两个运动电荷间的库仑力并非是等大反向的，也就是说牛顿第三定律在体系中不成立，这就表示动量守恒不成立，这就是因为电场在这种情况中与电荷间存在力的作用，同时这种作用改变了电场的动量，如果我们将电场纳入考虑，那么体系的动量将重新守恒。
+
+电场与通常的实物又有些不同，例如空间中两个实物不能占据同一位置，但是空间中两个不同的场却可以同时存在。不过随着物理学的发展，“实物”和“场”的界限也在变得模糊。
+
+为了强调电荷是通过电场进行相互作用的，我们将电荷在电场中受到的力，称为\uwave{电场力}。
+
+\subsection{电场强度}
+电场的一个重要性质是它对电荷施加的作用力，我们就以这个性质来定量的描述电场，为此我们必须在电场中引入一个电荷来测量电场对它的作用力。
+
+为了保证测量的精确性，该电荷需要满足以下的要求
+\begin{itemize}
+    \item 电荷的电荷量$q_0$必须足够小，因为引入该电荷的目的是研究空间原来存在的电场性质，如果该电荷自身的电荷量过大，那么它将显著的改变待测电场的性质。
+    \item 电荷的几何线度要充分小，以至于可以看作点电荷，从而确定空间\textbf{各点}的电场性质。
+\end{itemize}
+我们将符合以上两个条件的电荷，称为\uwave{试探电荷}，而激发电场的电荷则称为\uwave{场源电荷}。
+
+在空间同一位置放置带电荷量不同的试探电荷时，它们受到的电场力也是不同的，因此电场力与试探电荷的自身性质有关，从而电场力不能客观反映空间电场的性质。
+
+但是实验表明，试探电荷受到的电场力$\vb*{F}$与其电荷量$q_0$的比值与试探电荷自身无关，因此该比值可以客观反映电场的性质，定义为\uwave{电场强度}，使用$\vb*{E}$表示，即
+\begin{BoxDefinition}[电场强度]
+    \vb*{E}=\frac{\vb*{F}}{q_0}
+\end{BoxDefinition}
+\Refx{定义}{电场强度}指出，电场中某点的电场强度，方向上与正电荷在该点的受力方向保持一致，数值上等于放在该点的单位正电荷（$q_0=1$\si{C}）所受的电场力的大小。
+
+电场是矢量场，一般而言，既随位置而变，又随时间而变，如果空间的电场分布不随时间变化，例如静止电荷激发的电场，那么电场强度仅仅是空间位置的函数，称为\uwave{静电场}，可以通过数学表达式表示为$\vb*{E}=\vb*{E}(x,y,z)$，即对于电场中某一特定点，有唯一确定的电场强度。
+
+电场是客观存在的物质，这与纯数学意义上的场是不同的，但其确实可以通过场来描述。
+
+电场强度在国际单位制中的单位是\si{N\cdot C^{-1}=V\cdot m^{-1}}，量纲是\si{[LMT^{-3}I^{-1}]}。
+
+如果空间中各点的电场大小和方向都相同，那么称为\uwave{匀强电场}，否则称为\uwave{非匀强电场}。
+
+引入电场强度的概念后，电场中的点电荷$q_0$所受的电场力就可以表示为
+\begin{BoxEquation}[电场力]
+    \vb*{F}=q_0\vb*{E}
+\end{BoxEquation}
+\Refx{公式}{电场力}指出
+\begin{itemize}
+    \item 对于正电荷$q_0>0$，其所受电场力的方向与电场强度的方向相同。
+    \item 对于负电荷$q_0<0$，其所受电场力的方向与电场强度的方向相反。
+\end{itemize}
+
+\subsubsection{点电荷的电场强度}
+设在空间$O$点处有一场源电荷$q$，称为\uwave{源点}，而$P$点为待测电场的点，称为\uwave{场点}。
+
+设矢量$\vb*{r}$是由源点$O$指向场点$P$的矢量，即有$\vb*{r}=\vec{OP}$。
+
+为了测量$P$点的电场强度，在$P$处放置一个试探电荷$q_0$。
+
+根据\Refx{定律}{库仑定律}和\Refx{定义}{电场强度}
+\begin{equation*}
+    \vb*{E}=\frac{\vb*{F}}{q_0}=\frac{1}{q_0}\qty(\frac{1}{4\pi\varepsilon_0}\frac{qq_0}{r^2}\vu*{r})=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vu*{r}
+\end{equation*}
+即
+\begin{BoxEquation}[点电荷的电场强度]
+    \vb*{E}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vu*{r}
+\end{BoxEquation}
+\Refx{公式}{点电荷的电场强度}指出，点电荷的电场强度是依平方反比的规律按球面衰减的，正点电荷的场强背离球心向外（$\vb*{E},\vb*{r}$同向），负点电荷的场强指向球心（$\vb*{E},\vb*{r}$反向）。
+
+\subsection{电场强度的叠加原理}
+当空间中存在多个场源电荷$q_1,q_2,\cdots,q_n$时，将这$n$个点电荷构成的系统称为\uwave{点电荷系}，在场中一点$P$处放上一试探电荷$q_0$，其所受到的静电力分别为$\vb*{F}_1,\vb*{F}_2,\cdots,\vb*{F}_n$，而静电力是可以合成的，因此试探电荷受到的合静电力$\vb*{F}=\vb*{F}_1+\vb*{F}_2+\cdots+\vb*{F}_n$。
+
+根据\Refx{定义}{电场强度}，点$P$处的场强$\vb*{E}$
+\begin{equation*}
+    \vb*{E}=\frac{\vb*{F}}{q_0}=\frac{\vb*{F}_1}{q_0}+\frac{\vb*{F}_2}{q_0}+\cdots+\frac{\vb*{F}_n}{q_0}=\vb*{E}_1+\vb*{E}_2+\cdots+\vb*{E}_n
+\end{equation*}
+其中$\vb*{E}_1,\vb*{E}_2,\cdots,\vb*{E}_n$表示各场源电荷$q_1,q_2,\cdots,q_n$独立存在时的电场强度，因此
+\begin{BoxPrinciple}[电场强度的叠加原理]
+    点电荷系在电场中某点处所产生的电场强度，
+    
+    等于各点电荷单独存在时，在该点处所产生的电场强度的矢量和。
+    \begin{BoxEq}
+        \vb*{E}=\SumIN{\vb*{E}_i}
+    \end{BoxEq}
+\end{BoxPrinciple}
+电荷连续分布的任意带电体产生的场强，可以将带电体携带的电荷看作许多电荷元$\dif{q}$组成，每个电荷元$\dif{q}$均可以视为点电荷，其在矢径$\vb*{r}$处产生的场强$\dif{\vb*{E}}$为
+\begin{BoxEquation}[电荷元的电场强度]
+    \dif{\vb*{E}}=\frac{1}{4\pi\varepsilon_0}\frac{\dif{q}}{r^2}\vu*{r}
+\end{BoxEquation}
+电荷连续分布的带电体产生的场强，需要通过对$\dif{\vb*{E}}$积分完成，积分形式取决于电荷分布。
+
+对于电荷线状分布的带电体，其电荷元$\dif{q}=\lambda\dif{l}$，其中$\lambda$为\uwave{电荷线密度}
+\begin{BoxEquation}[线状带电体的电场强度]
+    \vb*{E}=\frac{1}{4\pi\varepsilon_0}\Int[l_1][l_2]{\frac{\lambda\dif{l}}{r^2}\vu*{r}}
+\end{BoxEquation}
+对于电荷面状分布的带电体，其电荷元$\dif{q}=\sigma\dif{S}$，其中$\sigma$为\uwave{电荷面密度}
+\begin{BoxEquation}[面状带电体的电场强度]
+    \vb*{E}=\frac{1}{4\pi\varepsilon_0}\Idnt[D]{\frac{\sigma\dif{S}}{r^2}\vu*{r}}
+\end{BoxEquation}
+对于电荷体状分布的带电体，其电荷元$\dif{q}=\rho\dif{V}$，其中$\rho$为\uwave{电荷面密度}
+\begin{BoxEquation}[体状带电体的电场强度]
+    \vb*{E}=\frac{1}{4\pi\varepsilon_0}\Idnt[\Omega]{\frac{\rho\dif{V}}{r^2}\vu*{r}}
+\end{BoxEquation}
+电荷线密度$\lambda$，电荷面密度$\lambda$，电荷体密度$\rho$，单位依次是\si{C\cdot m^{-1},C\cdot m^{-2},C\cdot m^{-3}}。
+
+电荷线密度和电荷面密度的概念也适用于曲线和曲面，但要对应改为曲线和曲面积分。
+
+\subsubsection{电偶极子的电场}
+设一对带等量异号的点电荷$-q$和$+q$，设两者间的距离为$l$，设两者的中点为$O$，如果所考虑的场点$P$的位矢$\vb*{r}$的大小远大于电荷间的距离$l$，那么这一电荷系统称为\uwave{电偶极子}，将联结两电荷的直线为\uwave{电偶极子的轴线}，取负电荷指向正电荷的矢量$\vb*{l}$作为轴线正方向。
+
+定义电荷量$q$与负电荷至正电荷的矢量$\vb*{l}$的乘积为\uwave{电偶极矩}，简称为\uwave{电矩}。
+
+电偶极矩是与$\vb*{l}$方向相同的矢量，通常记作$\vb*{p}$，即
+\begin{BoxDefinition}[电偶极矩]
+    \vb*{p}=q\vb*{l}
+\end{BoxDefinition}
+\begin{Figure}{电偶极子}
+    \inputfigure{Chapter08A_Figure03}
+\end{Figure}
+电偶极矩在国际单位制中的单位是\si{C\cdot m}，量纲是\si{[LTI]}。
+
+现在我们就要研究，电偶极子在延长线上和在中垂线上任意一点的电场强度。
+\begin{Figure}{电偶极子的电场强度}
+    \subfigure[电偶极子在延长线上的电场强度]
+    {
+        \inputfigure[scale=0.9]{Chapter08A_Figure04}
+    }\qquad
+    \subfigure[电偶极子在中垂线上的电场强度]
+    {
+        \inputfigure[scale=0.9]{Chapter08A_Figure05}
+    }
+\end{Figure}
+对于电偶极子在延长线上的电场强度，我们用$E$的正负标识其方向。
+
+若场点在电偶极子右侧
+\begin{equation*}
+    E_{+}=\frac{1}{4\pi\varepsilon_0}\frac{q}{\qty(x-\frac{l}{2})^2}\qquad
+    E_{-}=\frac{-1}{4\pi\varepsilon_0}\frac{q}{\qty(x+\frac{l}{2})^2}
+\end{equation*}
+若场点在电偶极子左侧
+\begin{equation*}
+    E_{+}=\frac{-1}{4\pi\varepsilon_0}\frac{q}{\qty(x+\frac{l}{2})^2}\qquad
+    E_{-}=\frac{1}{4\pi\varepsilon_0}\frac{q}{\qty(x-\frac{l}{2})^2}
+\end{equation*}
+关注到无论场点在电偶极子右侧还是左侧，两者的和$E=E_{+}+E_{-}$总是相同的
+\begin{Equation}[电偶极子延长线精确值]
+    E=\frac{1}{4\pi\varepsilon_0}\qty[\frac{q}{\qty(x-\frac{l}{2})^2}-\frac{q}{\qty(x+\frac{l}{2})^2}]
+\end{Equation}
+式\ref{式:电偶极子延长线精确值}是较为复杂的，由于电偶极子中$x\gg l$，因此我们可以做一些近似。
+
+将式\ref{式:电偶极子延长线精确值}的中括号内的项展开，应用近似$(x^2-\frac{l^2}{4})^2=x^4$
+\begin{equation*}
+    \frac{1}{\qty(x-\frac{l}{2})^2}-\frac{1}{\qty(x+\frac{l}{2})^2}=
+    \frac{\qty(x+\frac{l}{2})^2-\qty(x-\frac{l}{2})^2}{\qty(x+\frac{l}{2})^2\qty(x-\frac{l}{2})^2}=
+    \frac{2lx}{\qty(x+\frac{l}{2})^2\qty(x-\frac{l}{2})^2}=
+    \frac{2lx}{\qty(x^2-\frac{l^2}{4})^2}=\frac{2l}{x^3}
+\end{equation*}
+
+将这一结果代入式\ref{式:电偶极子延长线精确值}，得到
+\begin{equation*}
+    E=\frac{1}{4\pi\varepsilon_0}\frac{2ql}{x^3}
+\end{equation*}
+
+代入电偶极矩$\vb*{p}=q\vb*{l}$，这就将电场强度用矢量表示
+\begin{BoxEquation}[电偶极子延长线上的电场]
+    \vb*{E}=\frac{1}{2\pi\varepsilon_0}\frac{\vb*{p}}{x^3}
+\end{BoxEquation}
+\Refx{公式}{电偶极子延长线上的电场}指出，电偶极子延长线上的场强方向总与$\vb*{l}$相同。
+
+对于电偶极子在中垂线上的电场强度，关注到其所受正负电荷的场强大小是一致的
+\begin{equation*}
+    E_{+}=E_{-}=\ek\frac{q}{y^2+\frac{l^2}{4}}
+\end{equation*}
+通过图像可知，两者矢量叠加后$y$方向的分量相互抵消，而$x$方向的分量向左，记为负
+\begin{equation*}
+    E=-E_{+}\cos\theta-E_{-}\cos\theta=-\frac{1}{2\pi\varepsilon_0}\frac{q}{y^2+\frac{l^2}{4}}\cos\theta
+\end{equation*}
+其中
+\begin{equation*}
+    \cos\theta=\frac{\frac{l}{2}}{\sqrt{y+\frac{l^2}{4}}}
+\end{equation*}
+因此
+\begin{Equation}[电偶极子中垂线精确值]
+    E=-\frac{1}{4\pi\varepsilon_0}\frac{ql}{\qty(y^2+\frac{l^2}{4})^{\frac{3}{2}}}
+\end{Equation}
+式\ref{式:电偶极子中垂线精确值}是较为复杂的，由于电偶极子中$y\gg l$，应用近似$(y^2-\frac{l^2}{4})^{\frac{3}{2}}=y^3$
+\begin{equation*}
+    E=-\frac{1}{4\pi\varepsilon_0}\frac{ql}{y^3}
+\end{equation*}
+代入电偶极矩$\vb*{p}=q\vb*{l}$，这就将电场强度用矢量表示
+\begin{BoxEquation}[电偶极子中垂线上的电场]
+    \vb*{E}=-\frac{1}{4\pi\varepsilon_0}\frac{\vb*{p}}{y^3}
+\end{BoxEquation}
+\Refx{公式}{电偶极子中垂线上的电场}指出，电偶极子中垂线上的场强方向总与$l$相反。
+
+\subsubsection{均匀带电直棒的电场}
+设有一均匀带电直棒，长度为$L$，总电荷量为$q$，现考察带电直棒外的场点$P$处的场强。
+
+设$P$点到直棒的垂足$O$为原点，以直棒某一方向为$x$轴正方向建立平面直角坐标系，在该坐标系中点$P$在$y$轴上，且设其离开直棒的垂直距离（即纵坐标）为$y$。
+
+设$P$点和直棒两端的连线与直棒之间的夹角分别为$\theta_1$和$\theta_2$。
+\begin{Figure}{均匀带电直棒的电场}
+    \inputfigure[scale=0.85]{Chapter08A_Figure06}
+\end{Figure}
+
+记带电直棒的线密度为$\lambda$，则$\dif{q}=\lambda\dx$，故
+\begin{equation*}
+    \dif{\vb*{E}}=\ek\frac{\dif{q}}{r^2}\vu*{r}=\ek\frac{\lambda\dx}{r^2}\vu*{r}
+\end{equation*}
+代入$\vu*{r}=\cos\theta\vi+\sin\theta\vj$将$\dif{\vb*{E}}$矢量分解为
+\begin{Equation}[均匀带电直棒1]
+    \dif{\vb*{E}}=\dif{E_x}\vi+\dif{E_y}\vj=\frac{1}{4\pi\varepsilon_0}\frac{\lambda\dx}{r^2}\cos\theta\vi+\frac{1}{4\pi\varepsilon_0}\frac{\lambda\dx}{r^2}\sin\theta\vj
+\end{Equation}
+式\ref{式:均匀带电直棒1}无法直接积分，因为其关于$\theta$但却具有微分$\dx$，因此要首先将$\dx$转换为$\dif{\theta}$。
+
+关注到$x=r|\cos\theta|$和$y=r|\sin\theta|$，因此
+\begin{equation*}
+    \frac{x^2}{y^2}=\cot^2\theta\qquad\frac{x}{y}=\abs{\cot\theta}
+\end{equation*}
+因此$r^2$可以被表示为
+\begin{Equation}[均匀带电直棒2]
+    r^2=y^2+x^2=y^2(1+\cot^2\theta)=y^2\csc^2\theta
+\end{Equation}
+因此$x$的微分$\dx$可以被表示为
+\begin{Equation}[均匀带电直棒3]
+    x=y|\cot\theta|\qquad \dx=y|\csc^2\theta\dif{\theta}|=y\csc^2\theta\dif{\theta}
+\end{Equation}
+这就有
+\begin{Equation}[均匀带电直棒4]
+    \frac{\lambda\dx}{r^2}=\frac{\lambda y\csc^2\theta\dif{\theta}}{y^2\csc^2\theta}=\frac{\lambda\dif{\theta}}{y}
+\end{Equation}
+式\ref{式:均匀带电直棒4}代入式\ref{式:均匀带电直棒1}中，得到
+\begin{Equation}[均匀带电直棒5]
+    \dif{\vb*{E}}=\dif{E_x}\vi+\dif{E_y}\vj=\ek\frac{\lambda\cos\theta\dif{\theta}}{y}\vi+\ek\frac{\lambda\sin\theta\dif{\theta}}{y}\vj
+\end{Equation}
+这就将自变量$\theta$和微分$\dif{\theta}$相统一。
+
+对$\dif{E_x}$积分，得到
+\begin{equation*}
+    E_x=\Int[\theta_1][\theta_2]{\dif{E_x}}=\ek\frac{\lambda}{y}\Int[\theta_1][\theta_2]{\cos\theta\dif{\theta}}=\ek\frac{\lambda}{y}\qty(\sin\theta_2-\sin\theta_1)
+\end{equation*}
+对$\dif{E_y}$积分，得到
+\begin{equation*}
+    E_y=\Int[\theta_1][\theta_2]{\dif{E_x}}=\ek\frac{\lambda}{y}\Int[\theta_1][\theta_2]{\sin\theta\dif{\theta}}=\frac{-1}{4\pi\varepsilon_0}\frac{\lambda}{y}\qty(\cos\theta_2-\cos\theta_1)
+\end{equation*}
+\begin{BoxEquation}[均匀带电直棒的电场]
+    \vb*{E}=\ek\frac{\lambda}{y}\qty[\qty(\sin\theta_2-\sin\theta_1)\vi-\qty(\cos\theta_2-\cos\theta_1)\vj]
+\end{BoxEquation}
+接下来我们考虑\Refx{公式}{均匀带电直棒的电场}中的一些特殊情况，若场点位于杆的中垂面上，那么可设$\theta_1=\theta$，同时有$\theta_2=\pi-\theta$，考虑到$\sin\theta=\sin(\pi-\theta)$和$\cos\theta=-\cos(\pi-\theta)$
+\begin{BoxEquation}[均匀带电直棒中垂面的电场]
+    \vb*{E}=\frac{1}{2\pi\varepsilon_0}\frac{\lambda}{y}\cos\theta\vj
+\end{BoxEquation}
+进一步的，若带电直棒变为无限长，那么任何一点都可以视为在其中垂面上，同时有$\theta\rightarrow 0$，此时有$\cos\theta\rightarrow 1$，代入\Refx{公式}{均匀带电直棒中垂面的电场}取极限
+\begin{BoxEquation}[均匀无限长带电直棒的电场]
+    \vb*{E}=\frac{1}{2\pi\varepsilon_0}\frac{\lambda}{y}\vj
+\end{BoxEquation}
+
+\subsubsection{均匀带电圆环的电场}
+设有一均匀带电圆环，半径为$R$，总电荷量为$q$，现考察其轴线上的场点$P$处的场强。
+\begin{Figure}{均匀带电圆环的电场}
+    \inputfigure[scale=0.64]{Chapter08A_Figure07}
+\end{Figure}
+设圆环的圆心$O$为原点，以轴线为$x$轴，以圆环所在平面为$yz$平面，建立空间直角坐标系，场点$P$至$yz$平面的距离为$x$，场点$P$至圆环任意一点的距离均为$r=\sqrt{R^2+x^2}$。
+
+记带电圆环的线密度为$\lambda$，则$\dif{q}=\lambda\dif{l}$，故
+\begin{equation*}
+    \dif{E}=\ek\frac{\dif{q}}{r^2}=\ek\frac{\lambda\dif{l}}{r^2}
+\end{equation*}
+如\Refx{图}{均匀带电圆环的电场}所示，由于圆环的对称性，在圆环各处的电荷元对轴线上场点施加的电场强度中，垂直$x$轴的各分量相互抵消，只有平行$x$轴的分量才有贡献。
+
+由于$\cos\theta=\dfrac{x}{r}$，且$r=\sqrt{R^2+x^2}$
+\begin{equation*}
+    \dif{E}_x=\dif{E}\cos\theta=\ek\frac{\lambda\dif{l}}{r^2}\frac{x}{r}=\ek\frac{\lambda x\dif{l}}{r^3}=\ek\frac{\lambda x\dif{l}}{\qty(R^2+x^2)^{\frac{3}{2}}}
+\end{equation*}
+从而积分得
+\begin{equation*}
+    E=E_x=\ek\frac{\lambda x}{\qty(R^2+x^2)^{\frac{3}{2}}}\Int[0][2\pi R]{\dif{l}}=\frac{1}{2\varepsilon_0}\frac{\lambda Rx}{\qty(R^2+x^2)^{\frac{3}{2}}}
+\end{equation*}
+\begin{BoxEquation}[均匀带电圆环的电场]
+    E=\frac{1}{2\varepsilon_0}\frac{\lambda Rx}{\qty(R^2+x^2)^{\frac{3}{2}}}
+\end{BoxEquation}
+如果我们在\Refx{公式}{均匀带电圆环的电场}中代入$\lambda=\dfrac{q}{2\pi R}$，则
+\begin{equation*}
+    E=\ek\frac{qx}{\qty(R^2+x^2)^{\frac{3}{2}}}
+\end{equation*}
+那么当$x\gg R$时，就有$(R^2+x^2)^{\frac{3}{2}}=x^3$的近似，即
+\begin{equation*}
+    E=\ek\frac{q}{x^2}
+\end{equation*}
+这就说明，当沿中心轴线距离带电圆环很远时，可以将其视为点电荷。
+
+\subsubsection{均匀带电圆盘的电场}
+设有一均匀带电圆盘，半径为$R$，总电荷量为$q$，现考察其轴线上场点$P$处的场强。
+ \begin{Figure}{均匀带电圆盘的电场}
+    \inputfigure[scale=0.64]{Chapter08A_Figure08}
+    \vspace{-10pt}
+\end{Figure}
+设圆盘的圆心$O$为原点，以轴线为$x$轴，以圆盘所在平面为$yz$平面，建立空间直角坐标系，场点$P$至$yz$平面的距离为$x$，由于我们已经知道圆环的电场公式，我们可以将圆盘视为一系列半径连续变化的圆环的组合体，考察半径为$r$处壁厚为$\dif{r}$的圆环元。
+
+特别说明，此处带电圆盘中的$r$与先前带电圆环中的$r$含义完全不同，先前指圆环上一点到场点的距离$r=\sqrt{R^2+x^2}$，而这里是指正在考察的圆环元的半径$r$，与$\dif{r}$相关。
+
+设带电圆盘的面密度为$\sigma$，则$\dif{q}=2\pi \sigma r\dif{r}$，故\footnote{此处是代入了\Refx{公式}{均匀带电圆环的电场}下方使用$q$表述的带电圆环电场公式，但是由于这里考察的是半径$r$处的圆环元$\dif{r}$，因此我们需要在原先的公式中，圆环的电荷量$q$替换为电荷元$\dif{q}$，圆环的半径$R$替换为$r$。}
+\begin{equation*}
+    \dif{E}=\ek\frac{x\dif{q}}{\qty(r^2+x^2)^{\frac{3}{2}}}=\frac{1}{2\varepsilon_0}\frac{\sigma xr\dif{r}}{\qty(r^2+x^2)^{\frac{3}{2}}}
+\end{equation*}
+从而积分得
+\begin{equation*}
+    E=\frac{1}{2\varepsilon_0}\sigma x\Int[0][R]{\frac{r\dif{r}}{\qty(r^2+x^2)^{\frac{3}{2}}}}
+\end{equation*}
+关注到
+\begin{equation*}
+    \Int[0][R]{\frac{r}{\qty(r^2+x^2)^{\frac{3}{2}}}\dif{r}}=\frac{1}{2}\Int[0][R]{\frac{1}{\qty(r^2+x^2)^{\frac{3}{2}}}\dif{r^2}}=\eval{\qty(-\frac{1}{\qty(r^2+x^2)^{\frac{1}{2}}})}_{0}^{R}=\qty(-\frac{1}{\qty(R^2+x^2)^{\frac{1}{2}}}+\frac{1}{x})
+\end{equation*}
+代入得
+\begin{equation*}
+    E=\frac{1}{2\varepsilon_0}\qty(\sigma-\frac{\sigma x}{\qty(R^2+x^2)^{\frac{1}{2}}})
+\end{equation*}
+\begin{BoxEquation}[均匀带电圆盘的电场]
+    E=\frac{\sigma}{2\varepsilon_0}-\frac{1}{2\varepsilon_0}\frac{\sigma x}{(R^2+x^2)^{\frac{1}{2}}}
+\end{BoxEquation}
+如果我们在\Refx{公式}{均匀带电圆盘的电场}中取$R\rightarrow\infty$的极限，那么第二项将趋近于零，这时会得到一个无限大的带电平面，而此时空间中任何一点都可以视为在轴线上
+\begin{equation*}
+    E=\frac{\sigma}{2\varepsilon_0}-\Lim{R}{\infty}{\qty(\frac{1}{2\varepsilon_0}\frac{\sigma x}{(R^2+x^2)^{\frac{1}{2}}})}=\frac{\sigma}{2\varepsilon_0}
+\end{equation*}
+即
+\begin{BoxEquation}[均匀无限大带电平面的电场]
+    E=\frac{\sigma}{2\varepsilon_0}
+\end{BoxEquation}
+\Refx{公式}{均匀无限大带电平面的电场}指出，无限大带电平面两侧的电场强度与位置无关，也就是说，\textbf{无限大带电平面两侧的电场是匀强电场}。事实上即便是对于半径$R$有限的带电圆盘，只要场点带电圆盘的距离$x\ll R$，这一块区域的电场也均可以视为是匀强的。
+
+\Refx{公式}{均匀无限大带电平面的电场}凸显了引入$\varepsilon$的优势，如果库仑定律使用$k$表示，此处的公式将会对应的出现$\pi$，这就使得公式变得不像现在这样简洁了。
+
+现在考虑$x\gg R$的情况，将\Refx{公式}{均匀带电圆盘的电场}中的第二项泰勒级数展开
+\begin{Equation}[均匀带电圆盘的级数展开]
+    \frac{x}{\sqrt{R^2+x^2}}=\qty(1+\frac{R^2}{x^2})^{-\frac{1}{2}}=1-\frac{1}{2}\frac{R^2}{x^2}+\frac{3}{8}\frac{R^4}{x^4}+o\qty(\frac{R^4}{x^4})\xlongequal{\text{仅取前两项}}1-\frac{1}{2}\frac{R^2}{x^2}
+\end{Equation}
+将式\ref{式:均匀带电圆盘的级数展开}的近似代入，并代入$\sigma=\dfrac{q}{\pi R^2}$，则
+\begin{equation*}
+    E=\frac{1}{2\varepsilon_0}\sigma\qty(1-\frac{x}{\sqrt{R^2+x^2}})=\frac{1}{2\pi\varepsilon_0}\frac{q}{R^2}\qty(\frac{1}{2}\frac{R^2}{x^2})=\frac{1}{4\pi\varepsilon_0}\frac{q}{x^2}
+\end{equation*}
+这就说明，当沿中心轴线距离带电圆盘很远时，可以将其视为点电荷。
+
+由此我们论证了带电圆环和带电圆盘，在场点与之的距离远远大于其自身几何限度时，可以将其视为一个全部电荷集中于圆心的点电荷，这就验证了点电荷假设的合理性。

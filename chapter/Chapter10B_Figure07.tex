@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=1.2]
+    \lPoint{O}{0,0}
+    \draw[ultra thick,fill=black,fill opacity=0.05] (O) ellipse (2 and 0.66);
+    \node[above left] at (0,0.0){$O$};
+    \lPoint{X1}{0,-2}
+    \lPoint{X2}{0,4}[right][x]
+    \lPoint{Y1}{1.5,1.5}
+    \lPoint{Y2}{-1.5,-1.5}[left][y]
+    \lPoint{Z1}{-2.8,0}
+    \lPoint{Z2}{+2.8,0}[above][z]
+    \draw[dotted,->] (X1)--(X2);
+    \draw[dotted,->] (Y1)--(Y2);
+    \draw[dotted,->] (Z1)--(Z2);
+    \begin{scope}
+        \clip (O) ellipse (2 and 0.66);
+        \draw[gray] (Y1)--(Y2);
+        \draw[gray] (Z1)--(Z2);
+    \end{scope}
+
+    \lPoint{P1}{-2,0}
+    \lPoint{P2}{+2,0}
+
+    \draw[<->] (O)--(P2);
+    \lRatio{R}{O}{P2}{0.5}[above]
+
+    \draw[black!60!white] (P1) 
+    arc(180:170:2 and 0.66);
+    \draw[black!60!white,-latex] (P1) 
+    arc(180:230:2 and 0.66) node[below,black]{$I$};
+
+    \draw[black!60!white] (P2) 
+    arc(0:-10:2 and 0.66);
+    \draw[black!60!white,-latex] (P2) 
+    arc(0:+50:2 and 0.66) node[above,black]{$I$};
+
+    \node[below right] at(-60:0.7) {$S=\pi R^2$};
+
+    \lPoint{A1}{0,3.2}
+    \node[right] at (A1) {$\vb*{m}=IS\vb*{e}_n$};
+    \lPoint{A2}{0,1.5}[right][\vb*{e}_n]
+    \draw[-latex](O)--(A1);
+    \draw[-latex](O)--(A2);
+\end{tikzpicture}

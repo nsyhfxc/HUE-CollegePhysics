@@ -1,0 +1,34 @@
+\begin{tikzpicture}[scale=1.0]
+    \lPoint{O}{0,0}
+    \lShift{X}{O}{15,0}[right][t]
+    \lShift{Y1}{O}{0,-2}
+    \lShift{Y2}{O}{0,+2}[right][x]
+
+    \draw[->,gray] (O)--(X);
+    \draw[->,gray] (Y1)--(Y2);
+
+    \draw[domain=0:15.5*pi,samples=400,thin,black] plot (0.3*\x,{cos(0.3333*\x r)});
+
+    \draw[domain=0:15.5*pi,samples=400,thin,black] plot (0.3*\x,{-cos(0.3333*\x r)});
+
+    \draw[domain=0:15*pi,samples=5000,thick,blue!50!white] plot (0.3*\x,{0.5*cos(5*\x r)+0.5*cos(5.6667*\x r)});
+
+    \draw[dashed] (5.652,1.6)--(5.652,-1.6);
+    \draw[dashed] (2.826,1.6)--(2.826,-1.6);
+
+    \draw[fill=white] (2.826,-1) circle (0.03);
+    \draw[fill=white] (5.652,1) circle (0.03);
+
+    \node[blue!50!white] at (8.5,1.5) {$x=\cos(5t)+\cos(5t+\frac{2}{3}t)$};
+
+    \node[right] at (0,1.2) {\tiny $x_B=\pm\cos(\frac{1}{3}t)$};
+
+    \draw[thin,blue!50!white] (7.065,0)--(7.065,-1.5);
+    \draw[thin,blue!50!white] (9.891,0)--(9.891,-1.5);
+    \draw[thin,blue!50!white] (12.717,0)--(12.717,-1.5);
+    \draw[<->,thin] (7.065,-1.2)--(9.891,-1.2);
+    \draw[<->,blue!50!white] (7.065,-1.4)--(12.717,-1.4);
+    \node[above] at (7.5,-1.25) {\tiny $T_B=3\pi$};
+    \node[below,blue!50!white] at (11.304,-1.4) {
+    \small $T=2T_B=6\pi$};
+\end{tikzpicture}

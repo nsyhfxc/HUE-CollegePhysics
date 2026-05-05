@@ -1,0 +1,95 @@
+\section{两类常见的简谐振动}
+
+\subsection{单摆}
+设一根不会伸缩，质量不计的细线，上端固定，下端悬挂一个可以视作质点的重物，若将重物略加移动后释放，那么重物将在竖直平面内来回摆动，我们将这种装置称为\uwave{单摆}。
+
+单摆中，重物被称为\uwave{摆锤}，细线被称为\uwave{摆线}，将摆锤静止所处的竖直位置$O$定义为单摆的平衡位置。设摆线长$l$，且摆线偏离竖直方向的角度为$\theta$，左侧$\theta$为负，右侧$\theta$为正。
+\begin{Figure}{单摆的示意图}
+    \inputfigure{Chapter06B_Figure01}
+\end{Figure}
+单摆受到重力$\vb*{P}$和拉力$\vb*{F}_n$，重力的切向和法向分量分别记作$\vb*{P}_t,\vb*{P}_n$，由于单摆在摆动中的线速度是不断变化的，因此法向力$\vb*{F}_n$和$\vb*{P}_n$并不平衡，但这不是我们所关心的。
+
+关注到重力的切向分力$\vb*{P}_t$
+\begin{equation*}
+    P_t=-mg\sin\theta
+\end{equation*}
+上式中的负号代表力的方向与角位矢$\theta$相反。
+
+上式中，当$\theta$较小时可以取$\sin\theta$的零阶泰勒展开作为近似，即
+\begin{equation*}
+    P_t=-mg\theta
+\end{equation*}
+关注到摆球作变速圆周运动，根据\Refx{公式}{切向加速度和角量的关系}
+\begin{equation*}
+    a_t=l\alpha=l\Fdif{\theta}{t}^2
+\end{equation*}
+在切向上应用\Refx{定律}{牛顿第二定律}
+\begin{equation*}
+    P_t=-mg\theta=m a_t=ml\Fdif{\theta}{t}^2
+\end{equation*}
+在上式中将$mg\theta$移项，等式两侧同除$ml$，即得
+\begin{Equation}[单摆微分方程]
+    \Fdif{\theta}{t}^2+\frac{g}{l}\theta=0
+\end{Equation}
+这就符合\Refx{定律}{简谐振动的运动学特征}，故
+\begin{BoxGeneral}[单摆的角频率][公式]
+    \centering
+    单摆的小角度摆动是简谐振动，其角频率满足下式。
+    \begin{BoxEq}
+        \omega=\sqrt{\frac{g}{l}}
+    \end{BoxEq}
+\end{BoxGeneral}
+\Refx{公式}{单摆的角频率}中应注意，与弹簧振子不同，单摆中发生简谐振动的并不是其在水平方向的位矢，最终以余弦函数周期变化的物理量是角位矢，也就是说\textbf{单摆是角位矢的简谐振动}。这就体现了章首所提及的振动的广义性，角位移的周期性变化也可以称为振动。
+
+\Refx{公式}{单摆的角频率}仅适用于小角度单摆，对于大角度单摆，由于近似$\sin\theta=\theta$不再有效，其摆动虽然仍然为振动，但不再是简谐振动。大角度单摆的运动方程的精确解需要涉及到椭圆积分，并且可能会导致混沌现象，在此不予进一步的详细讨论。
+
+\subsection{复摆}
+\uwave{复摆}也称为\uwave{物理摆}，本质是刚体在重力作用下绕定轴的来回转动。
+\begin{Figure}{复摆的示意图}
+    \inputfigure{Chapter06B_Figure02}
+\end{Figure}
+\Refx{图}{复摆的示意图}的例子中，刚体由一根细棒和一个球体构成，刚体绕细棒一端垂直于纸面的转轴$J$旋转，刚体总质量为$m$，质心位于$C$，质心到转轴的距离记为$l$。
+
+关注到重力的切向分力$\vb*{P}_t$
+\begin{equation*}
+    P_t=-mg\sin\theta
+\end{equation*}
+上式中的负号代表力的方向与角位矢$\theta$相反。
+
+上式中，当$\theta$较小时可以取$\sin\theta$的零阶泰勒展开作为近似，即
+\begin{equation*}
+    P_t=-mg\theta
+\end{equation*}
+根据\Refx{定义}{力矩}和\Refx{定律}{定轴转动定律}，其中设刚体的转动惯量为$J$
+\begin{equation*}
+    M=-mgl\theta=J\alpha=J\Fdif{\theta}{t}^2
+\end{equation*}
+在上式中将$mgl\theta$移项，等式两侧同除$J$，即得
+\begin{Equation}[复摆的微分方程]
+    \Fdif{\theta}{t}^2+\frac{mgl}{J}\theta=0
+\end{Equation}
+这就符合\Refx{定律}{简谐振动的运动学特征}，故
+\begin{BoxGeneral}[复摆的角频率][公式]
+    \centering
+    复摆的小角度摆动是简谐振动，其角频率满足下式。
+    \begin{BoxEq}
+        \omega=\sqrt{\frac{mgl}{J}}
+    \end{BoxEq}
+\end{BoxGeneral}
+
+\section{简谐振动的能量}
+在弹簧振子的简谐振动中，只有振动系统的保守力做功，其他非保守力和外力均不做功，根据机械能守恒定律，系统的动能和弹性势能不断的相互转化，系统的总能量守恒。
+
+根据\Refx{定义}{动能}和\Refx{公式}{简谐振动的速度}
+\begin{BoxEquation}[简谐振动的动能]
+    E_k=\frac{1}{2}mv^2=\frac{1}{2}m\omega^2A^2\sin^2(\omega t+\phi)
+\end{BoxEquation}
+根据\Refx{定义}{弹性势能}和\Refx{公式}{简谐振动的位矢}
+\begin{BoxEquation}[简谐振动的势能]
+    E_p=\frac{1}{2}kx^2=\frac{1}{2}kA^2\cos^2(\omega t+\phi)
+\end{BoxEquation}
+考虑到$\sin^2(\omega t+\phi)+\cos^2(\omega t+\phi)=1$，振动系统的机械能为
+\begin{BoxEquation}[简谐振动的能量]
+    E=\frac{1}{2}m\omega^2 A^2=\frac{1}{2}kA^2
+\end{BoxEquation}
+\Refx{公式}{简谐振动的能量}指出，对于确定的振动系统，振幅反映了振动系统的总能量。

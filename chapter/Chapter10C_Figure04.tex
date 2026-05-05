@@ -1,0 +1,55 @@
+\begin{tikzpicture}[scale=1]
+    \foreach \x in {-5,-4.75,...,5}
+    {
+        \node at (\x,-1.75) {$\odot$};
+        \node at (\x,+1.75) {$\otimes$};
+    }
+    \lPoint{O}{0,0}
+    \lPoint{X1}{-6.5,0}
+    \lPoint{X2}{+6.5,0}[above][x]
+    \lPoint{Y1}{0,-3}
+    \lPoint{Y2}{0,+3}[right][y]
+    \draw[->,dotted] (X1)--(X2);
+    \draw[->,dotted] (Y1)--(Y2);
+
+    \draw[-latex,blue!50!white] (-5.2,0)--(+5.2,0) node[right] {$\vb*{B}$};
+    \draw[-latex,blue!50!white] (-5.2,1)--(+5.2,1) node[right] {$\vb*{B}_1$};
+    \draw[-latex,blue!50!white] (-5.2,2.5)--(+5.2,2.5) node[right] {$\vb*{B}_2$};
+    
+    \fill[black,fill opacity=0.1] (-4,0) rectangle (-2,1);
+    \draw[->] (-4,0)--(-2,0);
+    \draw (-2,0)--(-2,1);
+    \draw[->] (-2,1)--(-4,1);
+    \draw (-4,1)--(-4,0);
+
+    \fill[black,fill opacity=0.1] (4,0) rectangle (2,2.5);
+    \draw[->] (+2,0)--(+4,0);
+    \draw (+4,0)--(+4,2.5);
+    \draw[->] (+4,2.5)--(+2,2.5);
+    \draw (+2,2.5)--(+2,0);
+
+    \draw[dotted,gray] (-4,0)--(-4,-0.75);
+    \draw[dotted,gray] (-2,0)--(-2,-0.75);
+    \draw[gray,ultra thin,<->] (-4,-0.5)--(-2,-0.5);
+    \node[below,gray] at (-3,-0.6) {$l$};
+
+    \draw[dotted,gray] (4,0)--(4,-0.75);
+    \draw[dotted,gray] (2,0)--(2,-0.75);
+    \draw[gray,ultra thin,<->] (4,-0.5)--(2,-0.5);
+    \node[below,gray] at (3,-0.6) {$l$};
+
+    \node at (-3,0.5) {$L_1$};
+    \node at (+3,1.25) {$L_2$};
+
+    \node[below] at (-3,0)   {$a_1$};
+    \node[right] at (-2,0.5) {$a_2$};
+    \node[above] at (-3,1.0) {$a_3$};
+    \node[left]  at (-4,0.5) {$a_4$};
+
+    \node[below] at (+3,0)    {$b_1$};
+    \node[left]  at (+2,1.25) {$b_4$};
+    \node[above] at (+3,2.50) {$b_3$};
+    \node[right] at (+4,1.25) {$b_2$};
+
+    \clip (-6.6,-3.05) rectangle (6.6,3.05);
+\end{tikzpicture}

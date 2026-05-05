@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=1.0]
+    \draw[dotted] (-0.5,-2.5) rectangle (4.5,2.5);
+
+    \draw (-0.03,-2) rectangle (0.03,2);
+    \draw[black!20!white] (-0.23,-2) rectangle (-0.17,2);
+    \draw[black!20!white] (0.23,-2) rectangle (0.17,2);
+    \draw[->,ultra thin] (0.01,2.1)--(0.2,2.1);
+    \draw[->,ultra thin] (-0.01,2.1)--(-0.2,2.1);
+
+    \draw[->,ultra thin] (0.01,-2.1)--(0.2,-2.1);
+    \draw[->,ultra thin] (-0.01,-2.1)--(-0.2,-2.1);
+
+    \foreach \i in {-1.6,-1.2,...,1.7}
+    {
+        \draw[-latex,thin] (0.5,\i)--(4,\i);
+    }
+
+    \foreach \i in {0.7,1.2,...,3.7}
+    {
+        \draw[dashed] (\i,2.1)--(\i,-2.1);
+    }
+
+    \node at(0,-2.5)[above] {\tiny 波源};
+    \node at(1.2,-1.95)[below] {\tiny 波面};
+    \node at(2.2,-1.95)[below] {\tiny 波面};
+    \node at(3.7,-1.95)[below] {\tiny 波前};
+    \node at(3.9,1.6)[right] {\tiny 波线};
+    \node at(3.9,1.2)[right] {\tiny 波线};
+\end{tikzpicture}

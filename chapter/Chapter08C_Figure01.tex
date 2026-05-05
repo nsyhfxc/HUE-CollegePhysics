@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{O}{0,0}[below right][O]
+
+    \lPoint{X1}{-3.3,0}
+    \lPoint{X2}{3.3,0}[right][x]
+    \lPoint{Y}{0,6}[right][y]
+    \lPoint{A}{-1.2,0}[above left][B]
+    \lPoint{B}{1.2,0}[above right][A]
+    \node[below,blue!50!white] at (A) {\tiny $-q$};
+    \node[below,red!50!white] at (B) {\tiny $+q$};
+
+    \draw[-latex] (A)--(B);
+    \draw[dotted,->] (X1)--(X2);
+    \draw[dotted,->] (O)--(Y);
+
+    \lPoint{P}{2.5,5}[above][P]
+    \draw[thin,gray] (A)--(P)--(B);
+    \draw[-latex] (O)--(P);
+
+    \lProject{H1}{A}{O}{P}[below][H_{-}]
+    \lProject{H2}{B}{O}{P}[left][H_{+}]
+    \draw[dashed,gray,thin] (A)--(H1);
+    \draw[dashed,gray,thin] (B)--(H2);
+    \draw[gray,thin] (O)--(H1);
+
+    \lRightAngle{O}{H1}{A}
+    \lRightAngle{O}{H2}{B}
+
+    \lAngle[\text{\footnotesize $\theta$}]{A}{O}{H1}[0.15]
+
+    \lAngle[\text{\footnotesize $\theta$}]{B}{O}{H2}[0.15]
+
+    \draw[blue!50!white,fill=white] (A) circle (0.055);
+    \draw[red!50!white,fill=white] (B) circle (0.055);
+    \draw[fill=white] (O) circle(0.04);
+    \draw[fill=white] (P) circle(0.04);
+    \draw[fill=white,thin] (H1) circle(0.03);
+    \draw[fill=white,thin] (H2) circle(0.03);
+
+    \lRatio{R1}{P}{A}{0.5}[left][r_{-}]
+    \lRatio{R2}{P}{B}{0.5}[right][r_{+}]
+    \lRatio{R}{P}{O}{0.60}[left][r]
+    \lRatio{l1}{A}{O}{0.40}[above][\text{\tiny $\frac{l}{2}$}]
+    \lRatio{l2}{B}{O}{0.45}[below][\text{\tiny $\frac{l}{2}$}]
+\end{tikzpicture}

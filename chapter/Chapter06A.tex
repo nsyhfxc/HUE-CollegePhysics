@@ -1,0 +1,171 @@
+\section{简谐振动}
+
+\subsection{简谐振动的定义}
+我们现在来研究\uwave{弹簧振子}的振动，弹簧振子是一个物理模型，将质量可以忽略不计的轻弹簧的一段固定，在另一段系一个可以视为质点的物体，称为\uwave{振子}，由轻弹簧和物体组成的系统称为弹簧振子。那么现在的问题就是，弹簧振子的运动遵循何种运动方程？
+
+根据\Refx{定律}{胡克定律}
+\begin{Equation}[简谐振动1]
+    F=-kx
+\end{Equation}
+即物体所受的弹性力$F$，与物体相对于平衡位置的位矢成正比，与物体位矢方向相反。这种与位矢方向相反指向平衡位置的力称为\uwave{回复力}，而与位矢成正比的回复力称为\uwave{线性回复力}。
+
+根据\Refx{公式}{牛顿第二定律的加速度形式}
+\begin{Equation}[简谐振动2]
+    F=ma=m\Fdif{x}{t}^2
+\end{Equation}
+将式\ref{式:简谐振动2}代入式\ref{式:简谐振动1}，并在等式两侧同除$m$，就得到了弹簧振子的运动学方程
+\begin{Equation}[简谐振动3]
+    \Fdif{x}{t}^2+\frac{k}{m}x=0
+\end{Equation}
+对于弹簧振子，其劲度系数$k$和振子质量$m$均是常数，因此两者的比值也是常数，我们将该常数记作$\omega^2=\frac{k}{m}$，其物理意义将在稍后揭示，那么上式的运动学方程即为
+\begin{Equation}[简谐振动4]
+    \Fdif{x}{t}^2+\omega^2 x=0
+\end{Equation}
+这就得到了一个二阶常系数齐次线性微分方程。
+
+根据微分方程理论，式\ref{式:简谐振动4}的解为
+\begin{BoxEquation}[简谐振动的位矢]
+    x=A\cos(\omega t+\phi)
+\end{BoxEquation}
+\Refx{公式}{简谐振动的位矢}中的$A,\varphi$是积分常量，其物理意义和确定方法将在之后讨论。
+
+\Refx{公式}{简谐振动的位矢}中关注到，位矢函数是一个带有系数的余弦函数，我们将一切具有该函数形式的振动称为\uwave{简谐振动}，因此弹簧振子的振动是一种简谐振动。
+
+根据以上的推导过程，我们可以得出物体作简谐振动的判定条件。
+\begin{BoxPrinciple}[简谐振动的动力学特征]
+    如果物体受到线性回复力的作用，那么物体将作简谐振动。
+    \begin{BoxEq}
+        F=-kx
+    \end{BoxEq}
+\end{BoxPrinciple}
+\begin{BoxPrinciple}[简谐振动的运动学特征]
+    如果物体的运动学方程满足下式，那么物体将作简谐振动。
+    \begin{BoxEq}
+        \Fdif{x}{t}^2+\omega^2 x=0
+    \end{BoxEq}
+\end{BoxPrinciple}
+这就表明，对于一般情况而言，如果物体的运动满足以上特征，尽管其$k,\omega^2$可能具有与弹簧振子模型不同的物理意义和数学形式，但只要$k,\omega^2$为常数，那么物体都将作简谐振动。
+
+在\Refx{公式}{简谐振动的位矢}中代入\Refx{定义}{瞬时速度}，即得
+\begin{BoxEquation}[简谐振动的速度]
+    v=\Fdif{x}{t}=-\omega A\sin(\omega t+\varphi)=\omega A\cosine(\omega t+\varphi +\frac{\pi}{2})
+\end{BoxEquation}
+
+在\Refx{公式}{简谐振动的位矢}中代入\Refx{定义}{瞬时加速度}，即得
+\begin{BoxEquation}[简谐振动的加速度]
+    a=\Fdif{v}{t}=-\omega^2 A\cos(\omega t+\varphi)=\omega^2 A\cosine(\omega t+\varphi +\pi)
+\end{BoxEquation}
+上式分别使用了$-\sin(x)=\cosine(x+\frac{\pi}{2})$以及$-\cos(t)=\cosine(x+\pi)$的三角诱导公式，这就得到了简谐振动中的速度和加速度，两者也都是随时间周期性变化的余弦函数。
+
+根据以上的结论，容易得到运动参量间的关系，整理如下
+\begin{BoxGeneral}[简谐振动的运动参量关系][公式]
+    位矢与速度的关系
+    \begin{BoxEq}
+        A^2=x^2+\frac{v^2}{\omega^2}
+    \end{BoxEq}
+    加速度与速度的关系
+    \begin{BoxEq}
+        A^2=\frac{a^2}{\omega^4}+\frac{v^2}{\omega^2}
+    \end{BoxEq}
+    加速度与位矢的关系
+    \begin{BoxEq}
+        a=-\omega^2 x
+    \end{BoxEq}
+\end{BoxGeneral}
+
+\subsection{简谐振动的特征参量}
+根据简谐振动的运动学方程$x=A\cos(\omega t+\phi)$，以下将讨论$A,\omega,\varphi$三个参量的物理意义。
+
+\subsubsection{角频率}
+物体作一次完整振动所经历的时间称为\uwave{周期}，物体在单位时间内发生的振动次数称为\uwave{频率}，周期和频率分别用$T$和$\nu$表示，显然，周期和频率互为彼此的倒数，即
+\begin{BoxDefinition}[频率]
+    T=\frac{1}{\nu}
+\end{BoxDefinition}
+根据周期的定义，每相隔一个周期，振动状态完全重复，即
+\begin{equation*}
+    x=A\cos(\omega t+\phi)=A\cos[\omega(t+T)+\phi]
+\end{equation*}
+根据上式可知周期的取值为$\omega T=2k\pi$，通常我们讨论的周期都是最小正周期，故
+\begin{BoxDefinition}[角频率]
+    T=\frac{2\pi}{\omega}
+\end{BoxDefinition}
+根据以上\Refx{定义}{频率}以及\Refx{定义}{角频率}的结论，关注到此处有$\omega=2\pi\nu$成立，即$\omega$与频率$\nu$间相差$2\pi$倍，故$\omega$被称为\uwave{角频率}。如果我们引入随后将介绍的相位的概念，频率$\nu$即\textbf{单位时间内物体的振动的次数}，角频率$\omega$即\textbf{单位时间内的相位变化}。
+
+角频率是由振动体系确定的物理量，例如在弹簧振子中就有$\omega=\sqrt{\frac{k}{m}}$，其中$k,m$分别为弹簧劲度系数和振子质量，均只与弹簧振子的性质有关，而与弹簧振子的初始状态无关，因此我们也将这里的角频率称为系统的\uwave{固有角频率}，与之对应的频率称为系统的\uwave{固有频率}。
+
+角频率和频率在国际单位制中的单位是\si{Hz=s^{-1}}，量纲是\si{[T^{-1}]}，称为\uwave{赫兹}。
+
+\subsubsection{振幅}
+关注到$x=A\cos(\omega t+\phi)$中，由于$\cos(\omega t+\phi)\in[-1,1]$，故$x\in[-A,A]$，即物体的振动范围被限制在$-A$和$+A$之间，我们将物体离开平衡位置的最大位矢的绝对值$A$称为\uwave{振幅}。
+
+设$t=0$时有$x_0=A\cos\phi,~v_0=-A\omega\sin\phi,~a=-A\omega^2\cos\phi$，则
+\begin{equation*}
+    x_0^2=A^2\cos^2\phi\qquad v_0^2=A^2\omega^2\sin^2\phi\qquad a_0^2=A^2\omega^4\cos^2\phi
+\end{equation*}
+因此就有
+\begin{BoxEquation}[简谐振动的振幅]
+    A=\sqrt{x_0^2+\frac{v_0^2}{\omega^2}}\qquad
+    A=\sqrt{\frac{a_0^2}{\omega^4}+\frac{v_0^2}{\omega^2}}\qquad A=-\frac{\omega^2 x_0^2}{a_0}
+\end{BoxEquation}
+\Refx{公式}{简谐振动的振幅}指出，振幅是与振动系统和初始状态有关的参数，如果弹簧振子在$x_0$处以$v_0=0$静止释放，此时有$A=x_0$即振幅就是初位矢，如果弹簧振子在释放时具有初始速度$v_0\neq 0$，无论速度向何种方向，振幅都将大于初位矢$A>x_0$。
+
+\Refx{公式}{简谐振动的振幅}对于$t\neq 0$时刻的$x,v,a$也是成立的，因为公式的核心$\cos^2 x+\sin^2 x=1$无所谓$x=\phi$还是$x=\omega t+\phi$，参见\Refx{公式}{简谐振动的运动参量关系}。
+
+\subsubsection{初相}
+关注到在简谐振动中，若振幅和角频率已经确定，那么物体的位矢和速度只与$\omega t+\phi$有关， 其中我们将$\omega t+\phi$称为\uwave{相位}，在周期性的运动中，使用相位描述物体的运动状态，要比使用位矢和速度描述物体的运动状态更为简便，例如“位矢为$\frac{\sqrt{2}}{2}A$且速度与位矢相反”的表述显然不如“相位为$\frac{\pi}{4}$”清晰。使用相位还能充分体现简谐振动的周期性。
+
+特别的，当$t=0$时相位为$\phi$，因此我们将$\phi$称为\uwave{初相位}或简称\uwave{初相}，表示系统的初始状态。
+
+设$t=0$时有$x_0=A\cos\phi,~v_0=-A\omega\sin\phi,~a=-A\omega^2\cos\phi$，则
+\begin{equation*}
+    \frac{v_0}{x_0}=-\omega\tan\phi\qquad\frac{a_0}{x_0}=-\omega^2\tan\phi\qquad\frac{a_0}{v_0}=\omega\tan\phi
+\end{equation*}
+因此就有
+\begin{BoxEquation}[简谐振动的初相]
+    \tan\phi=-\frac{v_0}{\omega x_0}\qquad \tan\phi=-\frac{a_0}{\omega^2 x_0}\qquad\tan\phi=\frac{a_0}{\omega v_0}
+\end{BoxEquation}
+应注意，在\Refx{公式}{简谐振动的振幅}中可以代入任意时刻的$x,v,a$，但\Refx{公式}{简谐振动的初相}中只能代入初始时刻的$x_0,v_0,a_0$，否则得到的不是初相位而是相位。由此可见，振幅可以由任意时刻的状态确定，初相只能由初始状态确定，两者都与系统状态有关。
+
+\subsection{简谐振动的旋转矢量图示法}
+为了直观地体会简谐振动中的$A,\omega,\phi$的具体物理含义，我们介绍简谐振动的\uwave{旋转矢量法}。
+
+绘制简谐振动的$x-t$图像，其中，$t$为横轴，$x$为纵轴，以$O$为原点作一半径为$A$的矢量，记作$\vb*{A}$，矢量$A$绕坐标原点以角速度$\omega$作逆时针旋转，矢量$A$的起始位置是自垂直的$x$轴逆时针角度为$\phi$的位置，关注到当时间为$t$时，矢量$\vb*{A}$与$x$轴正方向的夹角是$(\omega t+\phi)$。
+
+根据三角学知识，矢量$\vb*{A}$的端点在$x$轴的投影点的位矢变化规律为
+\begin{equation*}
+    x=A\cos(\omega t+\phi)
+\end{equation*}
+这与简谐振动的表达式是一致的，这就表明当矢量$\vb*{A}$的端点在做圆周运动时，其在$x$轴上的投影点将作简谐振动，同时简谐振动的参量与圆周运动的参量一一对应
+\begin{itemize}
+    \item 简谐运动中的振幅$A$表现为圆周运动的半径。
+    \item 简谐振动中的角频率$\omega$表现为圆周运动的角速度。
+    \item 简谐振动中的初相位$\phi$表现为圆周运动的初始角度。
+\end{itemize}
+圆周运动某时刻在$x$轴上的投影即为$x-t$图上该时刻的位矢，据此可以绘出$x-t$图
+\begin{Figure}{简谐振动的旋转矢量法}
+    \inputfigure{Chapter06A_Figure01}
+\end{Figure}
+\Refx{图}{简谐振动的旋转矢量法}中，关注到由于$x-t$图中$x$轴以纵轴方式绘制，因此旋转矢量的角度是相对于垂直的$x$轴，而不是更为常见的水平的$x$轴，这是需要注意的。
+
+\Refx{图}{简谐振动的旋转矢量法}中可以看出，\textbf{相位即旋转矢量转过的角度}。
+\begin{Figure}{通过旋转矢量法确定初相位}
+    \subfigure[第一种情况]
+    {
+        \inputfigure{Chapter06A_Figure02}
+    }
+    \qquad
+    \subfigure[第二种情况]
+    {
+        \inputfigure{Chapter06A_Figure03}
+    }
+\end{Figure}
+如上图所示，一般情况下，通过作图所得的初相有左右两个可能的位置，应当选取圆周上，使得逆时针的旋转方向与余弦曲线上点沿时间向前的运动方向大致相同的那个点。
+
+此外，依据\Refx{公式}{简谐振动的初相}通过$\arctan$计算得到的$\phi$值的取值范围是$[-\frac{\pi}{2},\frac{\pi}{2}]$，也就是旋转矢量图的上半部分，但根据三角学可知$\phi$和$\pi-\phi$均是初相可能的解，两者在旋转矢量图上表现为上下对称的两个旋转矢量，而初相与初位矢是相对应的，因此
+\begin{itemize}
+    \item 如果初位矢为正，那么对应的旋转矢量初值在上半部分，因此初相位取$\phi$。
+    \item 如果初位矢为负，那么对应的旋转矢量初值在下半部分，因此初相位取$\pi-\phi$。
+\end{itemize}
+该结论通过旋转矢量分析是显然，但如果直接从数学的角度思考则是非常繁琐的。
+
+由此可见，旋转矢量对于涉及初相位和相位的分析是十分有效的辅助工具。

@@ -1,0 +1,221 @@
+\section{自然坐标系中的曲线运动}
+在一般的曲线运动中，质点的速度大小和方向都在改变，为了研究质点的运动状态，我们可以沿着质点运动轨迹建立\uwave{自然坐标系}，设$t$时刻质点位于$A$处，则以$A$为坐标原点
+\begin{itemize}
+    \item 一根坐标轴沿着轨迹的切向（顺着运动方向），该方向上的单位矢量用$\vb*{e_t}$表示。
+    \item 一根坐标轴沿着轨迹的法向（指向曲线内侧），该方向上的单位矢量用$\vb*{e_n}$表示。
+\end{itemize}
+应当注意，自然坐标系自身会随着质点的运动不断变换，因此$\vb*{e_t}$和$\vb*{e_n}$也会（在原始的直角坐标系中）随之改变，因此这两个单位矢量均可以视为关于时间的函数$\vb*{e_t}(t)$和$\vb*{e_n}(t)$。
+
+由于速度$\vb*{v}$总是沿着轨迹的切向，因此
+\begin{equation*}
+    \vb*{v}=v\vb*{e_t}
+\end{equation*}
+根据\Refx{定义}{瞬时加速度}
+\begin{Equation}[自然坐标系的加速度中间式]
+    \vb*{a}=\Fdif{\vb*{v}}{t}=\Fdif{t}(v\vb*{e_t})=\Fdif{v}{t}\vb*{e_t}+\Fdif{\vb*{e_t}}{t}v
+\end{Equation}
+关注到上式第二项的导数意义并不明确（什么是切向单位矢量$\vb*{e_t}$对时间的导数？），我们分别考虑在$t,t+\delt{t}$时的切向单位矢量$\vb*{e_t}(t),\vb*{e_t}(t+\delt{t})$，将两者平移到同一点$O$处。
+
+令$\vec{OA}=\vb*{e_t}(t)$，而$\vec{OB}=\vb*{e_t}(t+\delt{t})$，由于两者均为单位矢量，因此有$|\vec{OA}|=|\vec{OB}|=1$，即构成一个腰为$1$的等腰三角形，同时设等腰三角形的顶角为$\delt{\theta}$（即为矢量$\vb*{e_t}$或$\vb*{v}$的角度变化量），考虑到弧的半径$OA=1$，因此有$\wideparen{AB}=\delt{\theta}$。
+\begin{Tikz}{自然坐标系中的切向单位矢量}
+    \lPoint{O}{0,0}[left]
+    \lShift{A}{O}{0:4}[right]
+    \lShift{B}{O}{30:4}[above]
+    \draw[-latex] (O)--(A);
+    \draw[-latex] (O)--(B);
+    \draw[-latex] (A)--(B);
+    \lRatio{et}{O}{A}{0.5}[below][\vb*{e_t}(t)]
+    \lRatio{etd}{O}{B}{0.5}[above left][\vb*{e_t}(t+\delt{t})]
+    \lRatio{det}{A}{B}{0.5}[left][\delt{\vb*{e_t}}]
+    \draw (A) arc(0:30:4);
+    \lAngle[\delt{\theta}]{A}{O}{B}[0.4]
+\end{Tikz}
+当$\delt{t}\rightarrow 0$时有弧度$\delt{\theta}\rightarrow 0$，此时弧长和弦长为等价无穷小，即
+\begin{equation*}
+    \delt{e_t}=AB\sim\wideparen{AB}=\delt{\theta}
+\end{equation*}
+因此
+\begin{equation*}
+    \Fdif{e_t}{t}=\Lim{\delt{t}}{0}{\Fdet{e_t}{t}}=\Lim{\delt{t}}{0}{\Fdet{\theta}{t}}=\Fdif{\theta}{t}
+\end{equation*}
+当$\delt{t}\rightarrow 0$时$\delt{\vb*{e_t}}$的极限方向与切向$\vb*{e_t}$垂直（与$OA$垂直），即为法向$\vb*{e_n}$的方向。
+
+由此可以得到
+\begin{equation*}
+    \Fdif{\vb*{e_t}}{t}=\Fdif{\theta}{t}\vb*{e_n}
+\end{equation*}
+
+代入式\ref{式:自然坐标系的加速度中间式}可得
+\begin{BoxEquation}[自然坐标系中的加速度]
+    \vb*{a}=\Fdif{v}{t}\vb*{e_t}+v\cdot\Fdif{\theta}{t}\vb*{e_n}
+\end{BoxEquation}
+\Refx{公式}{自然坐标系中的加速度}的重要意义在于，其将加速度拆分为切向和法向
+\begin{enumerate}
+    \item 切向加速度$\vb*{a_t}=\Fdif{v}{t}\vb*{e_t}$，其大小是速率的变化率。
+    \item 法向加速度$\vb*{a_n}=v\cdot\Fdif{\theta}{t}\vb*{e_t}$，其大小是速率和速度矢量方向角的变化率的积。
+\end{enumerate}
+\Refx{公式}{自然坐标系中的加速度}中的$\delt{\theta}$代表速度的角度变化量，我们知道这在圆周运动中等价于角位移，从而可以得到法向加速度在圆周运动中的特殊形式
+\begin{equation*}
+    \vb*{a_n}=v\cdot\Fdif{\theta}{t}\vb*{e_n}=v\cdot\omega\vb*{e_n}=v\cdot\frac{v}{R}\vb*{e_n}=\frac{v^2}{R}\vb*{e_n}
+\end{equation*}
+我们现在想要得知，在一般的运动中，能否也将$\delt{\theta}$转化为某个圆周下的角位移？
+
+答案是肯定的，这是因为，质点在曲线上每一点附近的运动，均可以视为在该点在其所对应的\uwave{密切圆}上的运动，这就将任何的一般运动转换为了“半径不断变换”的圆周运动。
+
+密切圆也称为\uwave{曲率圆}，密切圆的半径即为\uwave{曲率半径}，记作$\rho=\rho(t)$。
+
+由此速度的角度变化量$\delt{\theta}$就可以转化为对应密切圆上的角位移，从而
+\begin{equation*}
+    \vb*{a_n}=v\cdot\Fdif{\theta}{t}\vb*{e_n}=v\cdot\omega\vb*{e_n}=v\cdot\frac{v}{\rho}\vb*{e_n}=\frac{v^2}{\rho}\vb*{e_n}
+\end{equation*}
+上式中的$\omega$即为密切圆上的角速度。
+
+上式代入\Refx{公式}{自然坐标系中的加速度}即得其更为常见的形式
+\begin{BoxEquation}[自然坐标系中的加速度的曲率半径表示]
+    \vb*{a}=\Fdif{v}{t}\vb*{e_t}+\frac{v^2}{\rho}\vb*{e_n}
+\end{BoxEquation}
+因此圆周运动本质上可以视作曲率半径为常数的一般运动，即$\rho(t)=R$。
+
+考虑到$\vb*{e_t}$和$\vb*{e_n}$垂直，因此加速度的大小可以表示为
+\begin{equation*}
+    a=\sqrt{a_n^2+a_t^2}=\sqrt{\qty(\Fdif{v}{t})^2+\qty(\frac{v^2}{t})^2}
+\end{equation*}
+加速度的方向可以表示为
+\begin{align*}
+    \tan\vang{a}{e_n}=\frac{a_t}{a_n}\qquad
+    \tan\vang{a}{e_{t}}=\frac{a_n}{a_t}
+\end{align*}
+\begin{enumerate}
+    \item 加速度和轨迹法向的角度正切，是切向加速度和法向加速度的大小之比。
+    \item 加速度和轨迹切向的角度正切，是法向加速度和切向加速度的大小之比。
+\end{enumerate}
+
+\section{抛体运动}
+从地面向空中抛出一物体，它在空中的运动称为\uwave{抛体运动}，抛体运动通常是二维运动，在空气阻力，风向，风速可以忽略的情况下，物体在各个时刻的加速度都是重力加速度$\vb*{g}$。
+
+如果我们以初速度$\vb*{v_0}$从原点$\vb*{r_0}=\vb*{0}$处斜抛出物体，那么运动方程
+\begin{equation*}
+    \vb*{r}=\Int[0][t]{\vb*{v}\dt}=\Int[0][t]{\qty(\vb*{v_0}+\Int[0][t]{\vb*{g}\dt})\dt}=\Int[0][t]{\qty(\vb*{v_0}+\vb*{g}t)\dt}=\vb*{v_0}t+\frac{\vb*{g}t^2}{2}
+\end{equation*}
+设$v_0$与横轴的夹角为$\theta$，那么在直角坐标系中可以分解为（注意$\vb*{g}$的方向向下）
+\begin{equation*}
+    \vb*{r}=v_0t\cos{\theta}\vi+\qty(v_0t\sin{\theta}-\frac{gt^2}{2})\vj
+\end{equation*}
+即
+\begin{equation*}
+    \begin{cases}
+        x=v_0t\cos\theta\\
+        y=v_0t\sin\theta-\dfrac{gt^2}{2}
+    \end{cases}
+\end{equation*}
+考虑到$t=\dfrac{x}{v_0\cos\theta}$，代入$y$中即得
+\begin{equation*}
+    y=\dfrac{xv_0t\sin\theta}{v_0t\cos\theta}-\dfrac{gx^2}{2v_0^2\cos^2\theta}
+\end{equation*}
+化简得
+\begin{BoxEquation}[抛体运动的轨迹方程]
+    y=x\tan\theta-\frac{gx^2}{2v_0^2\cos^2\theta}
+\end{BoxEquation}
+由\Refx{公式}{抛体运动的轨迹方程}可知，抛体运动的轨迹是抛物线。
+
+在\Refx{公式}{抛体运动的轨迹方程}中，如果令$y=0$，解得（$x=0$被舍去）\footnote{最后一个等号的成立是因为$\cos^2\theta\tan\theta=\dfrac{\cos^2\theta\sin\theta}{\cos\theta}=\cos\theta\sin\theta=\dfrac{1}{2}\sin 2\theta$}
+\begin{equation*}
+    x\tan\theta=\frac{gx^2}{2v_0^2\cos^2\theta}\qquad x=\frac{2v_0^2\cos^2\theta\tan\theta}{g}=\frac{v_0^2\sin2\theta}{g}
+\end{equation*}
+此时所得的$x$记作$L$，称为抛体运动的\uwave{射程}
+\begin{BoxEquation}[抛体运动的射程]
+    L=\frac{v_0^2\sin2\theta}{g}
+\end{BoxEquation}
+根据\Refx{公式}{抛体运动的射程}，当$\theta=\frac{\pi}{4}$时有$\sin 2\theta=1$，此时取到最大射程。
+
+将$x=L$代入$x=x(t)$解得$t$，即为抛体运动的滞空时间$T$
+\begin{BoxEquation}[抛体运动的滞空时间]
+    T=\frac{2v_0\sin\theta}{g}
+\end{BoxEquation}
+
+将\footnote{因为当时间达到滞空时间一半时，物体将位于最高点。}$t=\dfrac{T}{2}$代入$y=y(t)$解得$y$，即为抛体运动的最大高度$H$
+\begin{BoxEquation}[抛体运动的最大高度]
+    H=\frac{v_0\sin\theta}{2g}
+\end{BoxEquation}
+应当指出，在实际的抛体运动中，受到我们在讨论中忽略的空气阻力和风力的影响，运动轨迹并不是抛物线，最大高度和实际射程也低于上述理论计算得出的数值。
+
+\section{伽利略坐标变换}
+由于描述物体运动的相对性，运动的度量必须相对于确定的参照系，换言之，描述质点运动的物理量（位矢，速度，加速度）的度量都需要相对于参照系。
+
+因此在不同的参照系中，同一个物理量可能有不同的度量值，那么研究不同参照系中的物理量关系就十分有必要了，\uwave{伽利略变换}是在绝对时空观下的一种参照系变换。
+
+\subsection{坐标变换}
+设空间中有两个坐标系$\mathrm{K_1}:O_1x_1y_1z_1$和$\mathrm{K_2}:O_2x_2y_2z_2$，假定两个坐标系间存在相对的匀速直线运动，在$\mathrm{K_1}$系中，测得$O_2$相较于$O_1$的速度恒为$\vb*{v}$，测得位矢$\vb*{R}=\vec{O_1O_2}$。
+
+设$\mathrm{K_1}$系中测得的时间为$t_1$，那么
+\begin{Equation}[参照系相对速度]
+    \vb*{R}=\vb*{R_0}+\vb*{v}t_1\qquad\Fdif{\vb*{R}}{t_1}=\Fdif{t_1}\qty(\vb*{R_0}+\vb*{v}t_1)=\vb*{v}
+\end{Equation}
+设空间中存在一点$P$，在$\mathrm{K_1}$系中测得$\vb*{r_1}=\vec{O_1P}$，在$\mathrm{K_2}$系中测得$\vb*{r_2}=\vec{O_2P}$。
+
+根据矢量叠加原理，应有下式成立
+\begin{Equation}[伽利略变换矢量叠加]
+    \vec{O_1P}=\vec{O_1O_2}+\vec{O_2P}
+\end{Equation}
+但是式\ref{式:伽利略变换矢量叠加}成立的前提条件是，三个矢量处于同一个参照系。
+
+而在式\ref{式:伽利略变换矢量叠加}中，$\vec{O_1P}$和$\vec{O_1O_2}$是在$\mathrm{K_1}$系中观测的，$\vec{O_2P}$是在$\mathrm{K_2}$系中测得的，根据空间的绝对性，在$\mathrm{K_1}$系中测得的$\vec{O_2P}$应与$\mathrm{K_2}$系中的观测结果相同，因此式\ref{式:伽利略变换矢量叠加}是成立的，即
+\begin{equation*}
+    \vb*{r_1}=\vb*{R}+\vb*{r_2}=\vb*{R_0}+\vb*{v}t_1+\vb*{r_2}
+\end{equation*}
+移项即得
+\begin{BoxEquation}[伽利略坐标变换]
+    \vb*{r_2}=\vb*{r_1}-\vb*{v}t_1-\vb*{R_0}
+\end{BoxEquation}
+\Refx{公式}{伽利略坐标变换}中的$\vb*{v}$和$\vb*{R_0}$均是参照系$\mathrm{K_2}$相对于参照系$\mathrm{K_1}$而言的，其指出，\textbf{新坐标系下的位移，等同于原坐标系下的位移，减去新坐标系的相对位移。}
+
+根据时间的绝对性，时间与参照系无关，因此$\mathrm{K_1},\mathrm{K_2}$系中的时间$t_1,t_2$应完全相同
+\begin{BoxEquation}[伽利略时间变换]
+    t_2=t_1
+\end{BoxEquation}
+\Refx{公式}{伽利略时间变换}指出在\Refx{公式}{伽利略坐标变换}以及其他的绝对时空观下的变换中，可以不加区分的使用两个参照系中的时间$t_1,t_2$，既然它们是完全等同的。
+
+\subsection{速度变换}
+设在$\mathrm{K_2}$系中，观测到$P$的速度为$\vb*{v_2}$。
+
+设在$\mathrm{K_1}$系中，观测到$P$的速度为$\vb*{v_1}$。
+
+根据\Refx{定义}{瞬时速度}
+\begin{equation*}
+    \vb*{v_2}=\Fdif{\vb*{r_2}}{t_2}\qquad\vb*{v_1}=\Fdif{\vb*{r_1}}{t_1}
+\end{equation*}
+在\Refx{公式}{伽利略坐标变换}两侧对时间求导，根据\Refx{公式}{伽利略时间变换}，这相当于，左侧对$t_2$求导，右侧对$t_1$求导，又考虑到式\ref{式:参照系相对速度}的结果，即有
+\begin{equation*}
+    \Fdif{\vb*{r_2}}{t_2}=\Fdif{\vb*{r_1}}{t_1}-\Fdif{t_1}\qty(\vb*{v}t_1+\vb*{R_0})
+\end{equation*}
+或
+\begin{BoxEquation}[伽利略速度变换]
+    \vb*{v_2}=\vb*{v_1}-\vb*{v}
+\end{BoxEquation}
+\Refx{公式}{伽利略速度变换}中，$\vb*{v_1},\vb*{v}$是在$\mathrm{K_1}$系中的观测，$\vb*{v_2}$则是在$\mathrm{K_2}$系中的观测。
+
+\subsection{加速度变换}
+设在$\mathrm{K_2}$系中，观测到$P$的加速度为$\vb*{a_2}$。
+
+设在$\mathrm{K_1}$系中，观测到$P$的加速度为$\vb*{a_1}$。
+
+根据\Refx{定义}{瞬时加速度}
+\begin{equation*}
+    \vb*{a_2}=\Fdif{\vb*{v_2}}{t_2}\qquad 
+    \vb*{a_1}=\Fdif{\vb*{v_1}}{t_1}
+\end{equation*}
+在\Refx{公式}{伽利略速度变换}两侧对时间求导，根据\Refx{公式}{伽利略时间变换}，这相当于，左侧对$t_2$求导，右侧对$t_1$求导，又考虑到$\vb*{v}$已经是一个常数
+\begin{equation*}
+    \Fdif{\vb*{v_2}}{t_2}=\Fdif{\vb*{v_1}}{t_1}
+\end{equation*}
+或
+\begin{BoxEquation}[伽利略加速度变换]
+    \vb*{a_2}=\vb*{a_1}
+\end{BoxEquation}
+\Refx{公式}{伽利略加速度变换}中，$\vb*{a_1}$是$\mathrm{K_1}$系中的观测，$\vb*{a_2}$是$\mathrm{K_2}$系中的观测。这表明两个仅存在相对匀速直线运动的参照系中，观测到的加速度是相同的\footnote{我们可能认为这是显然的，既然参照系间不存在相对加速度，那么两个参照系中观测得到的加速度自然是相同的，那么上述一系列冗长的推导意义何在？但问题在于，没有任何一条定律或假设保证，两个不同的坐标系间观测到的加速度适用于矢量叠加法则，我们只有绝对时空观假设（而没有什么“绝对加速度假设”），因此加速度变换必须从位矢开始推导。}，换言之，这表明加速度相对作匀速直线运动的各个参照系而言是绝对量，即加速度具有\uwave{伽利略不变性}。
+
+如果$\mathrm{K_2}$系和$\mathrm{K_1}$系间存在加速度，更为精确的说，是在$\mathrm{K_1}$系中观测到$O_2$的加速度为$\vb*{a}(t_1)$，那么只需要将\Refx{公式}{伽利略坐标变换}中的$vt_1$更换为$\Int[0][t_1]{(v_0+\Int[0][t_1]{a\dt_1})\dt_1}$，经过求导\Refx{公式}{伽利略速度变换}中的$v$被替换为$v_0+\Int[0][t_1]{a\dt}$，再进行求导即得
+\begin{Equation}[伽利略加速度变换的扩充]
+    \vb*{a_2}=\vb*{a_1}-\vb*{a}
+\end{Equation}
+上式适用于参照系间存在加速度的情况，可视为对\Refx{公式}{伽利略加速度变换}的补充。

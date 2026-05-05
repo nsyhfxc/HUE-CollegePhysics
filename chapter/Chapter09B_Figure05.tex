@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=1.5]
+    \lPoint{O}{0,0}[below left]
+    \lPoint{X}{4,0}[above][t]
+    \lPoint{Y}{0,4}[right][U]
+    \draw[->] (O)--(X);
+    \draw[->] (O)--(Y);
+    \draw[dotted] (0,2)--(4,2);
+    \draw[domain=0:3.9,red!50!white,thick,samples=200] plot (\x,{2*e^(-\x)});
+    \draw[domain=0:3.9,blue!50!white,thick,samples=200] plot (\x,{2*e^(-2*\x)});
+    \node[left] at (0,2) {$E$};
+
+    \draw[blue!50!white,thick] (2,3.5)--(2.5,3.5) node[right] {\scriptsize $RC$较小};
+    \draw[red!50!white,thick] (2,3.0)--(2.5,3.0) node[right] {\scriptsize $RC$较大};
+
+    \draw[fill=white] (0,2) circle (0.03);
+\end{tikzpicture}

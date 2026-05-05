@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=1]
+    \foreach \x in {0,7.5,...,359}
+    {
+        \node at (\x:2.25) {$\odot$};
+        \node at (\x:3.5) {$\otimes$};
+    }
+    \draw (0,0) circle (2.37);
+    \draw (0,0) circle (3.38);
+
+    \foreach \x in {2.5,2.65,...,3.3}
+    {
+        \draw[-latex,ultra thin,gray] (\x,0) arc (0:360:\x);
+    }
+
+    \node[gray,above] at (2.8,0) {$\vb*{B}$};
+
+    % \draw[-stealth,ultra thin,gray] (0,0)--(93.75:2.36);
+    % \draw[-stealth,ultra thin,gray] (0,0)--(108.75:2.875);
+    % \draw[-stealth,ultra thin,gray] (0,0)--(63.75:3.38);
+    % \node[right,gray] at (93.75:1.4) {\small $R_1$};
+    % \node[right,gray] at (63.75:1.6) {\small $R_2$};
+    % \node[left,gray] at (108.75:1.0) {\small $r$};
+\end{tikzpicture}

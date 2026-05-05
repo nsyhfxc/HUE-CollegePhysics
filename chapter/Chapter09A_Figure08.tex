@@ -1,0 +1,97 @@
+\NewDocumentCommand{\clabel}{mmm}
+{
+    \lPoint{O}{#1}
+    \lShift{L}{O}{0,-2.95}[center][\text{[#2]}]
+    \lShift{T}{O}{-75:2.75}[right][\text{导体带电$#3$}]
+}
+
+\NewDocumentCommand{\conductor}{smsmmmmmm}
+{
+    \lPoint{O}{#2}
+    \draw[thick,fill=black,fill opacity=0.07] (O) circle (2.5);
+    \draw[thick,fill=white] (O) circle (1.8);
+    \lShift{C}{O}{0,1.1}[center][\text{$\vb*{E}_c=#4$}]
+    \lShift{B}{O}{0,2.1}[center][\text{$\vb*{E}_b=#5$}]
+    \lShift{A}{O}{0,2.9}[center][\text{$\vb*{E}_a=#6$}]
+    \lShift{Q1}{O}{-0.1,0}[left][#7]
+    \lShift{Q2}{O}{1.8,0}[left][#8]
+    \lShift{Q3}{O}{65:2.4}[above right][#9]
+    \IfBooleanT{#1}
+    {
+        \draw(O) circle (0.15);
+        \node at (O) {\small $+$};
+    }
+    \IfBooleanT{#3}
+    {
+        \lShift{E1}{O}{-2.5,3.0}
+        \lShift{E1a}{O}{-2.5,2.0}
+        \foreach \a in {0,0.2,0.4}
+        {
+            \lShift{Ex}{E1}{\a,0}
+            \lShift{Exa}{E1a}{\a,0}
+            \draw[-latex](Ex)--(Exa);
+        }
+        \node [left] at (E1) {$\vb*{E}_0$};
+    }
+    \lShift{R1}{O}{-3.25,-3.25}
+    \lShift{R2}{O}{3.25,3.25}
+    \draw[gray,dotted] (R1) rectangle (R2);
+}
+
+\begin{tikzpicture}[scale=1.2]
+    \conductor{-8,+5}{\vb*{0}}{\vb*{0}}{\vb*{S}(q_1+q_2)}{}{}{(q_1+q_2)}
+    \clabel{-8,+5}{1.a}{q_1+q_2}
+
+    \conductor{+8,+5}*{\vb*{0}}{\vb*{0}}{\vb*{S}'(q_1+q_2)+\vb*{E}_0}{}{}{(q_1+q_2)'}
+    \clabel{+8,+5}{3.a}{q_1+q_2}
+
+    \conductor*{0,0}{\vb*{C}}{\vb*{0}}{\vb*{0}}{(q_2)}{(-q_2)}{(0)^{*}}
+    \clabel{0,0}{2}{-q_2}
+
+    \conductor*{-8,-5}{\vb*{C}}{\vb*{0}}{\vb*{S}(q_1+q_2)}{(q_2)}{(-q_2)}{(q_1+q_2)\hspace{-2pt}+\hspace{-2pt}(0)^*}
+    \clabel{-8,-5}{1.b}{q_1}
+
+    \conductor*{+8,-5}*{\vb*{C}}{\vb*{0}}{\vb*{S}'(q_1+q_2)+\vb*{E}_0}{(q_2)}{(-q_2)}{(q_1+q_2)'\hspace{-2pt}+\hspace{-2pt}(0)^*}
+    \clabel{+8,-5}{3.b}{q_1}
+
+    \conductor{-8,-13}{\vb*{0}}{\vb*{0}}{\vb*{S}q_1}{}{}{(q_1)}
+    \clabel{-8,-13}{1.c}{q_1}
+
+    \conductor{+8,-13}*{\vb*{0}}{\vb*{0}}{\vb*{S}'q_1+\vb*{E}_0}{}{}{(q_1)'}
+    \clabel{+8,-13}{3.c}{q_1}
+
+    \node[rotate=90] at (-8,1.0) {\huge $+$};
+    \node at (-8,0.0) {$[2]$};
+    \node[rotate=90] at (-7.95,-1.0) {\huge $=$};
+
+    \node[rotate=90] at (8,1.0) {\huge $+$};
+    \node at (8,0.0) {$[2]$};
+    \node[rotate=90] at (8.05,-1.0) {\huge $=$};
+
+    \draw[<->](-4.75,-5)--(4.75,-5);
+    \node[above] at (0,-5) {外部电场不会影响内部电场};
+
+    \draw[<->,gray](-4.75,-13)--(4.75,-13);
+    \node[above,gray] at (0,-13) {外部电场不会影响内部电场};
+    \node[below,gray] at (0,-13) {空腔无电荷的特殊情况};
+
+    \draw[<->,gray](-4.75,-5.5)--(-4,-5.5)--(-4,-12.5)--(-4.75,-12.5);
+    \node[above,rotate=90,gray] at (-4,-9) {内部电场对外部电场有影响};
+    \node[below,rotate=90,gray] at (-4,-9) {外部无电场的特殊情况};
+
+    \draw[<->](4.75,-5.5)--(4,-5.5)--(4,-12.5)--(4.75,-12.5);
+    \node[left] at (4,-9) {内部电场对外部电场有影响};
+
+    \draw[<->](4.75,-4.5)--(4,-4.5)--(4,6)--(4.75,6);
+    \node[above left] at (4.75,6) {内部空腔添加电荷，等效于将等量电荷添加于导体壳};
+
+    \draw[<->,gray](-4.75,-4.5)--(-4,-4.5)--(-4,6)--(-4.75,6);
+
+    \draw[dashed,gray,->] (-10.8,1.75)--(-10.8,-9.75);
+
+    \draw[dashed,gray,->] (10.8,1.75)--(10.8,-9.75);
+
+    \node [below right,gray] at (-10.8,1.75) {等比例};
+
+    \node [below left,gray] at (10.8,1.75) {等比例};
+\end{tikzpicture}

@@ -1,0 +1,31 @@
+\NewDocumentCommand{\GraphLSR}{mmmm}
+{
+    \makecell*
+    {%
+        \begin{tikzpicture}[scale=0.75]%
+            \draw[very thin,gray](-1.2,0)--(1.2,0);%
+            \draw[very thin,gray](0,-1.7)--(0,1.7);%
+            \draw[<->,very thin,gray] (0,-0.1)--(1.0,-0.1);%
+            \node[below,gray] at (0.5,0){\tiny $A_1$};%
+            \draw[<->,very thin,gray] (-0.1,0)--(-0.1,1.5);%
+            \node[left,gray] at (0,0.75){\tiny $A_2$};%
+            \draw[very thin] (1.2,1.7) rectangle (-1.2,-1.7);%
+            \draw[very thin,gray,dashed] (1.0,1.5) rectangle (-1.0,-1.5);%
+            \draw[blue!50!white,domain=0:pi,->] plot ({cos((#1*\x r)+#3)},{1.5*cos((#2*\x r)+#4)});%
+            \draw[blue!50!white,domain=pi:2*pi,-] plot ({cos((#1*\x r)+#3)},{1.5*cos((#2*\x r)+#4)});%
+            \draw[very thin,domain=0:2*pi,fill=white] plot ({(0.03*cos(\x r)+cos(#3))},{0.03*sin(\x r)+1.5*cos(#4)});%
+        \end{tikzpicture}%
+    }%
+}
+
+\begin{tabular}{ccccc}
+    \hline
+    $\delt\phi=0$&$\delt\phi=\frac{1}{4}\pi$&$\delt\phi=\frac{1}{2}\pi$&$\delt\phi=\frac{3}{4}\pi$&$\delt\phi=\pi$\\ 
+    \hline
+    \GraphLSR{1}{1}{0}{0}&
+    \GraphLSR{1}{1}{0}{45}&
+    \GraphLSR{1}{1}{0}{90}&
+    \GraphLSR{1}{1}{0}{135}&
+    \GraphLSR{1}{1}{0}{180}\\
+    \hline
+\end{tabular}

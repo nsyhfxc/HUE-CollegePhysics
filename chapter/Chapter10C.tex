@@ -1,0 +1,434 @@
+\vspace{-10pt}
+\section{磁场高斯定理与磁通量}
+\vspace{-10pt}
+
+\subsection{磁感线}
+为了形象的描述空间磁场的分布，我们可以引入\uwave{磁感线}的概念，简称$\vb*{B}$线。
+
+磁感线是这样的一簇曲线，每条磁感线上任意一点的切线方向，即代表该点处的电场方向，同时，磁感线越密集则代表磁感强度越大，磁感线线越稀疏代表电场强度越小，简单的说
+\begin{center}
+    磁感线的方向反映电场的方向，磁感线的疏密反映电场的强弱。
+\end{center}
+磁感线和电场线均是用于描绘场分布的场线，既有相似之处，又有不同之处。
+
+磁感线和电场线的共同特点是两者的场线都不会出现相交的情形，这是因为场线的方向反映矢量场的方向，如果场线相交就意味着矢量函数在交点处有两个方向，这是不可能的。
+
+磁感线与电场线的不同之处在于以下的特征
+\begin{itemize}
+    \item 磁感线总是形成闭合曲线，不存在起始点，不存在终止点。
+    \item 电场线不会形成闭合曲线，起始于正电荷，终止于负电荷。
+\end{itemize}
+我们知道，场线是否有起始点和终止点的特性反映了场是否有源，场线是否形成闭合曲线反映了场是否有旋。因此磁感线和电场线特征上的差异，就表明磁场和电场实际上是两种性质不同的场，磁场是有旋无源场，电场是有源无旋场，有关电场源和旋的性质我们已经在先前的第八章中证明了，有关磁场源和旋的性质将在本节和下一节分别予以证明。
+
+下表将列举几种常见电流产生的磁场的磁感线分布，为了更好的比较磁感线与电场线异同，以及其表征的磁场和电场的异同，下表将同时列出与之相似的电场的电场线分布。\footnote{实际上，不同方向的载流导线应该对应带不同电荷的带电细棒，而不是点电荷，当然这不是很要紧。}\vspace{20pt}
+\begin{TableLong}{常见磁感线与电场线的对比}
+{|>{\small}c|>{\small}c|}
+{}
+    \includegraphics[scale=0.8]{old/Python/build/VFP_B02.pdf}
+    &
+    \includegraphics[scale=0.8]{old/Python/build/VFP_E01.pdf}\\ \hline
+    垂直纸面向外的电流&正点电荷\\ \hline
+    \includegraphics[scale=0.8]{old/Python/build/VFP_B01.pdf}
+    &
+    \includegraphics[scale=0.8]{old/Python/build/VFP_E02.pdf}\\ \hline
+    垂直纸面向内的电流&负点电荷\\ \hline
+    \includegraphics[scale=0.8]{old/Python/build/VFP_B03.pdf}
+    &
+    \includegraphics[scale=0.8]{old/Python/build/VFP_E03.pdf}\\ \hline
+    磁偶极子&电偶极子\\ \hline
+    \includegraphics[scale=0.8]{old/Python/build/VFP_B04.pdf}
+    &
+    \includegraphics[scale=0.8]{old/Python/build/VFP_E04.pdf}\\ \hline
+    通电螺线管&带电平面组\\ \hline
+\end{TableLong}
+
+载流直导线和载流圆线圈轴线处的磁场都可以通过右手螺旋法则简记
+\begin{itemize}
+    \item 如果以右手伸直的拇指表示电流方向，即载流直导线，那么弯曲的四指表示磁场方向。
+    \item 如果以右手弯曲的四指表示电流方向，即载流圆线圈，那么伸直的拇指表示磁场方向。
+\end{itemize}
+% 载流螺线管的情况与载流圆线圈类似的，其管内的磁场也可以通过右手螺旋法则判定。
+
+在上表中我们看到，磁偶极子和电偶极子产生的场虽然在靠近场源电流和场源电荷的部分表现的非常不同，但两者在远离场源的远场点处则是非常接近的，这就验证了先前的说法。
+
+在上表中我们也看到，磁场中的\textbf{无限长通电螺线管}和电场中的\textbf{无限大带电平面组}具有某种相似性，前者可以产生匀强磁场，后者可以产生匀强电场，两者的地位是相当的，我们在稍后的内容中还将看到电路中与\textbf{电容}对应的另一种重要元器件\textbf{电感}也就是由螺线管构成的。\vspace{-10pt}
+
+\subsection{磁通量}
+定义磁感强度$\vb*{B}$在某一给定曲面$S$上的通量为\uwave{磁通量}，用$\Phi_B$表示。
+\begin{BoxDefinition}[磁通量]
+    \Phi_B=\Isnt[S]{\vb*{B}\cdot\dif{\vb*{S}}}
+\end{BoxDefinition}
+磁通量在国际单位制中的单位是\si{Wb=T\cdot m^2}，称为\uwave{韦伯}，量纲是\si{[L^2MT^{-2}I^{-1}]}。
+
+磁通量$\Phi_B$与先前的电通量$\Phi_E$是对应的，两者的性质和意义是基本相似的。\vspace{-10pt}
+
+\subsection{磁场高斯定理}
+在先前的\Refx{定律}{电场高斯定理}中我们研究了闭合曲面上的电通量，在这里我们就要对应的研究闭合曲面$S$上的磁通量，假定空间中仅有一根电流为$I$的载流导线$l'$。
+
+根据\Refx{定律}{毕奥-萨伐尔定律}，载流导线$l'$产生的磁场为
+\begin{Equation}[磁场高斯定理0]
+    \vb*{B}=\Ilnt[l']{\frac{\mu_0}{4\pi}\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2}}
+\end{Equation}
+根据高斯公式，若欲求$S$上的磁通量，就要先求出$\vb*{B}$的散度。
+\begin{Equation}[磁场高斯定理1]
+    \Isot[S]{\vb*{B}\cdot\dif{\vb*{S}}}=\Itnt{\nabla\cdot\vb*{B}\dif{V}}
+\end{Equation}
+式\ref{式:磁场高斯定理1}中的$\Omega$是闭曲面$S$所包围的空间区域，代入式\ref{式:磁场高斯定理0}得
+\begin{Equation}[磁场高斯定理2]
+    \Isot[S]{\vb*{B}\cdot\dif{\vb*{S}}}=
+    \Ilnt[l']{\frac{\mu_0}{4\pi}
+    \Itnt{\nabla\cdot\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})\dif{V}}}
+\end{Equation}
+根据向量微分算子的运算法则
+\begin{Equation}[磁场高斯定理3]
+    \nabla\cdot(\vb*{A}\times\vb*{B})=
+    (\nabla\times\vb*{A})\cdot\vb*{B}-
+    (\nabla\times\vb*{B})\cdot\vb*{A}
+\end{Equation}
+这里就有
+\begin{Equation}[磁场高斯定理4]
+    \nabla\cdot\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})=
+    \qty(\nabla\times I\dif{\vb*{l'}})\cdot\frac{\vu*{r}}{r^2}-
+    \qty(\nabla\times\frac{\vu*{r}}{r^2})\cdot I\dif{\vb*{l'}}
+\end{Equation}
+式\ref{式:磁场高斯定理4}的第一项中的$\nabla\times I\dif{\vb*{l'}}$所涉及的$I\dif{\vb*{l'}}$对于曲线积分中每一取定的电流元来说是一个常矢量，而常矢量的旋度处处为零矢量，因此第一项为零，我们不必再考虑了。
+
+式\ref{式:磁场高斯定理4}的第二项可以这样计算，关注到
+\begin{equation*}
+    \frac{\vu*{r}}{r^2}=\frac{\vb*{r}}{r^3}=\frac{x\vi+y\vj+z\vk}{(x^2+y^2+z^2)^{\frac{3}{2}}}=P\vi+Q\vj+R\vk
+\end{equation*}
+考虑到\vspace{-10pt}
+\begin{align*}
+    \Fpif{R}{y}=\frac{\frac{3}{2}z(x^2+y^2+z^2)^{\frac{1}{2}}2y}{(x^2+y^z+z^2)^{3}}=\frac{3zy}{(x^2+y^2+z^2)^{\frac{5}{2}}}\\[3mm]
+    \Fpif{Q}{z}=\frac{\frac{3}{2}y(x^2+y^2+z^2)^{\frac{1}{2}}2z}{(x^2+y^z+z^2)^{3}}=\frac{3yz}{(x^2+y^2+z^2)^{\frac{5}{2}}}
+\end{align*}
+这就可以得出
+\begin{equation*}
+    \Fpif{R}{y}-\Fpif{Q}{z}=0
+\end{equation*}
+类似的还有
+\begin{equation*}
+    \Fpif{P}{z}-\Fpif{R}{x}=0\qquad
+    \Fpif{Q}{x}-\Fpif{P}{y}=0
+\end{equation*}
+因此就有$\nabla\times\dfrac{\vu*{r}}{r^2}=\vb*{0}$，从而式\ref{式:磁场高斯定理4}的第二项也为零。
+
+那么式\ref{式:磁场高斯定理4}的结果就为
+\begin{equation*}
+    \nabla\cdot\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})=0
+\end{equation*}
+
+那么将上式代入式\ref{式:磁场高斯定理2}，就可以得到
+\begin{equation*}
+    \Isot[S]{\vb*{B}\cdot\dif{\vb*{S}}}=0
+\end{equation*}
+以上的推导就说明，载流导线对闭合曲面的磁通量贡献总是零，因此
+\begin{BoxPrinciple}[磁场高斯定理]
+    在磁场中，通过任意一个闭合曲面的磁通量总是为零。
+    \begin{BoxEq}
+        \Isot[S]{\vb*{B}\cdot\dif{\vb*{S}}}=0
+    \end{BoxEq}
+\end{BoxPrinciple}
+该规律就称为\uwave{磁场高斯定理}，在定理中所取的闭合曲面$S$称为\uwave{高斯面}。
+
+\Refx{定律}{磁场高斯定理}也可以通过磁感线形象理解，
+如果磁感线完全位于闭曲面内部或外部，那其对闭曲面的磁通量就没有任何贡献，如果磁感线穿过了闭曲面，由于磁感线不能中断，其从一处穿入闭曲面后必然会从另一处穿出，两者的磁通量相互抵消。
+
+\Refx{定律}{磁场高斯定理}也可以使用微分形式表达为
+\begin{BoxPrinciple}[磁场高斯定理的微分形式]
+    在磁场中，磁感强度的散度恒为零。
+    \begin{BoxEq}
+        \nabla\cdot\vb*{B}=0
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{磁场高斯定理的微分形式}指出
+\begin{center}
+    磁场是无源场
+\end{center}
+磁场是无源场，这就可以解释描绘磁场分布的磁感线为何没有起始点和终止点了。\vspace{10pt}
+
+\section{磁场的安培环路定理}
+静电场是一个保守场，因此\Refx{定律}{电场环路定理}指出静电场$\vb*{E}$的环流为零，那么现在的问题就是，静磁场是否一个保守场？事实上并不是，静磁场是非保守的，静磁场中也因此不能定义所谓的磁势的概念，当然,这也就意味着静磁场具有不为零的$\vb*{B}$的环流。
+
+本节我们就来研究静磁场的环流与什么因素有关，就像先前研究静电场的通量一样。
+
+\subsection{安培环路定理}
+在空间中任意取一条有向闭合曲线$L$，假定空间中仅有一根电流为$I$的载流导线$l'$。
+
+根据\Refx{定律}{毕奥-萨伐尔定律}，载流导线$l'$产生的磁场为
+\begin{Equation}[安培环路定律0]
+    \vb*{B}=\Ilnt[l']{\frac{\mu_0}{4\pi}\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2}}
+\end{Equation}
+根据斯托克斯公式，若欲求$L$上的磁场环流，就要先求出$\vb*{B}$的旋度。
+\begin{Equation}[安培环路定律1]
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=\Isnt[\Sigma]{\nabla\times\vb*{B}\cdot\dif{\vb*{S}}}
+\end{Equation}
+式\ref{式:安培环路定律1}中的$\Sigma$是闭曲线$L$所张成的任意空间曲面，代入式\ref{式:安培环路定律0}得
+\begin{Equation}[安培环路定律2]
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=
+    \Ilnt[l']{\frac{\mu_0}{4\pi}
+    \Isnt{\nabla\times\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})\cdot\dif{\vb*{S}}}}
+\end{Equation}
+根据向量微分算子的运算法则\footnote{这里的$(\vb*{A}\cdot\nabla)=A_x\Fpif{x}+A_y\Fpif{y}+A_z\Fpif{z},~(\vb*{B}\cdot\nabla)=B_x\Fpif{x}+B_y\Fpif{y}+B_z\Fpif{z}$，可以视为一个完整的微分算子。}
+\begin{Equation}[安培环路定律3]
+    \qquad\qquad\qquad\qquad
+    \nabla\times(\vb*{A}\times\vb*{B})=
+    \vb*{A}(\nabla\cdot\vb*{B})-
+    \vb*{B}(\nabla\cdot\vb*{A})+
+    (\vb*{B}\cdot\nabla)\vb*{A}-
+    (\vb*{A}\cdot\nabla)\vb*{B}
+    \qquad\qquad\qquad\qquad
+\end{Equation}
+这里就有
+\begin{Equation}[安培环路定律4]
+    \qquad
+    \nabla\times\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})=
+    I\dif{\vb*{l'}}\qty(\nabla\cdot\frac{\vu*{r}}{r^2})-
+    \frac{\vu*{r}}{r^2}\qty(\nabla\cdot I\dif{\vb*{l'}})+
+    \qty(\frac{\vu*{r}}{r^2}\cdot\nabla)I\dif{\vb*{l'}}-
+    \qty(I\dif{\vb*{l'}}\cdot\nabla)\frac{\vu*{r}}{r^2}\qquad
+\end{Equation}
+式\ref{式:磁场高斯定理4}第二项和第三项均是对常矢量$I\dif{\vb*{l'}}$的微分运算，其结果都为零。
+
+式\ref{式:磁场高斯定理4}第四项并不是零，但是有一些文献认为，如果我们考虑的载流导线$l'$本身也是一个回路，这一项将在环路积分中通过全微分求积的方式被消掉，然而这中间的数学原理尚未被弄清，因此这里我们先不加证明的承认第四项的积分结果为零，以继续我们的推导。
+
+那么现在我们只需要处理第一项
+\begin{equation*}
+    \frac{\vu*{r}}{r^2}=\frac{\vb*{r}}{r^3}=\frac{x\vi+y\vj+z\vk}{(x^2+y^2+z^2)^{\frac{3}{2}}}=P\vi+Q\vj+R\vk
+\end{equation*}
+考虑到\vspace{-10pt}
+\begin{align*}
+    \Fpif{P}{x}=\frac{(x^2+y^2+z^2)-3x^2}{(x^2+y^2+z^2)^{\frac{5}{2}}}\\[3mm]
+    \Fpif{Q}{y}=\frac{(x^2+y^2+z^2)-3y^2}{(x^2+y^2+z^2)^{\frac{5}{2}}}\\[3mm]
+    \Fpif{R}{z}=\frac{(x^2+y^2+z^2)-3z^2}{(x^2+y^2+z^2)^{\frac{5}{2}}}
+\end{align*}
+这就可以得出
+\begin{equation*}
+    \Fpif{P}{x}+\Fpif{Q}{y}+\Fpif{R}{z}=0
+\end{equation*}
+因此就有$\nabla\cdot\dfrac{\vu*{r}}{r^2}=\vb*{0}$，即
+\begin{equation*}
+    \nabla\times\qty(\frac{I\dif{\vb*{l'}\times\vu*{r}}}{r^2})=0
+\end{equation*}
+若载流导线没有穿过闭合曲线，那么总有$r\neq 0$，将上式代入\ref{式:安培环路定律2}
+\begin{Equation}[安培环路定律6]
+    \Ilot[L]{B\cdot\dif\vb*{l}}=0
+\end{Equation}
+若载流导线穿过闭合曲线，那么此时无论以闭合曲线为边界的空间曲面$\Sigma$如何选取，这里的载流导线$l'$总是存在一个与空间曲面$\Sigma$的交点，而在交点上有$r=0$，这会使得上方三组偏导数的分母为零，构成奇点，导致偏导数不连续，此时斯托克斯公式无法使用。
+
+为了继续使用斯托克斯公式，我们在载流导线附近取一个半径很小且垂直于载流导线的有向圆环$L_0$，那么此时闭曲线$L$和圆环$L_0$之间的空间曲面$\Sigma_R$并不包含$r=0$的点。
+
+因此可以在$\Sigma_R$上应用斯托克斯公式，其边界曲线为$L$和$L_0$，从而式\ref{式:电场高斯定理1}被修正为\footnote{这里设$L_0$的绕向与$L$基本一致，但是$L_0$作为$\Sigma_R$的内边界曲线应取相反的绕向，故其曲线积分前有负号。}
+\begin{Equation}[安培环路定律5]
+    \Ilot[L]{B\cdot\dif\vb*{l}}-\Ilot[L_0]{B\cdot\dif\vb*{l}}=0
+\end{Equation}
+那么现在的问题，就是要求出圆环$L_0$上的磁场环流。
+
+这里由于圆环$L_0$取的很小，这时的载流导线$l'$相对于$L_0$可以视为一条垂直通过圆环$L_0$中心的无限长直导线，设圆环$L_0$的半径为$r$，根据\Refx{公式}{载流无限长直导线的磁场}
+\begin{equation*}
+    \Ilot[L_0]{B\cdot\dif\vb*{l}}=
+    \Ilot[L_0]{\frac{\mu_0}{2\pi}\frac{I}{r}\dif{l}}=\frac{\mu_0}{2\pi}\frac{I}{r}2\pi r=\mu_0I
+\end{equation*}
+
+这里圆环$L_0$和闭曲线$L$的绕向是一致的，如果假定电流$I$的正值表示$L$的右手螺旋方向
+\begin{itemize}
+    \item 当电流$I$为正时，磁场方向与$L_0$的绕向相同，磁场环流为正，而$\mu_0I$恰好也为正。
+    \item 当电流$I$为负时，磁场方向与$L_0$的绕向相反，磁场环流为负，而$\mu_0I$恰好也为负。
+\end{itemize}
+因此上式总是正确的，将其代入\ref{式:安培环路定律6}即得
+\begin{BoxPrinciple}[安培环路定理]
+    在磁场中，沿着任意一个闭合曲线的磁场环流，
+
+    只与闭曲线所包围的电流的大小有关，而与闭曲线外的电流分布无关。
+    \begin{BoxEq}
+        \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=\mu_0I
+    \end{BoxEq}
+    其中，通过闭曲线的电流以闭合曲线的右手螺旋方向为正值。
+\end{BoxPrinciple}
+该规律就称为\uwave{安培环路定理}，在定理中所取的闭合曲线$L$称为\uwave{安培环路}。
+
+根据旋度的定义，磁场在某一点处的旋度，是该点处的磁场环流密度，即\footnote{其中$P$为磁场中某一点，而$\Sigma$表示闭曲线$L$张成的空间曲面，而$S$表示空间曲面$\Sigma$的面积。}
+\begin{equation*}
+    \nabla\times\vb*{B}=\Lim{\Sigma}{P}{\frac{1}{S}\Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}}
+\end{equation*}
+对于线状电流形成的磁场而言，当空间曲面$\Omega$连同其边界曲线$L$缩向点$P$时，若点$P$不在导线上，那么该点处的旋度为零，若点$P$在导线上，那么围绕该点的闭曲线上的磁场环流为定值$\mu_0I$，当该闭曲面缩向一点时，随着$S\rightarrow 0$，可得\textbf{线状电流处的旋度为无穷大}。
+
+因此线状电流形成的磁场是无法讨论磁场的旋度的，线状电流的模型不适用该情境。
+
+但是如果我们考虑电流连续分布的情况，例如考虑到导线的截面宽度，由于
+\begin{equation*}
+    \nabla\times\vb*{B}=\Lim{\Sigma}{P}{\frac{1}{S}\Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}}=\Lim{\Sigma}{P}{\frac{\mu_0I}{S}}=\mu_0\vb*{J}
+\end{equation*}
+这就得到了一个重要定律
+\begin{BoxPrinciple}[安培环路定理的微分形式]
+    在磁场中，磁感强度的旋度，与该点处的电流密度成正比。
+    \begin{BoxEq}
+        \nabla\times\vb*{B}=\mu_0\vb*{J}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{安培环路定理的微分形式}指出
+\begin{center}
+    磁场是有旋场
+\end{center}
+磁场是有旋场，这就可以解释为何磁感线总是表现为涡旋的闭合曲线。
+
+\Refx{定律}{安培环路定理的微分形式}指出，如果空间中某处没有电流分布，由于此处电流密度为零，那么该处磁感强度的旋度也为零，即磁场在没有电流分布处无旋，或者说
+\begin{center}
+    磁场的旋完全来自于电流的存在
+\end{center}
+至此，我们可以归纳出以下的磁场基本性质
+\begin{BoxPrinciple}[磁场的基本性质]
+    磁场是一个有旋无源的非保守场。
+\end{BoxPrinciple}
+
+\subsection{安培环路定理的应用}
+现在我们来通过安培环路定理计算某些具有一定的对称性的载流导线的磁场分布，就像先前我们用电场高斯定理可以计算某些具有一定的对称性的带电体的电场分布那样。
+
+\subsubsection{无限长均匀圆柱载流导体的磁场}
+现在考虑一根半径为$R$的长直圆柱导体，其截面$S=\pi R^2$上均匀的载有电流$I$，根据对称性的原理，这跟圆柱导体上的电流产生的磁场必然是以圆柱轴线为中心的柱对称分布，这也就是说，如果我们记距离轴线为$r$处的磁感强度为$B$，并且记$r$处的圆周为$L$，那么
+\begin{equation*}
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=2\pi rB
+\end{equation*}
+如果$r<R$，即安培环路$L$取在导体内，那么此时$L$内包含的电流$I_1$
+\begin{equation*}
+    I_1=\frac{\pi r^2}{\pi R^2}I=\frac{r^2}{R^2}I
+\end{equation*}
+如果$r>R$，即安培环路$L$取在导体内，那么此时$L$内包含的电流即为$I_2=I$。
+
+根据\Refx{定律}{安培环路定理}，当$r<R$时
+\begin{equation*}
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=\mu_0I_1=\mu_0\frac{r^2I}{R^2}
+\end{equation*}
+因而就有
+\begin{Equation}[无限长圆柱载流导体的磁场1]
+    B=\frac{\mu_0}{2\pi}\frac{Ir}{R^2}\qquad (r<R)
+\end{Equation}
+根据\Refx{定律}{安培环路定理}，当$r>R$时
+\begin{equation*}
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=\mu_0I_1=\mu_0I
+\end{equation*}
+因而就有
+\begin{Equation}[无限长圆柱载流导体的磁场2]
+    B=\frac{\mu_0}{2\pi}\frac{I}{r}\qquad (r>R)
+\end{Equation}
+联立式\ref{式:无限长圆柱载流导体的磁场1}和式\ref{式:无限长圆柱载流导体的磁场2}，即有
+\begin{BoxEquation}[均匀圆柱载流导体的磁场]
+    B=
+    \begin{cases}
+        \dfrac{\mu_0}{2\pi}\dfrac{Ir}{R^2},&r<R\\[5mm]
+        \dfrac{\mu_0}{2\pi}\dfrac{I}{r},&r>R
+    \end{cases}
+\end{BoxEquation}
+这一结论指出，均匀圆柱载流导体内部的磁场与半径成正比，均匀圆柱载流导体外部的磁场与载流细导线的磁场是一致的，与半径成反比，这也是为何通常可以忽略导线的截面面积。
+
+\subsubsection{通电螺线管的磁场}
+先前通过\Refx{定律}{毕奥-萨伐尔定律}，我们已经在\Refx{公式}{载流无限长螺线管的轴线磁场}中看到无限长载流螺线管轴线上的磁场是匀强的，现在我们将进一步通过\Refx{定律}{安培环路定理}证明，螺线管内部的磁场均为匀强的，螺线管外部则没有磁场。
+\begin{Figure}{证明螺旋管内外的磁场方向}
+    \subfigure[原始螺线管]
+    {
+        \label{图:原始螺线管}
+        \inputfigure[scale=0.45]{Chapter10C_Figure01}
+    }
+    \subfigure[将螺线管翻转]
+    {
+        \label{图:将螺线管翻转}
+        \inputfigure[scale=0.45]{Chapter10C_Figure02}
+    }
+    \subfigure[将电流反转]
+    {
+        \label{图:将电流反转}
+        \inputfigure[scale=0.45]{Chapter10C_Figure03}
+    }\vspace{-10pt}
+\end{Figure}
+首先我们来证明，螺线管内任意一点的磁场方向都为平行于轴线的方向，假定原先螺线管内场点$P$处的磁感强度有两种可能的情况，可能平行于轴线$\vb*{B}$，可能不平行于轴线$\vb*{B}'$。
+
+第一种变换，由于螺线管无限长，因此任何一个场点$P$都可以视为位于螺线管轴线的中心位置，因而我们可以将其沿过点$P$的对称轴$y$轴翻转，此时磁感强度将会左右翻转。
+
+第二种变换，将螺线管上的电流反转方向，此时磁感强度将会变为原先的反方向。
+
+然而我们不难看出，这两种变换的结果是一致的，那么磁感强度的结果理应也是一致的，即应有$\vb*{B}_1=\vb*{B}_2$和$\vb*{B}_1'=\vb*{B}_2'$，但是我们从图中可以看出，后者是不成立的，因此螺线管内的磁场方向必须平行于轴线，这一反证过程也适用于螺线管外的场点，也就是说，如果螺线管外存在磁场，那么其也是平行于螺线管的轴线的（后面我们会看到螺线管外实际没有磁场）。
+
+另外我们还可以得出一个结论，任何一条平行于螺线管轴线的直线上的各点，其不仅具有相同的磁场方向，其磁场的大小也相等，因为我们并不能区分无限长螺线管在左右上的位置。
+
+随后我们来证明，螺线管内的磁场与轴线相同，螺线管外的磁场则总是为零。
+\begin{Figure}{证明螺线管内为匀强磁场}
+    \inputfigure[scale=0.95]{Chapter10C_Figure04}
+\end{Figure}
+在螺线管内取一个矩形环路$L_a$，其中$L_a$的$a_1$段在螺线管的轴线上，其方向与磁场方向保持一致，其长度为$l$，关注到$a_2,a_3$段与磁场垂直，因此磁场在$a_2,a_3$段上的积分为零。
+
+在矩形环路$L_a$内没有包含任何电流，因此根据\Refx{定律}{安培环路定理}
+\begin{equation*}
+    \Ilot[L_1]{\vb*{B}\cdot\dif{\vb*{l}}}=Bl-B_1l=0
+\end{equation*}
+在上式中可以解得
+\begin{equation*}
+    B_1=B=\mu_0nI
+\end{equation*}
+这就说明螺线管内任意一处磁场均与轴线上的磁场相同，即螺线管内为匀强磁场。类似的我们也可以证明螺线管外的情况，只不过此时矩形环路$L_b$将包含电流$\mu_0nlI$，故
+\begin{equation*}
+    \Ilot[L_2]{\vb*{B}\cdot\dif{\vb*{l}}}=Bl-B_2l=\mu_0nlI
+\end{equation*}
+从而就有
+\begin{equation*}
+    B_2=0
+\end{equation*}
+这就说明螺线管外的磁场总是为零。
+\begin{BoxPrinciple}[螺线管的磁场分布]
+    对于一个无限长载流螺线管，其内部为线状匀强磁场，其外部无磁场。
+    \begin{BoxEq}
+        B=
+        \begin{cases}
+            \mu_0nI,&\text{\footnotesize 螺线管内部}\\
+            0,&\text{\footnotesize 螺线管外部}
+        \end{cases}    
+    \end{BoxEq}
+\end{BoxPrinciple}
+
+\subsubsection{通电螺绕环}
+这里我们来考虑一个新的结构，我们知道，将导线密绕在柱面上就会得到一个螺线管，非常类似的，将导线密绕在环面上就会得到一个\uwave{螺绕环}，它的剖面图如下图所示。
+\begin{Figure}{螺绕环与螺线管}
+    \subfigure[螺绕环]
+    {
+        \inputfigure[scale=0.8]{Chapter10C_Figure05}
+    }\qquad\qquad
+    \subfigure[螺线管]
+    {
+        \inputfigure[scale=0.8]{Chapter10C_Figure06}
+    }
+\end{Figure}
+
+螺绕环在某种意义上可以视为一个“掰弯”后“首尾相接”的螺线管，因此可以预期螺绕环的性质与螺线管是相似的。设螺绕环的内外径为$R_1,R_2$，现在考虑螺绕环内部半径为$r$处的磁场，根据对称性的原理，这里的磁场是柱对称的，因而对于取在$r$处的安培环路$L$
+\begin{equation*}
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=2\pi rB
+\end{equation*}
+螺绕环的线圈密度若记为$n$，那么安培环路$L$就包含了$2\pi R_1nI$的电流。
+
+根据\Refx{定律}{安培环路定理}
+\begin{equation*}
+    \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=2\pi\mu_0 R_1nI
+\end{equation*}
+这就可以解得
+\begin{equation*}
+    B=\mu_0\frac{R_1}{r}nI
+\end{equation*}
+这里为了简便起见，我们假定螺绕环中的圆环是很细的，那么便有$r=R_1=R_2$，从而
+\begin{equation*}
+    B=\mu_0nI
+\end{equation*}
+这样就证明了螺绕环内部为与螺线管相同的匀强磁场。通过\Refx{定律}{安培环路定理}也可以类似证明螺绕环外的磁场为零，取在$R_1$之内的安培环路中没有电流，取在$R_2$之外的安培环路中，内径上的电流和外径上的电流相互抵消了，因此计算得出的磁场均为零。
+\begin{BoxPrinciple}[螺绕环的磁场分布]
+    对于一个很细的载流螺绕环，其内部为环状匀强磁场，其外部无磁场。
+    \begin{BoxEq}
+        B=
+        \begin{cases}
+            \mu_0nI,&\text{\footnotesize 螺绕环内部}\\
+            0,&\text{\footnotesize 螺绕环外部}
+        \end{cases}    
+    \end{BoxEq}
+\end{BoxPrinciple}
+
+
+% 在导体外取一半径为$r$的安培环路$L_1$，根据\Refx{定律}{安培环路定律}
+% \begin{equation*}
+%     \Ilot[L]{\vb*{B}\cdot\dif{\vb*{l}}}=\mu_0I
+% \end{equation*}

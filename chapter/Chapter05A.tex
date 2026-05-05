@@ -1,0 +1,582 @@
+\section{刚体的概念}
+
+\subsection{刚体的定义}
+\uwave{刚体}是一种由大量质点组成，并且受力时不发生相对位移的特殊质点系，形象的说。刚体就是在外力作用下形状大小均不发生变化的物体。刚体是一种理想模型，实际上任何物体都不是绝对坚硬的，但是许多物体，例如行星，钢梁，木块，小球，在特定的讨论背景下是足够坚硬的，以至于可以忽略它们微小的形状和体积变化，作为刚体处理。
+
+刚体作为一类特殊的质点系，先前所有与质点系有关的定理均可以适用于刚体。
+
+刚体的运动可以分为平动和转动两类
+\begin{itemize}
+    \item 如果刚体中所有质点的运动轨迹都保持完全相同，那么称为\uwave{刚体的平动}。由于在平动中各个质点的运动状态相同，因此对刚体平动的研究可以归结于对质心运动的研究。
+    \item 如果刚体中所有质点均绕着同一直线作圆周运动，那么称为\uwave{刚体的转动}，其中这条直线称为\uwave{转轴}。如果转轴是固定不变的，那么称为\uwave{定轴转动}，否则称为\uwave{非定轴转动}。
+\end{itemize}
+刚体的一般运动是复杂的，但可以证明，其运动可以看作是平动和转动的叠加，转动是刚体的基本运动形式之一，作为基础，本章主要讨论转动中较为简单的定轴转动。
+
+\subsection{刚体定轴转动的描述}
+刚体在作定轴转动时，尽管质点的速度和加速度各不相同，但是由于刚体中的各个质点间没有相对位移，每一个质点都在以相同的角速度$\omega$和角加速度$\alpha$绕定轴作圆周运动。
+
+因此我们可以用角量描述刚体整体的定轴转动状况。为了描述的准确性和完整性，我们将角量矢量化，规定角速度$\vb*{\omega}$的方向垂直于转动平面，指向右手螺旋方向，即当右手四指表示刚体的实际转动方向时，此时右手大拇指代表角速度的矢量方向，而角加速度$\vb*{\alpha}$则为角速度的导向量。经过矢量化的角速度可以同时反映转动的快慢情况和转动平面的法向方向。
+
+
+刚体在定轴转动中，转轴固定，转动平面保持不变，因此$\vb*{\omega},\vb*{\alpha}$的方向总是沿着转轴的。很显然，当$\vb*{\omega},\vb*{\alpha}$同向时转动加快，当$\vb*{\omega},\vb*{\alpha}$反向时转动减缓，如\Refx{图}{定轴转动的角量}所示。
+\begin{Figure}{定轴转动的角量}
+    \subfigure[转动加快的情形]
+    {
+        \begin{tikzpicture}[scale=0.8]
+            \lPoint{O}{0,0}
+            \lShift{A}{O}{0,-3}
+            \lShift{B}{O}{0,3}
+            \lShift{U1}{O}{0,1}[left][\vb*{\alpha}]
+            \lShift{U2}{O}{0,2}[left][\vb*{\omega}]
+            \draw[dashed] (O)--(A);
+
+            \draw[fill=gray,fill opacity=0.5] (O) ellipse (2 and 0.5);
+            \draw[dashed] (O)--(B);
+            \draw[-latex] (O)--(U1);
+            \draw[-latex] (O)--(U2);
+
+            \lShift{a}{O}{2.5,0}
+
+            \draw[->](a) arc (0:55:2.5 and 0.75);
+            \lShift{at}{O}{1.4,0.8}[center][\text{\scriptsize $+$}]
+
+            \draw[fill=white] (O) circle(0.035);
+        \end{tikzpicture}
+    }
+    \qquad\qquad
+    \subfigure[转动减缓的情形]
+    {
+        \begin{tikzpicture}[scale=0.8]
+            \lPoint{O}{0,0}
+            \lShift{A}{O}{0,-3}
+            \lShift{B}{O}{0,3}
+            \lShift{U1}{O}{0,-1}[left][\vb*{\alpha}]
+            \lShift{U2}{O}{0,2}[left][\vb*{\omega}]
+            \draw[dashed] (O)--(A);
+            \draw[-latex] (O)--(U1);
+            \draw[fill=gray,fill opacity=0.5] (O) ellipse (2 and 0.5);
+            \draw[dashed] (O)--(B);
+            \draw[-latex] (O)--(U2);
+
+            \lShift{a}{O}{2.5,0}
+
+            \draw[->](a) arc (0:55:2.5 and 0.75);
+            \lShift{at}{O}{1.4,0.8}[center][\text{\scriptsize $-$}]
+
+            \draw[fill=white] (O) circle(0.035);
+        \end{tikzpicture}
+    }
+\end{Figure}
+刚体的定轴转动中，由于$\vb*{\omega},\vb*{\alpha}$的方向总是沿着转轴，因此如果我们为转轴规定一个正方形，那么定轴转动中的$\vb*{\omega},\vb*{\alpha}$就均可以用标量表示了，即用正负标识矢量与转轴方向是否相同。
+
+刚体的角速度$\vb*{\omega}$确定时，刚体中任意一个质点的线速度$\vb*{v}$就可以表示为
+\begin{BoxEquation}[刚体的角速度和线速度的关系]
+    \vb*{v}=\vb*{\omega}\times\vb*{r}
+\end{BoxEquation}
+上式中的$\vb*{r}$代表\textbf{质点相对于转轴的位矢}。由于$\vb*{\omega}$总与$\vb*{r}$垂直，因此速度大小$v=\omega r$，这与先前的\Refx{公式}{速率和角量的关系}的结论是一致的。而在圆周运动中，速度的方向总是在转动平面内沿切线方向，这等同于$\vb*{\omega}$与$\vb*{r}$所构成平面的法向方向，因此上式成立。
+
+\section{刚体定轴转动的动力学原理}
+在这一节，我们将讨论刚体定轴转动的动力学问题，即研究刚体发生定轴转动的原因。
+
+首先应当明确，当我们在刚体上施加一个力时，其未必会做定轴转动。
+
+例如当我们试图讨论一个圆盘的定轴转动时，我们可能会想象并在示意图中绘制一个悬浮于空中的圆盘，就像\Refx{图}{定轴转动的角量}中那样，但是如果在这样一个圆盘上施加一个力，其大概率会一边打转一边在空间中飘移，而不会做任何预期中的定轴转动。
+
+这样的荒诞景象提示，我们的讨论对象是“定轴的圆盘”而不是“自由的圆盘”。定轴转动并不只是圆盘运动的结果，轴本身是对圆盘的一种约束，轴是圆盘的一部分，这种约束的实现方式多样的，圆盘可能被套在某根柱子的中间，圆盘可能用钉子固定在某个平面上。
+
+这些细节不是我们所关心的，无论具体通过何种方式，使得刚体在力的作用下，不能平动，不能做一般转动，只能沿着某根轴做定轴转动，那么就称该刚体是定轴的。
+
+在下面关于刚体定轴转动的讨论中，我们涉及到的所有刚体都被假定是定轴的。
+
+\subsection{转动惯量与转动定律}
+对于一个定轴的刚体，由于其唯一的运动形式是定轴转动，因此刚体中的各个质点总是在垂直于轴的转动平面上做圆周运动。设想每个质点上均有力的作用，力的作用效果是改变质点的运动状态，力可以分解为在转动平面内的分力$\vb*{F}_1$和垂直于转动平面的分力$\vb*{F}_2$。
+
+关注到分力$\vb*{F}_2$的作用必然使得质点的运动偏离其所在的转动平面，而这在定轴转动中是不可能发生的，这就说明$\vb*{F}_2=\vb*{0}$，如果我们强行对某个质点施加具有垂直于转动平面的分量的外力，那必然会有对应的内力将垂直分量抵消，使得合力的垂直分量满足$\vb*{F}_2=\vb*{0}$。
+
+考虑到垂直于转动平面的力总是会相互抵消，而不对质点的圆周运动产生任何的动力学影响，因此无论是外力还是内力，我们都只需要考虑其在转动平面内的分量即可，因此为了讨论的便利，我们可以假定每一个质点所受的外力和内力均是在转动平面内的。
+
+% 通常的刚体的质量是连续分布的，例如圆盘，圆环，圆筒，细杆等，在这里为了推导研究上的便利，我们首先考虑质量离散分布于有限个质点的刚体的情况，再进行一般化推广。
+
+设刚体由$n$个质点构成，设第$i$个质点$m_i$分别受内力$\vb*{F}_{I,i}$和外力$\vb*{F}_{E,i}$。
+
+根据\Refx{定律}{牛顿第二定律}，有
+\begin{Equation}[转动定律1]
+    \vb*{F}_{I,i}+\vb*{F}_{E,i}=m_i\vb*{a}_i
+\end{Equation}
+根据\Refx{定义}{瞬时加速度}和\Refx{公式}{刚体的角速度和线速度的关系}
+\begin{Equation}[转动定律2]
+    \vb*{a}_i=\Fdif{\vb*{v}_i}{t}=\Fdif{t}\qty(\vb*{\omega}\times\vb*{r}_i)=\vb*{\alpha}\times\vb*{r}_i+\vb*{\omega}\times\vb*{v}_i
+\end{Equation}
+% 上式中，尽管$\vb*{r}_i$是自转轴的位矢而非自原点的位矢，但是考虑到在定轴转动中，质点的运动总是在转动平面上，因此自转轴的位矢$\vb*{r}_i$的导数仍然为速度$\vb*{v}_i$。
+
+根据矢量三重积的运算法则$\vb*{a}\times(\vb*{b}\times \vb*{c})=(\vb*{a}\cdot\vb*{c})\vb*{b}-(\vb*{a}\cdot\vb*{b})\vb*{c}$，上式的第二项
+\begin{Equation}[转动定律3]
+    \vb*{\omega}\times\vb*{v}_i=\vb*{\omega}\times\qty(\vb*{\omega}\times\vb*{r}_i)=\qty(\vb*{\omega}\cdot\vb*{r}_i)\vb*{\omega}-(\vb*{\omega}\cdot\vb*{\omega})\vb*{r}_i\xlongequal[\vb*{\omega}\cdot\vb*{r}_i=0]{\text{$\vb*{\omega}$垂直于$\vb*{r}_i$所在平面}}\omega^2\vb*{r}_i
+\end{Equation}
+将上式\ref{式:转动定律3}代入式\ref{式:转动定律3}，得到
+\begin{Equation}[转动定律4]
+    \vb*{a}_i=\vb*{\alpha}\times\vb*{r}_i+\omega^2\vb*{r}_i
+\end{Equation}
+将上式\ref{式:转动定律4}代入式\ref{式:转动定律1}，得到
+\begin{equation*}
+    \vb*{F}_{I,i}+\vb*{F}_{E,i}=m_i\vb*{\alpha}\times\vb*{r}_i+m_i\omega^2\vb*{r}_i
+\end{equation*}
+将上式两侧同时右叉乘$\vb*{r}_i$，而两个平行向量的叉积$\vb*{r}_i\times\vb*{r}_i=\vb*{0}$，故
+\begin{align*}
+    \vb*{F}_{I,i}\times\vb*{r}_i+\vb*{F}_{E,i}\times\vb*{r}_i
+    &=m_i\vb*{\alpha}\times\vb*{r}_i\times\vb*{r}_i+m_i\omega^2\vb*{r}_i\times\vb*{r}_i\\
+    &=m_i\vb*{\alpha}\times\vb*{r}_i\times\vb*{r}_i
+\end{align*}
+根据矢量三重积的运算法则$\qty(\vb*{a}\times\vb*{b})\times\vb*{c}=\qty(\vb*{c}\cdot \vb*{a})\vb*{b}-(\vb*{c}\cdot \vb*{b})\vb*{a}$，上式可以化为
+\begin{align*}
+    \vb*{F}_{I,i}\times\vb*{r}_i+\vb*{F}_{E,i}\times\vb*{r}_i=&m_i\qty[\qty(\vb*{r}_i\cdot\vb*{\alpha})\vb*{r}_i-\qty(\vb*{r}_i\cdot\vb*{r}_i)\vb*{\alpha}]
+    \xlongequal[\vb*{r}_i\cdot\vb*{\alpha}=0]{\text{$\vb*{\alpha}$垂直于$\vb*{r}_i$所在平面}}-m_ir_i^2\vb*{\alpha}
+\end{align*}
+根据\Refx{定义}{力矩}，上式左侧可以用力矩表示
+\begin{equation*}
+    \vb*{F}_{I,i}\times\vb*{r}_i+\vb*{F}_{E,i}\times\vb*{r}_i=-\qty(\vb*{M}_{I,i}+\vb*{M}_{E,i})
+\end{equation*}
+由于$\vb*{r}_i$表示质点$m_i$自转轴的位矢，因此上式右侧中的$\vb*{M}_{I,i},\vb*{M}_{E,i}$分别表示质点相对于转轴的内力矩和外力矩，所谓相对于转轴的力矩，即参照于转轴和质点所在的转动平面交点的力矩，这就是说，不同位置的质点的力矩$\vb*{M}_{I,i},\vb*{M}_{E,i}$将参照转轴上的不同点。
+
+联立上两式，消去负号即得
+\begin{Equation}[转动定律5]
+    \vb*{M}_{I,i}+\vb*{M}_{E,i}=m_ir_i^2\vb*{\alpha}
+\end{Equation}
+现在将式\ref{式:转动定律5}对$n$个质点累加
+\begin{Equation}[转动定律6]
+    \SumIN{\vb*{M}_{I,i}}+\SumIN{\vb*{M}_{E,I}}=\SumIN{m_ir_i^2}\vb*{\alpha}
+\end{Equation}
+现在研究式\ref{式:转动定律6}中的$\SumIN{\vb*{M}_{I,i}}$和$\SumIN{\vb*{M}_{E,I}}$的意义，关注到其是一系列的内力矩和外力矩的和，那么是否可以认为其是质点系的合外力矩和合内力矩？答案却是否定的。
+
+这是因为，在质点系中的合力矩均是参照于同一点，而在刚体中的力矩则是相对于转轴的，不同转动平面内的质点，其力矩将参照转轴上的不同点，那么这些力矩的和自然就不是通常意义上的合力矩，即所谓“\uwave{相对定点的合力矩}“，为了以示区分，我们将刚体中相对定轴的力矩和称为“\uwave{相对定轴的合力矩}”，在讨论刚体的定轴转动时可以简称为合力矩，但是应当注意，这里所谓的“合力矩”与先前意义不同，有关合力矩的定理都不再能直接使用。
+
+故$\SumIN{M_{E,i}}$即刚体所受的对定轴的合外力矩，记作
+\begin{equation*}
+    \SumIN{M_{E,i}}=\vb*{M}
+\end{equation*}
+而$\SumIN{M_{I,i}}$即刚体所受的对定轴的合内力矩，根据\Refx{定律}{力矩第三定律}我们知道质点系对定点的合内力矩为零，这不能直接应用于对定轴的情况。依照假定，外力的方向均在转动平面内，根据定轴约束，质点所受的内力如果具有垂直分量，那么一定会相互抵消。
+
+因此我们可以将刚体依照转动平面分为若干子质点系，且由于垂直分量的内力会抵消，我们可以认为各层的子质点系间不存在刚体内力的作用\footnote{这是为了论证各层的子质点系间的独立性，从而最终将各层的合力矩累加时，可以确信并不存在未考虑的层间内力的力矩。}。由于每一层的子质点系对定轴的合内力矩均可以认为是对定点的合内力矩，从而逐层应用\Refx{定律}{力矩第三定律}，即每一层的合内力矩为零，进而逐层累加得出整个刚体对定轴的合内力矩仍然为零，即
+\begin{equation*}
+    \SumIN{M_{I,i}}=\vb*{0}
+\end{equation*}
+
+式\ref{式:转动定律6}右式中的$\SumIN{m_ir_i^2}$是一个由刚体性质决定的物理量，定义为\uwave{转动惯量}
+\begin{BoxDefinition}[转动惯量]
+    J=\SumIN{m_ir_i^2}
+\end{BoxDefinition}
+式\ref{式:转动定律6}从而可以表示为下式，称为\uwave{定轴转动定律}
+\begin{BoxPrinciple}[定轴转动定律]
+    刚体在定轴转动中，角加速度与对定轴的合外力矩成正比，与转动惯量成反比。
+    \begin{BoxEq}
+        \vb*{M}=J\vb*{\alpha}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{定轴转动定律}与先前的\Refx{公式}{牛顿第二定律的加速度形式}具有十分相似的数学形式，力是质量和加速度的乘积，力矩是转动惯量和角加速度的乘积。
+
+\Refx{定律}{定轴转动定律}指出，刚体的转动惯量反映了使得刚体的转动状态发生改变的难易程度，这类似于“惯性”的概念，这也是为何将该物理量称为“惯量”的原因。
+
+转动惯量在国际单位制中的单位是\si{N\cdot m\cdot s^{2}=kg\cdot m^2}，量纲是\si{[L^2M]}。
+
+\Refx{定律}{定轴转动定律}是由质量离散分布的刚体推证而来，但其对质量连续分布的刚体事实上也是成立的，对于质量连续分布的刚体，\Refx{定义}{转动惯量}应用积分形式表示。
+\begin{BoxGeneral}[连续体的转动惯量][定义]
+    如果刚体是一维细杆，线密度为$\lambda$
+    \begin{BoxEq}
+        J=\Int[x_1][x_2]{r^2\lambda\dif{x}}
+    \end{BoxEq}
+    如果刚体是二维薄片，面密度为$\sigma$
+    \begin{BoxEq}
+        J=\Idnt{r^2\sigma\dif{S}}
+    \end{BoxEq}
+    如果刚体是三维实体，体密度为$\rho$
+    \begin{BoxEq}
+        J=\Itnt{r^2\rho\dif{V}}
+    \end{BoxEq}
+    以上的$r$均代表到转轴的距离。
+\end{BoxGeneral}
+以下的表格列出了一些常见定轴刚体的转动惯量
+\begin{TableLong}{常见定轴刚体的转动惯量}{>{\small}l>{\small}l>{\small}l>{\small }l>{\small}lc}
+{
+    \small 刚体&\small 刚体属性&\small 刚体的轴&\small 转动惯量&编号&\small 示意图\\
+}
+\multirow{2}{*}{\vspace{-10pt}细棒}&\multirow{2}{*}{\vspace{-10pt}长为$l$}&
+转轴通过中点与棒垂直&\tspc $\mathlarger{J_C=\frac{ml^2}{12}}$&(1)&
+\multirow{2}{*}
+{
+    \makecell
+    {
+        \begin{tikzpicture}[scale=0.65]
+            \draw[gray] (-1.2,-1.2) rectangle (1.2,1.2);
+            \draw (-1,0.05) rectangle (1,-0.05);
+            \draw[gray,dashed] (1,0.8)--(1,-0.8);
+            \draw[gray,dashed] (0,0.8)--(0,-0.8);
+            \node[left] at (0,0.8){\tiny $J_C$};
+            \node[left] at (1,0.8){\tiny $J_D$};
+        \end{tikzpicture}
+    }
+}\\
+&&转轴通过端点与棒垂直&\tspc $\mathlarger{J_D=\frac{ml^2}{3}}$&(2)&\\ \hline
+\multirow{2}{*}{\vspace{-10pt}薄圆环}&\multirow{2}{*}{\vspace{-10pt}半径为$r$}&转轴通过中心与圆面垂直&\tspc $J_C=mr^2$&(3)&
+\multirow{2}{*}
+{
+    \makecell
+    {
+        \begin{tikzpicture}[scale=0.65]
+            \draw[gray] (-1.2,-1.2) rectangle (1.2,1.2);
+            \draw (0,0) ellipse (0.8 and 0.3);
+            \draw[gray,dashed] (-1,-0.3)--(1,0.3);
+            \draw[gray,dashed] (0,0.95)--(0,-0.95);
+            \node[below] at (-0.9,-0.3){\tiny $J_R$};
+            \node[right] at (0,0.8){\tiny $J_C$};
+            \draw[fill=white] (0,0) circle (0.03);
+        \end{tikzpicture}
+    }
+}\\
+&&转轴沿直径&\tspc $J_R=\dfrac{mr^2}{2}$&(4)&\\ \hline
+\multirow{2}{*}{\vspace{-10pt}薄圆盘}&\multirow{2}{*}{\vspace{-10pt}半径为$r$}&转轴通过中心与圆面垂直&\tspc $J_C=\dfrac{mr^2}{2}$&(5)&
+\multirow{2}{*}
+{
+    \makecell
+    {
+        \begin{tikzpicture}[scale=0.65]
+            \draw[gray] (-1.2,-1.2) rectangle (1.2,1.2);
+            \draw[fill=black,fill opacity=0.1] (0,0) ellipse (0.8 and 0.3);
+            \draw[gray,dashed] (-1,-0.3)--(1,0.3);
+            \draw[gray,dashed] (0,0.95)--(0,-0.95);
+            \node[below] at (-0.9,-0.3){\tiny $J_R$};
+            \node[right] at (0,0.8){\tiny $J_C$};
+            \draw[fill=white] (0,0) circle (0.03);
+        \end{tikzpicture}
+    }
+}\\
+&&转轴沿直径&\tspc $J_R=\dfrac{mr^2}{4}$&(6)&\\ \hline
+薄圆筒&内外径为$r_1,r_2$&对称轴&\tspc$J_C=\dfrac{m}{2}(r_2^2+r_1^2)$&(7)&~/\\
+球壳&半径为$r$&中心轴&\tspc$J_C=\dfrac{2mr^2}{3}$&(8)&~/\\
+球体&半径为$r$&中心轴&\tspc$J_C=\dfrac{2mr^2}{5}$&(9)&~/\\
+\end{TableLong}
+
+以下将证明\Refx{表}{常见定轴刚体的转动惯量}中的九条结论。
+\begin{Proof}
+    细棒的转动惯量可以通过定积分计算。
+
+    式(1)的证明如下
+    \begin{equation*}
+        \Int[0][l]{(x-\frac{l}{2})^2\frac{m}{l}\dx}=\frac{m}{3l}(x-\frac{l}{2})^3\mid_0^l=\frac{m}{3l}\cdot\frac{l^3}{4}=\frac{ml^2}{12}
+    \end{equation*}
+    式(2)的证明如下
+    \begin{equation*}
+        \Int[0][l]{(x-l)^2\frac{m}{l}\dx}=\frac{m}{3l}(x-l)^2\mid_0^l=\frac{m}{3l}\cdot l^3=\frac{ml^2}{3}
+    \end{equation*}
+\end{Proof}
+\begin{Proof}
+    薄圆环的转动惯量可以通过曲线积分计算。
+
+    设圆环的参数方程为$x=r\cos\theta,~y=r\sin\theta$，则$\dx=-r\sin\theta\dif{\theta}$，而$\dy=r\cos\theta\dif{\theta}$。
+
+    故圆环的弧长微元为$\dif{s}=\sqrt{\dx^2+\dy^2}=r\dif{\theta}$。
+
+    式(3)的证明如下
+    \begin{equation*}
+        \Ilnt{r^2\frac{m}{2\pi r}\dif{s}}=
+        \Int[0][2\pi]{r^3\frac{m}{2\pi r}\dif{\theta}}=2\pi r^3\frac{m}{2\pi r}=mr^2
+    \end{equation*}
+    式(4)的证明如下，其中$x=r\cos\theta$
+    \begin{equation*}
+        \Ilnt{x^2\frac{m}{2\pi r}\dif{s}}=
+        \Int[0][2\pi]{r(r\cos\theta)^2\frac{m}{2\pi r}\dif{\theta}}=\pi r^3\frac{m}{2\pi r}=\frac{mr^2}{2}
+    \end{equation*}
+    上式第二步中有$\mathlarger{\Int[0][2\pi]{\cos^2\theta\dif{\theta}}=\eval{\qty(\frac{1}{2}\theta+\frac{1}{4}\sin{2\theta})}_0^{2\pi}}=\pi$。
+\end{Proof}
+
+\begin{Proof}
+    薄圆盘的转动惯量可以通过二重积分计算。
+
+    式(5)的证明如下
+    \begin{equation*}
+        \Idnt{\rho^2\frac{m}{\pi r^2}\rho\dif{\rho}\dif{\theta}}=\Int[0][2\pi]{\dif\theta\Int[0][r]{\rho^3\frac{m}{\pi r^2}\dif{\rho}}}=\frac{m}{\pi r^2}\Int[0][2\pi]{\frac{r^4}{4}\dif{\theta}}=\frac{mr^2}{2}
+    \end{equation*}
+    式(6)的证明如下，其中$x=\rho\cos\theta$
+    \begin{equation*}
+        \Idnt{\rho^2\cos^2\theta\frac{m}{\pi r^2}\rho\dif{\rho}\dif{\theta}}=\Int[0][2\pi]{\dif\theta\Int[0][r]{\rho^3\cos^2\theta\frac{m}{\pi r^2}\dif{\rho}}}=\frac{m}{\pi r^2}\Int[0][2\pi]{\frac{r^4}{4}\cos^2\theta\dif{\theta}}=\frac{mr^2}{4}
+    \end{equation*}
+    上式第四步中有$\mathlarger{\Int[0][2\pi]{\cos^2\theta\dif{\theta}}=\eval{\qty(\frac{1}{2}\theta+\frac{1}{4}\sin{2\theta})}_0^{2\pi}}=\pi$。
+\end{Proof}
+\begin{Proof}
+    薄圆筒的转动惯量可以通过二重积分计算。
+    
+    式(7)的证明如下
+    \begin{equation*}
+        \Idnt{\rho^2\frac{m}{\pi (r_2^2-r_1^2)}\rho\dif{\rho}\dif{\theta}}=\Int[0][2\pi]{\dif\theta\Int[r_1][r_2]{\rho^3\frac{m}{\pi (r_2^2-r_1^2)}\dif{\rho}}}=\frac{m}{\pi (r_2^2-r_1^2)}\Int[0][2\pi]{\frac{r_2^4-r_1^4}{4}\dif{\theta}}
+    \end{equation*}
+    关注到$r_2^4-r_1^4=(r_2^2+r_1^2)\cdot(r_2^2-r_1^2)$，因此上式的结果为$\dfrac{m}{2}(r_2^2+r_1^2)$。
+
+    式(7)的证明与先前式(5)的证明是完全类似的。
+\end{Proof}
+
+\begin{Proof}
+    球壳的转动惯量可以通过曲面积分计算。
+
+    式(8)的证明如下，球面的面积微元$\dif{S}=r^2\sin\varphi\dif{\varphi}\dif{\theta}$。
+    \begin{equation*}
+        J=\Isot{r^2\sin^2\varphi\frac{m}{4\pi r^2}\dif{S}}=\Idnt[D_{\varphi\theta}]{r^2\sin^2\varphi\frac{m}{4\pi r^2}r^2\sin\varphi\dif{\varphi}\dif{\theta}}
+    \end{equation*}
+    从而
+    % 上式中，尽管球的半径为$r$，但是球上的点到轴的距离是$r\sin\varphi$（假定轴贯穿南北极）。
+    % 上式中$D_{\varphi\theta}=\qty{\varphi\in[0,\pi],\theta\in[0,2\pi]}$，转化为累次定积分
+    \begin{equation*}
+        J=\frac{mr^2}{4\pi}\Int[0][\pi]{\dif{\varphi}\Int[0][2\pi]{\sin^3\varphi\dif{\theta}}}=\frac{mr^2}{2}\Int[0][\pi]{\sin^3\varphi\dif{\varphi}}=\frac{2mr^2}{3}
+    \end{equation*}
+    上式第三步中有$\mathlarger{\Int[0][\pi]{\sin^3\theta\dif{\theta}}=2\Int[0][\frac{\pi}{2}]{\sin^3\theta\dif{\theta}}=\frac{4}{3}}$。
+\end{Proof}
+
+\begin{Proof}
+    球体的转动惯量可以通过三重积分计算。
+
+    式(9)的证明如下
+    \begin{equation*}
+        J=\Itnt{\rho^2\sin^2\varphi\frac{3m}{4\pi r^3}\dif{V}}=\Int[0][\pi]{\sin\varphi\dif{\varphi}\Int[0][r]{\rho^2\dif{\rho}\Int[0][2\pi]{\rho^2\sin^2\varphi\frac{3m}{4\pi r^3}\dif{\theta}}}}
+    \end{equation*}
+    从而
+    \begin{equation*}
+        J=\frac{3m}{2r^3}\Int[0][\pi]{\dif{\varphi}\Int[0][r]{\rho^4\sin^3\varphi\dif{\rho}}}=\frac{3mr^2}{10}\Int[0][\pi]{\sin^3\varphi\dif{\varphi}}=\frac{2\pi r^2}{5}
+    \end{equation*}
+    上式第三步中有$\mathlarger{\Int[0][\pi]{\sin^3\theta\dif{\theta}}=2\Int[0][\frac{\pi}{2}]{\sin^3\theta\dif{\theta}}=\frac{4}{3}}$。
+\end{Proof}
+
+\subsubsection{平行轴定理}
+设质量为$m$的刚体，通过质心转轴的转动惯量为$J_C$，现将轴沿任意方向平移距离$d$。
+
+那么，沿此轴的转动惯量$J_D$为
+\begin{BoxEquation}[平行轴定理]
+    J_D=J_C+md^2
+\end{BoxEquation}
+该结论称为\uwave{平行轴定理}，以质量离散分布的刚体证明如下。
+
+设质点$m_i$所在的转动平面与轴$J_C,J_D$的交点分别为$C,D$，且记矢量$\vec{CD}=\vb*{d}$，尽管不同转动平面中的$C,D$坐标不同，但是矢量$\vec{CD}=\vb*{d}$是不变的，对一切质点而言均是常矢量。
+
+设质点$m_i$以其所在的转动平面的$C,D$为原点的位矢分别为$\vb*{r}_{C,i},\vb*{r}_{D,i}$（对轴的位矢）。
+
+根据矢量的三角形法则$\vb*{r}_{C,i}=\vb*{r}_{D,i}+\vb*{d}$，有
+\begin{equation*}
+    r_{D,i}^2=\vb*{r}_{D,i}\cdot\vb*{r}_{D,i}=(\vb*{r}_{C,i}-\vb*{d})\cdot(\vb*{r}_{C,i}-\vb*{d})=r_{C,i}^2-2\vb*{r}_{C,i}\cdot\vb*{d}+d^2
+\end{equation*}
+根据\Refx{定义}{转动惯量}
+\begin{equation*}
+    J_D=\SumIN{m_ir_{D,i}^2}=\SumIN{m_ir_{C,i}^2-2m_i\vb*{r}_{C,i}\cdot\vb*{d}+m_id^2}
+\end{equation*}
+根据\Refx{定义}{转动惯量}，上式第一项即为转动惯量$J_C$，第二项中$\vb*{d}$为常矢量可以提出，第三项中的$d^2$也是常数，而各个质点的质量$m_i$的累加结果即为刚体的总质量$m$。
+
+因此我们可以得到
+\begin{equation*}
+    J_D=J_C+md^2-2\qty(\SumIN{m_i\vb*{r}_{C,i}})\cdot\vb*{d}
+\end{equation*}
+上式的位矢$\vb*{r}_{C,i}$是对\textbf{定轴的位矢}，即对于不同转动平面内的质点，其参照不同的点$C$，而参照不同原点的位矢累加是没有意义的，因此我们要将其转化为对\textbf{定点的位矢}。
+
+设整个刚体的质心为点$C^{*}$，那么上式中$\vb*{r}_{C,i}=\vb*{r}_{C^{*},i}+\vec{CC^{*}}$，而点$C$又为过质心$C^{*}$的转轴上的点，故$\vec{CC^{*}}$总是平行于转轴，从而$\vec{CC^{*}}$与转动平面上的$\vb*{d}$垂直，即$\vec{CC^{*}}\cdot\vb*{d}=0$。
+
+因此上式的位矢可以改写为
+\begin{equation*}
+    J_D=J_C+md^2-2\qty(\SumIN{m_i\vb*{r}_{C^{*},i}})\cdot\vb*{d}
+\end{equation*}
+此时各质点$m_i$的位矢$\vb*{r}_{C^{*},i}$均参照于同一点$C^{*}$，从而$\SumIN{m_i\vb*{r}_{C^{*},i}}$由\Refx{定义}{质心}即为刚体质心的位矢，而由于该位矢本身就是参照与质心$C^{*}$，所以这一位矢为零矢量。
+
+这就可以得到
+\begin{equation*}
+    J_D=J_C+md^2
+\end{equation*}
+这就证明了\Refx{公式}{平行轴定理}的结论。
+
+\Refx{公式}{平行轴定理}可以用于简化\Refx{表}{常见定轴刚体的转动惯量}中的式(2)的计算，因为在式(1)中已经得到了转轴过细棒中点时的转动惯量，而质量均匀分布的细棒的质心恰位于中点，那么根据平行轴定理，就可以得到式(2)转轴过细棒端点的转动惯量。
+\begin{equation*}
+    J_D=J_C+m\qty(\frac{l}{2})^2=\frac{ml^2}{12}+\frac{ml^2}{4}=\frac{ml^2}{3}
+\end{equation*}
+
+\Refx{公式}{平行轴定理}中应注意，右式的$J_C$必须是通过质心的转轴，不能是任意的轴。
+
+\subsubsection{正交轴定理}
+设\textbf{刚性薄板}的平面为$xy$坐标面，而$z$轴与其垂直，记绕$x,y,z$轴的转动惯量为$J_x,J_y,J_z$。
+
+那么，沿$z$轴的转动惯量$J_z$为
+\begin{BoxEquation}[正交轴定理]
+    J_z=J_x+J_y
+\end{BoxEquation}
+该结论称为\uwave{正交轴定理}，以质量离散分布的刚体正如下。
+
+由于质点$m_i$总是在$xy$平面上，因此其到$x,y$轴的距离分别可以表示为$y_i,x_i$，而其到$z$轴的距离即为质点到原点的距离，即$\sqrt{x_i^2+y_i^2}$，根据\Refx{定义}{转动惯量}
+\begin{Equation}[正交轴定理1]
+    \begin{cases}
+        J_x=\SumIN{m_ix_i^2}\\
+        J_y=\SumIN{m_iy_i^2}\\
+        J_y=\SumIN{m_i(x_i^2+y_i^2)}\\
+    \end{cases}
+\end{Equation}
+由上式容易看出$J_z=J_x+J_y$，这就证明了\Refx{公式}{正交轴定理}。
+
+\Refx{公式}{正交轴定理}可以用于\Refx{表}{常见定轴刚体的转动惯量}中圆环圆盘绕直径的转动惯量的推导，例如设圆盘所在平面为$xy$平面，那么根据式(5)可知过圆盘中心垂直于圆面的转动惯量$J_z=J_C=\frac{mr^2}{2}$，由于圆盘对称，因此沿$x,y$轴的转动惯量$J_x=J_y=J_R$即等同于式(6)所求的沿圆盘直径的转动惯量，由正交轴定理就可以得到$J_R=\frac{J_C}{2}=\frac{mr^2}{4}$。
+
+\Refx{公式}{正交轴定理}中应注意，其只能适用于刚性薄板的情况，否则式\ref{式:正交轴定理1}并不成立。
+
+\section{刚体定轴转动的角动量定理}
+这一节将讨论刚体中对定轴的力矩在时间上的累积效果，得出定轴转动的角动量定理。
+
+\subsection{刚体的角动量}
+根据\Refx{定义}{角动量}，考察质点$m_i$，记其角动量为$\vb*{L}_i$
+\begin{equation*}
+    \vb*{L}_i=m_i\vb*{r}_i\times\vb*{v}
+\end{equation*}
+上式$\vb*{r}_i$代表质点对轴的位矢，因此$\vb*{L}_i$代表质点对轴的角动量，即质点参照于其所在转动平面与转轴交点的角动量。由于$\vb*{r}_i,\vb*{v}_i$均在转动平面内，因此$\vb*{L}_i$总是沿转轴方向
+
+根据\Refx{公式}{刚体的角速度和线速度的关系}，上式可以改写为
+\begin{equation*}
+    \vb*{L}_i=m_i\vb*{r}_i\times(\vb*{\omega}\times\vb*{r}_i)
+\end{equation*}
+根据矢量三重积的运算法则$\vb*{a}\times(\vb*{b}\times \vb*{c})=(\vb*{a}\cdot\vb*{c})\vb*{b}-(\vb*{a}\cdot\vb*{b})\vb*{c}$
+\begin{equation*}
+    \vb*{L}_i=m_i(\vb*{r}_i\cdot\vb*{r}_i)\vb*{\omega}-m_i(\vb*{r}\cdot\vb*{\omega})\vb*{r}_i
+\end{equation*}
+由于$\vb*{r}_i\cdot\vb*{r}_i=r_i^2$，以及$\vb*{r}_i\cdot\omega=0$，上式可以表达为
+\begin{Equation}[刚体的角动量1]
+    \vb*{L}_i=mr_i^2\vb*{\omega}
+\end{Equation}
+现将式\ref{式:刚体的角动量1}对$n$个质点累加
+\begin{Equation}[刚体的角动量2]
+    \SumIN{\vb*{L}_i}=\SumIN{m_ir_i^2\vb*{\omega}}=J\vb*{\omega}
+\end{Equation}
+现在研究式\ref{式:刚体的角动量2}中的$\SumIN{\vb*{L}_i}$的意义，关注到其是一系列对轴的角动量的和，因此其并非是原先质点系中的“\uwave{相对定点的合角动量}”，我们将其称为“\uwave{相对定轴的合角动量}”，这与我们先前对力矩的处理是类似的，在讨论刚体的定轴转动时可以简称为合角动量。
+
+如果记刚体的对定轴的合角动量为$\vb*{L}$，那么
+\begin{BoxEquation}[刚体的角动量]
+    \vb*{L}=J\vb*{\omega}
+\end{BoxEquation}
+\Refx{公式}{刚体的角动量}指出，刚体的角动量总是沿着转轴，与角速度方向一致。
+
+\subsection{刚体的角动量定理}
+根据\Refx{定律}{定轴转动定律}
+\begin{equation*}
+    \vb*{M}=J\vb*{\alpha}=J\Fdif{\vb*{\omega}}{t}=\Fdif{(J\omega)}{t}=\Fdif{\vb*{L}}{t}
+\end{equation*}
+这就得到了定轴转动定律的角动量形式
+\begin{BoxEquation}[定轴转动定律的角动量形式]
+    \vb*{M}=\Fdif{\vb*{L}}{t}
+\end{BoxEquation}
+上式指出刚体所受的对定轴的合外力矩，即刚体对定轴的角动量对时间的变化率。
+
+如果将刚体对定轴的合外力矩在时间上的积累，称为“刚体的合外力矩对定轴的角冲量”，那么我们可以将\Refx{公式}{定轴转动定律的角动量形式}用积分形式改写为
+\begin{BoxPrinciple}[刚体的角动量定理]
+    刚体合外力矩对定轴的角冲量，等于刚体对该轴的角动量增量。
+    \begin{BoxEq}
+        \Int[t_a][t_b]{\vb*{M}\dif{t}}=\vb*{L}_b-\vb*{L}_a=\delt{\vb*{L}}
+    \end{BoxEq}
+\end{BoxPrinciple}
+该结论就称为\uwave{刚体的角动量定理}。
+
+值得注意的是，先前在\Refx{定律}{质点系的角动量定理}中得出了与此处\Refx{定律}{刚体的角动量定理}相同数学形式的结论，但是后者并不能简单视为前者的特殊情况，因为
+\begin{enumerate}
+    \item 前者代表“对定点的合外力矩”的冲量，等同于“对定点的合角动量”的增量。
+    \item 后者代表“对定轴的合外力矩”的冲量，等同与“对定轴的合角动量”在增量。
+\end{enumerate}
+虽然如此，但事实上可以证明
+\begin{center}
+    \small
+    对定轴的力矩和角动量，是对轴上任意一点的力矩和角动量在转轴方向上的分量。
+\end{center}
+因此实际上“对定轴”和“对定点”的两组概念之间还是存在一定联系的。
+
+\Refx{定律}{刚体的角动量定理}中，如果刚体不受外力矩，关注到角动量不变。
+\begin{BoxPrinciple}[刚体的角动量守恒定律]
+    当刚体不受对定轴的外力矩，或对定轴的合外力矩为零时，
+    
+    那么刚体对该定轴的角动量将保持不变。
+\end{BoxPrinciple}
+该结论就称为\uwave{刚体的角动量守恒定律}。
+
+\Refx{定律}{刚体的角动量守恒定律}通过刚体的定轴转动推导而来，但是事实上其适用于一般物体的定轴转动，也就是说，即便物体在定轴转动中的转动惯量发生变化，只要其不受外力矩，那么其角动量仍然是守恒的，进而结合\Refx{公式}{刚体的角动量}可以得出
+\begin{itemize}
+    \item 当转动惯量增大时，刚体的角速度相应减小。
+    \item 当转动惯量减小时，刚体的角速度相应增大。
+\end{itemize}
+该角动量守恒的现象是非常容易验证的，试着用手握住两个杠铃，并平举双臂在地面上开始旋转\footnote{从实验的真实感受来看，放下双臂时会感觉“被用力推了一把”，张开双臂时会感觉“被突然拉住了”。}。如果突然将双臂放下，旋转速度会加快，如果再将双臂张开，旋转速度会减。
+
+这就是因为双臂放下和抬起时，将会改变手臂上各部分到人体转轴的距离，从而使得人的转动惯量发生变化，同时手持的杠铃会显著的增大这种变化。这种通过调整人体姿态改变人的转动惯量，从而改变角速度的技巧，在跳水和滑雪等运动中都是很常见的。
+
+\Refx{定律}{刚体的角动量守恒定律}也可以适用于质点和刚体相交互的情况，例如一个静止的圆盘被子弹击中开始做定轴转动，那么就可以讲圆盘和子弹视为一个系统，从而子弹切入圆盘前作为质点对轴的角动量，就等同于子弹和圆盘组成的刚体对轴的角动量。
+
+\section{刚体的转动动能定理}
+这一节讲讨论刚体中对定轴的力矩在空间上的累积效果，得出定轴转动的动能定理。
+
+\subsection{力矩的功}
+当我们在刚体中，提及力矩对所做的功，我们实际上谈论的是力矩所对应的力对刚体内各个质点所做的功。因此要研究力矩的功遵循的规律，就要研究力对各个质点的功。
+
+设质点$m_i$受到合力$\vb*{F}_i$的作用，其所做的功记作$W_i$，根据\Refx{定义}{变力的功}
+\begin{equation*}
+    W_i=\Ilnt{\vb*{F}_i\cdot\dif{\vb*{r}}}=\Int[t_a][t_b]{\vb*{F}_i\cdot\vb*{v}_i\dif{t}}
+\end{equation*}
+根据\Refx{公式}{刚体的角速度和线速度的关系}
+\begin{equation*}
+    W_i=\Int[t_a][t_b]{\qty(\vb*{\omega}\times\vb*{r}_i)\cdot\vb*{F}_i\dif{t}}
+\end{equation*}
+由于标量三重积具有轮换不变性，即$\vmix{a}{b}{c}=\vmix{c}{a}{b}=\vmix{b}{c}{a}$，因此
+\begin{equation*}
+    W_i=\Int[t_a][t_b]{\qty(\vb*{r}_i\times\vb*{F}_i)\cdot\vb*{\omega}\dif{t}}
+\end{equation*}
+根据\Refx{定义}{力矩}
+\begin{equation*}
+    W_i=\Int[t_a][t_b]{\vb*{M}_i\cdot\vb*{\omega}\dif{t}}
+\end{equation*}
+现将上式对$n$个质点累加，左侧的$\SumIN{W_i}=W$是各质点所受的力所做的功的和，这可以视为力矩对刚体所做的功，右侧积分中的$\SumIN{\vb*{M_i}}$内的$\vb*{M}_i$既包含内力矩也包含外力矩，但我们知道对定轴的合内力矩也为零，因此该累加和即为刚体的合外力矩，记作$\vb*{M}$。
+\begin{equation*}
+    W=\SumIN{W_i}=\Int[t_a][t_b]{\SumIN{\vb*{M}_i}\cdot\vb*{\omega}\dif{t}}=\Int[t_a][t_b]{\vb*{M}\cdot\vb*{\omega}\dif{t}}
+\end{equation*}
+关注到刚体的合外力矩的方向与角速度的方向均沿转轴，即$\vb*{M}\cdot\vb*{\omega}=M\omega$。
+
+从而上式可以化为
+\begin{equation*}
+    W=\Int[t_a][t_b]{M\omega\dif{t}}=\Int[t_a][t_b]{M\dif{\theta}}
+\end{equation*}
+这就是合外力矩对刚体所做的功，称为\uwave{力矩的功}。
+\begin{BoxEquation}[力矩的功]
+    W=\Int[t_a][t_b]{M\dif{\theta}}
+\end{BoxEquation}
+\Refx{公式}{力矩的功}指出，力对刚体所做的功可以用合外力矩关于角位移的积分表示。
+
+\subsection{力矩的功率}
+我们用单位时间内，力矩对刚体所做的功衡量力矩的做功快慢，称为\uwave{力矩的功率}。
+
+考虑到在刚体中$\dif{W}=M\dif{\theta}$，这就有
+\begin{equation*}
+    P=\Fdif{W}{t}=M\Fdif{\theta}{t}=M\omega
+\end{equation*}
+这就是说，力矩的功率是力矩和角速度的乘积
+\begin{BoxEquation}[力矩的功率]
+    P=M\omega    
+\end{BoxEquation}
+\Refx{公式}{力矩的功率}指出当功率一定时，转速越低力矩越大，转速越高力矩越小。
+
+\subsection{刚体的转动动能}
+刚体在定轴转动过程中，尽管刚体整体在空间上没有运动，但是各个质点却在绕轴做圆周运动，我们将这部分动能称为刚体的\uwave{转动动能}，与刚体平动时的\uwave{平动动能}相区分。
+
+根据\Refx{定义}{动能}，记质点$m_i$的动能为$E_{k,i}$
+\begin{equation*}
+    E_{k,i}=\frac{1}{2}m_iv_i^2=\frac{1}{2}m_ir_i^2\omega^2
+\end{equation*}
+由于在定轴转动中，刚体绕定轴的转动动能即各质点的动能和
+\begin{equation*}
+    E_k=\SumIN{E_{k,i}}=\SumIN{\frac{1}{2}m_ir_i\omega^2}
+\end{equation*}
+根据\Refx{定义}{转动惯量}
+\begin{BoxEquation}[刚体的转动动能]
+    E_k=\frac{1}{2}J\omega^2
+\end{BoxEquation}
+
+关注到如果我们在\Refx{公式}{力矩的功}中代入\Refx{定律}{定轴转动定律}
+\begin{equation*}
+    W=\Int[\theta_a][\theta_b]{M\dif{\theta}}=\Int[\theta_a][\theta_b]{J\Fdif{\omega}{t}\dif{\theta}}=\Int[\omega_a][\omega_b]{J\Fdif{\theta}{t}\dif{\omega}}=\Int[\omega_a][\omega_b]{J\omega\dif{\omega}}
+\end{equation*}
+根据\Refx{公式}{刚体的转动动能}
+\begin{BoxPrinciple}[刚体的转动动能定理]
+    合外力矩对定轴转动的刚体所做给功，等于刚体转动动能的增量。
+    \begin{BoxEq}
+        W=\frac{1}{2}J\omega_b^2-\frac{1}{2}J\omega_a^2=E_{k,b}-E_{k,a}=\delt{E_k}
+    \end{BoxEq}
+\end{BoxPrinciple}
+该结论就称为\uwave{刚体的转动动能定理}。

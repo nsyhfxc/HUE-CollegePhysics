@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+    \lPoint{O}{0,0}[below left][J]
+    \lShift{X1}{O}{-2,0}
+    \lShift{X2}{O}{2,0}
+    \draw[thick] (X1)--(X2);
+    \lShift{O'}{O}{0,-5}[below left][O]
+    \draw[gray,dashed](O') arc (-90:-45:5);
+    \draw[gray,dashed](O') arc (-90:-135:5);
+    \lRatio{B}{O}{O'}{1.1}
+    \draw[gray,dashed](O)--(B);
+    \lShift{C}{O}{-60:5};
+    \lShift{R1}{C}{-90:0.1}
+    \lShift{R2}{C}{-30:0.1}
+    \lShift{R3}{O}{90:0.1}
+    \lShift{R4}{O}{150:0.1}
+    \draw[fill=red,fill opacity=0.15] (R1)--(R2)--(R3)--(R4)--cycle;
+    \draw[fill=white] (O) circle (0.03);
+    \draw[thick,fill=blue,fill opacity=0.1] (C) circle (0.5);
+    \lRatio{C'}{O}{C}{0.7}[right][C]
+    \draw[dashed](O)--(C');
+    \draw[gray,dashed](C)--(C');
+    \lRatio{l}{O}{C'}{0.5}[above right][l]
+    \lShift{P}{C'}{0,-2}[left][\vb*{P}];
+    \lShift{Pt}{C'}{210:1}[below][\vb*{P_t}];
+    \draw[-latex] (C')--(P);
+    \draw[-latex] (C')--(Pt);
+    \lAngle[\theta]{O'}{O}{C'}[0.3][3]
+    \lAngle[\theta]{P}{C'}{C}[0.25][3]
+    \draw[fill=white] (C') circle (0.03);
+\end{tikzpicture}

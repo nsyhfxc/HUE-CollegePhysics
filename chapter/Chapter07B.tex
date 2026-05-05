@@ -1,0 +1,147 @@
+\section{平面简谐波的表达式}
+描述波动传播规律的数学函数式，称为\uwave{波函数}或\uwave{波动表达式}，由于波动是介质中一系列物质的运动，因此描述波动的波函数，是关于时间和空间的二元函数。
+
+我们以最简单的波源振动\textbf{简谐振动}和最简单的波阵面\textbf{平面波}，构成的\uwave{平面简谐行波}为例，推导波函数。其中的\uwave{行波}是对在空间中运动的波，与稍后的\uwave{驻波}相对应。
+
+\subsection{波函数的推导}
+设一个无限大，均匀，无吸收，各向同性的理想介质，设一个平面在该介质中振动，沿垂直平面的方向产生了一个以速度$u$沿$x$轴正向传播的的平面波，由于平面波的各波线的波动状况是完全相同，我们任选其中一根波线进行研究，并设振源处的坐标为$x=0$。
+
+波函数是一个关于空间$x$和时间$t$，波函数的意义是位于$x$处的质点在$t$时的振动状况，即相对平衡位置的位矢，先前我们在振动中总是使用$x$表述质点相对平衡位置的位矢，但是考虑到波动中$x$已被用于表示质点的平衡位置，因此改用$y$表示相对平衡位置的位矢。
+
+应当指出，这里的$x,y$记号并未隐式假定两者的方向关系
+\begin{itemize}
+    \item 对于横波，振动方向与波的传播方向垂直，那么振动$y$的方向就与位置$x$垂直。
+    \item 对于纵波，振动方向与波的传播方向平行，那么振动$y$的方向就与位置$x$平行。
+\end{itemize}
+由此可见，波函数无关横纵波，波函数仅关心偏离平衡位置的位矢的大小，不考虑方向。
+
+设波源$O$的振动方程为
+\begin{Equation}
+    y=A\cos(\omega t+\phi)
+\end{Equation}
+现在考察沿波线距离波源为$x$的任意一点$P$的振动方程，由于波动是振动状态的空间传播，因此$P$点在$t$时的相位，实际上是由$O$点在$t-\dfrac{x}{u}$历经$\delt{t}=\dfrac{x}{u}$的时间传播而来的。
+
+这就得到了空间中任意一点的振动方程，这便是\uwave{平面简谐行波的波函数}
+\begin{BoxEquation}[波函数]
+    y=A\cos\qty[\omega\qty(t-\frac{x}{u})+\phi]
+\end{BoxEquation}
+
+\subsection{波函数的物理意义}
+\Refx{公式}{波函数}是通过将空间距离等效为时间差距得到的，但是我们也可以将其化为对称的形式，展开并代入角频率和角波数的关系$\omega=uk$，得到
+\begin{equation*}
+    y=A\cos\qty[\omega\qty(t-\frac{x}{u})+\phi]=A\cos\qty[\omega t-\frac{\omega}{u}x+\phi]=A\cos\qty[\omega t-kx+\phi]
+\end{equation*}\vspace{-15pt}
+\begin{BoxEquation}[波函数的频率表示]
+    y=A\cos\qty[\omega t-kx+\phi]
+\end{BoxEquation}
+\Refx{公式}{波函数的频率表示}指出，空间和时间可以以对等的方式影响振动相位
+\begin{itemize}
+    \item 时间对相位具有正贡献，时间与角频率的积$\omega t$的\uwave{正值}是时间造成的相位差，也就是说，较晚的时间意味着更为领先的相位，时间差$\delt{t}$的领先意味着$\omega\delt{t}$的相位领先。
+    \begin{center}
+        沿时间演化方向，每个质点的振动状态逐渐领先。
+    \end{center}
+    \item 空间对相位具有负贡献，空间与角波数的积$kt$的\uwave{负值}是时间造成的相位差，也就是说，较远的空间意味着更为落后的相位，空间差$\delt{x}$的领先意味着$kt$的相位差落后。
+    \begin{center}
+        沿空间传播方向，各个质点的振动状态依次落后。
+    \end{center}
+\end{itemize}
+以上讨论指出，时间对相位具有正贡献，空间对相位具有负贡献，但这仅仅是对于该形式的函数而言，因为相位的正负本身具有相对性，如果利用$\cos(\theta)=\cos(-\theta)$反转相位的正负，那么结论将刚好相反，然而不变的是，时间和空间对相位的作用总是相反的。
+\begin{Figure}{波形图与振动图}
+    \subfigure[波形图]
+    {
+        \inputfigure[scale=1]{Chapter07B_Figure02}
+    }\quad\quad
+    \subfigure[振动图]
+    {
+        \inputfigure[scale=1]{Chapter07B_Figure01}
+    }
+    \vspace{-15pt}
+\end{Figure}\vspace{-10pt}
+当$t$\hspace{4pt}取定时，关于空间$x$的函数$y=A\cos[kx-(\phi+\omega t)]$的$y-x$图称为$t$\hspace{4pt}时的\uwave{波形图}。
+
+当$x$取定时，关于时间$t$\hspace{4pt}的函数$y=A\cos[\omega t+(\phi-kx)]$的$y-t$\hspace{5pt}图称为$x$处的\uwave{振动图}。
+\begin{itemize}
+    \item 波形图关于空间，以空间方向为相位正方向，在这种情况下时间对相位的影响是负的，因此时间上领先的\hspace{4.5pt}$t+\delt{t}$\hspace{4.5pt}时的波形图在相位上落后于\hspace{4.5pt}$t$\hspace{4.5pt}时的波形图$\omega\delt{t}$。
+    \item 振动图关于时间，以时间方向为相位正方向，在这种情况下空间对相位的影响是负的，因此空间上领先的$x+\delt{x}$处的振动图在相位上落后于$x$处的波形图$k\delt{x}$。
+\end{itemize}
+在\Refx{图}{波形图}中，波速的大小表现为波形曲线随时间的运动快慢，波速的方向即波形运动的方向，该例子中当时间由$t$增加至$t+\delt{t}$，波形曲线向右（由蓝至红），波速故向右。
+
+\Refx{公式}{波函数的频率表示}中，代入周期$T=\dfrac{2\pi}{\omega}$和波长$\lambda=\dfrac{2\pi}{k}$
+\begin{BoxEquation}[波函数的周期表示]
+    y=A\cos\qty[2\pi\qty(\frac{t}{T}-\frac{x}{\lambda})+\phi]
+\end{BoxEquation}
+\Refx{公式}{波函数的周期表示}指出，波动同时具有空间周期性和时间周期性
+\begin{itemize}
+    \item 当时间$t$相差$T,2T,3T,\cdots,nT$时，同一位置的质点的状态相同，即\uwave{波的时间周期性}。
+    \item 当空间$x$相隔$\lambda,2\lambda,3\lambda,\cdots,n\lambda$时，同一时间的质点的状态相同，即\uwave{波的空间周期性}。
+\end{itemize}
+对\Refx{公式}{波函数的频率表示}求时间的一阶偏导，即质点的振动速度
+\begin{BoxEquation}[波的振动速度]
+    v=\Fpif{y}{t}=-A\omega\sin\qty[\omega t-kx+\phi]   
+\end{BoxEquation}
+对\Refx{公式}{波函数的频率表示}求时间的二阶偏导，即质点的振动加速度
+\begin{BoxEquation}[波的振动加速度]
+    a=\Fpif{y}{t}^2=-A\omega^2\sin\qty[\omega t-kx+\phi]
+\end{BoxEquation}
+注意区分波速$u$与波在传播中质点的振动速度$v$的差异。
+
+\subsection{平面波的波动方程}
+求\Refx{公式}{波函数的频率表示}对时间的二阶偏导数
+\begin{Equation}[波对时间二阶导]
+    \Fpif{y}{t}^2=-A\omega^2\sin\qty[\omega t-kx+\phi]
+\end{Equation}
+求\Refx{公式}{波函数的频率表示}对空间的二阶偏导数
+\begin{Equation}[波对空间二阶导]
+    \Fpif{y}{x}^2=-Ak^2\sin\qty[\omega t-kx+\phi]
+\end{Equation}
+比较\ref{式:波对时间二阶导}与式\ref{式:波对空间二阶导}（将两者做比），考虑到$\omega^2=u^2k^2$
+\begin{BoxEquation}[平面波的波动方程]
+    \Fpif{y}{x}^2=\frac{1}{u^2}\Fpif{y}{t}^2
+\end{BoxEquation}
+上式称为\uwave{平面波的波动方程}，这是一个偏微分方程，尽管是由平面简谐波的波函数推导而来，但事实上该偏微分方程的解远不止简谐波，其反映了各向同性的均匀介质中的一切平面波的共同特征“振动位矢对空间的二阶偏导，等同于振动位矢对时间的二阶偏导除以波速的平方”，其解是平面波的波函数的全体，而平面简谐波的波函数是其中的一个解。
+
+在这一章中，我们对波动的研究均是基于这样一个假设，即振动形式在弹性介质中会以波的方式传播，尽管这个假设似乎十分符合直观，但是客观规律并不以人的意志为转移，因此我们需要通过动力学的观点，论证弹性介质的动力学规律必然会导致波动的运动学结果。
+
+因此我们的目的就是要推导出\Refx{公式}{平面波的波动方程}。
+
+下面以固体细长棒中的平面纵波为例，设棒的截面为$S$，设棒的密度为$\rho$。
+\begin{Figure}{纵波在细棒中的传播}
+    \inputfigure[scale=0.85]{Chapter07B_Figure03}
+\end{Figure}
+当纵波传播时棒会发生形变，棒中不同部位被不同程度的拉伸和压缩，以棒长方向为$x$轴，在棒中任取长为$\dx$的质元，设微元的左截面和右截面分布位于$x$和$x+\dx$处。
+
+我们知道，对于函数$f(x)$，有$f(x+\dx)=f(x)+\dif{f}(x)+o(\dx)$，而$o(\dx)$在物理上使用微元法时是可以忽略不计的，但在这里力和振动位移是关于$x,t$的二元函数$F(x,t),y(x,t)$，因此当保持$t$不变，考察$(x+\dx,t)$处的函数值时，要改用对$x$的偏微分表示，即
+\begin{equation*}
+    F(x+\dx,t)=F+\Fpif{F}{x}\dx\qquad\quad y(x+\dx,t)=y+\Fpif{y}{x}\dx
+\end{equation*}
+关注到质元$\dx$受到的合力为$\Fpif{F}{x}\dx$，方向向右，根据\Refx{定律}{牛顿第二定律}
+\begin{Equation}[波动方程1]
+    \Fpif{F}{x}\dx=a\dif{m}=a\rho S\dx
+\end{Equation}
+代入\Refx{定义}{瞬时加速度}
+\begin{Equation}[波动方程2]
+    \Fpif{F}{x}\dx=\Fpif{y}{t}^2\rho S\dx
+\end{Equation}
+根据\Refx{定义}{应力}，由于此处的细杆是均匀的，因此有$F=\tau S$，故
+\begin{Equation}[波动方程3]
+    \Fpif{F}{x}=\Fpif{\tau}{x}S
+\end{Equation}
+在式\ref{式:波动方程2}中代入式\ref{式:波动方程3}，并约去$S\dx$
+\begin{Equation}[波动方程4]
+    \Fpif{\tau}{x}=\rho\Fpif{y}{t}^2
+\end{Equation}
+根据\Refx{公式}{长变与杨氏模量}，此处有$\tau=E\varepsilon=E\dfrac{\delt{l}}{l}$，其中质元的原长$l=\dx$，而质元的长度增量$\delt{l}=\Fpif{y}{x}\dx$，从而将两者相除将$\dx$约去，这就得到$\tau=E\Fpif{y}{x}$。
+
+从而就可以求出应力$\tau$对空间$x$的偏导
+\begin{Equation}[波动方程5]
+    \Fpif{\tau}{x}=\Fpif{x}\qty(E\Fpif{y}{x})=E\Fpif{y}{x}^2
+\end{Equation}
+将式\ref{式:波动方程5}代入式\ref{式:波动方程4}，这就得到
+\begin{Equation}[波动方程6]
+    \Fpif{y}{x}^2=\frac{\rho}{E}\Fpif{y}{t}^2
+\end{Equation}
+如果我们令$u=\sqrt{\dfrac{E}{\rho}}$，那么式\ref{式:波动方程6}中就有$\dfrac{\rho}{E}=\dfrac{1}{u^2}$，这就得到了\Refx{公式}{平面波的波动方程}中的偏微分方程，这就证明了弹性介质的动力学性质必然导致波动的运动学结果。
+
+此处的$u$仅仅是一个代换变量，但是通过波动方程解的物理意义可知，这里的$u$实际上就是我们所熟知的波速，这一代换公式也是\Refx{公式}{机械纵波在固体中的波速}的来源。
+
+此处以纵波为例推导，但事实上\Refx{公式}{平面波的波动方程}普遍适用于纵波和横波。

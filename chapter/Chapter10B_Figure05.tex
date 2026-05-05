@@ -1,0 +1,61 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{O}{0,0}
+    \node[below left] at (0,-0.1){$O$};
+    \lPoint{X1}{-4,0}
+    \lPoint{X2}{6.5,0}[right][x]
+    \lPoint{Y}{0,5.5}[right][y]
+    \draw[dotted,->] (X1)--(X2);
+    \draw[dotted,->] (O)--(Y);
+    \lPoint{A}{-2.5,0}
+    \lPoint{B}{5,0}
+    \lShift{A'}{A}{0,0.1}
+    \lShift{B'}{B}{0,-0.1}
+    \draw (A') rectangle (B');
+
+    \lPoint{dx2}{1.5,0}
+    \lShift{dx3}{dx2}{0.6,0}
+    \lShift{dx2r}{dx2}{0,0.1}
+    \lShift{dx3r}{dx3}{0,-0.1}
+    \draw[fill=black,fill opacity=0.85] (dx2r) rectangle (dx3r);
+
+    \lShift{L1}{O}{0,-0.5}
+    \lShift{L2}{dx2}{0,-0.5}
+    \lShift{L3}{dx3}{0,-0.5}
+    \lShift{L1'}{O}{0,-0.3}
+    \lShift{L2'}{dx2}{0,-0.3}
+    \lShift{L3'}{dx3}{0,-0.3}
+
+    \draw[ultra thin] (O)--(L1);
+    \draw[ultra thin] (dx2)--(L2);
+    \draw[ultra thin] (dx3)--(L3);
+    \draw[ultra thin,<->] (L1')--(L2');
+    \draw[ultra thin,-latex] (L2')--(L3');
+
+    \lRatio{TA}{L1'}{L2'}{0.5}[below][\text{$l$}\vphantom{\dif}]
+    \lRatio{TB}{L2'}{L3'}{0.5}[below][\dif{\vb*{l}}]
+
+    \lPoint{P}{0,3}[above left]
+    \draw[dashed](A)--(P)--(B);
+    \draw (O)--(P)--(dx2);
+
+    \node[above right] at (P) {$\dif{\vb*{B}}$};
+    \fill[fill=white] (P) circle (0.12);
+    \node at (P) {$\odot$};
+
+    \lRatio{y}{O}{P}{0.5}[left]
+    \lRatio{r}{P}{dx2}{0.52}[right][\vb*{r}]
+    \draw[-latex] (dx2)--(P);
+
+    \lAngle[\theta_1]{X2}{A}{P}[0.37]
+    \lAngle[\theta]{X2}{dx2}{P}[0.27]
+    \lAngle[\theta_2]{X2}{B}{P}[0.22]
+
+    \lShift{I1}{B}{-1.5,0}
+    \lShift{I2}{B}{+0.5,0}[below][I]
+    \draw[-latex] (I1)--(I2);
+
+    \node at (-3.8,0.3) {$\odot$};
+    \node at (-3.8,-0.3) {$\otimes$};
+    \node[right=3pt] at (-3.8,0.3) {$\dif{\vb*{B}}$};
+    \node[right=3pt] at (-3.8,-0.3) {$\dif{\vb*{B}}$};
+\end{tikzpicture}

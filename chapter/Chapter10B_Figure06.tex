@@ -1,0 +1,110 @@
+\begin{tikzpicture}[scale=1.2]
+    \lPoint{O}{0,0}
+    \draw[ultra thick] (O) ellipse (2 and 0.66);
+    \node[above left] at (0,0.0){$O$};
+    \lPoint{X1}{0,-5}
+    \lPoint{X2}{0,6}[right][x]
+    \lPoint{Y1}{1.5,1.5}
+    \lPoint{Y2}{-1.5,-1.5}[left][y]
+    \lPoint{Z1}{-3.5,0}
+    \lPoint{Z2}{+3.5,0}[above][z]
+    \draw[dotted,->] (X1)--(X2);
+    \draw[dotted,->] (Y1)--(Y2);
+    \draw[dotted,->] (Z1)--(Z2);
+    \begin{scope}
+        \clip (O) ellipse (2 and 0.66);
+        \draw[gray] (Y1)--(Y2);
+        \draw[gray] (Z1)--(Z2);
+    \end{scope}
+
+    \lPoint{P1}{-2,0}
+    \lPoint{P2}{+2,0}
+
+    \draw[<->] (O)--(P1);
+
+    \draw[ultra thick,red!50!white] (P1) 
+    arc(180:160:2 and 0.66); 
+    \draw[ultra thick,red!50!white] (P1) 
+    arc(180:200:2 and 0.66);
+    \draw[black!60!white] (P1) 
+    arc(180:170:2 and 0.66);
+    \draw[black!60!white,-latex] (P1) 
+    arc(180:230:2 and 0.66) node[below,black]{$I$};
+    
+    \draw[ultra thick,blue!50!white] (P2) 
+    arc(0:-20:2 and 0.66); 
+    \draw[ultra thick,blue!50!white] (P2)
+    arc(0:+20:2 and 0.66);
+    \draw[black!60!white] (P2) 
+    arc(0:-10:2 and 0.66);
+    \draw[black!60!white,-latex] (P2) 
+    arc(0:+50:2 and 0.66) node[above,black]{$I$};
+
+    \lShift{P1a}{P1}{45:-1}
+    \draw[-latex,red!50!white] (P1)--(P1a);
+    \lShift{P2a}{P2}{45:1}
+    \draw[-latex,blue!50!white] (P2)--(P2a);
+
+    \node[below,red!50!white ] at (P1a) {$I\hspace{-2pt}\dif{\vb*{l}_1}$};
+    \node[right,blue!50!white] at (P2a) {$I\hspace{-2pt}\dif{\vb*{l}_2}$};
+
+    \lRatio{R}{O}{P1}{0.5}[below]
+    \lPoint{P}{0,3.5}
+    \lPoint{Q}{0,-3.5}
+    \node[right] at (0,3.45) {$P$};
+    \lShift{P1x}{P}{150.25:1.4}
+    \lShift{P2x}{P}{29.74:1.4}
+    \lShift{P1c}{P}{-135:1}
+    \lShift{P2c}{P}{45:1}
+    \lShift{Q1x}{Q}{150.25:1.4}
+    \lShift{Q2x}{Q}{29.74:1.4}
+    \lShift{Q1c}{Q}{-135:1}
+    \lShift{Q2c}{Q}{45:1}
+
+    \lShift{Q1a}{P1}{45:-1}
+    \draw[-latex,red!50!white] (P1)--(Q1a);
+    \lShift{Q2a}{P2}{45:1}
+    \draw[-latex,blue!50!white] (P2)--(Q2a);
+
+    \lRightAngle{P1x}{P}{P1}
+    \lRightAngle{P2x}{P}{P2}
+
+    \draw[red!50!white,dashed,-latex] (P1)--(P);
+    \draw[blue!50!white,dashed,-latex] (P2)--(P);
+    \draw[red!50!white,dashed,-latex] (P1)--(Q);
+    \draw[blue!50!white,dashed,-latex] (P2)--(Q);
+    % \draw[red!50!white,dotted] (P)--(P1c)--(P1a);
+    \draw[blue!50!white,dotted] (P)--(P2c)--(P2a);
+    \draw[blue!50!white,dotted] (Q)--(Q2c)--(Q2a);
+    \draw[red!50!white,-latex] (P)--(P1x);
+    \draw[blue!50!white,-latex] (P)--(P2x);
+    \draw[red!50!white,-latex] (Q)--(Q2x);
+    \draw[blue!50!white,-latex] (Q)--(Q1x);
+    \node[red!50!white,left] at (P1x) {$\dif\vb*{B}_1$};
+    \node[blue!50!white,right] at (P2x) {$\dif\vb*{B}_2$};
+    \node[red!50!white,right] at (Q2x) {$\dif\vb*{B}_2$};
+    \node[blue!50!white,left] at (Q1x) {$\dif\vb*{B}_1$};
+
+    % \fill[red,fill opacity=0.1] (P1)--(P)--(P1c)--(P1a)--cycle;
+    % \draw[red!50!white,fill=white,very thin] (P1c) circle (0.025);
+
+    \fill[blue,fill opacity=0.1] (P2)--(P)--(P2c)--(P2a)--cycle;
+    \draw[blue!50!white,fill=white,very thin] (P2c) circle (0.025);
+    \fill[blue,fill opacity=0.1] (P2)--(Q)--(Q2c)--(Q2a)--cycle;
+    \draw[blue!50!white,fill=white,very thin] (Q2c) circle (0.025);
+    
+    \lRatio{x}{O}{P}{0.5}[left]
+    \lRatio{r}{P1}{P}{0.45}[left][\text{$r=\sqrt{R^2+x^2}$}]
+    \lRatio{r1}{P1}{P}{0.5}
+    \lRatio{r2}{P2}{P}{0.5}
+    \node[right,red!50!white] at (r1) {$\vb*{r}_1$};
+    \node[left,blue!50!white] at (r2) {$\vb*{r}_2$};
+
+    \draw[fill=white] (P1) circle (0.035);
+    \draw[fill=white] (P2) circle (0.035);
+    \draw[fill=white] (O) circle (0.035);
+    \draw[fill=white] (P) circle (0.035);
+
+    \lAngle[\alpha]{X2}{P}{P1x}[0.25][1.8]
+    \lAngle[\alpha]{O}{P1}{P}[0.25][1.8]
+\end{tikzpicture}

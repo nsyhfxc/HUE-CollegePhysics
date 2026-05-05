@@ -1,0 +1,7 @@
+\begin{circuitikz}[european,american voltages]
+    \ctikzset{voltage/distance from node=0.85}
+    \draw (0,0) to[battery1,invert,l=$E$] ++ (0,4) to[switch,l=$S_1$,i=$I$] ++ (3,0) to[C,l_=$C$,v^=$~$] ++ (0,-4) to [R=$R$] ++ (-3,0);
+
+    \draw(3,4) to[switch,l=$S_2$,i=$I$] ++ (3,0) to[short] ++ (0,-4) to[R=$R$] ++ (-3,0);
+    \clip (-1,-0.5) rectangle (7,4.5);
+\end{circuitikz}

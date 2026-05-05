@@ -1,0 +1,287 @@
+\section{电场高斯定理与电通量}
+
+\subsection{电场线}
+为了形象的描述空间电场的分布，我们引入\uwave{电场线}的概念，简称$\vb*{E}$线。
+
+电场线是这样的一簇曲线，每条电场线上任意一点的切线方向，即代表该点处的电场方向，同时，电场线越密集则代表电场强度越大，电场线线越稀疏代表电场强度越小，简单的说
+\begin{center}
+    电场线的方向反映电场的方向，电场线的疏密反映电场的强弱。
+\end{center}
+电场线上应标注有箭头，以标识此处的电场是沿曲线的哪一方向。
+
+孤立的正点电荷的电场线，是以点电荷为中心，向外辐射的直线
+\begin{Figure}{正点电荷的电场线}
+    \inputfigure[scale=0.65]{Chapter08B_Figure01}
+\end{Figure}
+孤立的负点电荷的电场线，是以点电荷为中心，向外辐射的直线
+\begin{Figure}{负点电荷的电场线}
+    \inputfigure[scale=0.65]{Chapter08B_Figure02}
+\end{Figure}
+\Refx{图}{正点电荷的电场线}和\Refx{图}{负点电荷的电场线}中，如果我们围绕电荷取一系列半径为$r$的同心圆，由于圆的周长为$2\pi r$，而圆上电场线的数量是恒定的，这时电场线的疏密是按照$r^{-1}$衰减的，但是点电荷的电场强度是以$r^{-2}$衰减的，这就导致了矛盾。
+
+该矛盾出现的原因是我们仅绘制了一个平面上的电场线，但电场的分布是三维的，如果从三维中考虑，那么同心圆变为同心球，圆的周长$2\pi r$变为球的面积$4\pi r^2$，此时电场线的疏密就由以$r^{-1}$衰减变为以$r^{-2}$衰减，这就客观反映了点电荷的电场强度以$r^{-2}$衰减规律。
+
+该讨论指出，对电场的研究不能嵌入二维平面，即电场规律与三维空间是不可割裂的。
+
+对于具有多个场源点电荷的情况，其电场线的形态较为复杂，其电场线的绘制需要更深层次的电学理论和微分方程理论，在此不做讨论，仅将电场线的图像列举如下\footnote{由于技术原因，所有图像上的电场线均未标注箭头。}\footnote{由于技术原因，在等量异号电荷的图像中，部分指向负电荷的电场线缺失。}\footnote{由于技术原因，在等量同号电荷的图线中，位于中垂线上的两根电场线相隔过近。}
+\begin{Table}{常见带电系统的电场分布}{|c|c|}
+    \hline
+    \includegraphics[scale=0.45]{old/Octave/build/EField5.pdf}
+    &
+    \includegraphics[scale=0.45]{old/Octave/build/EField6.pdf}\\ \hline
+    正点电荷&负点电荷\\ \hline
+    \includegraphics[scale=0.45]{old/Octave/build/EField1.pdf}
+    &
+    \includegraphics[scale=0.45]{old/Octave/build/EField2.pdf}\\ \hline
+    等量异号电荷&不等量异号电荷\\ \hline
+    \includegraphics[scale=0.45]{old/Octave/build/EField3.pdf}
+    &
+    \includegraphics[scale=0.45]{old/Octave/build/EField4.pdf}\\ \hline
+    等量同号电荷&不等量同号电荷\\ \hline
+\end{Table}
+\Refx{表}{常见带电系统的电场分布}中，电场线以灰色实线表示。
+
+\Refx{表}{常见带电系统的电场分布}中可以总结出静电场的电场线的一般性质
+\begin{itemize}
+    \item 电场线起于正电荷，或源于无穷远处。
+    \item 电场线止于负电荷，或伸向无穷远处。
+    \item 电场线不会形成闭合曲线。
+\end{itemize}
+电场线不会在没有电荷的位置中断，尽管部分电场线因“指向图像外”或“源自图像外”看起来像是中断的，但这事实上只是图像显示时的截取造成的的结果。
+
+电场线也绝不会相交，因为电场线表示电场强度的方向，如果电场线相交，那么电场强度就有两个可能的方向，而同一位置的电场强度是唯一确定的，这就产生了矛盾。
+
+电场线与电荷在场中的运动轨迹\textbf{毫无关系}，其只代表电荷受到的电场强度方向。
+
+\subsection{电通量}
+定义电场强度$\vb*{E}$在某一给定曲面$S$上的通量为\uwave{电通量}，用$\Phi_E$表示
+\begin{BoxDefinition}[电通量]
+    \Phi_E=\Isnt[S]{\vb*{E}\cdot\dif{\vb*{S}}}
+\end{BoxDefinition}
+% 特别的，如果$S$是一平面区域，而$\vb*{E}$是匀强电场，那么
+% \begin{BoxEquation}[匀强电场的电通量]
+%     \Phi_E=\vb*{E}\vb*{S}=ES\cos\theta
+% \end{BoxEquation}
+% 其中面积矢量$\vb*{S}$指向平面的法向方向，其大小$S$表示平面区域的面积，$\theta$为$\vb*{E}$,$\vb*{S}$夹角。
+
+电通量在国际单位制中的单位是\si{N\cdot C^{-1}\cdot m^2=V\cdot m}，量纲是\si{[LM^3T^{-3}I^{-1}]}。
+
+电通量表征了电场强度在曲面上的累积，我们知道电场线的疏密可以表示电场强度的大小，那么穿过曲面的电场线数目的多少就可以形象的表示该曲面的电通量大小。
+
+电通量是标量，但具有正负，其正负表示电场线穿越曲面的方向
+\begin{itemize}
+    \item 如果电场线穿越曲面的方向与曲面法向量方向相同，那么对电通量的贡献为正。
+    \item 如果电场线穿越曲面的方向与曲面法向量方向相反，那么对电通量的贡献为负。
+\end{itemize}
+通常的曲面法向量的选取是任意的，但是对于闭曲面，习惯上取指向闭曲面外部的法向量。
+
+\subsection{电场高斯定理}
+下面我们来着重研究闭曲面上的电通量。
+
+假定空间中有且仅有一个点电荷$q$，我们以点电荷为原点建立空间直角坐标系，现研究空间中某一闭曲面$S$上的电通量，应注意，$q$可以在闭曲面内部，$q$也可以在闭曲面外部。
+
+根据高斯公式，若欲求$S$上的电通量，就要先求出$\vb*{E}$的散度。
+\begin{Equation}[电场高斯定理1]
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=\Itnt{\nabla\cdot\vb*{E}\dif{V}}
+\end{Equation}
+式\ref{式:电场高斯定理1}中的$\Omega$是闭曲面$S$所包围的空间区域。
+
+根据\Refx{公式}{点电荷的电场强度}
+\begin{equation*}
+    \vb*{E}=\ek\frac{q}{r^2}\vu*{k}=\ek\frac{q}{\qty(x^2+y^2+z^2)^{\frac{3}{2}}}\qty(x\vi+y\vj+z\vk)
+\end{equation*}
+从而电场强度$\vb*{E}$的分量$E_x$
+\begin{equation*}
+    E_x=\ek\frac{qx}{\qty(x^2+y^2+z^2)^{\frac{3}{2}}}
+\end{equation*}
+进而对分量$E_x$求偏导得
+\begin{equation*}
+    \Fpif{E_x}{x}=\ek\frac{q\qty(x^2+y^2+z^2)^{\frac{3}{2}}-\frac{3}{2}qx\qty(x^2+y^2+z^2)^{\frac{1}{2}}2x}{\qty(x^2+y^2+z^2)^3}
+\end{equation*}
+上式整理得
+\begin{equation*}
+    \Fpif{E_x}{x}=\ek\frac{\qty(x^2+y^2+z^2)^{\frac{3}{2}}-3x^2\qty(x^2+y^2+z^2)^{\frac{1}{2}}}{\qty(x^2+y^2+z^2)^3}q
+\end{equation*}
+上下约项得
+\begin{equation*}
+    \Fpif{E_x}{x}=\ek\frac{\qty(x^2+y^2+z^2)-3x^2}{\qty(x^2+y^2+z^2)^{\frac{5}{2}}}q
+\end{equation*}
+
+类似的
+\begin{Equation}[电场高斯定理2]
+    \begin{cases}
+        \mathlarger{\Fpif{E_x}{x}=\ek\frac{\qty(x^2+y^2+z^2)-3x^2}{\qty(x^2+y^2+z^2)^{\frac{5}{2}}}q}\\[8mm]
+        \mathlarger{\Fpif{E_y}{y}=\ek\frac{\qty(x^2+y^2+z^2)-3y^2}{\qty(x^2+y^2+z^2)^{\frac{5}{2}}}q}\\[8mm]
+        \mathlarger{\Fpif{E_z}{z}=\ek\frac{\qty(x^2+y^2+z^2)-3z^2}{\qty(x^2+y^2+z^2)^{\frac{5}{2}}}q}
+    \end{cases}
+\end{Equation}
+由于$3(x^2+y^2+z^2)-3x^2-3y^2-3z^2=0$，因此
+\begin{Equation}[电场高斯定理3]
+    \nabla\cdot\vb*{E}=\Fpif{E_x}{x}+\Fpif{E_y}{y}+\Fpif{E_z}{z}=0
+\end{Equation}
+若闭曲面$S$不包含点电荷$q$，那么将式\ref{式:电场高斯定理3}代入\ref{式:电场高斯定理1}
+\begin{Equation}[电场高斯定理4]
+    \Isot[S]{\vb*{E}\cdot\dif{S}}=0
+\end{Equation}
+若闭曲面$S$包含点电荷$q$，即包含原点$(0,0,0)$，而原点$x,y,z=0$会使式\ref{式:电场高斯定理2}的三组偏导数的分母$(x^2+y^2+z^2)^{\frac{5}{2}}$为零，构成奇点，由于偏导数不连续，此时高斯公式无法使用。
+
+为了继续使用高斯公式，我们在原点处构造一个半径足够小的球面$S_0$，使得球面$S_0$完全位于闭曲面$S$内，此时闭曲面$S$和球面$S_0$之间的复连通区域$\Omega_R$并不包含原点。
+
+因此可以在$\Omega_R$上应用高斯公式，其边界曲面为$S$和$S_0$，从而式\ref{式:电场高斯定理4}被修正为\footnote{这里$S_0$取外侧为正向，但是其作为$\Omega_R$的内边界曲面应以内侧为正向，故其曲面积分前有负号。}
+\begin{Equation}[电场高斯定理5]
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}-\Isot[S_0]{\vb*{E}\cdot\dif{\vb*{S}}}=0
+\end{Equation}
+那么现在的问题，就是要求出球面$S_0$上的电通量。
+
+由于电荷$q$位于球心，球面$S_0$上各处的电场强度均与该处的曲面微元垂直
+\begin{equation*}
+    \Isot[S_0]{\vb*{E}\cdot\dif{\vb*{S}}}=\Isot[S_0]{\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vu*{r}\cdot\dif{\vb*{S}}}=\Isot[S_0]{\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\dif{S}}
+\end{equation*}
+由于电荷$q$至球面$S_0$上各点的距离$r$相同，因此$r$是无关积分的常量
+\begin{equation*}
+    \Isot[S_0]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\Isot[S_0]{\dif{S}}
+\end{equation*}
+这就将曲面积分转化为了曲面面积，考虑到球面面积为$4\pi r^2$
+\begin{equation*}
+    \Isot[S_0]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}4\pi r^2=\frac{q}{\varepsilon_0}
+\end{equation*}
+将上式代入式\ref{式:电场高斯定理5}，这就得到
+\begin{Equation}[电场高斯定理6]
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{q}{\varepsilon_0}
+\end{Equation}
+现在考虑多个电荷的情况，对于电荷$q_i$
+\begin{itemize}
+    \item 若$q_i$在闭曲面$S$内，那么式\ref{式:电场高斯定理4}指出，其对闭曲面$S$的电通量$\Phi_E$的贡献为$\dfrac{q_i}{\varepsilon_0}$。
+    \item 若$q_i$在闭曲面$S$外，那么式\ref{式:电场高斯定理6}指出，其对闭曲面$S$的电通量$\Phi_E$的贡献为$0$。
+\end{itemize}
+对于所有位于闭曲面$S$内部的电荷$q_i$，若将其电荷量的和仍记为$q=\SumIN{q_i}$，那么
+\begin{BoxPrinciple}[电场高斯定理]
+    在电场中，通过任意一个闭合曲面的电通量，
+
+    只与闭曲面所包围的电荷量的多少有关，而与闭曲面外的电荷分布无关。
+    \begin{BoxEq}
+        \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{q}{\varepsilon_0}
+    \end{BoxEq}
+\end{BoxPrinciple}
+该规律就称为\uwave{电场高斯定理}，在定理中所取的闭合曲面$S$称为\uwave{高斯面}。
+
+\Refx{定律}{电场高斯定理}指出，闭曲面的电通量与其外部电荷分布无关，但这并不代表这些电荷不会影响闭曲面上的电场分布，事实上位于闭曲面外的电荷也会影响闭曲面上局部的电通量大小，只不过这种影响对于整个闭曲面而言是相互抵消的。
+
+\Refx{定律}{电场高斯定理}也可以通过电场线形象理解，位于闭曲面外的电荷产生的电场线，其穿入闭曲面的数目与离开闭曲面的数目是相同的，因此对闭曲面的电通量无贡献。
+
+根据散度的定义，电场在某一点处的散度，是该点处的电通量密度，即\footnote{其中$P$为电场中某一点，而$\Omega$表示闭曲面$S$包围的空间区域，而$V$表示空间区域$\Omega$的体积。}
+\begin{equation*}
+    \nabla\cdot\vb*{E}=\Lim{\Omega}{P}{\frac{1}{V}\Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}}
+\end{equation*}
+对于点电荷形成的电场而言，当空间区域$\Omega$连同其边界曲面$S$缩向点$P$时，若点$P$处无点电荷，那么该点处的散度为零，若点$P$处有点电荷，那么围绕该点的闭曲面上的电通量为定值$q/\varepsilon_0$，当该闭曲面缩向一点时，随着$V\rightarrow 0$，可得\textbf{点电荷处的散度为无穷大}。
+
+因此点电荷形成的电场是无法讨论电场的散度的，点电荷的模型不适用该情境。
+
+但是如果我们考虑电荷连续分布的情况，由于
+\begin{equation*}
+    \nabla\cdot\vb*{E}=\Lim{\Omega}{P}{\frac{1}{V}\Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}}=\Lim{\Omega}{P}{\frac{q}{V\varepsilon_0}}=\frac{\rho}{\varepsilon_0}
+\end{equation*}
+这就得到了一个重要定律
+\begin{BoxPrinciple}[电场高斯定理的微分形式]
+    在电场中，电场强度的散度，与该点处的电荷体密度成正比。
+    \begin{BoxEq}
+        \nabla\cdot\vb*{E}=\frac{\rho}{\varepsilon_0}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{电场高斯定理的微分形式}指出
+\begin{center}
+    电场是有源场
+\end{center}
+电场是有源场，这点也可以通过电场线形象体现，我们知道，电场线总是起始于正电荷而终止于负电荷，正电荷即电场的源（电场线产生处），负电荷即电场的汇（电场线汇集处）。
+
+\Refx{定律}{电场高斯定理的微分形式}指出，如果空间中某点没有电荷分布，由于此处电荷密度为零，那么该处电场强度的散度也为零，即电场在没有电荷分布处无源，或者说
+\begin{center}
+    电场的源完全来自于电荷的存在
+\end{center}
+\Refx{定律}{电场高斯定理的微分形式}可以解释点电荷的情况，点电荷可以认为是在一块无穷小的区域内聚集了一定量的电荷，即电荷密度为无穷大，因此散度也为无穷大。
+
+\subsection{电场高斯定理的应用}
+\Refx{定律}{电场高斯定理}可以以极为简便的方式计算出某一闭合曲面上的电通量，然而我们知道，曲面内的电通量一定时，曲面的电场分布是不唯一的，但是如果我们已知电场分布具有某种对称性，这就有可能通过电通量逆推出电场分布，下面我们来考虑一些实例。
+
+\subsubsection{带电球壳的电场分布}
+现在考虑带电荷为$q$，半径为$R$的均匀带电球壳，根据对称性的原理，球壳的电场分布必然是球对称的，因此半径为$r$的球面$S$上的电场强度$E$必然相等，即有
+\begin{equation*}
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=4\pi r^2E
+\end{equation*}
+当$r>R$时，根据\Refx{定律}{电场高斯定理}
+\begin{equation*}
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{q}{\varepsilon_0}
+\end{equation*}
+因此就有
+\begin{Equation}[球壳分布1]
+    E=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}
+\end{Equation}
+当$r<R$时，此时取的高斯球面$S$内不包含任何电荷，因而$E=0$。
+
+\begin{BoxEquation}[带电球壳的电场分布]
+    E=\begin{cases}
+        0~,&r<R\\[2mm]
+        \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2},&r>R
+    \end{cases}
+\end{BoxEquation}
+\Refx{公式}{带电球壳的电场分布}指出，带电球壳内部的电场强度\textbf{处处为零}，带电球壳外部的电场，等效于将带电球壳上的全部电荷量集中在球心时的点电荷所产生的电场。
+
+\subsubsection{带电球体的电场分布}
+现在考虑带电荷为$q$，半径为$R$的均匀带电球体，根据对称性的原理，球体的电场分布必然是球对称的，因此半径为$r$的球面$S$上的电场强度$E$必然相等，即有
+\begin{equation*}
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=4\pi r^2E
+\end{equation*}
+当$r>R$时，这里带电球体的球壳与先前带电球壳的球壳是完全一致的，即
+\begin{Equation}[球体分布1]
+    E=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}
+\end{Equation}
+
+当$r<R$时，这时高斯球面内包含的电荷量$q'$为
+\begin{equation*}
+    q'=q\frac{\frac{4}{3}\pi r^3}{\frac{4}{3}\pi R^3}=q\frac{r^3}{R^3}
+\end{equation*}
+根据\Refx{定律}{电场高斯定理}
+\begin{equation*}
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=\frac{q'}{\varepsilon_0}=\frac{qr^3}{\varepsilon_0R}
+\end{equation*}
+因此就有
+\begin{Equation}[球体分布2]
+    E=\dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2}
+\end{Equation}
+\begin{BoxEquation}[带电球体的电场分布]
+    E=\begin{cases}
+        \dfrac{1}{4\pi\varepsilon_0}\dfrac{qr}{R^3}~,&r<R\\[4mm]
+        \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2},&r>R
+    \end{cases}
+\end{BoxEquation}
+\Refx{公式}{带电球体的电场分布}指出，带电球体内的电场强度\textbf{与半径成正比}，带电球体外的电场，等效于将带电球体内的全部电荷量集中在球心时的点电荷所产生的电场。
+
+\subsubsection{无限长带电细棒的电场分布}
+对于电荷线密度为$\lambda$的无限长细棒，我们可以取以细棒为轴线的圆柱面及其上下底面作为高斯面，由于无限长细棒的电场轴对称分布，因此仅在圆柱侧面上有电通量，且
+\begin{Equation}
+    E=\frac{\Phi_E}{2\pi rh}=\frac{1}{2\pi rh}\frac{\lambda h}{\varepsilon_0}=\frac{1}{2\pi\varepsilon_0}\frac{\lambda}{r}
+\end{Equation}
+其中$h$表示所取圆柱面的高度，这与\Refx{公式}{均匀无限长带电直棒的电场}的结论相符。
+
+\subsubsection{无限大带电平面的电场分布}
+对于电荷面密度为$\sigma$的无限大平面，我们可以取轴线与平面垂直，且关于平面对称的圆柱面及其上下底面作为高斯面，由于电场应垂直于平面，因此仅在圆柱底面上有电通量，且
+\begin{Equation}
+    E=\frac{\Phi_E}{2S}=\frac{1}{2S}\frac{\sigma S}{\varepsilon_0}=\frac{\sigma}{2\varepsilon_0}
+\end{Equation}
+其中$S$表示圆柱面的底面积，此处有$2S$是因为上下两个底面都有电通量，且两者到平面的距离相同，因此可以平均分配，这与\Refx{公式}{均匀无限大带电平面的电场}的结论相符。
+
+匀强电场是一类非常重要的电场，先前的讨论中我们已经知道无限大带电平面两侧的电场均为匀强电场，但是现实中独立的带电平面较难构造，更为常见的情况是，由一对相互平行的无限大带电平面组成的带电体系，其电荷面密度分别为$\pm\sigma$，如下图所示。
+\begin{Figure}{等量异号的无限大带电平面间的电场}
+    \inputfigure[scale=0.8]{Chapter08B_Figure03}
+\end{Figure}
+对于正负带电平面间的场点$P$
+\begin{itemize}
+    \item 带正电平面$+\sigma$产生的电场方向由正指向负（排斥），大小恒为$E_{+}=\dfrac{\sigma}{2\varepsilon_0}$。
+    \item 带负电平面$-\sigma$产生的电场方向由正指向负（吸引），大小恒为$E_{-}=\dfrac{\sigma}{2\varepsilon_0}$
+\end{itemize}
+因此正负带电平面产生的匀强电场在其中间的区域同向相加，仍为匀强电场，即
+\begin{BoxEquation}[等量异号的无限大带电平面间的电场]
+    E=E_{+}+E_{-}=\frac{\sigma}{\varepsilon_0} 
+\end{BoxEquation}
+事实上，电容器就是由这样的两块正负带电平板构成的。
+

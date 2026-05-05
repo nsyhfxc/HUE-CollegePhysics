@@ -1,0 +1,55 @@
+\begin{tikzpicture}[scale=1.5]
+    \foreach \i in {0,2}
+    {
+        \lPoint{O\i}{0,\i}[left][O]
+        \lShift{A\i}{O\i}{8,0.5}
+        \lShift{x\i}{O\i}{9,0.0}[above][x]
+        \draw[thick] (O\i) rectangle (A\i);
+        \draw[-latex] (O\i)--(x\i);
+    }
+
+    \draw[thick,fill=gray] (2,2) rectangle (3,2.5);
+    \draw[thick,fill=gray] (4,0) rectangle (5.5,0.5);
+
+    \draw[gray,thin,dashed] (2,2)--(2,0.5);
+    \draw[gray,thin,dashed] (4,0.8)--(4,0.5);
+    \draw[gray,thin,<->] (2,0.65)--(4,0.65);
+    \node[gray,above] at (3,0.65){$y$};
+
+    \draw[gray,thin,dashed] (3,2)--(3,1.7);
+    \draw[gray,thin,dashed] (5.5,0.5)--(5.5,2);
+    \draw[gray,thin,<->] (3,1.85)--(5.5,1.85);
+    \node[gray,below] at (4.25,1.85){$y+\pdv{y}{x}\dif{x}$};
+
+    \draw[thin,dashed] (0,2.5)--(0,2.8);
+    \draw[thin,dashed] (2,2.5)--(2,2.8);
+    \draw[thin,dashed] (3,2.5)--(3,2.8);
+
+    \draw[thin,<->] (0,2.7)--(2,2.7);
+    \draw[thin,<->] (2,2.7)--(3,2.7);
+    \node[above] at (1,2.7) {$x$};
+    \node[above] at (2.5,2.7) {$\dx$};
+
+    \draw[thin,dashed] (0,0)--(0,-0.3);
+    \draw[thin,dashed] (4,0)--(4,-0.3);
+    \draw[thin,dashed] (5.5,0)--(5.5,-0.3);
+    \draw[thin,<->] (4,-0.2)--(5.5,-0.2);
+    \node[below] at (4.75,-0.2) {$\dx+\pdv{y}{x}\dx$};
+
+    \draw[gray,thin,<->] (2,1.85)--(3,1.85);
+    \node[below,gray] at (2.5,1.85){$\dx\vphantom{\pdv{y}{x}}$};
+
+    \node[gray,right] at (4,0.65) {\tiny 左截面位置};
+    \node[gray,right] at (5.5,0.65) {\tiny 右截面位置};
+
+    \draw[ultra thick] (8,2)--(8,2.5);
+    \node[right] at (8,2.25) {$S$};
+
+    \draw[ultra thick] (8,0)--(8,0.5);
+    \node[right] at (8,0.25) {$S$};
+
+    \draw[-latex] (2,2.25)--(1.2,2.25);
+    \draw[-latex] (3,2.25)--(4.7,2.25);
+    \node[left] at (1.2,2.25){$F$};
+    \node[right] at (4.7,2.25){$F+\pdv{F}{x}\dx$};
+\end{tikzpicture}

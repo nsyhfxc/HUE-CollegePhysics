@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=1.5]
+    \draw[fill=black,fill opacity=0.1] (-0.55,2) rectangle (-0.45,-2);
+    \draw[fill=black,fill opacity=0.1] (0.56,2) rectangle (0.45,-2);
+
+    \node[above] at (-0.5,2) {$+Q$};
+    \node[above] at (+0.5,2) {$-Q$};
+    \node[below] at (-0.55,-2) {\small $A$};
+    \node[below] at (+0.55,-2) {\small $B$};
+
+    \foreach \x in {1.75,1.50,...,-1.75}
+    {
+        \draw[-latex,thin] (-0.45,\x)--(0.45,\x);
+    }
+
+    \node[left]  at (-0.55,0) {$S$};
+    \node[right] at (+0.55,0) {$S$};
+    \node[above] at (0,1.75) {$\vb*{E}$};
+
+    \draw[very thin,gray] (+0.45,-2)--(+0.45,-2.5);
+    \draw[very thin,gray] (-0.45,-2)--(-0.45,-2.5);
+    \draw[very thin,<->,gray] (0.45,-2.4)--(-0.45,-2.4);
+    \node[above] at (0,-2.4) {$d$};
+\end{tikzpicture}

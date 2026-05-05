@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=0.9]
+    \draw(-3.3,3) rectangle (-3.0,-3);
+    \draw(3.3,3) rectangle (3.0,-3);
+    \foreach \i in{2.5,2.0,...,-2.5}
+    {
+        \node at (-3.15,\i) {\scriptsize $+$};
+        \node at (+3.15,\i) {\scriptsize $-$};
+    }
+    \node[above] at(-3.15,3) {$+\sigma$};
+    \node[above] at(+3.15,3) {$-\sigma$};
+    \foreach \i in {2.75,2.25,...,-2.75}
+    {
+        \draw[-latex,gray] (-3,\i)--(3,\i);
+    }
+    \foreach \i/\u in {-2/+2,-1/+1,0/0,1/-1,2/-2}
+    {
+        \draw[dashed] (\i,-2.85)--(\i,2.85);
+        \node[above] at (\i,2.85) {\tiny \vphantom{+}$\u$\si{V}};
+    }
+    \draw[-latex] (-1.5,0)--(0.4,0);
+    \draw[-latex] (-1.5,0)--(0.95,1);
+    \draw[fill=white] (-1.5,0) circle (0.03);
+    \draw[fill=white] (0.95,1) circle (0.03);
+    \node[left] at (-1.5,0) {$A$};
+    \node[right] at (0.4,0) {$\vb*{E}$};
+    \node[right] at (0.95,1) {$B$};
+    \node[above] at (-0.5,0.45) {$\delt\vb*{r}$};
+\end{tikzpicture}

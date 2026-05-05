@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=0.9]
+    \lPoint{O}{0,0}
+    
+    \draw (O) circle (0.5);
+    \node at (O) {\LARGE $-$};
+
+    \foreach \i in {7.5,22.5,...,360}
+    {
+        \draw[-latex,gray] (\i:2.5)--(\i:1.5);
+        \draw[gray] (\i:1.5)--(\i:0.5);
+    }
+\end{tikzpicture}

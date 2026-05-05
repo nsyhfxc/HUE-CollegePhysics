@@ -1,0 +1,48 @@
+\begin{tikzpicture}[scale=1.0]
+    \lPoint{O}{0,0}
+    \lShift{X0}{O}{-4,0}
+    \lShift{X}{O}{10,0}[right][t]
+    \lShift{Y1}{O}{0,-1.7}
+    \lShift{Y2}{O}{0,+1.7}[right][x]
+    
+    \draw[->,gray] (X0)--(X);
+    \draw[->,gray] (Y1)--(Y2);
+
+    \draw[domain=0:9.42,samples=200,thick,blue!50!white] plot (\x,{cos((2*\x r)+45)});
+    \draw[domain=0:9.42,samples=200,thick,red!50!white] plot (\x,{0.35*cos((2*\x r)+45)});
+    \draw[domain=0:9.42,samples=200,thin,black!30!white] plot (\x,{1.35*cos((2*\x r)+45)});
+
+    \lShift{Y1'}{Y1}{-2.5,0}
+    \lShift{Y2'}{Y2}{-2.5,0}[right][x]
+    \lShift{O'}{O}{-2.5,0}
+
+    \draw[->,gray] (Y1')--(Y2');
+    
+    \draw[dashed,blue!50!white](O') circle(1);
+    \draw[dashed,red!50!white](O') circle(0.35);
+    \draw[thin,black!30!white](O') circle(1.35);
+
+    \lShift{Rp}{O'}{135:0.35}
+    \lShift{Bp}{O'}{135:1}
+    \lShift{Gp}{O'}{135:1.35}
+
+    \lProject{Rx}{Rp}{O}{Y2}
+    \lProject{Bx}{Bp}{O}{Y2}
+    \lProject{Gx}{Gp}{O}{Y2}
+    
+    \draw[-latex,blue!50!white](O')--(Bp);
+    \draw[-latex,red!50!white](O')--(Rp);
+    \draw[very thin,-latex,black!30!white](O')--(Gp);
+
+    \draw[dotted,blue!50!white](Bx)--(Bp);
+    \draw[dotted,red!50!white](Rx)--(Rp);
+    \draw[very thin,black!30!white](Gx)--(Gp);
+    
+    \draw[fill=white](O') circle(0.03);
+    \draw[fill=white](Rp) circle(0.02);
+    \draw[fill=white](Bp) circle(0.02);
+    \draw[fill=white](Gp) circle(0.02);
+    \draw[fill=white](Rx) circle(0.02);
+    \draw[fill=white](Bx) circle(0.02);
+    \draw[fill=white](Gx) circle(0.02);
+\end{tikzpicture}

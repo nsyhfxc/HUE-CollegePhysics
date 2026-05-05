@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1.5]
+    \draw[thick](+5,0) ellipse (1 and 2);
+    \draw[thick](-5,2) arc (90:270:1 and 2);
+    \draw[thick] (-5,+2)--(+5,+2);
+    \draw[thick] (-5,-2)--(+5,-2);
+    
+    \foreach \i in {-4.8,-4.6,...,4.8}
+    {
+        \draw[very thin,->] (\i,2) arc (90:200:1 and 2);
+        \draw[very thin] (\fpeval{\i-1},0) arc (180:270:1 and 2);
+    }
+
+    \clip (+5,0) ellipse (1 and 2);
+
+    \foreach \i in {-4.8,-4.6,...,4.8}
+    {
+        \draw[very thin,->] (\i,-2) arc (270:380:1 and 2);
+        \draw[very thin] (\fpeval{\i+1},0) arc (0:90:1 and 2);
+    }
+\end{tikzpicture}

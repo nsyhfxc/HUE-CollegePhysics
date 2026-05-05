@@ -1,0 +1,80 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{P1}{-6,0}
+    \lPoint{P2}{+6,0}
+    \lPoint{A1}{-6,+2}
+    \lPoint{A2}{+6,+2}
+    \lPoint{B1}{-6,-2}
+    \lPoint{B2}{+6,-2}
+    \foreach \x in {-6,-5.75,...,6}
+    {
+        \node at (\x,+2) {$\odot$};
+        \node at (\x,-2) {$\otimes$};
+    }
+    \lPoint{O}{0,0}[below left]
+    \lPoint{X1}{-8,0}
+    \lPoint{X2}{+8,0}[above][x]
+    % \lPoint{Y1}{-1,-3}
+    % \lPoint{Y2}{-1,+3}[right][y]
+    \lPoint{Y1'}{0,-3}
+    \lPoint{Y2'}{0,+3}
+    \draw[->,dotted] (X1)--(X2);
+    % \draw[->,dotted] (Y1)--(Y2);
+    \draw[->,dotted] (Y1')--(Y2');
+    \draw[dashed,gray,thin] (A1)--(B1);
+    \draw[dashed,gray,thin] (A2)--(B2);
+    
+    \lShift{Ru1}{A2}{0.13,0}
+    \lShift{Rv1}{A2}{0.28,0}
+    \lShift{Rw1}{A2}{0.43,0}
+    \lShift{Ru2}{P2}{0.13,0}
+    \lShift{Rv2}{P2}{0.28,0}
+    \lShift{Rw2}{P2}{0.43,0}
+    \draw (Ru1)--(Rw1);
+    \draw (Ru2)--(Rw2);
+    \draw[<->] (Rv1)--(Rv2);
+    \lRatio{R}{Rv1}{Rv2}{0.5}[right]
+
+    \lShift{Au1}{A1}{0,0.13}
+    \lShift{Av1}{A1}{0,0.28}
+    \lShift{Aw1}{A1}{0,0.43}
+    \lShift{Au2}{A2}{0,0.13}
+    \lShift{Av2}{A2}{0,0.28}
+    \lShift{Aw2}{A2}{0,0.43}
+    \lShift{Au3}{O}{0,2.13}
+    \lShift{Av3}{O}{0,2.28}
+    \lShift{Aw3}{O}{0,2.43}
+    \draw (Au1)--(Aw1);
+    \draw (Au2)--(Aw2);
+    \draw (Au2)--(Aw2);
+    \draw[<->] (Av1)--(Av3);
+    \draw[<->] (Av2)--(Av3);
+    \lRatio{Ll}{Av1}{Av3}{0.5}[above][\frac{L}{2}]
+    \lRatio{Lr}{Av2}{Av3}{0.5}[above][\frac{L}{2}]
+
+    \lPoint{P}{2,0}[below right]
+    \draw[gray,thin](A1)--(P)--(A2);
+    \lPoint{A3}{1.5,2}
+    \lShift{A4}{A3}{0.75,0};
+    \lShift{B3}{A3}{0,-4};
+    \lShift{B4}{A4}{0,-4};
+    \lShift{A3'}{A3}{0,0.12};
+    \lShift{A4'}{A4}{0,0.12};
+    \lShift{B3'}{B3}{0,-0.12};
+    \lShift{B4'}{B4}{0,-0.12};
+    % \fill[black,fill opacity=0.2] (A3') rectangle (B4');
+    % \draw[gray,thin] (P)--(A3);
+    % \lRatio{r}{P}{A3}{0.6}[above left]
+
+    \lShift{Lv1}{P}{0,-0.25}
+    \lShift{Lw1}{P}{0,-0.50}
+    \lShift{Lv2}{O}{0,-0.25}
+    \lShift{Lw2}{O}{0,-0.50}
+    \draw (P)--(Lw1) (O)--(Lw2);
+    \draw[<->] (Lv1)--(Lv2);
+    \lRatio{x}{Lv1}{Lv2}{0.5}[below]
+    \draw[fill=white](P) circle(0.04);
+    \lAngle[\beta_2]{P2}{P}{A2}[0.7][1.5]
+    % \lAngle{P2}{P}{A3}[0.6][1.3]
+    \lAngle[\beta_1]{P2}{P}{A1}[0.25][2.3]
+    \draw[fill=white](O) circle(0.04);
+\end{tikzpicture}

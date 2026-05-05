@@ -1,0 +1,36 @@
+\NewDocumentCommand{\frameb}{}
+{
+    \foreach \x in {0.05,0.25,...,2.45}
+    {
+        \draw[-latex,gray,thin] (-1,\x)--(1,\x);
+    }
+    \draw[dotted] (-1.0,-0.1) rectangle (1.0,2.6);
+}
+
+\NewDocumentCommand{\ele}{mm}
+{
+    \lPoint{O}{#1}
+    \lShift{P}{O}{#2:0.3}
+    \lShift{N}{O}{#2:-0.3}
+    \lShift{Pt}{O}{#2:0.25}
+    \lShift{Nt}{O}{#2:-0.25}
+    \lShift{Pa}{P}{0.05,0}
+    \lShift{Na}{N}{-0.05,0}
+    \lShift{Pb}{P}{0.35,0}
+    \lShift{Nb}{N}{-0.35,0}
+    \draw[-latex,blue!50!white] (Pa)--(Pb);
+    \draw[-latex,blue!50!white] (Na)--(Nb);
+    \node[right,blue!50!white] at (Pb) {$\vb*{F}_1$};
+    \node[left,blue!50!white] at (Nb) {$\vb*{F}_2$};
+    \node at (P) {\tiny $+$};
+    \node at (N) {\tiny $-$};
+    \draw (P) circle (0.05);
+    \draw (N) circle (0.05);
+    \draw[thin,-latex] (Nt)--(Pt);
+}
+
+\begin{tikzpicture}[scale=2.0]
+    \frameb
+
+    \ele{0,1.35}{45}
+\end{tikzpicture}

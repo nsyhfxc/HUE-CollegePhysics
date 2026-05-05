@@ -1,0 +1,366 @@
+\section{功和功率}
+
+\subsection{功}
+如果有一个质点在恒力$\vb*{F}$的作用下，产生了$\delt{\vb*{r}}$的位移，那么我们将力$\vb*{F}$在位移方向上的分量与该位移大小的乘积，称为\uwave{功}，记作$W$，这可以用向量的点积表示为
+\begin{BoxDefinition}[恒力的功]
+    W=\vb*{F}\cdot\delt{\vb*{r}}
+\end{BoxDefinition}
+
+如果我们将\Refx{定义}{恒力的功}改写为标量形式$W=\vb*{F}\cdot\delt{\vb*{r}}=F\delt{r}\cos\theta$，关注到
+\begin{enumerate}
+    \item 当力与位移的夹角$\theta$为锐角时，功$W$的值为正，此时称力$\vb*{F}$做\uwave{正功}。
+    \item 当力与位移的夹角$\theta$为钝角时，功$W$的值为负，此时称力$\vb*{F}$做\uwave{负功}。
+    \item 当力与位移垂直时，此时力$\vb*{F}$\uwave{不做功}。
+\end{enumerate}
+
+如果力$\vb*{F}$是变力，且运动轨迹$AB$不是直线，那么功可以用第二类曲线积分表示
+\begin{BoxDefinition}[变力的功]
+    W=\Ilnt[AB]{\vb*{F}\cdot\dif{\vb*{r}}}
+\end{BoxDefinition}
+
+根据\Refx{定义}{变力的功}可知，\textbf{功的物理意义是力在空间上的累积}。我们知道，对于质点而言，力的作用效果包含“改变速度大小”和“改变速度方向”两项，且
+\begin{itemize}
+    \item 改变速度大小的是切向加速度，即力的切向分量的作用效果。
+    \item 改变速度方向的是法向加速度，即力的法向分量的作用效果。
+\end{itemize}
+而在功的定义中，其只考虑了力的切向分量，即功是力改变速度大小的作用效果在空间上的累积，即，\textbf{功和速度大小的改变是密切相关的}，这将引出下一节的动能定理。
+
+功在国际单位制中的单位是\si{J=N\cdot m=kg\cdot m^2\cdot s^{-2}}，量纲是\si{[L^2MT^{-2}]}，称为\uwave{焦耳}。
+
+\subsection{功率}
+我可以用单位时间内所做的功，度量做功的快慢，称为\uwave{功率}
+\begin{BoxDefinition}[功率]
+    P=\Fdif{W}{t}
+\end{BoxDefinition}
+考虑到$\dif{W}=\vb*{F}\cdot\dif{\vb*{r}}$，上式可以变换为
+\begin{equation*}
+    P=\Fdif{W}{t}=\vb*{F}\cdot\Fdif{\vb*{r}}{t}=\vb*{F}\cdot\vb*{v}
+\end{equation*}
+这就是说，功率是力和速度的点积
+\begin{BoxEquation}[功率的计算公式]
+    P=\vb*{F}\cdot\vb*{v}
+\end{BoxEquation}
+功率在国际单位制中的单位是\si{W=J\cdot s^{-1}=kg\cdot m^2\cdot s^{-3}}，量纲是\si{[L^{2}MT^{-3}]}，称为\uwave{瓦特}。
+
+\section{动能和动能定理}
+先前我们提到，功与速度大小的改变具有密切关系，现在我们将揭示这种关系。
+
+设一个质点在变力$\vb*{F}$的作用下，由点$A$运动至点$B$，运动轨迹为$\vb*{r}=x(t)\vi+y(t)\vj$，那么根据\Refx{定义}{变力的功}和\Refx{公式}{牛顿第二定律的加速度形式}，变力$\vb*{F}$的功$W$为
+\begin{align*}
+    W=\Ilnt[AB]{\vb*{F}\cdot\dif{\vb*{r}}}=\Ilnt[AB]{m\vb*{a}\cdot\dif{\vb*{r}}}=\Ilnt[AB]{m\Fdif{\vb*{v}}{t}\cdot\dif{\vb*{r}}}
+\end{align*}
+考虑到轨迹$\vb*{r}=x(t)\vi+y(t)\vj$，根据第二类曲线积分的计算法
+\begin{align*}
+    W=m\Ilnt[AB]{\Fdif{v_x}{t}\dif{x}+\Fdif{v_y}{t}\dy}=m\Int[t_a][t_b]{\qty(\Fdif{v_x}{t}\Fdif{x}{t}+\Fdif{v_y}{t}\Fdif{y}{t})\dif{t}}
+\end{align*}
+积分被转化为了关于时间$t$的定积分，进而
+\begin{align*}
+    W=
+    m\Int[t_a][t_b]{\qty(v_x\Fdif{v_x}{t}+v_y\Fdif{v_y}{t})\dif{t}}=
+    m\Int[t_a][t_b]{v_x\dif{v_x}+v_y\dif{v_y}}
+\end{align*}
+积分再转化为了关于$v_x,v_y$的定积分，从而
+\begin{align*}
+    W
+    =m\Int[v_{x,a}][v_{x,b}]{v_x\dif{v_x}}+m\Int[v_{y,a}][v_{y,b}]{v_y\dif{v_y}}
+    =m\qty(\frac{1}{2}v_{x,b}^2-\frac{1}{2}v_{x,a}^2+\frac{1}{2}v_{y,b}^2-\frac{1}{2}v_{y,a}^2)
+\end{align*}
+由于$v_b^2=v_{x,b}^2+v_{y,b}^2$以及$v_a^2=v_{x,a}^2+v_{y,a}^2$，代入得
+\begin{Equation}[动能定理准备式]
+    W=m\qty(\frac{1}{2}v_b^2-\frac{1}{2}v_a^2)=\frac{1}{2}mv_b^2-\frac{1}{2}mv_a^2
+\end{Equation}
+关注到力$\vb*{F}$由点$A$至点$B$所做的功，可以表示为终点状态量$\dfrac{1}{2}mv_b^2$和起点状态量$\dfrac{1}{2}mv_a^2$的差，为了简洁表达式\ref{式:动能定理准备式}的关系，我们将这个状态量定义为质点的\uwave{动能}，记作
+\begin{BoxDefinition}[动能]
+    E_k=\frac{1}{2}mv^2
+\end{BoxDefinition}
+从而式\ref{式:动能定理准备式}可以用\Refx{定义}{动能}表示为下式，称为\uwave{动能定理}
+\begin{BoxPrinciple}[动能定理]
+    合力所做的功，等于质点的动能增量。
+    \begin{BoxEq}
+        W=E_{kb}-E_{ka}=\delt{E_k}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{动能定理}是\Refx{公式}{牛顿第二定律的加速度形式}的应用结果，通过力和加速度的关系，推出了力在空间上的积累效果与速度变化的具体关系，即功是动能增量。
+
+动能和功并不是绝对量，其会随着参照系的变化而变化，但是对于任意两个惯性系，尽管可能存在相对速度，尽管观测到的动能和功不相同，但是动能定理总是成立的，因为推导其的牛顿第二定律在惯性系中总是适用的，即\textbf{动能定理普遍适用于一切惯性系}。
+
+\subsection{质点系的动能定理}
+我们现在考虑由两个相互作用的质点组成的\uwave{质点系}。
+
+在质点系中，我们通常将每个质点所受的合力分为两类
+\begin{enumerate}
+    \item 将系统外的物体对系统内的物体的作用力，称为\uwave{外力}。
+    \item 将系统内的物体之间的相互作用力，称为\uwave{内力}。
+\end{enumerate}
+设两个质点的质量分别为$m_1,m_2$，现在两个质点分别沿$A_1B_1$和$A_2B_2$的轨迹运动，这个过程中，两者受到的外力所做功为$W_{1,E},W_{2,E}$，两者受到的内力所做功为$W_{1,I},W_{2,I}$。\footnote{此处的E,I下标分别代表，External外部的，Internal内部的。}
+
+对质点$m_1$运用\Refx{定律}{动能定理}，设$A_1,B_1$点处其动能分别为$E_{k1,a},E_{k1,b}$
+\begin{Equation}[质点系动能定理1]
+    W_1=W_{1,E}+W_{1,I}=E_{k1,b}-E_{k1,a}
+\end{Equation}
+对质点$m_2$运用\Refx{定律}{动能定理}，设$A_2,B_2$点处其动能分别为$E_{k2,a},E_{k2,b}$
+\begin{Equation}[质点系动能定理2]
+    W_2=W_{2,E}+W_{2,I}=E_{k2,b}-E_{k2,a}
+\end{Equation}
+上两式成立，是因为质点所受合力做的功，等同于质点所受的内力和外力的做功之和。
+\begin{itemize}
+    \item 外力对质点系所做的功，等同于外力对各质点所做的功之和，即$W_E=W_{1,E}+W_{2,E}$。
+    \item 内力对质点系所做的功，等同于内力对各质点所做的功之和，即$W_I\hspace{2.2pt}=W_{1,I}\hspace{2.2pt}+W_{2,I}\hspace{2.2pt}$。
+    \item 质点系的动能，等同于各质点的动能和，即$E_{ka}=E_{k1,a}+E_{k2,a}$和$E_{kb}=E_{k1,b}+E_{k2,b}$。
+\end{itemize}
+因而式\ref{式:质点系动能定理1}和式\ref{式:质点系动能定理2}相加得到
+\begin{align*}
+    W_E+W_I
+    &=\qty(E_{k1,b}-E_{k1,a})+\qty(E_{k2,b}-E_{k2,a})\\
+    &=\qty(E_{k1,b}+E_{k2,b})-\qty(E_{k1,a}+E_{k1,b})\\
+    &=E_{kb}-E_{ka}
+\end{align*}\vspace{-20pt}
+\begin{BoxPrinciple}[质点系的动能定理]
+    质点系的外力和内力所做的功的代数和，等于质点系的动能增量。
+    \begin{BoxEq}
+        W_{E}+W_{I}=E_{kb}-E_{ka}=\delt{E_k}
+    \end{BoxEq}
+\end{BoxPrinciple}
+值得注意的是，根据\Refx{定律}{牛顿第三定律}，质点系的内力和应为零，但是内力所做的功未必是零，即内力同样是可以改变动能的，就做负功和做正功的分别举例如下
+\begin{itemize}
+    \item 设想两个相对滑动的物体因为摩擦力停止运动，内力做负功，系统动能减少。
+    \item 设想一个手榴弹在空中爆炸使得弹片四处飞射，内力做正功，系统动能增加。
+\end{itemize}
+\Refx{定律}{质点系的动能定理}只能在惯性系中使用，在非惯性系中不成立。
+
+
+\section{势能和功能原理}
+根据\Refx{定律}{动能定理}，力对物体做正功会使得物体的动能增加，这就使得我们不禁思考，这些动能是从何而来的？我们知道，虽然力的作用效果均是使得速度增加，但是力本身是多样的，因此要回答动能从何而来的问题，就要根据不同类型的力分别讨论。
+
+\subsection{重力与重力势能}
+根据\Refx{公式}{重力公式}，在$xy$平面内将其改写为矢量形式即
+\begin{equation*}
+    \vb*{P}=-mg\vj
+\end{equation*}
+关注到$P_x=0,P_y=-mg$，因而有
+\begin{equation*}
+    \Fpif{P_x}{y}=0\qquad\Fpif{P_y}{x}=0
+\end{equation*}
+这就满足平面曲线积分与路径无关的条件
+\begin{equation*}
+    \Fpif{P_x}{y}=\Fpif{P_y}{x}
+\end{equation*}
+因此重力做功与路径无关，只与始末位置有关。这就使得对于由点$A(x_a,y_a)$至点$B(x_b,y_b)$的任意路径上重力所做的功，可以等效的化为以下两端路径
+\begin{enumerate}
+    \item 先水平的由$(x_a,y_a)\rightarrow(x_b,y_a)$，该过程重力不做功。
+    \item 再竖直的由$(x_b,y_a)\rightarrow(x_b,y_b)$，该过程重力与位移方向在同一直线上。
+\end{enumerate}
+因而
+\begin{equation*}
+    W=\Ilnt[AB]{-mg\vj\cdot\dif{\vb*{r}}}=\Int[(x_a,y_a)][(x_b,y_a)]{-mg\vj\cdot\dif{\vb*{r}}}+\Int[(x_b,y_a)][(x_b,y_b)]{-mg\vj\cdot\dif{\vb*{r}}}
+\end{equation*}
+即有
+\begin{Equation}[重力势能的准备式]
+    W=\Int[y_a][y_b]{-mg\dif{y}}=\qty(-mgy_b)-(-mgy_a)
+\end{Equation}
+如果我们引入\uwave{重力势能}的概念
+\begin{BoxDefinition}[重力势能]
+    E_p=mgh
+\end{BoxDefinition}
+那么式\ref{式:重力势能的准备式}即$W=(-E_{pb})-(-E_{pa})=-\delt{E_p}$，即重力所做的功是重力势能的负增量。
+
+\subsection{弹力与弹力势能}
+根据\Refx{定律}{胡克定律}，对于弹簧振子，其所受的弹簧的回复力为
+\begin{equation*}
+    F=-kx
+\end{equation*}
+由于弹簧振子的运动被限制在了一维上，因此弹簧弹力所做的功可以简单的用定积分表达，弹簧振子由位移$x_a$单向移动至$x_b$的过程中的功是弹力自$x_a$至$x_b$的定积分，如果该过程存在来回的反复振荡，那么在重复的部分，弹力对于每一点都是相同的，弹力在正向和反向移动的过程中所做的功恰好抵消，因此所做的功同样是弹力自$x_a$至$x_b$的定积分。
+
+因此弹力做功与路径无关，只与始末位置有关，对于$x_a,x_b$的过程
+\begin{Equation}[弹性势能的准备式]
+    W=\Int[x_a][x_b]{-kx\dx}=\qty(-\frac{1}{2}kx_b^2)-\qty(-\frac{1}{2}kx_a^2)
+\end{Equation}
+如果我们引入\uwave{弹性势能}的概念
+\begin{BoxDefinition}[弹性势能]
+    E_p=\frac{1}{2}kx^2
+\end{BoxDefinition}
+那么式\ref{式:弹性势能的准备式}即$W=(-E_{pb})-(-E_{pa})=-\delt{E_p}$，即弹力所做的功是弹性势能的负增量。
+
+\subsection{引力与引力势能}
+根据\Refx{定律}{万有引力定律}，在$xyz$空间内将其改写为矢量形式即
+\begin{equation*}
+    \vb*{F}=-\frac{Gm_1m_2}{r^3}\vb*{r}
+\end{equation*}
+其中$\vb*{F}$代表$m_2$受到的引力，而$\vb*{r}$代表以$m_1$为原点时$m_2$的位矢，展开为分量式
+\begin{equation*}
+    \vb*{F}=-\frac{Gm_1m_2x}{(x^2+y^2+z^2)^\frac{3}{2}}\vi-\frac{Gm_1m_2y}{(x^2+y^2+z^2)^\frac{3}{2}}\vj-\frac{Gm_1m_2z}{(x^2+y^2+z^2)^\frac{3}{2}}\vk
+\end{equation*}
+关注到偏导数（另外两组偏导数也可以类似求得且也是相等的）
+\begin{align*}
+    \Fpif{F_x}{y}&=-\frac{Gm_1m_2x\cdot\dfrac{3}{2}(x^2+y^2+z^2)^{\frac{1}{2}}\cdot 2y}{(x^2+y^2+z^2)^{\frac{3}{2}}}=\frac{-3Gm_1m_2xy}{x^2+y^2+z^2}\\[3mm]
+    \Fpif{F_y}{x}&=-\frac{Gm_1m_2y\cdot\dfrac{3}{2}(x^2+y^2+z^2)^{\frac{1}{2}}\cdot 2x}{(x^2+y^2+z^2)^{\frac{3}{2}}}=\frac{-3Gm_1m_2yx}{x^2+y^2+z^2}
+\end{align*}
+
+这就满足空间曲线积与路径无关的条件
+\begin{equation*}
+    \Fpif{F_x}{y}=\Fpif{F_y}{x}\qquad\Fpif{F_y}{z}=\Fpif{F_z}{y}\qquad\Fpif{F_z}{x}=\Fpif{F_x}{z}
+\end{equation*}
+因此引力做功与路径无关，只与始末位置有关，这就使得对于由点$A$至点$B$的任意路径上引力所做的功，可以等效的化为两段路径（假定$r_a<r_b$）
+\begin{enumerate}
+    \item 第一段由$A$沿极径到达与$B$半径相同的$B_0$处，该过程中引力方向总是与位移相反。
+    \item 第二段由$B_0$沿球面到达$B$处，该过程中引力总是垂直于球面指向球心，不做功。
+\end{enumerate}
+因此引力做功可以转化为关于$r$的定积分\footnote{此处可以证明该式\ref{式:引力势能的准备式}对$r_a>r_b$的情况也是成立的。}\footnote{此处的$\dif{r}$代表半径的微分，与表示位移微元的$\dif{\vb*{r}}$没有关系。}
+\begin{Equation}[引力势能的准备式]
+    W=\Int[r_a][r_b]{-G\frac{m_1m_2}{r^2}\dif{r}}=\qty(\frac{Gm_1m_2}{r_b})-\qty(\frac{Gm_1m_2}{r_a})
+\end{Equation}
+如果我们引入引力势能的概念
+\begin{BoxDefinition}[引力势能]
+    E_p=-\frac{Gm_1m_2}{r}
+\end{BoxDefinition}
+那么式\ref{式:引力势能的准备式}即$W=(-E_{pb})-(-E_{pa})=-\delt{E_p}$，即引力所做的功是引力势能的负增量。
+
+\subsection{保守力与势能}
+关注到上述的弹簧弹力，重力，引力，均具有做功与路径无关的特征，我们知道，曲线积分与路径无关等价于沿任意闭合路径的环路积分为零，因此，我们将满足下式的力$\vb*{F}$
+\begin{Equation}[保守力的定义]
+    \Ilot[L]{\vb*{F}\cdot\dif{\vb*{r}}}=0
+\end{Equation}
+称为\uwave{保守力}，反之称为\uwave{耗散力}或\uwave{非保守力}。
+
+保守力均具有做功与路径无关的特性，弹簧弹力，重力，引力，均为保守力。
+
+非保守力则是路径相关的，非保守力中较为典型的是摩擦力，摩擦力不构成保守力的主要原因并非是其不满足路径无关，而是因为摩擦力不构成一个场，换言之摩擦力并不是位置的函数，例如，相同的物体静止于某点和滑动通过某点，所受的摩擦力是显然是不同的。
+
+保守力$\vb*{F}$构成了一个保守场，而保守场总是势场，因此总存在势函数满足$\nabla f=\vb*{F}$。
+
+根据曲线积分基本定理，保守力从点$A$到点$B$所做的功，等同于势函数$f$末减初，而在上面的三个例子中，等同于势能$E_p$的负值末减初，因而\uwave{势能}即势函数的负值，即
+\begin{BoxPrinciple}[势能与势函数]
+    势能是势函数的负值，保守力即负势能梯度。
+    \begin{BoxEq}
+        \vb*{F}=-\nabla E_p
+    \end{BoxEq}
+\end{BoxPrinciple}
+% 势能并不是绝对量，其会随着参照系的变化而变化，包括相对静止的惯性系，相比之下，动能和功虽然也不是绝对了，但其对于相对静止的惯性系具有相同的数值。
+
+根据曲线积分定理，保守力所做的功即对应势能的负增量，这就得到了\uwave{势能定理}。
+\begin{BoxPrinciple}[势能定理]
+    保守力所做的功，等于质点的势能负增量。
+    \begin{BoxEq}
+        W_p=(-E_{pb})-(-E_{pa})=-\delt{E_p}
+    \end{BoxEq}
+\end{BoxPrinciple}
+\Refx{定律}{势能定理}与先前的\Refx{定律}{动能定理}是相对应的，如果联合起来看
+\begin{itemize}
+    \item 保守力做正功，势能减少，动能增加（正向转化）。
+    \item 保守力做负功，势能增加，动能减少（逆向转化）。
+\end{itemize}
+这就可以部分的回答本节初“动能从何而来”的问题，我们现在知道，当保守力做功使动能增加时，动能事实上来源于减少的势能，即保守力做功的本质，是势能与动能的转化。
+
+根据曲线积分基本定理，某点处的势函数，可以通过保守力由任一定点到该点的曲线积分得到，而考虑到势能是势函数的负值，积分的上下限应颠倒，即
+\begin{center}
+    任意取定一点$Q$，保守力由某点$A$到此定点$Q$所做的功，即为该点$A$处的势能。
+\end{center}
+\begin{equation*}
+    E_p=\Int[A][Q]{\vb*{F}\cdot\dif{\vb*{r}}}
+\end{equation*}
+
+根据曲线积分的性质，所取的定点$Q$处的势能为零，称为\uwave{势能零点}。
+
+势能零点可以根据实际问题的需要灵活选取。
+
+势能零点的不同选取，会使得对应位置的的势能相差一个常数，即势能的大小与势能零点的选取有关，因此只有首先确定了势能零点，才能确定势能的大小。
+\begin{itemize}
+    \item \Refx{定义}{重力势能}中的势能函数，以$h=0$的地面处为势能零点。
+    \item \Refx{定义}{弹性势能}中的势能函数，以$x=0$的弹簧原长处为势能零点。
+    \item \Refx{定义}{引力势能}中的势能函数，以距离$m_1$无限远处为势能零点。
+\end{itemize}
+
+最后我们指出，势能是保守力相互作用的两个物体构成的系统所共有的，我们先前可能会误认为势能是属于某个物体的，这是因为我们在研究中常常认为某个物体是固定的。
+
+不妨以引力为例，当我们考察一个坠向地球的航天器时，我们认为地球是固定的，因此引力势能完全的转化为了航天器的动能，从而认为引力势能是航天器所具有的。但事实上，如果考虑两个质量相等的物体在引力作用下加速靠近，那么此时的引力势能将均等的转化为两个物体的动能，由此可见，引力势能应是两个物体构成的系统所共用的。
+
+\subsection{质点系的功能原理}
+根据\Refx{定律}{质点系的动能定理}
+\begin{equation*}
+    W_E+W_I=E_{kb}-E_{ka}
+\end{equation*}
+我们可以将内力所做的功$W_I$，分为保守内力的功$W_{I,c}$和非保守内力的功$W_{I,n}$，代入得\footnote{此处的c,n下标分别代表，Conservative保守的，Nonconservative非保守的。}
+\begin{equation*}
+    W_E+W_{I,c}+W_{I,n}=E_{kb}-E_{ka}
+\end{equation*}
+根据\Refx{定律}{势能定理}，保守内力的功$W_{I,C}=(-E_{p_b})-(-E_{p_a})$，代入得
+\begin{equation*}
+    W_E+(-E_{p_b})-(-E_{p_a})+W_{I,n}=E_{kb}-E_{ka}
+\end{equation*}
+移项得
+\begin{equation*}
+    W_E+W_{I,n}=(E_{pb}-E_{pa})+(E_{kb}-E_{ka})
+\end{equation*}
+整理得
+\begin{equation*}
+    W_E+W_{I,n}=(E_{pb}+E_{kb})-(E_{pa}+E_{ka})
+\end{equation*}
+关注到右式变为了两个关于$B,A$的状态函数的差，该状态函数是势能与动能的和。
+
+我们将系统的势能与动能的和，定义为系统的\uwave{机械能}
+\begin{BoxEquation}[机械能的定义]
+    E=E_p+E_k
+\end{BoxEquation}
+我们可以用机械能表示上式，这就得到了\uwave{质点系的功能原理}
+\begin{BoxPrinciple}[质点系的功能原理]
+    质点系的外力和非保守内力所做的功的代数和，等于质点系的机械能增量。
+    \begin{BoxEq}
+        W_E+W_{I,n}=E_{b}-E_{a}=\delt{E}
+    \end{BoxEq}
+\end{BoxPrinciple}
+
+\Refx{定律}{质点系的功能原理}的结果是必然的，由于保守内力做功的效果是使得系统的动能和势能相互转化，因此保守内力做功自然不会改变系统的机械能。
+
+那么非保守内力和外力做功，使得动能增加的能量来源是什么？
+\begin{itemize}
+    \item 系统的非保守内力，例如摩擦力使得物体停止运动，这是将动能转化为热。
+    \item 系统的外力，例如用手推动物体运动，这是将系统外的能量转化为动能。
+\end{itemize}
+由于“系统的热”和“系统外的能量”并不属于系统的机械能，因此非保守内力和外力做功在使得动能增加的同时，并不会相应的减少势能，从而将动能的增加反映在机械能上。
+
+\Refx{定律}{质点系的功能原理}只能在惯性系中使用，在非惯性系中不成立。
+
+\subsection{机械能守恒定律}
+\Refx{定律}{质点系的功能原理}中，如果仅有保守内力做功，关注到机械能不变。
+
+这就得到了以下的\uwave{机械能守恒定律}
+\begin{BoxPrinciple}[机械能守恒定律]
+    \centering\small
+    如果在整个变化过程中，非保守内力和外力不做功，仅有保守内力做功，
+    
+    那么，动能和势能可以相互转化，但是机械能的总和保持不变，称之为机械能守恒。
+\end{BoxPrinciple}
+机械能守恒的的情况是常见的，如行星绕太阳运动，如不计摩擦的弹簧振子，当系统的机械能不守恒时，这通常会有两种情况，其一是系统的机械能转化为其他形式的能量（系统的非保守内力做功），其二是系统与外界发生了能量交换（系统的外力做功）。
+
+值得注意的是，\Refx{定律}{机械能守恒定律}要求非保守力和外力不做功，而不只是非保守力和外力所做的功的和为零，例如，设想某个具有一定阻尼的转盘在电机驱动下保持匀速转动，这种情况下非保守内力“转盘的阻力”和“电机的驱动力”分别做等量的负功和正功，相互抵消，机械能确实是不变的，但是，我们并不会称这种情况为机械能守恒。
+
+\section{能量守恒定律}
+大量的实验事实表明，自然界存在多种运动形式，各种运动形式之间可以相互转化，例如
+\begin{itemize}
+    \item 在子弹射入沙土的过程中，子弹的运动停止，沙土的温度升高，子弹速度越快沙土升高的温度越多，这就说明一定量的机械运动转化为了一定量的分子热运动。
+    \item 在水力发电的过程中，水的流动速度减缓了，水力发电机产生了电流，水的流速越快水力产生的电就越多，这就说明一定量的机械运动转化成了一定量的电荷运动。
+\end{itemize}
+因此，各种运动形式的转化，实质是一定量的某种运动转化为一定数的另一种运动，为了定量的进行描述和分析，物理上使用\uwave{能量}作为各种“运动形式”的“运动的量”的量度。每一种运动形式都有对应的能量，机械运动使用机械能度量，热运动使用内能度量，即
+\begin{center}
+    能量，是物质各种运动的共同量度。
+\end{center}
+根据\Refx{定律}{机械能守恒定律}的结论，对于一个没有外力作用的封闭系统，能量在机械能的内部的转化和转移的过程中是守恒的，但是在非保守内力，例如摩擦力做功的情况下，机械能会被转化为内能，机械能并不守恒，那么此时能量的总和是否仍是守恒的？
+
+人类在长期的科学生产实践中，对该问题给出了肯定的答案，即\uwave{能量守恒定律}
+\begin{BoxPrinciple}[能量守恒定律]
+    在一个孤立系统内发生的各种过程中，能量既不能被创造，也不能被消灭，
+
+    能量只能从一种形式转化成另一种形式，或从一个物体转移到另一个物体，
+    
+    但是在转化和转移的过程中，系统中各种能量的总和保持不变。
+\end{BoxPrinciple}
+\Refx{定律}{能量守恒定律}中，由于能量是各类运动的量度，定律的实质即\textbf{运动不灭}。
+
+\Refx{定律}{能量守恒定律}的重要意义在于，人类已知的一切物理过程都无一例外的遵循该定律，人类历史上每次发现存在违背能量守恒定律的现象，往往是因为过程中蕴含着尚未被认识和理解的新事物，即有能量隐藏于尚未被发现的运动形式中。就像当我们发现摩擦力做功使得机械能不守恒时，只要引入分子热运动的内能，能量就会重新守恒。
+
+能量和动量均是运动的量度，但是这种量度是不同的
+\begin{itemize}
+    \item 能量所度量的运动是普适的，但能量是标量，只能反映运动的强弱属性。
+    \item 动量只能度量机械运动，但动量作为矢量，其可以反映机械运动独有的方向性特征。
+\end{itemize}
+能量和动量是对运动的两个方面的不同描述，两者是不能相互替代的。

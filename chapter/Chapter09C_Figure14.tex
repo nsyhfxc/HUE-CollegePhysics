@@ -1,0 +1,56 @@
+\NewDocumentCommand{\ele}{mm}
+{
+    \lPoint{O}{#1}
+    \lShift{P}{O}{#2:0.68}
+    \lShift{N}{O}{#2:-0.68}
+    \lShift{Pt}{O}{#2:0.58}
+    \lShift{Nt}{O}{#2:-0.58}
+    \node at (P) {\tiny $+$};
+    \node at (N) {\tiny $-$};
+    \draw (P) circle (0.1);
+    \draw (N) circle (0.1);
+    \draw[thin,-latex] (Nt)--(Pt);
+    \draw[red!50!white,fill=red!80!white,very thin] (O) circle (0.015);
+}
+
+\begin{tikzpicture}[scale=1.25]
+    \lPoint{A}{0,0}
+    \lPoint{B}{0,2}
+    \draw[ultra thick] (A)--(B);
+    \draw (B) .. controls(0,3) .. (-1.,4.5);
+    \draw (A) .. controls(0,-0.5) .. (-3,-1.75);
+    \node[right] at (0,1) {$\dif{\vb*{S}}$};
+
+    \lShift{A1}{A}{210:1.5}
+    \lShift{B1}{B}{210:1.5}
+    \lShift{A2}{A}{210:0.75}
+    \lShift{B2}{B}{210:0.75}
+    \lShift{A3}{A}{210:2.25}
+    \lShift{B3}{B}{210:2.25}
+    \draw[fill=black!20!white](A)--(A1)--(B1)--(B)--cycle;
+
+    \draw[thin,red!50!white,dotted] (A2)--(A3)--(B3)--(B2)--cycle;
+
+    \lRatio{l}{B}{B1}{0.5}[above][\vb*{l}]
+
+    \ele{-1,0.5}{30}
+    \ele{-1.2,0.7}{30}
+    \ele{-0.85,1.3}{30}
+    \ele{-1.7,-0.2}{30}
+    \ele{-1.4,-0.4}{30}
+
+    \lShift{ar1}{A}{-0.5,-0.1}
+    \lShift{ar2}{ar1}{30:1.7}
+
+    \draw[-latex] (ar1)--(ar2);
+    \node[right] at (ar2) {$\vb*{P}$};
+
+    \draw[-latex] (B1)--(B);
+
+    \lShift{Bd1}{B}{0.75,0}[right][\vb*{n}]
+    \lShift{Bd2}{B}{30:0.75}
+    
+    \draw[-latex](B)--(Bd1);
+    \draw[dotted] (B)--(Bd2);
+    \lAngle[\text{\scriptsize $\theta$}]{Bd1}{B}{Bd2}
+\end{tikzpicture}

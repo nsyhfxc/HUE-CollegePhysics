@@ -1,0 +1,15 @@
+\begin{tikzpicture}[scale=0.8]
+    \draw (-2,-2) rectangle (2,2);
+    \draw[dashed,black!75!white] (-1.2,-1.2) rectangle (1.2,1.2);
+    \node at (1.6,1.6) {\text{\footnotesize $\delt{V}$}};
+    \foreach \i in {0,180}
+    {
+        \draw[-latex] (\i:2)--(\i:1.2);
+        \node[above] at (\i:1.6) {$\vb*{\tau}_{\perp}$};
+    }
+    \foreach \i in {90,270}
+    {
+        \draw[-latex] (\i:2)--(\i:1.2);
+        \node[left] at (\i:1.6) {$\vb*{\tau}_{\perp}$};
+    }
+\end{tikzpicture}

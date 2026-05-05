@@ -1,0 +1,196 @@
+\section{静电场的能量}
+
+\subsection{电荷系的电势能}
+本节我们将研究所谓静电场的能量，静电场的能量听上去是一些十分陌生的东西，但是电势能的我们十分熟悉的，假设现在空间中有两个点电荷$q_1,q_2$，那么根据\Refx{定义}{电势能}
+\begin{equation*}
+    E_p=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}
+\end{equation*}
+这里的电势能$E_p$可以从两个角度看
+\begin{itemize}
+    \item $E_p$可以看作$q_1$在$q_2$产生的电场中的电势能$q_1V_1$。
+    \item $E_p$可以看作$q_2$在$q_1$产生的电场中的电势能$q_2V_2$。
+\end{itemize}
+但无论怎么看，这些电势能$E_p$都是两个电荷$q_1,q_2$共有的，因此只能算一遍，如果出于对称的目的一定想要以$q_1V_1+q_2V_2$表达，那么能量将被重复计算一次，即
+\begin{equation*}
+    E_p=\frac{1}{2}(q_1V_1+q_2V_2)
+\end{equation*}
+这种关系也可以推广至$n$个电荷的情形，此时$q_iV_i$便是电荷$q_i$在另外$n-i$个电荷产生的电场中所具有的电势能。而当我们以这种方式计算另外$n-i$个电荷的电势能，其电场中由电荷$q_i$产生的那部分的电势能在$q_iV_i$中已经计算过了，因此将一系列的$q_iV_i$相加时，两两电荷之间的电势能都被计算了两次，因而总能量仍应是$q_iV_i$和的一半，这就有
+\begin{BoxEquation}[电荷系的电势能]
+    W_e=\frac{1}{2}\SumIN{q_iV_i}
+\end{BoxEquation}
+这里我们改用$W_e$表示电荷系的电势能，因为这些能量是隶属于整个电荷体系的，不再像两电荷体系时可以简单解释为某一电荷在另一电荷电场中的电势能，故改换符号以示区分。
+
+那么电荷系的电势能应该怎样理解？我们仍然可以回归电势能的功定义上，即将电荷从无穷远出移动到所处位置中克服电场力所做的功，只不过对于电荷系，这一过程需要分步完成
+\begin{enumerate}
+    \item 将$q_1$从无穷远处移入，这时还没有电场，外力不需要克服任何电场力做功。
+    \item 将$q_2$从无穷远处移入，此时需克服$q_1$的电场做功。
+    \item 将$q_3$从无穷远处移入，此时需克服$q_1,q_2$的电场做功。
+    \item 将$q_4$从无穷远处移入，此时需克服$q_1,q_2,q_3$的电场做功。
+    \item ~$\vdots$
+    \item 将$q_n$从无穷远处移入，此时需克服$q_1,q_2,q_3,\cdots,q_n$的电场做功。
+\end{enumerate}
+将这一系列过程中克服电场力做的功相加，即为该电荷系的电势能。不难看出，这里做功的结果与选取的电荷移入顺序无关，同时，做功计算出的结果\Refx{公式}{电荷系的电势能}是完全相容的（事实上，做功的表述还可以帮助我们更好理解为何$\SumIN{q_iV_i}$会导致重复）。
+
+进一步，对连续电荷分布的情况，此时求和将过渡到三重积分，由于电势$V$与体积微元$\dif{V}$容易引起混淆，在本节改用$\phi=V$表示电势，这样积分微元便是$\phi\dif{\rho}=\phi\rho\dif{V}$，故
+\begin{BoxEquation}[电荷连续分布体的电势能]
+    W_e=\frac{1}{2}\Itnt[V]{\phi\rho\dif{V}}
+\end{BoxEquation}
+
+\subsection{电场的能量}
+现在，让我们思考一个有趣的问题：这些静电能究竟位于何处？
+
+或许我们会问：谁在乎呢？提出这样一个问题有什么意义？如果现在有一对相互作用着的电荷，那么这个电荷系就有一些能量，我们是否有必要将这能量定位在某处？或许是这些能量是集中在某一电荷处，或两个电荷处，或两个电荷间。这些问题可能不具有任何意义，因为我们实在只知道总能量是守恒的，将能量定位在某处的概念并没有什么必要。
+
+然而一般来说，假定能说出能量位于某处，确实具有一些意义，这样我们就可以对\Refx{定律}{能量守恒定律}按照如下意义做一些推广，即如果在一个给定体积内的能量变化了，我们应该能通过流入或流出该体积的能量来说明这种变化，或许可以称为\uwave{能量局域性守恒原理}，如果事情是这样的，那我们就有了一个比总能量守恒那种简单提法详细的多的定律，而实际情况是，在自然界中能量确实是局域守恒的，我们可以弄清能量在哪里以及它是怎么流动的。
+
+如果我们将讨论限制在静电学方位内，确实无法说出能量的位置在哪里，因为在静电学中电荷和电场总是同时存在相互伴生的，使得我们无法分辨能量到底是与电荷相联系还是与电场相联系。但是在之后将学习的电磁学中，我们会看到电磁波中的电场可以脱离电荷而传播到很远的地方，电磁波携带能量，但是很明显，电磁波中并没有任何的电荷。
+
+因此，我们倾向于将能量\uwave{定域}在电场所在的空间中，而不是产生电场的电荷那里。
+
+因而，当我们讨论电场的能量时，虽然\Refx{公式}{电荷连续分布体的电势能}已经可以正确的表示电场的能量，但既然我们已经声称能量归于电场，我们就应该用电场矢量而不是电荷来表示这能量（使得能量定域在电场中的说法更有说服力），这是本节要解决的主要问题。
+
+在开始前，我们有必要再做一些说明。我们知道，在引入电介质后，电荷可以分为自由电荷和束缚电荷，但是在考虑能量时，束缚电荷是电介质在极化时自发产生的，当我们将所有的自由电荷从无穷远处移至相应位置后，束缚电荷就自行产生了，不需要我们再克服电场力做任何的功了，因此\Refx{公式}{电荷连续分布体的电势能}中的$\rho$应被解读为$\rho_f$，即
+\begin{Equation}[静电场的能量1]
+    W_e=\frac{1}{2}\Itnt[V]{\phi\rho_f\dif{V}}
+\end{Equation}
+代入\Refx{定律}{电位移矢量与自由电荷}
+\begin{Equation}[静电场的能量2]
+    W_e=\frac{1}{2}\Itnt[V]{\phi\nabla\cdot\vb*{D}\dif{V}}
+\end{Equation}
+代入\Refx{公式}{电位移矢量与场强的电容率表示}
+\begin{Equation}[静电场的能量3]
+    W_e=\frac{1}{2}\Itnt[V]{\phi\nabla\cdot(\varepsilon_0\varepsilon_r\vb*{E})\dif{V}}
+\end{Equation}
+而通过式\ref{式:散度微分恒等式}的微分恒等式
+\begin{equation*}
+    \phi\nabla\cdot(\varepsilon_0\varepsilon_r\vb*{E})=\nabla\cdot(\phi\varepsilon_0\varepsilon_r\vb*{E})-\varepsilon_0\varepsilon_r\vb*{E}\cdot\nabla\phi
+\end{equation*}
+将上式代入式\ref{式:静电场的能量3}
+\begin{Equation}[静电场的能量4]
+    W_e=\frac{1}{2}\Itnt[V]{\nabla\cdot(\phi\varepsilon_0\varepsilon_r\vb*{E})\dif{V}}-\frac{1}{2}\Itnt[V]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\nabla\phi\dif{V}}
+\end{Equation}
+将式\ref{式:静电场的能量4}第一项通过高斯公式转化为第二类曲面积分
+\begin{Equation}[静电场的能量5]
+    W_e=\frac{1}{2}\Isot[S]{\phi\varepsilon_0\varepsilon_r\vb*{E}\cdot\dif{\vb*{S}}}-\frac{1}{2}\Itnt[V]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\nabla\phi\dif{V}}
+\end{Equation}
+将式\ref{式:静电场的能量5}第二项中的$\nabla\phi$以\Refx{公式}{电场强度与电势的梯度关系}代换
+\begin{Equation}[静电场的能量6]
+    W_e=\frac{1}{2}\Isot[S]{\phi\varepsilon_0\varepsilon_r\vb*{E}\cdot\dif{\vb*{S}}}+\frac{1}{2}\Itnt[V]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\vb*{E}\dif{V}}
+\end{Equation}
+关于这个问题，在数学上的一切可能的努力便止步于此了。为了进一步的化简，现在让我们重新回顾一下式\ref{式:静电场的能量1}的意义，它计算的是在$V$的区域内的这些电荷独立存在时所具有的电势能，但很明显这与$V$的区域内的电场能量毫无关系，因为关于电荷系的能量与电场的能量这两种观点未必具有相同的定域特性，我们只知道两者的能量总量是一致的，换言之，我们只知道整个空间中的电场能量与整个空间中所有电荷的能量相等，即需令$V\rightarrow\R^3$。
+
+既然我们要令$V\rightarrow\R^3$，这时$V$的形状便没有那么重要了，我们不妨将$V$取做一个以原点为中心半径为$R$的球体，那么它的边界曲面$S$便是半径为$R$的球面，同时$R\rightarrow\infty$。
+
+电荷可以分布的距离原点近一些，电荷也可以分布的远一些，但是没有任何电荷可以在无穷远处。我们知道，无论电荷的分布多么复杂，对于一个远场点来说，就电场强度和电势而言其均可以视为一个集中在原点的点电荷。假设电荷总量为$q$，那么当$R\rightarrow\infty$时
+\begin{equation*}
+    \vb*{E}=\frac{1}{4\pi\varepsilon_0}\frac{q}{R^2}\qquad
+    \phi=\frac{1}{4\pi\varepsilon_0}\frac{q}{R}
+\end{equation*}
+对于式\ref{式:静电场的能量6}的第一项，将上式代入，由于积分曲面是$S$是一个半径为$R$的球面，而被积函数仅与半径$R$有关，因此曲面积分退化为将被积函数乘以球面表面积$4\pi R^2$
+\begin{equation*}
+    \Lim{R}{\infty}
+    {\Isot[S]{\phi\varepsilon_0\varepsilon_r\vb*{E}\cdot\dif{\vb*{S}}}}=
+    \Lim{R}{\infty}
+    {\Isot[S]{\qty(\frac{1}{4\pi\varepsilon_0})^2\frac{\varepsilon_0\varepsilon_rq^2}{R^3}}}=
+    \Lim{R}{\infty}{\qty(\frac{1}{4\pi\varepsilon_0})^2\frac{4\pi\varepsilon_0\varepsilon_rq^2}{R}}
+\end{equation*}
+虽然相对电容率$\varepsilon_r$会随位置而变，但其值必然是有界的，因此当$R\rightarrow\infty$上式极限为零
+\begin{Equation}[静电场的能量7]
+    \Lim{R}{\infty}
+    {\Isot[S]{\phi\varepsilon_0\varepsilon_r\vb*{E}\cdot\dif{\vb*{S}}}}=0
+\end{Equation}
+对于式\ref{式:静电场的能量6}的第二项，这没有什么可运算的
+\begin{Equation}[静电场的能量8]
+    \Lim{R}{\infty}
+    {\Itnt[V]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\vb*{E}\dif{V}}}=\Itnt[\R^3]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\vb*{E}\dif{V}}
+\end{Equation}
+将式\ref{式:静电场的能量7}和式\ref{式:静电场的能量8}代入式\ref{式:静电场的能量6}
+\begin{Equation}
+    W_e=\frac{1}{2}\Itnt[\R^3]{\varepsilon_0\varepsilon_r\vb*{E}\cdot\vb*{E}\dif{V}}
+\end{Equation}
+在上式中回代\Refx{公式}{电位移矢量与场强的电容率表示}，并整理
+\begin{BoxEquation}[静电场的能量]
+    W_e=\Itnt[\R^3]
+    {\frac{1}{2}\vb*{D}\cdot\vb*{E}\dif{V}}
+\end{BoxEquation}
+这里会有一个常见的问题，既然电位移矢量$\vb*{D}$与电场强度$\vb*{E}$方向相同，为什么上式中仍然要用点积$\vb*{D}\cdot\vb*{E}$的形式表示，而不是简单写作$DE$？这是因为，虽然在我们熟悉的各向同性电介质中两者确实是同向的，但是在那些各向异性的电介质中，由于$\varepsilon_r$会变为二阶张量
+\begin{equation*}
+    \varepsilon_r=\begin{pmatrix}
+        \varepsilon_{r1}&0&0\\
+        0&\varepsilon_{r2}&0\\
+        0&0&\varepsilon_{r3}\\
+    \end{pmatrix}
+\end{equation*}
+此时电位移矢量$\vb*{D}$与电场强度$\vb*{E}$的方向便可能不同了，出于一般性，总是用点积表示。
+
+这里我们再来考虑一些新的东西，由于现在能量是定域在电场中，而电场又在空间中分布，我们就可以将单位体积内的\uwave{电场能量}定义为\uwave{电场的能量密度}，记作$w_e$。由于现在只知道电场的总能量，因此电场的能量密度有很多种可能的取法，只要满足能量守恒定律即可，例如我们完全可以认为电场的能量是平均分配在整个空间中的，但显然这种定域规定不会给我们带来任何便利，也绝不可能满足期望的能量局域性守恒。相比之下，下式是更合理的。
+\begin{BoxEquation}[静电场的能量密度]
+    w_e=\frac{1}{2}\vb*{D}\cdot\vb*{E}
+\end{BoxEquation}
+规定了静电场的能量密度后，我们就完全确定了能量在静电场中是如何分布的了，我们也就可以自然的将某一块区域的电场能量写作下式（这与整个电场的能量是良好过渡的）
+\begin{Equation}[静电场的部分能量]
+    W_e=\Itnt[V]
+    {\frac{1}{2}\vb*{D}\cdot\vb*{E}\dif{V}}
+\end{Equation}
+能量密度在国际单位制中的单位是\si{J\cdot m^{-3}}，量纲是\si{[L^{-1}MT^{-1}]}。
+
+作为一个示例，我们现在来考虑一个真空中的带电导体球产生的电场的电场能量。由于这里讨论的是真空环境，没有任何电介质的存在，因而\Refx{公式}{静电场的能量}可以简化为
+\begin{Equation}[真空静电场的能量]
+    W_e=\Itnt[\R^3]{\frac{1}{2}\vb*{D}\cdot\vb*{E}\dif{V}}=\Itnt[\R^3]{\frac{\varepsilon_0}{2}E^2\dif{V}}
+\end{Equation}
+假设带电导体球具有$q$的电荷量，且半径为$R$，我们知道电荷将均匀分布在导体表面，同时在导体球内的电场处处为零，因而根据\Refx{公式}{带电球壳的电场分布}的结论
+\begin{equation*}
+    \frac{\varepsilon_0}{2}E^2=\frac{\varepsilon_0}{2}\qty(\frac{1}{4\pi\varepsilon_0}\frac{q}{R^2})^2=\frac{\varepsilon_0}{2}\frac{1}{16\pi^2\varepsilon_0^2}\frac{q^2}{r^4}=\frac{1}{32\pi^2\varepsilon_0}\frac{q^2}{r^4}
+\end{equation*}
+将上式代入\ref{式:真空静电场的能量}，由于电场具有球对称性，可以转化为定积分
+\begin{equation*}
+    W_e=\Int[R][\infty]{\frac{1}{32\pi^2\varepsilon_0}\frac{q^2}{r^4}4\pi r^2\dif{r}}=\Int[R][\infty]{\frac{1}{8\pi\varepsilon_0}\frac{q^2}{r^2}\dif{r}}=\frac{1}{8\pi\varepsilon_0}\frac{q^2}{R}
+\end{equation*}
+即
+\begin{BoxEquation}[带电导体球的电场能量]
+    W_e=\frac{1}{8\pi\varepsilon_0}\frac{q^2}{R}
+\end{BoxEquation}
+尽管我们过去是从只在点电荷之间才有能量的那种观点出发的，但是我们新的关系式\Refx{公式}{静电场的能量}指出即便是单个点电荷$q$产生的电场也将具有一些能量，而点电荷刚好可以视为一个半径无限小的带电导体球，即点电荷产生的电场能量恰是\Refx{公式}{带电导体球的电场能量}在$R\rightarrow 0$时的极限情况，但这将会给出$W_e=\infty$的数值，其声称在一个点电荷产生的电场中将会具有无限大的电场能量，这一结果显然不是非常合理。
+
+为此，我们需要详细讨论一下自能和相互作用能的概念，试想电场中有一些相同的导电球
+\begin{itemize}
+    \item 所谓\uwave{相互作用能}，就是将这些导体球视为一个整体从无穷远处移入电场所做的功。
+    \item 所谓\uwave{自能}，就是将这些导体球上的电荷从无限分散的状态聚集起来所需做的功。\footnote{这里的无限分散，就是说将导体球上的电荷用$\dif{q}$拼出来，显然$\dif{q}$不再有什么自能了。}
+\end{itemize}
+而电场的能量是自能和相互作用能的和，先前我们在\Refx{公式}{电荷系的电势能}中计算的能量只包含了相互作用能，而没有考虑点电荷的自能，而当这一切过渡至\Refx{公式}{电荷连续分布体的电势能}，带电体就直接由已经无限分散的$\dif{q}$构成了，这便没有自能了。
+
+由此可见，我们计算出的点电荷的电场能量其实就是点电荷的自能，而计算结果表明，点电荷的自能是无穷大，这一结果实际上也是非常合理的，因为点电荷需要将电荷聚集在无限小的区域里，这需要克服无穷大的电荷间斥力，这样就需要克服电场力做无穷多的功了。
+
+由此也说明，点电荷的概念与我们将能量定域在场中的概念是不相容的，先前我们在研究\Refx{定律}{电场高斯定理的微分形式}也看到，点电荷处的场强的散度将是无穷大，这两处的证据也表明，点电荷作为一种理想模型，是有其局限性所在的，是不可能存在的。
+
+因此，尽管我们一直习惯于将电子这样的粒子视作点电荷，但是这里关于点电荷的电场能量为无穷大的结论彻底否定了这种观点的正确性，或许我们有这样两种摆脱困难的办法
+\begin{enumerate}
+    \item 承认电子那样的基本粒子中的电荷并不是一个点，而是一些微小分布。
+    \item 承认电学理论在那样的微观尺度上已经有一些错误。
+\end{enumerate}
+这两种观点中的任意一种处理起来都有些困难，这些困难从未得到克服，一直遗留到今天。
+
+\subsection{电容器的能量}
+在本节的最后，让我们来以电容器的能量验证一下我们电场能量的结论。
+
+不难理解，当电容器的电荷由$0$充至$Q$时，电功应该以下式计算
+\begin{equation*}
+    W=\Int[0][W]{\dif{W}}=\Int[0][Q]{U\dif{Q}}=\Int[0][Q]{\frac{Q}{C}\dif{Q}}=\frac{Q^2}{2C}
+\end{equation*}
+利用\Refx{定义}{电容}代入$Q=CU$，我们可以将电容器的能量写作多种形式
+\begin{BoxEquation}[电容器的能量]
+    W_e=\frac{Q^2}{2C}=\frac{1}{2}QU=\frac{1}{2}CU^2
+\end{BoxEquation}
+这里的$Q$表示的是极板上的自由电荷，它与电位移的关系是
+\begin{equation*}
+    Q=\sigma_fS\xlongequal{\text{式\ref{式:电位移矢量解电介质电容器1}}}DS
+\end{equation*}
+这里的$U$表示的是极板间的电压，它与电场强度的关系是
+\begin{equation*}
+    U=Ed
+\end{equation*}
+将上两式代入\Refx{公式}{电容器的能量}，并记$V=Sd$为极板间电场的体积
+\begin{equation*}
+    W_e=\frac{1}{2}QU=\frac{1}{2}DESd=\frac{1}{2}DEV
+\end{equation*}
+这就在电容器中验证了\Refx{公式}{静电场的能量}的正确性（这是一个$DE$为常数的特例）。

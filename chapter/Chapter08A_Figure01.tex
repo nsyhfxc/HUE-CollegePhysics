@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{A}{-2,0}[center][\text{\LARGE $+$}]
+    \lPoint{B}{2,0}[center][\text{\LARGE $+$}]
+    \lShift{At}{A}{0,-0.5}
+    \node[below,red!50!white] at (At) {\scriptsize 研究该电荷};
+    \draw[red!50!white] (A) circle(0.5);
+    \draw (B) circle(0.5);
+    \draw[-latex](1.5,0)--(-1.5,0);
+    \draw[-latex,red!50!white](-2.5,0)--(-3.3,0);
+    \node[above,red!50!white] at (-3.0,0) {$\vb*{F}$};
+    \node[above] at (0,0) {$\vb*{r}$};
+\end{tikzpicture}

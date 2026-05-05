@@ -1,0 +1,49 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{O}{0,0}[below][\vb*{l}]
+    \lPoint{X1}{-3.3,0}
+    \lPoint{X2}{3.3,0}[right][x]
+    \lPoint{Y}{0,6}[right][y]
+    \lPoint{A}{-1.2,0}
+    \lPoint{B}{1.2,0}
+    \node[below,blue!50!white] at (A) {\tiny $-q$};
+    \node[below,red!50!white] at (B) {\tiny $+q$};
+
+    \draw[-latex] (A)--(B);
+    \draw[dotted,->] (X1)--(X2);
+    \draw[dotted,->] (O)--(Y);
+
+    \lPoint{Pl}{2.0,0}
+    \lShift{Pl1}{Pl}{-0.4,0}
+    \lShift{Pl2}{Pl}{0.8,0}
+    \node[above,blue!50!white] at (Pl1) {$\vb*{E}_{-}$};
+    \node[above,red!50!white] at (Pl2) {$\vb*{E}_{+}$};
+    \draw[-latex,blue!50!white] (Pl)--(Pl1);
+    \draw[-latex,red!50!white] (Pl)--(Pl2);
+    \draw[fill=black] (Pl) circle (0.02);
+
+    \lPoint{Pr}{-2.35,0}
+    \lShift{Pr1}{Pr}{-0.4,0}
+    \lShift{Pr2}{Pr}{0.8,0}
+    \node[above,red!50!white] at (Pr1) {$\vb*{E}_{+}$};
+    \node[above,blue!50!white] at (Pr2) {$\vb*{E}_{-}$};
+    \draw[-latex,red!50!white] (Pr)--(Pr1);
+    \draw[-latex,blue!50!white] (Pr)--(Pr2);
+    \draw[fill=black] (Pr) circle (0.02);
+
+    \lShift{M1}{A}{0,1.5}
+    \lShift{M2}{O}{0,1.5}
+    \lShift{M3}{B}{0,1.5}
+
+    \lShift{M1'}{A}{0,1.35}
+    \lShift{M2'}{O}{0,1.35}
+    \lShift{M3'}{B}{0,1.35}
+
+    \draw[very thin] (O)--(M2);
+    \draw[very thin] (B)--(M3);
+
+    \draw[<->,very thin] (M2')--(M3');
+    \lRatio{T}{M2'}{M3'}{0.5}[above][x]
+
+    \draw[blue!50!white,fill=white] (A) circle (0.055);
+    \draw[red!50!white,fill=white] (B) circle (0.055);
+\end{tikzpicture}

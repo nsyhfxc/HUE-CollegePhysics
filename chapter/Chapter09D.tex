@@ -1,0 +1,246 @@
+\section{电介质与电位移矢量}
+通过上一节最后一小节的讨论，我们看到，当电场中有电介质存在时，即便是对于平行板电容器这一最简单的电场情形，电场强度的计算也是较为繁琐的，为什么会产生这样的现象？虽然自由电荷与束缚电荷都是客观真实存在的，但是自由电荷的分布往往是我们可以主动决定的，我们可以向电容器的极板上充一些电或放一些电，而束缚电荷则是电介质在极化中自发产生的，束缚电荷的分布受电场影响，束缚电荷本身又会产生退极化场削弱电场，两者相互牵扯的纠缠关系导致了求解的复杂性。所以，如果我们能制定一套方法，使得束缚电荷从最开始就不出现，使我们只需要考虑我们可以掌控的自由电荷，那么计算就会得到简化。
+
+为此，我们将引入一个新的物理量，这就是本节将研究的电位移矢量。
+
+\subsection{电位移矢量的定义}
+\Refx{定律}{电场高斯定理}总是正确的，无论是否有电介质存在。只不过这里的$q$应包含所有真实的电荷，当没有电介质时它就只包含我们所熟悉的自由电荷$q=q_f$，当存在电介质时它就同时包含自由电荷与束缚电荷$q=q_f+q_b$，因此定律可以表达为
+\begin{Equation}[电位移矢量的定义1]
+    \Isot[S]{\vb*{E}\cdot\dif{\vb*{S}}}=
+    \frac{q}{\varepsilon_0}=
+    \frac{q_f}{\varepsilon_0}+
+    \frac{q_b}{\varepsilon_0}
+\end{Equation}
+\Refx{定律}{电极化强度的高斯定理}则告诉我们电极化强度与束缚电荷的关系
+\begin{Equation}[电位移矢量的定义2]
+    \Isot[S]{\vb*{P}\cdot\dif{\vb*{S}}}=
+    -q_b
+\end{Equation}
+如果我们愿意将式\ref{式:电位移矢量的定义1}乘以$\varepsilon_0$后加上式\ref{式:电位移矢量的定义2}，束缚电荷将被约去
+\begin{Equation}[电位移矢量的定义3]
+    \Isot[S]{\qty(\varepsilon_0\vb*{E}+\vb*{P})\cdot\dif{\vb*{S}}}=
+    q_f
+\end{Equation}
+如果我们将式\ref{式:电位移矢量的定义3}左侧的这个矢量$\varepsilon_0\vb*{E}+\vb*{P}$用一个辅助矢量$\vb*{D}$表示，并称之为\uwave{电位移矢量}
+\begin{BoxDefinition}[电位移矢量]
+    \vb*{D}=\varepsilon_0\vb*{E}+\vb*{P}
+\end{BoxDefinition}
+那么我们就得到了一个只包含自由电荷的式子
+\begin{BoxPrinciple}[电位移矢量的高斯定理]
+    电位移矢量在闭合曲面上的通量，即该闭合曲面内自由电荷的总电荷量。
+    \begin{BoxEq}
+        \Isot[S]{\vb*{D}\cdot\dif{\vb*{S}}}=
+        q_f
+    \end{BoxEq}
+\end{BoxPrinciple}
+我们也可以用微分形式来表示
+\begin{BoxPrinciple}[电位移矢量与自由电荷]
+    电位移矢量的散度，即自由电荷的体密度。
+    \begin{BoxEq}
+        \nabla\cdot\vb*{D}=\rho_f
+    \end{BoxEq}
+\end{BoxPrinciple}
+有一件具有某种历史重要性的事情应该在这里提出，在电学的早期，对极化的机制还尚不了解，还没有察觉到束缚电荷$q_b$的存在，当时自由电荷$q_f$被认为是全部的电荷，这就使得\Refx{定律}{电场高斯定理}的方程形式变得复杂，为了简化其表达引入了\Refx{定义}{电位移矢量}，从而得到\Refx{定律}{电位移矢量的高斯定理}，这就是历史上引入电位移矢量的原因。
+
+我们在今天从另一个观点来看待这些事情，那就是，在真空中的方程\Refx{定律}{电场高斯定理}比较简单，但倘若在每种情况下我们把一切电荷都列出来，那这方程总是正确的。而如果为了讨论方便将自由电荷分离出来，同时不愿详细讨论束缚电荷的影响，那么我们就可以将方程改写为电位移矢量的形式\Refx{定律}{电位移矢量的高斯定理}，只要我们乐意。
+
+我们在这里还要说明的是，尽管电位移矢量在这里是仅仅以一个简化运算的辅助矢量的身份引入，但电位移矢量实际上具有更为深远的意义，我们在之后将会看到，电位移矢量随时间的变化率与麦克斯韦提出的\textbf{位移}电流有关，这也是将其称为电\textbf{位移}矢量的原因。
+
+电位移矢量在国际单位制中的单位是\si{C\cdot m^{-2}}，量纲是\si{[L^{-2}TI]}。
+
+对于\Refx{定义}{电位移矢量}，我们可以再做一些变换，代入\Refx{公式}{电极化强度与场强}
+\begin{equation*}
+    \vb*{D}=\varepsilon_0\vb*{E}+\vb*{P}=\varepsilon_0\vb*{E}+\varepsilon_0\chi_e\vb*{E}=\varepsilon_0(1+\chi_e)\vb*{E}
+\end{equation*}
+这就得到一个$\vb*{D}$与$\vb*{E}$的直接关系
+\begin{BoxEquation}[电位移矢量与场强]
+   \vb*{D}=\varepsilon_0(1+\chi_e)\vb*{E} 
+\end{BoxEquation}
+\Refx{公式}{电位移矢量与场强}与先前的\Refx{公式}{电极化强度与场强}是对应的。
+
+\Refx{公式}{电位移矢量与场强}中的$(1+\chi_e)$也可以用\Refx{定义}{相对电容率}表示
+\begin{BoxEquation}[电位移矢量与场强的电容率表示]
+\vb*{D}=\varepsilon_0\varepsilon_r\vb*{E}=\varepsilon\vb*{E}
+\end{BoxEquation}
+上式中的$\varepsilon$也称为电介质\uwave{绝对电容率}或\uwave{绝对介电常数}，也可以简称为\uwave{电容率}或\uwave{介电常数}
+\begin{BoxDefinition}[绝对电容率]
+    \varepsilon=\varepsilon_0\varepsilon_r
+\end{BoxDefinition}
+绝对电容率在国际单位制中的单位是\si{C^2\cdot N^{-1}\cdot m^{-2}}，量纲是\si{[L^{-1}MI^2]}。
+
+现在，我们就可以理解许多电学方程中出现的$\varepsilon_0$究竟是什么了，因为真空的$\varepsilon_r=1$，因此真空的电容率和介电常数恰为$\varepsilon=\varepsilon_0$，这就是常数$\varepsilon_0$的代表的实际物理意义。
+
+最后，还有一点需要强调，无论是\Refx{公式}{电极化强度与场强}中的$\vb*{P}=\varepsilon_0\chi_e\vb*{E}$，还是这里\Refx{公式}{电位移矢量与场强}中的$\vb*{D}=\varepsilon_0(1+\chi_e)\vb*{E}$，这种$\vb*{D},\vb*{P}$与$\vb*{E}$之间的正比关系都是对描述物质特性的一种尝试，这种关系是经验的、近似的、仅在场强较小时成立的，而且对于铁电体和永驻体这样的特殊电介质，这种线性关系是完全不存在的。
+
+因此，正如费恩曼所说的那样，关于电位移矢量$\vb*{D}$的\Refx{定律}{电位移矢量的高斯定理}不可能是一个深刻又基本的方程。反之，关于电场强度$\vb*{E}$的\Refx{定律}{电场高斯定理}和\Refx{定律}{电场环路定理}，却代表着我们对静电场和静电学最深刻且最完整的理解。\vspace{10pt}
+
+\subsection{电位移矢量的实例}
+现在我们用电位移矢量的观点重新分析电介质电容器
+\begin{Figure}{电位移矢量分析电介质电容器}
+    \inputfigure[scale=0.9]{Chapter09D_Figure01}
+\end{Figure}
+如上图所示，取一个轴线垂直于电容器极板的圆柱作为高斯面，一个底面位于导体，一个底面位于电介质。我们关注到，圆柱的侧面与电场方向平行，因此没有$\Phi_D$，圆柱的左侧底面位于导体，而导体中的电场为零，因此也没有$\Phi_D$，所以该高斯面上的电位移通量$\Phi_D$集中在右侧位于电介质内的底面上。设圆柱的底面积是$S$，那么圆柱内的自由电荷即为$\sigma_fS$。
+
+根据\Refx{定律}{电位移矢量的高斯定理}
+\begin{Equation}[电位移矢量解电介质电容器1]
+    D=\frac{\Phi_D}{S}=\frac{\sigma_fS}{S}=\sigma_f
+\end{Equation}
+根据\Refx{公式}{电位移矢量与场强的电容率表示}
+\begin{Equation}[电位移矢量解电介质电容器2]
+    E=\frac{D}{\varepsilon_0\varepsilon_r}=\frac{\sigma_f}{\varepsilon_0\varepsilon_r}
+\end{Equation}
+可以看出，这里通过电位移矢量求解的过程要比之前简单许多。
+
+另外一个例子是浸在无限大均匀电介质中的导体球，设导体球充有电荷$q_f$，现研究导体球附近的场强。这个问题就很难用电场强度$\vb*{E}$直接求解，虽然可以将$\vb*{E}_f$写出，但是由于电介质无限大，那些束缚电荷分布在极为遥远的电介质表面上，因此这里$\vb*{E}_b$就无法表示了。
+
+这时用电位移矢量$\vb*{D}$求解则是很方便的，取一个与导体球共球心的球形高斯面
+\begin{Figure}{浸在无限大均匀电介质中的导体球}
+    \inputfigure[scale=0.9]{Chapter09D_Figure02}\vspace{-10pt}
+\end{Figure}
+根据\Refx{定律}{电位移矢量的高斯定理}
+\begin{equation*}
+    D=\frac{\Phi_D}{S}=\frac{q_f}{4\pi r^2}
+\end{equation*}
+根据\Refx{公式}{电位移矢量与场强的电容率表示}
+\begin{Equation}[浸在无限大均匀电介质中的导体球2]
+    E=\frac{D}{\varepsilon_0\varepsilon_r}=\frac{1}{4\pi\varepsilon_0\varepsilon_r}\frac{q_f}{r^2}
+\end{Equation}
+
+\subsection{电位移矢量与自由电荷的场强}
+在电介质电容器的推导中我们看到
+\begin{equation*}
+    E=\frac{\sigma_f}{\varepsilon_0\varepsilon_r}
+    \qquad
+    E_f=\frac{\sigma_f}{\varepsilon_0}
+    \qquad
+    D=\sigma_f
+\end{equation*}
+在电介质中的带电导体球的推导中我们看到
+\begin{equation*}
+    E=\frac{1}{4\pi\varepsilon_0\varepsilon_r}\frac{q_f}{r^2}
+    \qquad
+    E_f=\frac{1}{4\pi\varepsilon_0}\frac{q_f}{r^2}
+    \qquad
+    D=\frac{1}{4\pi}\frac{q_f}{r^2}
+\end{equation*}
+不难看出，这中间存在一些共性的关系，例如电场强度在电介质中被削弱了$\varepsilon_r$倍
+\begin{Equation}[电场强度被削弱]
+    \vb*{E}=\frac{\vb*{E}_f}{\varepsilon_r}
+\end{Equation}
+电位移矢量$\vb*{D}$是自由电荷产生的电场强度的$\varepsilon_0$倍
+\begin{Equation}[电位移矢量与自由电荷]
+    \vb*{D}=\varepsilon_0\vb*{E}_f
+\end{Equation}
+电位移矢量$\vb*{D}$依据\Refx{定义}{电位移矢量}又满足$\vb*{D}=\varepsilon_0\vb*{E}+\vb*{P}$，移项展开可得
+\begin{equation*}
+    \varepsilon_0(\vb*{E}_f+\vb*{E}_b)=\vb*{D}-\vb*{P}
+\end{equation*}
+在上式中代入\ref{式:电位移矢量与自由电荷}
+\begin{equation*}
+    \varepsilon_0(\vb*{E}_f+\vb*{E}_b)=\varepsilon_0\vb*{E}-\vb*{P}
+\end{equation*}
+即
+\begin{Equation}
+    \vb*{P}=-\varepsilon_0\vb*{E}_b
+\end{Equation}
+这就表明，如果有$\vb*{D}=\varepsilon_0\vb*{E}_f$成立，那必然同时有$\vb*{P}=-\varepsilon_0\vb*{E}_b$成立，即矢量$\vb*{D},\vb*{P}$分别是自由电荷产生的场强$\vb*{E}_f$和束缚电荷产生的场强$\vb*{E}_b$的$\varepsilon_0$倍的正值和负值。\footnote{实际上这时$\vb*{E}=\dfrac{\vb*{E}_f}{\varepsilon_r}$也必然成立，因为$\vb*{E}=\dfrac{\vb*{D}}{\varepsilon_0\varepsilon_r}=\dfrac{\varepsilon_0\vb*{E}_f}{\varepsilon_0\varepsilon_r}=\dfrac{\vb*{E}_f}{\varepsilon_r}$，这三个结论是三位一体的。}
+
+那么现在的问题就是，这种关系是否是普遍成立的？不得不承认，这种说法很具有诱惑性，如果我们将自由电荷与束缚电荷对应的\Refx{定律}{电场高斯定理的微分形式}分别与这一章中的\Refx{定律}{电位移矢量与自由电荷}和\Refx{定律}{电极化强度与体束缚电荷}对比
+\begin{equation*}
+    \begin{cases}
+        \nabla\cdot\vb*{E}_f=\dfrac{\rho_f}{\varepsilon_0}\\[2mm]
+        \nabla\cdot\vb*{D}=\rho_f
+    \end{cases}
+    \qquad
+    \begin{cases}
+        \nabla\cdot\vb*{E}_b=\dfrac{\rho_b}{\varepsilon_0}\\[2mm]
+        \nabla\cdot\vb*{P}=-\rho_b
+    \end{cases}
+\end{equation*}
+我们会看到$\vb*{D},\varepsilon_0\vb*{E}_f$以及$\vb*{P},-\varepsilon_0\vb*{E}_b$具有完全相同的散度，然而，两个具有相同散度的矢量函数是未必相等的，就像$x^2+1,x^2$的导数均为$2x$却并不相同。问题的关键在于，关于描述电场的方程还有$\nabla\times\vb*{E}_f=\vb*{0}$，但一般情况下$\nabla\times\vb*{D}\neq\vb*{0}$，有人对此声辩称
+\begin{Equation}[电位移矢量的旋度尝试]    \nabla\times\vb*{D}=
+    \nabla\times(\varepsilon_0\varepsilon_r\vb*{E})\xlongequal{?}
+    \varepsilon_0\varepsilon_r
+    \nabla\times\vb*{E}=\vb*{0}
+\end{Equation}
+虽然式\ref{式:电位移矢量的旋度尝试}中试图将介电常数$\varepsilon_r$作为常数提出，但事实是，虽然我们将其称为介电\textbf{常数}，其未必真的是一个无关空间的\textbf{常数}，有些电介质的$\varepsilon_r$会随着位置变化，而且即便我们所考虑的电介质是均匀的，电介质内部的$\varepsilon_r$与电介质外部真空的$\varepsilon_0$也是不同的。
+
+所以式\ref{式:电位移矢量的旋度尝试}实际上只有在我们有一块无限大均匀电介质时才是成立的，这时就有
+\begin{equation*}
+    \nabla\cdot(\varepsilon_0\vb*{E}_f)=\nabla\cdot\vb*{D}=\rho_f\qquad\quad
+    \nabla\times(\varepsilon_0\vb*{E}_f)=
+    \nabla\times\vb*{D}=\vb*{0}
+\end{equation*}
+现在$\vb*{D},\varepsilon_0\vb*{E}_f$具有相同的散度和旋度，这是否能说明两者相同？在数学上，具有相同散度和旋度却是并不相同的矢量函数的例子是存在且常见的，但是有\uwave{亥姆霍兹定理}指出，如果再添加一个边界条件，那么通过散度和旋度是可以唯一确定矢量函数的。而在电场中，我们刚好就有这样一个边界条件，即在无穷远处$\vb*{D},\varepsilon_0\vb*{E}_f$均为$\vb*{0}$，因此就有$\vb*{D}=\varepsilon_0\vb*{E}_f$。
+
+实际上$\vb*{D}=\varepsilon_0\vb*{E}_f$以及其附带的$\vb*{P}=-\varepsilon_0\vb*{E}_b$不仅在均匀电介质充满整个空间时成立，条件可以放宽至均匀电介质的表面是等势面，证明较为复杂，我们仅将该结论整理如下。
+\begin{BoxPrinciple}[表面等势的均匀电介质的性质]
+    如果均匀电介质的表面是等电势面，或是均匀电介质充满了整个空间，那么
+
+    电场强度相较于没有电介质时被削弱了相对介电常数倍
+    \begin{BoxEq}
+        \vb*{E}=\frac{\vb*{E}_f}{\varepsilon_r}
+    \end{BoxEq}
+
+    电位移矢量是自由电荷产生的场强的真空介电常数倍的正值
+    \begin{BoxEq}
+        \vb*{D}=\varepsilon_0\vb*{E}_f
+    \end{BoxEq}
+
+    电极化强度是束缚电荷产生的场强的真空介电常数倍的负值
+    \begin{BoxEq}
+        \vb*{P}=-\varepsilon_0\vb*{E}_b
+    \end{BoxEq}
+\end{BoxPrinciple}
+以上讨论指出，尽管$\vb*{D}$的散度仅与自由电荷有关，同时$\vb*{P}$的散度仅与束缚电荷有关，但在通常情况下$\vb*{D},\vb*{P}$与$\varepsilon_0\vb*{E}_f,-\varepsilon_0\vb*{E}_b$并不相等，两者只不过是散度相同罢了。换言之在通常情况下$\vb*{D},\vb*{P}$与自由电荷和束缚电荷都有关，并非一个表征自由电荷，另一个表征束缚电荷。
+
+或许会有这样的疑问，既然$\vb*{D}$和$\varepsilon_0\vb*{E}_f$具有完全相同的散度，为什么还要引入这个新的矢量？这就是因为$\vb*{E}$与$\vb*{D}$之间总是具有线性关系$\vb*{E}=\dfrac{\vb*{D}}{\varepsilon_0\varepsilon_r}$，通过计算电位移矢量$\vb*{D}$可以求出电场强度。而$\vb*{E}$与$\varepsilon_0\vb*{E}_f$之间没有这样的关系，因而计算$\varepsilon_0\vb*{E}_f$对求$\vb*{E}$没有帮助。
+
+\subsection{电位移线与电极化线}
+为了形象的反映电位移矢量$\vb*{D}$和电极化强度$\vb*{P}$，我们可以类比电场线
+\begin{itemize}
+    \item 电场线，即所谓$\vb*{E}$线，始于正电荷，终于负电荷，在电介质内会较为稀疏。
+    \item \uwave{电位移线}，即所谓$\vb*{D}$线，始于自由正电荷，终于自由负电荷，其总是均匀分布。
+    \item \uwave{电极化线}，即所谓$\vb*{P}$线，始于束缚负电荷，终于束缚正电荷，其仅分布在电介质内。
+\end{itemize}
+需要注意的是，这里的电极化线的指向与电场线相反，它是始于负电荷而不是正电荷，因为这类流线图都是以正源为起始点，但是$\nabla\cdot\vb*{P}=-\rho_b$，即电极化强度的正源是负束缚电荷。
+\begin{Figure}{电位移线与电极化线的对比}
+    \subfigure[电场线]
+    {
+        \inputfigure[scale=0.75]{Chapter09D_Figure03}
+    }\\
+    \subfigure[电位移线]
+    {
+        \inputfigure[scale=0.75]{Chapter09D_Figure04}
+    }\qquad\qquad
+    \subfigure[电极化线]
+    {
+        \inputfigure[scale=0.75]{Chapter09D_Figure05}
+    }
+\end{Figure}
+需要指出的是，由于一般情况下$\vb*{D}\neq\varepsilon_0\vb*{E}_f$且$\vb*{P}\neq-\varepsilon_0\vb*{E}_b$，电位移线和电极化线并不能简单等同为自由电荷的电场线和束缚电荷的反向电场线，两者最大的差异在于电场线不可能是闭合取向，而电位移线和电极化线是可能闭合的（尽管这个例子中未出现），因为流线图是否闭合取决于对应矢量是否有旋，而通常$\nabla\times\vb*{D}\neq \vb*{0}$且$\nabla\times\vb*{P}\neq\vb*{0}$，是有旋的。
+
+\subsection{均匀电介质与体束缚电荷}
+在本节的最后，我们来解决一个已经搁置许久的问题，即为什么均匀电介质的体束缚电荷密度处处为零。实际上，在引入电位移矢量后，这个问题其实就迎刃而解了。
+
+根据\Refx{公式}{电极化强度与场强}
+\begin{equation*}
+    \vb*{P}=\varepsilon_0\chi_e\vb*{E}
+\end{equation*}
+根据\Refx{公式}{电位移矢量与场强}
+\begin{equation*}
+    \vb*{D}=\varepsilon_0(1+\chi_e)\vb*{E}
+\end{equation*}
+因此就有
+\begin{equation*}
+    \vb*{P}=\frac{\chi_e}{1+\chi_e}\vb*{D}
+\end{equation*}
+从而当$\chi_e$为常数时，由其构成的常系数可以提出散度运算之外
+\begin{Equation}
+    \nabla\cdot\vb*{P}=\nabla\cdot\qty(\frac{\chi_e}{1+\chi_e}\vb*{D})=\frac{\chi_e}{1+\chi_e}\nabla\cdot\vb*{D}
+\end{Equation}
+而我们知道，电介质是不导电的，电介质中也不会有自由电荷，故$\nabla\cdot\vb*{D}=0$，因此
+\begin{Equation}
+    \nabla\cdot\vb*{P}=0
+\end{Equation}
+这就证明了均匀电介质中体束缚电荷密度处处为了零。

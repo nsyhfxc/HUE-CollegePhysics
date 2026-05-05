@@ -1,0 +1,50 @@
+\begin{tikzpicture}[scale=1]
+    \lPoint{O}{0,0}
+    \lShift{X}{O}{2.5,0}[above][\text{\small $x$}]
+    \lShift{Y1}{O}{0,-1.3}
+    \lShift{Y2}{O}{0,+1.3}[right][\text{\small $y$}]
+    
+    \draw[->,gray] (O)--(X);
+    \draw[->,gray] (Y1)--(Y2);
+
+    \draw[<->,very thin,gray] (0,0.707)--(1.571,0.707);
+    \node[above,gray] at (1.0,0.650){\scriptsize $\lambda$};
+
+    \draw[domain=0:6.28,samples=75,blue!50!white] plot (0.25*\x,{cos((\x r)-45)});
+
+    \draw[domain=0:6.28,samples=75,red!50!white] plot (0.25*\x,{cos((\x r)-90)});
+
+
+    \lShift{Y1'}{Y1}{-1.5,0}
+    \lShift{Y2'}{Y2}{-1.5,0}[right][\text{\small $y$}]
+    \lShift{O'}{O}{-1.5,0}[below right][\text{\small $O$}]
+
+    \draw[->,gray] (Y1')--(Y2');
+    \draw[fill=white](O') circle(0.03);
+
+    \lShift{T}{-60:1}{O'}
+    \draw[thick,->] (T) arc (-60:60:1);
+
+    \lShift{P}{O'}{45:1}
+    \lShift{S}{O'}{0:1}
+    \lShift{Q}{O}{0,0.707}
+
+    \draw[blue!50!white,-latex] (O')--(P);
+    \draw[red!50!white,-latex] (O')--(S); 
+    \draw[dotted,blue!30!white,thick] (P)--(Q);
+    \draw[dotted,red!30!white,thick] (S)--(O);
+
+    \node[right,blue!50!white] at (1.5,0.707) {\tiny $t$}; 
+    \node[above right,red!50!white] at (1.5,-0.1) {\tiny $t\hspace{-2pt}+\hspace{-2pt}\delt{t}$};
+
+    \lShift{A}{O'}{45:0.3}
+    \draw[thin,->,gray] (A) arc (45:0:0.3);
+    \node[right,gray] at (A) {\tiny $\omega\delt{t}$};
+    \node[above=4pt] at (P) {\tiny $k\delt{x}$};
+
+    \draw[dashed](O') circle(1);
+    \draw[blue!50!white,fill=white] (P) circle (0.03); 
+    \draw[blue!50!white,fill=white] (Q) circle (0.03); 
+    \draw[red!50!white,fill=white] (S) circle (0.03); 
+    \draw[red!50!white,fill=white] (O) circle (0.03);
+\end{tikzpicture}

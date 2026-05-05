@@ -1,0 +1,82 @@
+\begin{tikzpicture}[scale=1.0]
+\lPoint{O}{0,0}
+\lShift{X}{O}{8,0}[right][t]
+\lShift{Y1}{O}{0,-2.3}
+\lShift{Y2}{O}{0,+2.3}[right][x]
+
+\draw[->,gray] (O)--(X);
+\draw[->,gray] (Y1)--(Y2);
+
+\draw[domain=0:6.28,samples=75,thick] plot (\x,{1.5*cos(2*\x r)});
+
+\lShift{Y1'}{Y1}{-2.5,0}
+\lShift{Y2'}{Y2}{-2.5,0}[right][x]
+\lShift{O'}{O}{-2.5,0}[below right][O]
+
+\draw[->,gray] (Y1')--(Y2');
+\draw[fill=white](O') circle(0.03);
+\draw[dashed](O') circle(1.5);
+
+\lShift{P}{O'}{90.00:1.5}
+\lShift{Q}{O}{0.00,1.50}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{112.50:1.5}
+\lShift{Q}{O}{0.20,1.39}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{135.00:1.5}[above left][\text{\tiny $\frac{\pi}{4}$}]
+\lShift{Q}{O}{0.39,1.06}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{157.50:1.5}
+\lShift{Q}{O}{0.59,0.57}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{180.00:1.5}[left][\text{\tiny $\frac{\pi}{2}$}]
+\lShift{Q}{O}{0.79,0.00}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{202.50:1.5}
+\lShift{Q}{O}{0.98,-0.57}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{225.00:1.5}[below left][\text{\tiny $\frac{3\pi}{4}$}]
+\lShift{Q}{O}{1.18,-1.06}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{247.50:1.5}
+\lShift{Q}{O}{1.37,-1.39}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);
+
+\lShift{P}{O'}{270.00:1.5}
+\lShift{Q}{O}{1.57,-1.50}
+\draw[-latex,blue!50!white] (O')--(P);
+\draw[dotted,thin,blue!50!white] (Q)--(P);
+\draw[blue!50!white,fill=white] (P) circle (0.03);
+\draw[blue!50!white,fill=white] (Q) circle (0.03);     
+\end{tikzpicture}

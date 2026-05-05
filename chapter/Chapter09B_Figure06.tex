@@ -1,0 +1,20 @@
+\begin{circuitikz}[european,american voltages]
+    \ctikzset{voltage/distance from node=0.95}
+    \ctikzset{voltage/american plus=\textcolor{red}{\tiny $+Q$}}
+    \ctikzset{voltage/american minus=\textcolor{blue}{\tiny $-Q$}}
+    \ctikzset{voltage/shift=3}
+
+    \draw[<->] (0,0.05)--(0,3.95);
+    \node[left] at (0,2) {$U$};
+
+    \draw (0,4) to[short,o-] 
+    ++ (3,0)  to[C,l=$C_1$,v=$~$] 
+    ++ (0,-1) to[C,l=$C_2$,v=$~$] 
+    ++ (0,-1)
+    ++ (0,-1) to[C,l=$C_n$,v=$~$] 
+    ++ (0,-1) to[short,-o] ++ (-3,0);
+
+    \node at (3,1.65) {$\vdots$};
+
+    \clip (-0.5,-0.2) rectangle (3,4.2);
+\end{circuitikz}

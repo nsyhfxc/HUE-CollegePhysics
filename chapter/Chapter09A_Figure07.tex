@@ -1,0 +1,73 @@
+\NewDocumentCommand{\clabel}{mmm}
+{
+    \lPoint{O}{#1}
+    \lShift{L}{O}{0,-2.95}[center][\text{[#2]}]
+    \lShift{T}{O}{-100:2.75}[left][\text{导体带电$#3$}]
+}
+
+\NewDocumentCommand{\conductor}{smsmmmmmm}
+{
+    \lPoint{O}{#2}
+    \draw[thick,fill=black,fill opacity=0.07] (O) circle (2.5);
+    \draw[thick,fill=white] (O) circle (1.8);
+    \lShift{C}{O}{0,1.1}[center][\text{$\vb*{E}_c=#4$}]
+    \lShift{B}{O}{0,2.1}[center][\text{$\vb*{E}_b=#5$}]
+    \lShift{A}{O}{0,2.9}[center][\text{$\vb*{E}_a=#6$}]
+    \lShift{G1}{O}{-45:2.5}
+    \lShift{G2}{G1}{0.5,0}
+    \lShift{G3}{G2}{0,-0.95}
+    \foreach \a/\b in {0.18/0,0.11/0.07,0.06/0.14}
+    {
+        \lShift{TL}{G3}{-\a,-\b}
+        \lShift{TR}{G3}{\a,-\b}
+        \draw(TL)--(TR);
+    }
+    \lShift{Gt}{O}{-37:2.55}
+    \node[right] at (Gt) {$V=0$};
+    \draw (G1)--(G2)--(G3);
+    \lShift{Q1}{O}{-0.1,0}[left][#7]
+    \lShift{Q2}{O}{1.8,0}[left][#8]
+    \lShift{Q3}{O}{60:2.5}[above right][#9]
+    \IfBooleanT{#1}
+    {
+        \draw(O) circle (0.15);
+        \node at (O) {\small $+$};
+    }
+    \IfBooleanT{#3}
+    {
+        \lShift{E1}{O}{-2.1,3.0}
+        \lShift{E1a}{O}{-2.1,2.0}
+        \foreach \a in {0,0.2,0.4}
+        {
+            \lShift{Ex}{E1}{\a,0}
+            \lShift{Exa}{E1a}{\a,0}
+            \draw[-latex](Ex)--(Exa);
+        }
+        \node [left] at (E1) {$\vb*{E}_0$};
+    }
+    \lShift{R1}{O}{-3.25,-3.25}
+    \lShift{R2}{O}{3.25,3.25}
+    \draw[gray,dotted] (R1) rectangle (R2);
+}
+
+\begin{tikzpicture}[scale=1.2]
+    \conductor{-8,0}*{\vb*{0}}{\vb*{0}}{\vb*{E}_0+\vb*{G}}{}{}{(q_1)}
+    \clabel{-8,0}{1}{q_1}
+
+    \conductor*{0,0}{\vb*{C}}{\vb*{0}}{\vb*{0}}{(q_2)}{(-q_2)}{(0)^{*}}
+    \clabel{0,0}{2}{-q_2}
+
+    \conductor*{8,0}*{\vb*{C}}{\vb*{0}}{\vb*{E}_0+\vb*{G}}{(q_2)}{(-q_2)}{(q_1)+(0)^{*}}
+    \clabel{8,0}{3}{q_1-q_2}
+
+    \node at (-4,0) {\huge $+$};
+    \node at (+4,0) {\huge $=$};
+    \draw[<->] (0,-3.25)--(0,-3.50)--(8,-3.50)--(8,-3.25);
+    \node[below] at (4,-3.50) {外部电场不会影响内部电场};
+    \draw[<->] (-8,3.25)--(-8,3.50)--(8,3.50)--(8,3.25);
+    \node[above] at (-4,3.50) {内部电场不会影响外部电场};
+
+    \draw[thin,blue!50!white,dashed] (8,0) circle (1.9);
+    \draw[thin,blue!50!white,dashed] (0,0) circle (1.9);
+    \draw[thin,red!50!white,dashed] (0,0) circle (2.6);
+\end{tikzpicture}
