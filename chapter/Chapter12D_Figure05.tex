@@ -1,0 +1,99 @@
+\begin{tikzpicture}[scale=1]
+
+\tikzset{axi/.style={gray,very thin,->}}
+\tikzset{aux/.style={dashed,gray,very thin}}
+
+\tikzset{eh/.style={red,thick}}
+\tikzset{ehaux/.style={red!15!white,thin}}
+
+\tikzset{ec/.style={blue,thick}}
+\tikzset{ecaux/.style={blue!15!white,thin}}
+
+\tikzset{eq/.style={black,thick}}
+\tikzset{eqaux/.style={black!5!white,thin}}
+
+\draw[axi] (0,0) coordinate (O) -- ++(8,0) node[right]{$V$};
+
+\draw[axi] (O) -- ++(0,8) node[right] {$P$};
+
+\draw[ecaux,name path=pc] plot[domain=2/7.5:7.5,smooth,samples=100] (\x,{2/\x}) node[right,ec] {$T_2$};
+
+\draw[ehaux,name path=ph] plot[domain=4/7.5:7.5,smooth,samples=100] (\x,{4/\x}) node[above,eh] {$T_1$};
+
+\draw[eqaux,name path=pq2] plot[domain=(3/7)^(1/1.67):7,smooth,samples=100] (\x,{3/(\x^(1.67))});
+
+\draw[eqaux,name path=pq1] plot[domain=(7/7)^(1/1.67):7,smooth,samples=100] (\x,{7/(\x^(1.67))});
+
+\path[
+    name intersections={of=pq2 and ph,by=A},
+    name intersections={of=ph and pq1,by=B},
+    name intersections={of=pq1 and pc,by=C},
+    name intersections={of=pc and pq2,by=D}
+]
+(A) node[label=right:A] {}
+(B) node[label=above right:B] {}
+(C) node[label=right:C] {}
+(D) node[label=below left :D] {};
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.6 with {\arrow{latex}}}]
+
+\draw[eh,postaction={decorate}]
+let \p1=(A),
+    \p2=(B),
+in
+plot[domain=\x1/28.35:\x2/28.35,smooth,samples=20] 
+(\x,{4/\x});
+
+\draw[ec,postaction={decorate}]
+let \p3=(C),
+    \p4=(D),
+in
+plot[domain=\x3/28.35:\x4/28.35,smooth,samples=20] 
+(\x,{2/\x});
+\end{scope}
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.3 with {\arrow{latex}}}]
+
+\draw[eq,postaction={decorate}]
+let \p2=(B),
+    \p3=(C),
+in
+plot[domain=\x2/28.35:\x3/28.35,smooth,samples=20] 
+(\x,{7/\x^1.67});
+
+\draw[eq,postaction={decorate}]
+let \p4=(D),
+    \p1=(A),
+in
+plot[domain=\x4/28.35:\x1/28.35,smooth,samples=20] 
+(\x,{3/\x^1.67});
+\end{scope}
+
+\path
+(A) node[point] {}
+(B) node[point] {}
+(C) node[point] {}
+(D) node[point] {};
+
+\fill[black,fill opacity=0.1]
+let \p1=(A),
+    \p2=(B),
+    \p3=(C),
+    \p4=(D),
+in
+plot[domain=\x1/28.35:\x2/28.35,smooth,samples=20] 
+(\x,{4/\x})--
+plot[domain=\x2/28.35:\x3/28.35,smooth,samples=20] 
+(\x,{7/\x^1.67})--
+plot[domain=\x3/28.35:\x4/28.35,smooth,samples=20] 
+(\x,{2/\x})--
+plot[domain=\x4/28.35:\x1/28.35,smooth,samples=20] 
+(\x,{3/\x^1.67});
+
+\draw[->] (1.7,3.5) node[right] {$Q_1$} -- ++(0,-1.5);
+
+\draw[->] (2.1,1.5) -- ++(0,-1.2) node[right] {$Q_2$};
+
+\end{tikzpicture}

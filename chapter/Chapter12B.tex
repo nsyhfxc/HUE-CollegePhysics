@@ -1,0 +1,147 @@
+\section{理想气体的热容}
+\label{sec:理想气体的热容}
+% \subsection{理想气体的两类摩尔热容}
+热量是在热力学过程中传递的一种能量，因此我们就将一个系统荷载或容纳这种形式的能量的能力称为系统的\uwave{热容量}或简称\uwave{热容}，这种荷载能力或容纳能力可以用系统升高单位温度所能吸收的热量的多少来衡量（所谓容量，就是单位箱子能塞下多少东西），其数学定义如下。
+\begin{OldBoxDefinition}[热容]
+    定义物体在升高$1\si{K}$时吸收的热量$Q$为物体的热容$C$，即
+    \begin{Equation}
+        C=\OldLim[\delt{T}][0]{\frac{Q}{\delt{T}}}=\frac{\fdd{Q}}{\dd{T}}
+    \end{Equation}
+    这里取极限$\delt{T}\to 0$的目的是考虑到热容可能是随温度$T$而变的量。
+\end{OldBoxDefinition}
+
+热容的概念可能比较陌生，但另外一个与之相关的概念我们在初中物理中就接触过，那就是通常记作$c$的\uwave{比热容}或\uwave{质量热容}，其实质即是单位质量物体的热容（因为很显然即便是对于同种物质，质量越大，热容也会相应越大），比热容的概念在工程上比较常用，因为称量质量是比较容易的，但是在我们的理论中更有用的概念是单位物质的量的热容，即\uwave{摩尔热容}。
+\begin{OldBoxDefinition}[摩尔热容]
+    定义单位物质的量的物体的热容$C$为其摩尔热容$C_\text{m}$
+    \begin{Equation}
+        C_{\text{m}}=\frac{1}{\nu}\frac{\fdd{Q}}{\dd{T}}
+    \end{Equation}
+\end{OldBoxDefinition}
+热量是过程量，因此同一个系统的热容量，取决于具体的热力学过程，并不具有唯一性，但是如果我们能确定热力学过程的类型，那么热容量就可以确定下来了，在这里我们特别感兴趣的是，当理想气体保持体积不变（等体过程）或压强不变（等压过程）的情况下的摩尔热容。
+
+\subsection{摩尔定容热容}
+\label{subsec:摩尔定容热容}
+\begin{OldBoxDefinition}[摩尔定容热容]
+    定义$1\si{mol}$气体在保持体积一定的过程中的热容量，为其\uwave{摩尔定容热容}
+    \begin{Equation}&[]
+        C_{\text{m},V}=\frac{1}{\nu}\frac{\fdd{Q}}{\dd{T}}\qquad (\dd{V}=0)
+    \end{Equation}
+\end{OldBoxDefinition}
+\begin{OldBoxFormula}[摩尔定容热容的公式]
+    理想气体的摩尔定容热容是与状态无关的常数
+    \begin{Equation}&[]
+        C_{\text{m},V}=\frac{i}{2}R
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:热量的第一微分关系}，由于定容条件下$\dd{V}=0$
+    \begin{Equation}&[1]
+        \fdd{Q}=\frac{i}{2}\nu R\dd{T}
+    \end{Equation}
+    根据\fancyref{def:摩尔定容热容}
+    \begin{Equation}&[2]
+        C_{\text{m},V}=\frac{1}{\nu}\frac{\fdd{Q}}{\dd{T}}=\frac{1}{\nu}\frac{(i/2)\nu R\dd{T}}{\dd{T}}=\frac{i}{2}R
+    \end{Equation}
+    由此我们就证明了理想气体的摩尔定容热容$C_{\text{m},V}$是一个常数。
+\end{Proof}
+
+基于摩尔定容热容的代换，我们可以将\fancyref{fml:热量的第一微分关系}改写为
+\begin{OldBoxFormula}[热量的第二微分关系]
+    热量与状态量$(P,V,T)$具有以下微分关系
+    \begin{Equation}&[]
+        \fdd{Q}=P\dd{V}+\nu C_{\text{m},V}\dd{T}
+    \end{Equation}
+\end{OldBoxFormula}
+注意虽然\xref{fml:热量的第二微分关系}中包含摩尔定容热容$C_{\text{m},V}$，但这只是一个简单的常数代换，其对于任意过程都是成立的，并不仅限于等体过程。而如果限定了等体过程，那么热量微元就可以简写为
+\begin{OldBoxFormula}[等体过程的热量微分关系]
+    理想气体的等体过程中，热量具有以下微分关系
+    \begin{Equation}
+        \fdd{Q}=\nu C_{\text{m},V}\dd{T}
+    \end{Equation}
+\end{OldBoxFormula}
+
+\subsection{摩尔定压热容}
+\label{subsec:摩尔定压热容}
+\begin{OldBoxDefinition}[摩尔定压热容]
+    定义$1\si{mol}$气体在保持压强一定的过程中的热容量，为其\uwave{摩尔定压热容}
+    \begin{Equation}&[]
+        C_{\text{m},P}=\frac{1}{\nu}\frac{\fdd{Q}}{\dd{T}}\qquad (\dd{P}=0)
+    \end{Equation}
+\end{OldBoxDefinition}
+\begin{OldBoxFormula}[摩尔定压热容的公式]
+    理想气体的摩尔定压热容是与状态无关的常数
+    \begin{Equation}
+        C_{\text{m},P}=\frac{i+2}{2}R
+    \end{Equation}
+\end{OldBoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:热量的第一微分关系}
+    \begin{Equation}&[1]
+        \fdd{Q}=P\dd{V}+\frac{i}{2}\nu R\dd{T}
+    \end{Equation}
+    这里的定压条件$\dd{P}=0$看起来没有什么用，介于其并不能使上式中的任何一项消失。但它实际上给出了一个很重要的事实，\empx{即$P\dd{V}$中的$P$是常数}，这是后续的推导中的关键条件。
+
+    根据\fancyref{def:摩尔定压热容}
+    \begin{Equation}&[2]
+        C_{\text{m},P}=
+        \frac{1}{\nu}\frac{\fdd{Q}}{\dd{T}}=
+        \frac{1}{\nu}\frac{P\dd{V}+(i/2)\nu R\dd{T}}{\dd{T}}=P\frac{1}{\nu}\dv{V}{T}+\frac{i}{2}R
+    \end{Equation}
+    这里推导的难点就在于$\dv*{V}{T}$是什么？根据\fancyref{eqt:理想气体物态方程}
+    \begin{Equation}&[3]
+        PV=\nu RT
+    \end{Equation}
+    将\xrefpeq{3}两端对$T$求导，特别注意到左端的$P$是一个常数
+    \begin{Equation}&[4]
+        P\dv{V}{T}=\nu R
+    \end{Equation}
+    将\xrefpeq{4}代入\xrefpeq{2}，即得
+    \begin{Equation}&[5]
+        C_{\text{m},P}=\frac{1}{\nu}(\nu R)+\frac{i}{2}R=R+\frac{i}{2}R=\frac{i+2}{2}R
+    \end{Equation}
+    由此我们就证明了理想气体的摩尔定压热容$C_{\text{m},V}$是一个常数。
+\end{Proof}
+相仿于\xref{fml:等体过程的热量微分关系}，若限定了等压过程，那么热量微元就可以简写为
+\begin{OldBoxFormula}[等压过程的热量微分关系]
+    理想气体的等压过程中，热量具有以下微分关系
+    \begin{Equation}&[等压过程的热量微分关系]
+        \fdd{Q}=\nu C_{\text{m,P}}\dd{T}
+    \end{Equation}
+\end{OldBoxFormula}
+在上述推导中的\xrefpeq[摩尔定压热容的公式]{4}是一个非常重要的结论，我们归纳如下。
+\begin{OldBoxFormula}[等压过程的等效微分约束]
+    理想气体的等压过程等价于以下的微分约束
+    \begin{Equation}
+        P\dd{V}=\nu R\dd{T}
+    \end{Equation}
+    也就是说，在等压过程的条件下，体积微分$\dd{V}$与温度微分$\dd{T}$间具有线性关系。
+\end{OldBoxFormula}
+
+\subsection{迈耶公式与摩尔热容比}
+\label{subsec:迈耶公式与摩尔热容比}
+如果我们对比\fancyref{fml:摩尔定容热容的公式}和\fancyref{fml:摩尔定压热容的公式}
+\begin{OldBoxFormula}[迈耶公式]
+    当$1\si{mol}$理想气体的温度升高$1\si{K}$时，等压过程要比等体过程多吸收$R=8.31\si{J}$的热量
+    \begin{Equation}&[]
+        C_{\text{m},P}=C_{\text{m},V}+R
+    \end{Equation}
+    这部分热量用于气体膨胀对外做功，这也就是摩尔气体常量$R$的物理意义。
+\end{OldBoxFormula}
+通常将摩尔定压热容与摩尔定容热容的比，称为摩尔热容比，定义如下。
+\begin{OldBoxDefinition}[摩尔热容比]
+    定义理想气体摩尔定压热容$C_{\text{m},P}$与摩尔定容热容$C_{\text{m},V}$的比为\uwave{摩尔热容比}，记作$\gamma$
+    \begin{Equation}
+        \gamma=\frac{C_{\text{m},P}}{C_{\text{m},V}}=\frac{i+2}{i}
+    \end{Equation}
+\end{OldBoxDefinition}
+我们注意到，摩尔定容热容$C_{\text{m},V}$，摩尔定压热容$C_{\text{m},P}$，摩尔热容比$\gamma$，均是只与气体的自由度有关的物理量，因此三者可以依据气体是“单原子分子、双原子分子、多原子分子”确定。
+\begin{OldTable}[不同类型气体的摩尔热容]{lclccc}
+<物理量&记号&公式&单原子（$i=3$）&双原子（$i=5$）&多原子（$i=6$）\\>
+摩尔定容热容&$C_{\text{m},V}$&$R(i/2)$&$1.50R$&$2.50R$&$3.00R$\\
+摩尔定压热容&$C_{\text{m},P}$&$R(i+2)/2$&$2.50R$&$3.50R$&$4.00R$\\
+摩尔热容比&$\gamma$&$(i+2)/i$&$1.67$&$1.40$&$1.33$\\
+\end{OldTable}
+\xref{tab:不同类型气体的摩尔热容}是基于理想气体模型给出的理论预测，而实验结果是，单原子分子和双原子分子的实验值与理论值比较接近，多原子分子的实验值则于理论值有较大差距，这有多方面的原因，首先是理想气体模型没有考虑分子间的相互作用，这对于分子较复杂的多原子分子显然会产生较大的误差。其次是热容理论是建立在能量均分定理上的，而后者又基于粒子能量可以连续变化的经典概念，但事实是，微观粒子的运动遵从量子力学的规律，微观粒子的能量只能取一些不连续的分立值，称为“能量的量子化”，因此只有量子理论才能对气体热容给出比较准确的解释。另外实验表明\empx{热容值还会一定程度的随温度变化}，并不是仅关于气体自由度的常数。
+
+但值得注意的是，尽管$C_{\text{m},V},C_{\text{m},P},\gamma$等的理论数值与实验不完全相符，$C_{\text{m},P}-C_{\text{m},V}=R$却是始终近似成立的。这就是为何\fancyref{fml:迈耶公式}这样的简单结论非常重要，以至于将其专门作为一个公式的原因：因为它虽然能从理论导出，但其实是一个相当准确的实验结论。

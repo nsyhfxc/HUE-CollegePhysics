@@ -1,0 +1,56 @@
+\begin{tikzpicture}[scale=1]
+
+\draw[fill=black] (0,0) rectangle (20,4) coordinate (A);
+
+\foreach \k in {1,2,3}
+{
+    \foreach \x in {\fpeval{\k+1},\fpeval{\k+2},...,\fpeval{\k+30}}
+    {
+        \draw[white,ultra thin] (\fpeval{1/(1.096776*(1/(\k^2)-1/((\x)^2)))},0) coordinate (TEMP) -- (TEMP|-A);
+    }
+}
+
+\foreach \k in {2}
+{
+    \foreach \x/\c/\m/\t in {3/red/\alpha/0,4/cyan/\beta/0.1,5/blue/\gamma/0.15,6/RoyalPurple/\delta/-0.1}
+    {
+        \draw[\c] (\fpeval{1/(1.097*(1/(\k^2)-1/((\x)^2)))},0) coordinate (TEMP) -- (TEMP|-A) ++(\t,0) node[above] {\small $\text{H}_{\m}\vphantom{H_{\beta}}$};
+    }
+}
+
+\foreach \k/\t in {1/莱曼系,2/巴尔末系,3/帕邢系}
+{
+    \foreach \x/\m/\o in {\fpeval{\k+1}/A/0.3,\fpeval{\k+30}/B/-0.3}
+    {
+        \draw[black] (\fpeval{1/(1.096776*(1/(\k^2)-1/((\x)^2)))},0) ++(\o,0) coordinate (TEMP) (TEMP|-A) coordinate(P\m) -- ++(0,0.8) coordinate (P\m');
+    }
+    \draw[<->] ($(PA)!0.8!(PA')$)-- node[above=0.1cm]{\small \t}($(PB)!0.8!(PB')$);
+}
+
+
+\foreach \x in {0,1,...,20}
+{
+    \draw (\x,0)-- ++(0,-0.2) node[below] {\footnotesize $\fpeval{\x*100}$};
+}
+
+\foreach \x in {0,0.1,...,20}
+{
+    \draw (\x,0)-- ++(0,-0.05);
+}
+
+\foreach \x in {0,0.5,...,20}
+{
+    \draw (\x,0)-- ++(0,-0.07);
+}
+
+\foreach \xa/\xb/\t in{0/400/紫外波段,400/780/可见光波段,780/2000/红外波段}
+{
+    \draw (\fpeval{\xa/100},-0.75) coordinate (A) -- ++(0,-0.5) coordinate (A');
+    \draw (\fpeval{\xb/100},-0.75) coordinate (B) -- ++(0,-0.5) coordinate (B');
+    \draw[latex-latex,gray,very thin] ($(A)!0.6!(A')$) -- node[below] {\small \t} ($(B)!0.6!(B')$);
+}
+
+\path (20,0) node[right] {\si{nm}};
+\path (0,0) node[left] {\hphantom{\si{nm}}};
+
+\end{tikzpicture}

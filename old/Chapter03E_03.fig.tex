@@ -1,0 +1,27 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\fill[black] (-5,-5) rectangle (5,5);
+    
+\foreach \x in {10,9.99,...,0}
+{
+\fill[white!\fpeval{100*((2*(
+    \x/2-
+    \x^3/16+
+    \x^5/384-
+    \x^7/18432+
+    \x^9/1474560-
+    \x^11/176947200+
+    \x^13/29727129600- 
+    \x^15/6658877030400+
+    \x^17/1917756584755200-
+    \x^19/690392370511872000+
+    \x^21/303772643025223680000-
+    \x^23/160391955517318103040000
+    )/(\x))^2)^(1/2)}!black] (0,0) circle[radius=\fpeval{0.5*\x}];
+}
+
+\end{tikzpicture}
+\end{document}

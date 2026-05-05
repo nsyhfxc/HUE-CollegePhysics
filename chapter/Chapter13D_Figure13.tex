@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=0.7]
+
+\tikzset{aux/.style={thin,gray}}
+    
+\draw[thick,fill=black,fill opacity=0.1] 
+    (0,0) coordinate (O)
+    ++(-50:8)
+    coordinate (A)
+    arc[start angle=-50,end angle=-90,radius=8]
+    coordinate (B)
+    arc[start angle=-90,end angle=-130,radius=8]
+    coordinate (C)
+    -- ++(0,1)
+    coordinate (D)
+    -- (D-|A)
+    coordinate (E)
+    -- (A);
+
+\draw[thick,fill=black,fill opacity=0.1]
+    (A|-B)
+    coordinate (W)
+    -- ++(0,-1)
+    coordinate (X)
+    -- (X-|C)
+    coordinate (Y)
+    -- (Y|-W)
+    coordinate (Z)
+    -- cycle;
+
+\draw[aux] (O)-- node[above right] {$R$} (A) (O)--(C) (O)--(B);
+
+\draw[aux] (O)-- ++(-60:8) coordinate (R);
+
+\draw[aux] (R) -- node[above] {$r$} ($(O)!(R)!(B)$) coordinate (H);
+
+\draw[aux,latex-latex] (R) -- node[right] {$e$} ($(W)!(R)!(Z)$);
+
+\draw pic[angle radius=0.1cm,draw=gray] {right angle=O--H--R};
+
+\path
+    (O) node[above] {$O$}
+    (H) node[left] {$H$}
+    (R) node[above] {\hspace{0.2cm}$P$};
+
+\end{tikzpicture}

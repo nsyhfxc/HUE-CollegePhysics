@@ -13,6 +13,11 @@
 \setstretch{1.35}
 \RequirePackage{ulem}
 \normalem
+\RequirePackage{xeCJKfntef}
+\let\udotcn\CJKunderdot
+\RequirePackage{etoolbox}
+\RequirePackage{ifthen}
+\RequirePackage{xfp}
 
 % Core math
 \RequirePackage{amsmath,amssymb,mathtools,amsthm,bm}
@@ -25,6 +30,7 @@
 \RequirePackage{esint}
 \RequirePackage{polynom}
 \RequirePackage{mhchem}
+\RequirePackage{mathrsfs}
 \allowdisplaybreaks
 \everymath{\displaystyle}
 
@@ -33,9 +39,13 @@
 \RequirePackage{graphicx}
 \RequirePackage{adjustbox}
 \RequirePackage{float}
+\RequirePackage{caption}
 \RequirePackage{subfigure}
 \RequirePackage{tikz}
-\usetikzlibrary{arrows.meta,calc,through,intersections,quotes,angles,graphs,positioning}
+\usetikzlibrary{arrows.meta,calc,through,intersections,quotes,angles,graphs,positioning,decorations.markings}
+\tikzset{point/.style={circle,draw=#1,solid,thin,radius=0.03,fill=white,inner sep=0.8pt},point/.default=black}
+\providecommand{\pnt}[1]{\draw[-,ultra thin,red,fill=red!70!white] (#1,0) circle (0.04);}
+\providecommand{\lne}[1]{\draw[-,ultra thin,red] (#1,-0.08)--(#1,+0.08);}
 \RequirePackage{circuitikz}
 \RequirePackage{array}
 \RequirePackage{booktabs}
@@ -102,6 +112,51 @@
 
 % Common references used by the old notes.
 \NewDocumentCommand{\Refx}{mm}{[\textbf{#1 \ref{#1:#2}} #2]}
+\NewDocumentCommand{\empx}{m}{\textbf{\uline{#1}}}
+
+\expandafter\def\csname OldRefName@fig\endcsname{图}
+\expandafter\def\csname OldRefName@tab\endcsname{表}
+\expandafter\def\csname OldRefName@eq\endcsname{式}
+\expandafter\def\csname OldRefName@def\endcsname{定义}
+\expandafter\def\csname OldRefName@thm\endcsname{定理}
+\expandafter\def\csname OldRefName@lem\endcsname{引理}
+\expandafter\def\csname OldRefName@col\endcsname{推论}
+\expandafter\def\csname OldRefName@pps\endcsname{命题}
+\expandafter\def\csname OldRefName@ppt\endcsname{性质}
+\expandafter\def\csname OldRefName@eqt\endcsname{方程}
+\expandafter\def\csname OldRefName@fml\endcsname{公式}
+\expandafter\def\csname OldRefName@law\endcsname{定律}
+\expandafter\def\csname OldRefName@pri\endcsname{原理}
+\expandafter\def\csname OldRefName@exp\endcsname{例}
+\expandafter\def\csname OldRefName@chap\endcsname{章}
+\expandafter\def\csname OldRefName@sec\endcsname{节}
+\expandafter\def\csname OldRefName@subsec\endcsname{小节}
+\NewDocumentCommand{\OldRefName}{m}{\ifcsname OldRefName@#1\endcsname\csname OldRefName@#1\endcsname\else #1\fi}
+\NewDocumentCommand{\OldRefText}{mm}{%
+    \ifstrequal{#1}{eq}{%
+        \OldRefName{#1}\hspace{0.1em}\ref*{式:#2}%
+    }{%
+        \OldRefName{#1}\hspace{0.1em}\ref*{#1:#2}%
+    }%
+}
+\NewDocumentCommand{\OldRefLink}{mm}{%
+    \ifstrequal{#1}{eq}{%
+        \hyperref[式:#2]{\OldRefText{#1}{#2}}%
+    }{%
+        \hyperref[#1:#2]{\OldRefText{#1}{#2}}%
+    }%
+}
+\NewDocumentCommand{\xref}{>{\SplitArgument{1}{:}}m}{\OldXref#1}
+\NewDocumentCommand{\OldXref}{mm}{\OldRefLink{#1}{#2}}
+\NewDocumentCommand{\fancyref}{>{\SplitArgument{1}{:}}m}{\OldFancyRef#1}
+\NewDocumentCommand{\OldFancyRef}{mm}{[\textbf{\OldRefLink{#1}{#2}\hspace{0.5em}\textnormal{#2}}]}
+\NewDocumentCommand{\xrefeq}{m}{\OldRefLink{eq}{#1}}
+\NewDocumentCommand{\xlabelpeq}{om}{%
+    \IfValueTF{#1}{\LabelEquationName{#1#2}}{\LabelEquationName{\prefixeq#2}}%
+}
+\NewDocumentCommand{\xrefpeq}{om}{%
+    \IfValueTF{#1}{\xrefeq{#1#2}}{\xrefeq{\prefixeq#2}}%
+}
 
 % Math shorthands
 \NewDocumentCommand{\cub}{m}{\left\{#1\right\}}
@@ -113,10 +168,23 @@
 \providecommand{\arsinh}{\operatorname{arsinh}}
 \providecommand{\arcosh}{\operatorname{arcosh}}
 \providecommand{\artanh}{\operatorname{artanh}}
+\providecommand{\e}{}
+\renewcommand{\e}{\mathrm{e}}
+\renewcommand{\i}{\mathrm{i}}
 \NewDocumentCommand{\N}{}{\mathbb{N}}
 \NewDocumentCommand{\Z}{}{\mathbb{Z}}
 \NewDocumentCommand{\Q}{}{\mathbb{Q}}
 \NewDocumentCommand{\R}{}{\mathbb{R}}
+\NewDocumentCommand{\C}{}{\mathbb{C}}
+\NewDocumentCommand{\Gauss}{o}{\IfValueTF{#1}{\mathscr{G}_{#1}}{\mathscr{G}}}
+\let\mal=\mathlarger
+\let\mas=\mathsmaller
+\makeatletter
+\providecommand{\romnum}[1]{\romannumeral #1}
+\providecommand{\Romnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\NewDocumentCommand{\Cmv}{}{C_{\text{m},V}}
+\NewDocumentCommand{\Cmp}{}{C_{\text{m},P}}
 \NewDocumentCommand{\Ur}{}{\mathring{U}}
 \NewDocumentCommand{\cmax}{m}{\max\cub{#1}}
 \NewDocumentCommand{\cmin}{m}{\min\cub{#1}}
@@ -165,20 +233,25 @@
 \NewDocumentCommand{\IntAX}{m}{\Int[a][x]{#1}}
 \NewDocumentCommand{\IntXB}{m}{\Int[x][b]{#1}}
 \NewDocumentCommand{\Sum}{mmm}{\sum_{#1}^{#2}#3}
+\NewDocumentCommand{\OldSum}{O{}O{}m}{\sum_{#1}^{#2}#3}
+\NewDocumentCommand{\OldLim}{O{}O{}m}{\lim_{#1\rightarrow#2}#3}
 \NewDocumentCommand{\SumIN}{m}{\Sum{i=1}{n}{#1}}
 \NewDocumentCommand{\vi}{}{\vb*{i}}
 \NewDocumentCommand{\vj}{}{\vb*{j}}
 \NewDocumentCommand{\vk}{}{\vb*{k}}
 \NewDocumentCommand{\para}{}{\hspace{0.55em}/\kern -0.8em /\hspace{0.55em}}
 \NewDocumentCommand{\bars}{m}{\overline{#1}}
+\NewDocumentCommand{\xbar}{m}{\overline{#1}}
+\NewDocumentCommand{\fdd}{}{\delta}
+\NewDocumentCommand{\xce}{m}{\hspace{0.3em}\ce{#1}}
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
 \NewDocumentCommand{\vang}{mm}{\qty(\vb*{#1}\hat{,}\vb*{#2})}
-\NewDocumentCommand{\Idnt}{O{D}m}{\iint\limits_{#1}{#2}}
-\NewDocumentCommand{\Itnt}{O{\Omega}m}{\iiint\limits_{#1}{#2}}
-\NewDocumentCommand{\Ilnt}{O{L}m}{\int\nolimits_{#1}{#2}}
-\NewDocumentCommand{\Ilot}{O{L}m}{\oint\nolimits_{#1}{#2}}
-\NewDocumentCommand{\Isnt}{O{\Sigma}m}{\iint\nolimits_{#1}{#2}}
-\NewDocumentCommand{\Isot}{O{\Sigma}m}{\oiint\nolimits_{#1}{#2}}
+\NewDocumentCommand{\Idnt}{O{D}g}{\iint\limits_{#1}\IfValueT{#2}{#2}}
+\NewDocumentCommand{\Itnt}{O{\Omega}g}{\iiint\limits_{#1}\IfValueT{#2}{#2}}
+\NewDocumentCommand{\Ilnt}{O{L}g}{\int\nolimits_{#1}\IfValueT{#2}{#2}}
+\NewDocumentCommand{\Ilot}{O{L}g}{\oint\nolimits_{#1}\IfValueT{#2}{#2}}
+\NewDocumentCommand{\Isnt}{O{\Sigma}g}{\iint\nolimits_{#1}\IfValueT{#2}{#2}}
+\NewDocumentCommand{\Isot}{O{\Sigma}g}{\oiint\nolimits_{#1}\IfValueT{#2}{#2}}
 \NewDocumentCommand{\tspc}{}{\vphantom{$\Biggl(\Biggr)$}}
 \NewDocumentCommand{\vmix}{smmm}{\IfBooleanTF{#1}{[#2~#3~#4]}{[\vb*{#2}~\vb*{#3}~\vb*{#4}]}}
 \NewDocumentCommand{\ek}{}{\frac{1}{4\pi\varepsilon_0}}
@@ -186,8 +259,14 @@
 
 % Theorem-like and proof-like environments
 \numberwithin{equation}{section}
-\newenvironment{Proof}{\begin{proof}[\indent\bfseries 证明]}{\end{proof}}
-\newenvironment{Solution}{\begin{proof}[\indent\bfseries 解]}{\end{proof}}
+\newenvironment{Proof}[1][]{%
+    \begin{proof}[\indent\bfseries 证明]%
+    \ifstrempty{#1}{}{\quad\dotfill\hspace{0.1em}#1\par}%
+}{\end{proof}}
+\newenvironment{Solution}[1][]{%
+    \begin{proof}[\indent\bfseries 解]%
+    \ifstrempty{#1}{}{\quad\dotfill\hspace{0.1em}#1\par}%
+}{\end{proof}}
 \theoremstyle{definition}
 \newtheorem{definition}{\indent 定义}[section]
 \newtheorem{theorem}{\indent 定理}[section]
@@ -217,7 +296,27 @@
 \NewDocumentEnvironment{BoxEquation}{O{}}{\begin{BoxBase}[#1]{公式}\begin{equation*}}{\end{equation*}\end{BoxBase}}
 \NewDocumentEnvironment{BoxDefinition}{O{}}{\begin{BoxBase}[#1]{定义}\begin{equation*}}{\end{equation*}\end{BoxBase}}
 \NewDocumentEnvironment{BoxEq}{o}{\normalsize\begin{equation*}}{\end{equation*}\small}
-\NewDocumentEnvironment{Equation}{o}{\begin{equation}\IfValueT{#1}{\label{式:#1}}}{\end{equation}}
+\newcommand{\LabelEquationName}[1]{%
+    \begingroup
+    \edef\x{\endgroup\noexpand\LabelEquationNameAux{#1}}%
+    \x
+}
+\newcommand{\LabelEquationNameAux}[1]{%
+    \ifstrempty{#1}{}{\label{式:#1}}%
+}
+\gdef\prefixeq{}
+\NewDocumentEnvironment{Equation}{s t& o}{%
+    \IfBooleanTF{#1}{%
+        \begin{equation*}%
+    }{%
+        \begin{equation}%
+        \IfValueT{#3}{%
+            \IfBooleanTF{#2}{\LabelEquationName{\prefixeq#3}}{\LabelEquationName{#3}}%
+        }%
+    }%
+}{%
+    \IfBooleanTF{#1}{\end{equation*}}{\end{equation}}%
+}
 \NewDocumentEnvironment{EquationBox}{o}{%
     \IfValueTF{#1}{\begin{tcolorbox}[breakable,arc=0mm,title={\footnotesize\hfill #1}]}{\begin{tcolorbox}[breakable,arc=0mm]}%
     \begin{equation}\IfValueT{#1}{\label{式:#1}}%
@@ -225,12 +324,52 @@
     \end{equation}\end{tcolorbox}%
 }
 
+% Compatibility layer for the migrated old notes.
+\NewDocumentEnvironment{OldBoxGeneric}{O{}mm}{%
+    \gdef\prefixeq{#1}%
+    \begin{BoxBase}[#1]{#3}\small
+    \ifstrempty{#1}{}{\label{#2:#1}}%
+}{%
+    \end{BoxBase}%
+}
+\NewDocumentEnvironment{OldBoxDefinition}{O{}s}{\begin{OldBoxGeneric}[#1]{def}{定义}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxLaw}{O{}s}{\begin{OldBoxGeneric}[#1]{law}{定律}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxEquation}{O{}s}{\begin{OldBoxGeneric}[#1]{eqt}{方程}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxFormula}{O{}s}{\begin{OldBoxGeneric}[#1]{fml}{公式}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxProperty}{O{}s}{\begin{OldBoxGeneric}[#1]{ppt}{性质}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxTheorem}{O{}s}{\begin{OldBoxGeneric}[#1]{thm}{定理}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxCorollary}{O{}s}{\begin{OldBoxGeneric}[#1]{col}{推论}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxPrinciple}{O{}s}{\begin{OldBoxGeneric}[#1]{pri}{原理}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxProposition}{O{}s}{\begin{OldBoxGeneric}[#1]{pps}{命题}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{OldBoxExample}{O{}s}{\begin{OldBoxGeneric}[#1]{exp}{例}}{\end{OldBoxGeneric}}
+\NewDocumentEnvironment{Align}{sO{\jot}b}{%
+    \setlength\jot{#2}%
+    \IfBooleanTF{#1}{\begin{align*}#3\end{align*}}{\begin{align}#3\end{align}}%
+}{}
+\NewDocumentEnvironment{Gather}{sO{\jot}b}{%
+    \setlength\jot{#2}%
+    \IfBooleanTF{#1}{\begin{gather*}#3\end{gather*}}{\begin{gather}#3\end{gather}}%
+}{}
+
 % Figure and table helpers used by the notes.
 \NewDocumentEnvironment{Figure}{O{H}m}{%
     \begin{figure}[#1]\centering
 }{%
     \caption{#2}\label{图:#2}\end{figure}%
 }
+\NewDocumentEnvironment{OldFigure}{O{}b}{%
+    \begin{figure}[H]\centering
+    #2
+    \ifstrempty{#1}{}{\caption{#1}\label{fig:#1}}%
+    \vspace{-12pt}
+    \end{figure}%
+}{}
+\NewDocumentEnvironment{OldFigureSub}{O{}b}{%
+    \begin{minipage}{0.45\linewidth}\centering
+    #2
+    \ifstrempty{#1}{}{\par\footnotesize #1}%
+    \end{minipage}%
+}{}
 \NewDocumentEnvironment{Tikz}{O{H}mO{}}{%
     \begin{figure}[#1]\centering\begin{tikzpicture}[#3]%
 }{%
@@ -257,6 +396,39 @@
 }{%
     \end{longtable}%
 }
+\newcommand{\hlinetop}{\hline}
+\newcommand{\hlinemid}{\hline}
+\newcommand{\hlinebot}{\hline}
+\newcommand{\hlinelig}{\hline}
+\NewDocumentCommand{\xgp}{O{0ex}O{#1}m}{\Gape[#1][#2]{#3}}
+\NewDocumentCommand{\xcell}{D<>{l}O{0ex}O{#2}m}{\Gape[#2][#3]{\makecell[#1]{#4}}}
+\NewDocumentCommand{\mr}{mO{0ex}m}{\multirow{#1}{*}[#2]{#3}}
+\NewDocumentCommand{\mrx}{D<>{l}mO{0ex}m}{\multirow{#2}{*}[#3]{\xcell<#1>{#4}}}
+\NewExpandableDocumentCommand{\mc}{mO{0ex}O{#2}D(){l}m}{\multicolumn{#1}{#4}{\xgp[#2][#3]{#5}}}
+\NewExpandableDocumentCommand{\mcx}{D<>{c}mO{0ex}O{#3}D(){l}m}{\multicolumn{#2}{#5}{\xcell<#1>[#3][#4]{#6}}}
+\NewDocumentEnvironment{OldTable}{O{}G{lllllllll}O{\small}sD<>{}D(){#5}D<>{}D(){}b}{%
+    \begin{table}[H]
+        \centering
+        \ifstrempty{#1}{}{\caption{#1}\label{tab:#1}}%
+        #3
+        \begin{tabular}{#2}
+            \IfBooleanF{#4}{\hlinetop}
+            \ifstrempty{#5}{}{#5\IfBooleanF{#4}{\hlinemid}}
+            #9
+            \ifstrempty{#7}{\IfBooleanF{#4}{\hlinebot}}{#7}
+        \end{tabular}
+    \end{table}
+}{}
+\NewDocumentEnvironment{OldTableLong}{O{}G{lllllllll}O{\small}sD<>{}D(){#5}D<>{}D(){}b}{%
+    #3
+    \begin{longtable}{#2}
+        \ifstrempty{#1}{}{\caption{#1}\label{tab:#1}\\}%
+        \IfBooleanF{#4}{\hlinetop}
+        \ifstrempty{#5}{}{#5\IfBooleanF{#4}{\hlinemid}}
+        #9
+        \ifstrempty{#7}{\IfBooleanF{#4}{\hlinebot}}{#7}
+    \end{longtable}
+}{}
 
 % TikZ point helpers.
 \NewDocumentCommand{\lPoint}{mmoo}{%

@@ -1,0 +1,32 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\foreach \x in {-5,-4.99,...,5}
+{
+    \path (\x,0) coordinate (C);
+    \fill[white!\fpeval{50*(cos(4*\x)+1)}!black] ($(C)+(-0.007,-1)$) rectangle ($(C)+(0.007,1)$);
+}
+
+\draw[gray] (-5,-1) rectangle (5,1);
+
+\draw[gray] (-5,-1) rectangle (5,-2.3);
+\draw[gray] (-5,+1) rectangle (5,+2.3);
+
+\foreach \x/\t in {1/一,2/二}
+{
+    \draw [->] (\fpeval{+\x*pi/2},-1.2) -- ++ (0,-0.5) node[below] {\tiny \t 级明纹};
+    \draw [->] (\fpeval{-\x*pi/2},-1.2) -- ++ (0,-0.5) node[below] {\tiny \t 级明纹};
+}
+
+\foreach \x/\t in {1/一,2/二}
+{
+    \draw [->] (\fpeval{+\x*pi/2-pi/4},+1.2) -- ++ (0,+0.5) node[above] {\tiny \t 级暗纹};
+    \draw [->] (\fpeval{-\x*pi/2+pi/4},+1.2) -- ++ (0,+0.5) node[above] {\tiny \t 级暗纹};
+}
+
+\draw [->] (0,-1.2) -- ++ (0,-0.5) node[below] {\tiny 中央明纹};
+
+\end{tikzpicture}
+\end{document}

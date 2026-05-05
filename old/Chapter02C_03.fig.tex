@@ -1,0 +1,14 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[fill=black!90!white] (0,0) coordinate (O) rectangle (5,3) coordinate (A);
+\draw[fill=white] ($(O)+(0.15,0.15)$) coordinate (O') rectangle ($(A)-(0.15,0.15)$) coordinate (A');
+
+\draw[fill=red!7!white] (O') rectangle (A');
+
+\path ($(O')!0.5!(A')$) node {\small $(P_2,V_2,T_2)$};
+    
+\end{tikzpicture}    
+\end{document}

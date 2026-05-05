@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+
+\tikzset{axi/.style={gray,ultra thin}}
+
+\path (-4.5,0) coordinate (A);
+\path (0,0) coordinate (O);
+\path (+4.5,0) coordinate (B);
+
+\draw[save path=\E] 
+    ($(A)!0.5!(B)$) coordinate (E)
+    ellipse[x radius=0.5,y radius=1.1];
+
+\begin{scope}[decoration={markings,
+    mark=
+    between positions 0.25 and 0.9 step 0.8cm
+    with
+    {
+        \lne{-0.3}
+        \lne{+0.1}
+    }}]
+    \draw[-latex,thick,postaction={decorate}] 
+    (O)--(B);
+\end{scope}
+
+\fill[black!10!white,use path=\E];
+
+\draw[dashed] (O)--(B);
+
+\begin{scope}
+    \clip[use path=\E];
+    \foreach \x in {-0.5,-0.45,...,0.5}
+    {
+        \draw[ultra thin,gray] ($(O)+(\x,0)$) coordinate (T) ++(0,1.5)-- ++ (0,-3.0);
+    }
+\end{scope}
+
+\begin{scope}[decoration={markings,
+    mark=
+    between positions 0.2 and 0.9 step 0.8cm
+    with
+    {
+        \lne{-0.3}
+        \pnt{-0.1}
+        \lne{+0.1}
+        \pnt{+0.3}
+    }}]
+    \draw[-,thick,postaction={decorate}] 
+    (A)--(O);
+\end{scope}
+
+\path (O) node[point]{};
+
+
+\end{tikzpicture}

@@ -1,0 +1,339 @@
+\section{理想气体的准静态过程}
+\label{sec:理想气体的准静态过程}
+本章我们将正式开始讨论理想气体在准静态过程中的变化规律，我们关心这样的问题，如果理想气体由状态\Romnum{1}$(P_1,V_1,T_1)$以准静态过程的方式变化为状态\Romnum{2}$(P_2,V_2,T_2)$，那么，在这个过程中，\empx{理想气体的内能$E$将如何变化？}\empx{理想气体接受的热$Q$和功$W$有多少？}当然我们知道，由于功和热是过程量，该问题并不具有一般性的回答，但是如果我们将变化过程限定在某些特殊的变化方式中，那么功和热将具有确定的数值。现在的问题是，有哪些特殊的变化方式？
+
+首先有$P,V,T$三个描述状态的自变量，其次有$E,Q,W$三个与状态有关的因变量，所以如果我们需要考虑一些特殊的准静态过程，那么一定无外乎是使得上述六个量中的一个保持不变或恒为零。这样理论上有六种特殊变化方式，但由于$\dd{E}=\nu C_{\text{m},V}\dd{T}$以及$\fdd{W}=P\dd{V}$两组关系的存在，实际上“等温变化--定能变化”与“等体变化--绝功变化”是相同的过程，这样特殊的变化过程就只剩四组了，如\xref{tab:理想气体的特殊变化过程}所示，包含等体过程、等压过程、等温过程、绝热过程。
+
+\begin{OldTable}[理想气体的特殊变化过程]{cllcll}
+<自变量&过程名称&过程特征&因变量&过程名称&过程特征\\>
+--&--&--&$Q$&绝热过程&热\hspace{0.49em}$Q$\hspace{0.49em}恒为零\\
+$V$&等体过程&体积$V$恒定&$W$&\sout{绝功过程}&功$W$恒为零\\
+$P$&等压过程&压强$P$恒定&--&--&--\\
+$T$&等温过程&温度$T$恒定&$E$&\sout{定能过程}&内能$E$恒定\\
+\end{OldTable}
+
+接下来我们将逐一讨论这四种特殊的变化过程。
+
+\subsection{等体过程}
+\label{subsec:等体过程}
+\begin{OldBoxProperty}[等体过程]
+    \uwave{等体过程}是指体积$V$不发生变化的准静态过程，状态参量满足方程
+    \begin{Equation}&[]
+        \frac{P}{T}=\frac{\nu R}{V}=C
+    \end{Equation}
+    等体过程中的$\delt{E},Q,W$分别为
+    \begin{Gather}[6pt]
+        \delt{E}=\nu\Cmv(T_2-T_1)\xlabelpeq{E}\\
+        Q=\nu\Cmv(T_2-T_1)\xlabelpeq{Q}\\
+        W=0\xlabelpeq{W}
+    \end{Gather}
+    即，等体过程中，系统吸收的热量完全转化为系统的内能。
+\end{OldBoxProperty}
+\begin{Proof}
+    \xrefpeq{}可以由\fancyref{eqt:理想气体物态方程}$PV=\nu RT$立即得到，考虑到$V$为常数。
+    
+    根据\fancyref{fml:等体过程的热量微分关系}
+    \begin{Equation}*
+        Q=\Int[T_1][T_2]\nu\Cmv\dd{T}=\nu\Cmv(T_2-T_1)
+    \end{Equation}
+    根据\fancyref{law:热力学第一定律}，注意到$W=0$
+    \begin{Equation}*
+        \delt{E}=Q=\nu\Cmv(T_2-T_1)\qedhere
+    \end{Equation}
+\end{Proof}
+
+\subsection{等压过程}
+\label{subsec:等压过程}
+\begin{OldBoxProperty}[等压过程]
+    \uwave{等压过程}是指压强$P$不发生变化的准静态过程，状态参量满足方程
+    \begin{Equation}&[]
+        \frac{V}{T}=\frac{\nu R}{P}=C
+    \end{Equation}
+    等压过程中的$\delt{E},Q,W$分别为
+    \begin{Gather}[6pt]
+        \delt{E}=\nu\Cmv(T_2-T_1)\xlabelpeq{E}\\
+        Q=\nu\Cmp(T_2-T_1)\xlabelpeq{Q}\\
+        W=-\nu R(T_2-T_1)\xlabelpeq{W}=-P(V_2-V_1)
+    \end{Gather}
+    即，等压过程中，系统吸收的热量将以恒定比例转化为系统的内能和对外做功。
+\end{OldBoxProperty}
+
+\begin{Proof}
+    \xrefpeq{}可以由\fancyref{eqt:理想气体物态方程}$PV=\nu RT$立即得到，考虑到$V$为常数。
+
+    根据\fancyref{fml:等压过程的热量微分关系}
+    \begin{Equation}*
+        Q=\Int[T_1][T_2]{\nu\Cmp\dd{T}}=\nu\Cmp(T_2-T_1)
+    \end{Equation}
+    根据\fancyref{fml:理想气体的体积功}并应用\fancyref{fml:等压过程的等效微分约束}
+    \begin{Equation}*
+        W=-\Int[V_1][V_2]{P\dd{V}}=-\Int[T_1][T_2]{\nu R\dd{T}}=\nu R(T_2-T_1)    
+    \end{Equation}
+    根据\fancyref{law:热力学第一定律}，注意到\fancyref{fml:迈耶公式}
+    \begin{Equation}*
+        \delt{E}=Q+W=\nu(\Cmp-R)(T_2-T_1)=\nu\Cmv(T_2-T_1)\qedhere
+    \end{Equation}
+\end{Proof}
+\fancyref{ppt:等压过程}是“等体、等压、等温”三个过程中较为特殊的，因为$P$的恒定并不能使得$\delt{E},Q,V$中任何一个为零，它的约束性在于控制了$Q$与$\delt{E}$间的比例为一个常数
+\begin{Equation}
+    \frac{Q}{\delt{E}}=\frac{\nu\Cmp(T_2-T_1)}{\nu\Cmv(T_2-T_1)}=\frac{\Cmp}{\Cmv}=\gamma
+\end{Equation}
+其中最后一步基于\fancyref{def:摩尔热容比}。导致这一结果的根本原因就是\fancyref{fml:等压过程的等效微分约束}中$P\dd{V}=\nu R\dd{T}$使得对体积的微分可以完全转化为对温度的微分。
+
+\fancyref{ppt:等压过程}和\fancyref{ppt:等体过程}的内能增量均为$\delt{E}=\nu\Cmv(T_2-T_1)$，这就再次验证了内能$E$仅是关于温度的函数$E(t)$且内能增量与过程无关，只与始末温度有关。
+
+\subsection{等温过程}
+\label{subsec:等温过程}
+\begin{OldBoxProperty}[等温过程]
+    \uwave{等温过程}是指温度$T$不发生变化的准静态过程，状态参量满足方程
+    \begin{Equation}&[]
+        PV=\nu RT=C
+    \end{Equation}
+    等温过程中的$\delt{E},Q,W$分别为
+    \begin{Gather}[6pt]
+        \delt{E}=0\xlabelpeq{E}\\
+        Q=\nu RT\ln(V_2/V_1)=\nu RT\ln (P_1/P_2)\xlabelpeq{Q}\\
+        W=-\nu RT\ln(V_2/V_1)=-\nu RT\ln (P_1/P_2)\xlabelpeq{W}
+    \end{Gather}
+    即，等温过程中，系统吸收的热量将完全转化为系统对外做功。
+\end{OldBoxProperty}
+\begin{Proof}
+    \xrefpeq{}可以由\fancyref{eqt:理想气体物态方程}$PV=\nu RT$立即得到，考虑到$T$为常数。
+
+    根据\fancyref{fml:热量的第二微分关系}，注意到等温变化$T_1=T_2=T$或$\dd{T}=0$
+    \begin{Equation}*
+        Q=\Int[V_1][V_2]P\dd{V}+\Int[T_1][T_2]\nu\Cmv\dd{T}=\Int[V_1][V_2]P\dd{V}
+    \end{Equation}
+    根据\fancyref{eqt:理想气体物态方程}
+    \begin{Equation}*
+        Q=\Int[V_1][V_2]{\frac{\nu RT}{\nu}\dd{V}}=\nu RT(\ln V_2-\ln V_1)=\nu RT\ln(V_2/V_1)
+    \end{Equation}
+    根据\fancyref{law:热力学第一定律}，注意到$\delt{E}=0$
+    \begin{Equation}*
+        W=-Q=-\nu RT\ln(V_2/V_1)
+    \end{Equation}
+    另外由等温过程方程\xrefpeq{}
+    \begin{Equation}*
+        \frac{P_1}{P_2}=\frac{V_2}{V_1}
+    \end{Equation}
+    很容易得到
+    \begin{Equation}*
+        P_1V_1=P_2V_2
+    \end{Equation}
+    因此上述公式中的$\ln(V_2/V_1)$均可以用$\ln(P_1/P_2)$替代，特别注意顺序问题。
+\end{Proof}
+在一定意义上，“等体、等压、等温”表征了以热量为中心的三种典型能量转化方案
+\begin{itemize}
+    \item 等体过程将吸收的热量，完全储存为系统内能，是储存能量的极限。
+    \item 等温过程将吸收的热量，完全用于对外界做功，是释放能量的极限。
+    \item 等压过程将吸收的热量，定比的用于内能增量和做功，是中间态。
+\end{itemize}
+在稍后的绝热过程和其进一步推广出的多方过程中，我们将看到更为丰富的能量转化方案。
+
+\subsection{绝热过程}
+\label{subsec:绝热过程}
+我们现在来考虑绝热过程，所谓绝热过程就是指系统与外界没有热量交换的过程，这种想法是有很实际的意义的，例如在良好绝热材料包围的系统内发生的准静态过程就可以视为绝热过程（\empx{当我们说某个系统是绝热时，其实就说是说它满足于绝热过程}）。另外，包括气缸内气体的急速压缩和膨胀，或者空气中因声波传播时所引起的压缩或膨胀，诸如这样的进行的过程较快从而来不及与外界交换热量的准静态过程，我们都可以近似视为绝热过程来进行计算。
+
+需要注意，绝热过程仅代表系统与外界的热量交换为零，但系统温度是可以变化的。因为尽管认知上常将温度和热量联系在一起，但实际上与温度真正有关的量是内能而不是热量。另外由于绝热过程中$\fdd{Q}=0$的特性，我们可以从$\fdd{Q}=P\dd{V}+\nu\Cmv\dd{T}$中获取一些微分关系式。
+\begin{OldBoxFormula}[绝热过程的等效微分约束]
+    理想气体的绝热过程等价于以下的微分约束
+    \begin{Equation}&[]
+        P\dd{V}=-\nu\Cmv\dd{T}\qquad
+        V\dd{P}=\nu\Cmp\dd{T}
+    \end{Equation}
+    也就是说，在绝热过程中，体积微分$\dd{V}$和压强微分$\dd{P}$均可以化为温度微分$\dd{T}$。
+\end{OldBoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:热量的第二微分关系}以及绝热过程$\fdd{Q}=0$的特性
+    \begin{Equation}&[1]
+        \fdd{Q}=P\dd{V}+\nu\Cmv\dd{T}=0
+    \end{Equation}
+    由此就可以求得
+    \begin{Equation}&[2]
+        P\dd{V}=-\nu\Cmv\dd{T}
+    \end{Equation}
+    另外一方面，根据\fancyref{eqt:理想气体物态方程}
+    \begin{Equation}&[3]
+        PV=\nu RT
+    \end{Equation}
+    效仿先前推导摩尔等压热容那样在\xrefpeq{3}两端求微分，但不同的是$P$现在不是常量
+    \begin{Equation}&[4]
+        P\dd{V}+V\dd{P}=\nu R\dd{T}
+    \end{Equation}
+    在\xrefpeq{4}中代入\xrefpeq{2}
+    \begin{Equation}&[5]
+        V\dd{P}=\nu R\dd{T}+\nu\Cmv\dd{T}
+    \end{Equation}
+    应用\fancyref{fml:迈耶公式}
+    \begin{Equation}&[6]
+        V\dd{P}=\nu\Cmp\dd{T}
+    \end{Equation}
+    这就证明了\xrefpeq{}。
+\end{Proof}
+
+我们现在可以推导绝热过程中的$\delt{E},Q,W$了。
+\begin{OldBoxProperty}[绝热过程]
+    \uwave{绝热过程}是指热量$Q$恒为零的准静态过程，即$\fdd{Q}=0$。
+
+    绝热过程中的$\delt{E},Q,W$分别为
+    \begin{Gather}[6pt]
+        \delt{E}=\nu\Cmv(T_2-T_1)=(\gamma-1)^{-1}(P_2V_2-P_1V_1)\xlabelpeq{E}\\
+        Q=0\xlabelpeq{Q}\\
+        W=\nu\Cmv(T_2-T_1)=(\gamma-1)^{-1}(P_2V_2-P_1V_1)\xlabelpeq{W}
+    \end{Gather}
+    即，在绝热过程中，系统不吸收热量，系统的内能增量完全来自外界做功。
+\end{OldBoxProperty}
+\begin{Proof}
+    根据\fancyref{fml:理想气体的体积功}和\fancyref{fml:绝热过程的等效微分约束}
+    \begin{Equation}&[1]
+        W=-\Int[V_1][V_2]{P\dd{V}}=\Int[T_1][T_2]\nu\Cmv\dd{T}=\nu\Cmv(T_2-T_1)
+    \end{Equation}
+    根据\fancyref{eqt:理想气体物态方程}中$T=(PV)/(nu R)$
+    \begin{Equation}&[2]
+        W=\frac{\Cmv}{R}(P_2V_2-P_1V_1)
+    \end{Equation}
+    这里的主要麻烦就是常数的形式转化了，这并不困难
+    \begin{Equation}&[3]
+        \frac{\Cmv}{R}=\frac{(i/2)R}{R}=\frac{i}{2}=\qty(\frac{2}{i})^{-1}=\qty(\frac{i+2}{i}-1)^{-1}=(\gamma-1)^{-1}
+    \end{Equation}
+    将\xrefpeq{3}代入\xrefpeq{2}即得
+    \begin{Equation}&[4]
+        W=(\gamma-1)^{-1}(P_2V_2-P_1V_1)
+    \end{Equation}
+    这就证明了\xrefpeq{W}，由$\delt{E}=W$也不难得到\xrefpeq{E}。
+\end{Proof}
+通过\xref{ppt:绝热过程}，虽然我们已经计算出了绝热过程中$\delt{E},Q,W$，但有时我们仍然关心在绝热过程中$P,V,T$两两之间的关系，即我们想要一个形如$PV=C$这样的过程方程，然而这对于绝热过程来说并没有那么容易，因为绝热过程中$P,V,T$实际上都在变化，因此我们无法简单的从理想气体物态方程的$PV=\nu RT$中求出过程方程。但绝热过程确实是存在过程方程的。
+\begin{OldBoxFormula}[泊松公式]
+    绝热过程中，状态参量满足方程
+    \begin{Equation}&[]
+        PV^{\gamma}=C
+    \end{Equation}
+    上式还可以写作
+    \begin{Equation}&[变式]
+        TV^{\gamma-1}=C_1\qquad
+        T^{\gamma}P^{1-\gamma}=C_2
+    \end{Equation}
+    该结论称为\uwave{泊松公式}，注意各式中的$C$仅表示任意常数，两两之间的$C$未必相等。
+\end{OldBoxFormula}
+\begin{Proof}
+    将\fancyref{fml:绝热过程的等效微分约束}
+    中两式相除，注意到$\Cmp/\Cmv=\gamma$
+    \begin{Equation}&[2]
+        \frac{V\dd{P}}{P\dd{V}}=-\gamma
+    \end{Equation}
+    将\xrefpeq{2}移项
+    \begin{Equation}&[3]
+        V\dd{P}=-\gamma P\dd{V}
+    \end{Equation}
+    从而实现分离变量
+    \begin{Equation}&[4]
+        \frac{\dd{P}}{P}=-\gamma\frac{\dd{V}}{V}
+    \end{Equation}
+    将\xrefpeq{4}两端分别积分得
+    \begin{Equation}&[5]
+        \ln P=-\gamma \ln V+C
+    \end{Equation}
+    将\xrefpeq{5}两端取$\e$的指数
+    \begin{Equation}&[6]
+        P=V^{-\gamma}C
+    \end{Equation}
+    或
+    \begin{Equation}&[7]
+        PV^{\gamma}=C
+    \end{Equation}
+    在\xrefpeq{7}中代入$P=V^{-1}\nu RT$
+    \begin{Equation}&[8]
+        TV^{\gamma-1}=\frac{C}{\nu R}=C_1
+    \end{Equation}
+    在\xrefpeq{7}中代入$V^{\gamma}=P^{-\gamma}(\nu RT)^{\gamma}$
+    \begin{Equation}&[9]
+        T^{\gamma}P^{1-\gamma}=\frac{C}{(\nu R)^\gamma}=C_2
+    \end{Equation}
+    这就证明了泊松公式的结论。
+\end{Proof}
+
+\fancyref{fml:泊松公式}中虽然v不清楚任意常数的表达式，但是由\xrefpeq{8}和\xrefpeq{9}可得
+\begin{OldBoxCorollary}[泊松公式的推论]
+    泊松公式也可也表述为
+    \begin{Equation}&[]
+        PV^{-\gamma}=TV^{\gamma-1}(\nu R)=T^{\gamma}P^{1-\gamma}(\nu R)^{\gamma}
+    \end{Equation}
+\end{OldBoxCorollary}
+我们在此将“等体、等压、等温、绝热”过程的P--V曲线整理如下
+\begin{OldFigure}[四类准静态过程的曲线]
+    \inputfigure[scale=1]{Chapter12C_Figure01}
+\end{OldFigure}
+我们注意到绝热线相较于等温线更为陡峭，这从数学上可以理解
+\begin{Equation}
+    P=\frac{C}{V}\qquad
+    P=\frac{C}{V^{\gamma}}
+\end{Equation}
+其中，摩尔热容比$\gamma$总是满足$\gamma>1$。这一点从物理上也可以理解，等温膨胀中压强的减小仅由于分子数密度的减小引起，绝热膨胀对外做功的能量完全来自内能，这就会导致温度的降低，使分子数密度在上述基础上进一步减小，因此，绝热膨胀相较等温膨胀压强下降的更快。
+
+在本节最后我们梳理一下四种准静态过程的性质
+\begin{OldTable}[四类准静态过程的特点对比]{|l|l|c|c|c|c|c|c|}
+<类型&方向&压强$\delt{P}$&体积$\delt{V}$&温度$\delt{T}$&\hphantom{体}热$Q\hphantom{\delt}$&\hphantom{体}功$W\hphantom{\delt}$&内能$\delt{E}$\\>
+\mr{2}[-0.3ex]{等体过程}
+&\xcell[0.3ex]{等体升温}
+&$+$&$0$&$+$
+&$+$&$0$&$+$\\
+&\xcell[0.3ex]{等体降温}
+&$-$&$0$&$-$
+&$-$&$0$&$-$\\\hlinelig
+\mr{2}[-0.3ex]{等压过程}
+&\xcell[0.3ex]{等压升温}
+&$0$&$+$&$+$
+&$+$&$-$&$+$\\
+&\xcell[0.3ex]{等压降温}
+&$0$&$-$&$-$
+&$-$&$+$&$-$\\\hlinelig
+\mr{2}[-0.3ex]{等温过程}
+&\xcell[0.3ex]{等温膨胀}
+&$-$&$+$&$0$
+&$+$&$-$&$0$\\
+&\xcell[0.3ex]{等温压缩}
+&$+$&$-$&$0$
+&$-$&$+$&$0$\\\hlinelig
+\mr{2}[-0.3ex]{绝热过程}
+&\xcell[0.3ex]{绝热膨胀}
+&$-$&$+$&$-$
+&$0$&$-$&$-$\\
+&\xcell[0.3ex]{绝热压缩}
+&$+$&$-$&$+$
+&$0$&$+$&$+$\\
+\end{OldTable}
+
+\subsection{绝热自由膨胀}
+\label{subsec:绝热自由膨胀}
+在前面我们考虑的都是准静态过程，而非准静态过程的一个典型例子就是理想气体对真空的绝热自由膨胀过程。如\xref{fig:理想气体对真空的绝热自由膨胀}所示，设想一个绝热容器，用一块隔板将容器分为容积相等的两部分，左侧为$(P_1,V_1,T_1)$的理想气体，右侧为真空，现在将隔板抽出，气体将冲入右半部，最后在整个容器中达成一个新的平衡态$(P_2,V_2,T_2)$，显然$V_2=2V_1$。然而，由于气体冲入容器的右半部分的过程是极为迅速的（试想在宇宙真空中破裂的宇航服），我们无法令其无限缓慢的进行，否则就失去了过程的正确特征，因此，\empx{气体对真空的绝热自由膨胀是非准静态过程}。
+
+\begin{OldFigure}[理想气体对真空的绝热自由膨胀]
+    \begin{OldFigureSub}
+        \inputfigure{Chapter12C_Figure02}
+    \end{OldFigureSub}
+    \hspace{1cm}
+    \begin{OldFigureSub}
+        \inputfigure{Chapter12C_Figure03}
+    \end{OldFigureSub}
+\end{OldFigure}
+
+由于过程是绝热的，因此$Q=0$，我们可能会思考该过程中气体做了多少功，但这是对真空的膨胀，而真空对气体的膨胀没有任何阻碍，因此实际上气体并不对外做功，故有$W=0$成立。
+
+由于非准静态过程同样适用\fancyref{law:热力学第一定律}，故
+\begin{Equation}*
+    \delt{E}=0\qquad E_1=E_2
+\end{Equation}
+即气体在绝热自由膨胀后，内能保持不变，对于理想气体，内能又只是温度的函数，故
+\begin{Equation}*
+    T_1=T_2
+\end{Equation}
+即气体在绝热自由膨胀前后的温度是相同的，结合$V_2=2V_1$以及物态方程
+\begin{Equation}*
+    P_1=2P_2
+\end{Equation}
+这就是说，压强在膨胀后下降到原先的一半，这个结果看上去很合理，但是如果我们贸然使用适用于准静态绝热过程的\fancyref{fml:泊松公式}中$P_1V_1^{\gamma}=P_2V_2^{\gamma}$，由于$V_2^{\gamma}=2^{\gamma}V_1^{\gamma}$，则
+\begin{Equation}*
+    P_1=2^{\gamma}P_2
+\end{Equation}
+就会得到错误的结论，这就告诉我们，\empx{非准静态过程不适用准静态过程的过程方程}。
+

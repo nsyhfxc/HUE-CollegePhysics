@@ -1,0 +1,58 @@
+\begin{tikzpicture}[scale=0.7]
+
+\tikzset{fig/.style={thick}}
+\tikzset{aux/.style={dashed,gray,ultra thin}}
+
+\draw[fig]
+(0,0) coordinate (O)
+-- ++ (7,0) coordinate (A)
+-- ++ (0,3) coordinate (B)
+-- (O)
+-- ++(150:2) coordinate (X)
+-- ++($(B)-(O)$) coordinate (Y)
+-- (B);
+
+\draw[aux]
+(Y) -- ++ ($(A)-(B)$) coordinate (Z) -- (X);
+
+\draw[aux]
+(Z)--(A);
+
+\foreach \x in {0,0.001,...,1}
+{
+    \fill[white!\fpeval{50*(cos(8*pi*(\x)+pi)+1)}!black,fill opacity=0.6]
+    ($(O)!\x-0.0005!(B)$) -- ($(O)!\x+0.0005!(B)$)--
+    ($(X)!\x+0.0005!(Y)$) -- ($(X)!\x-0.0005!(Y)$)--
+    cycle;
+}
+
+\draw[fig]
+(O)--(B)
+(O)--(X)
+(B)--(Y)
+(X)--(Y);
+
+\fill[black,fill opacity=0.2] (O)--(A)--(B)--cycle;
+
+\path ($(O)!0.4!(X)$) node[left=0.15cm] {\tiny 零级暗纹};
+
+\path
+(0,-1) coordinate (L);
+
+\foreach \x/\t in {0/一,1/二,2/三,3/四}
+{
+    \draw[->] 
+    ($(O)!\fpeval{2*\x/8+(1/8)}!(B)$) ++(0,-0.1)
+    coordinate (Lig)
+    -- (Lig|-L) node[below] {\tiny\t 级明纹};
+}
+
+\foreach \x/\t in {0/一,1/二,2/三}
+{
+    \draw[->] 
+    ($(X)!\fpeval{2*\x/8+(2/8)}!(Y)$) ++(0,+0.1)
+    coordinate (Dak)
+    -- ++(0,1) node[above] {\tiny\t 级暗纹};
+}
+
+\end{tikzpicture}

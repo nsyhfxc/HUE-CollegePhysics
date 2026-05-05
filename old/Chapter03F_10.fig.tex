@@ -1,0 +1,35 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{aux/.style={gray,ultra thin}}
+
+\draw[ultra thin] (-4.5,-0.7) rectangle (3.5,6.45);
+
+\path (0,0) node[below] {\small 光栅};
+
+\foreach \y in {0,1,...,5}
+{
+    \draw[ultra thick] (0,\y)--++(0,0.75);
+}
+
+\foreach \y in {0.5,0.975,...,5.26}
+{
+    \draw[ultra thin,-latex] (-4,\y)--(-0.3,\y);f
+}
+
+\draw[aux] (0.1,2.00) coordinate(A1)-- ++(1,0) coordinate(A2);
+\draw[aux] (0.1,2.75) coordinate(B1)-- ++(0.4,0) coordinate(B3) ++(0.6,0) coordinate(B2);
+\draw[aux] (0.1,3.00) coordinate(C1)-- ++(1,0) coordinate(C2);
+
+\draw[aux,<->] ($(A1)!0.2!(A2)$)-- node[right,black] {$b$} ($(B1)!0.2!(B2)$);
+
+\draw[aux,<->] ($(C1)!0.2!(C2)$)-- node[right,black] {$a$} ($(B1)!0.2!(B2)$);
+
+\draw[aux,<->] ($(C1)!0.8!(C2)$)-- node[right,black] {$d$} ($(A1)!0.8!(A2)$);
+
+\draw[ultra thick] (3,0) node[below] {\small 光屏}-- ++ (0,5.75);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=1.5]
+
+\tikzset{axi/.style={->,very thin,gray}}
+\tikzset{plt/.style={thick}}
+
+\draw[black!10!white,ultra thin] (0,0) grid[step=0.1] (4.3,4.3);
+
+\draw[axi] (0,0) coordinate (O) -- ++ (4.4,0) node[right] {$V$};
+\draw[axi] (O) -- ++(0,4.4) node[right] {$P$};
+
+\draw[plt] plot[domain=0.57:3.8,smooth,samples=200] (\x,{2/\x}) node[right] {\small 等温};
+
+\draw[plt] plot[domain=0.67:3.8,smooth,samples=200,yrange=0:3] (\x,{2/(\x^1.67)}) node[right] {\small 绝热};
+
+\draw[plt] (0.5,2)--(3.8,2) node[right] {\small 等压};
+
+\draw[plt] (1,3)--(1,0.3) node[right] {\small 等体};
+
+\path (1,2) node[point] {};
+
+\end{tikzpicture}

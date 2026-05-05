@@ -1,0 +1,127 @@
+\section{理想气体的微观模型}
+\label{sec:理想气体的微观模型}
+从微观上讨论分子运动性质与规律时，通常以物质结构的分子假说为出发点，建立微观模型。
+
+\subsection{理想气体的微观模型}
+\label{subsec:理想气体的微观模型}
+理想气体的微观模型由以下假设给出
+\begin{itemize}
+    \item 分子本身的大小与分子间距离相比较，可以忽略。
+    \item 分子除了在碰撞瞬间外，可以认为分子与容器壁以及分子间均无相互作用力。
+    \item 分子间的相互碰撞和分子与容器壁的碰撞，可以视为完全弹性碰撞。
+\end{itemize}
+综上所述，理想气体的微观模型是：\empx{遵从经典力学规律而自由地运动着的弹性质点群}。
+
+理想气体在平衡状态时，气体分子在空间上均匀分布，气体在各方向上产生的压强也是完全相同的，基于此，对于处于平衡态时理想气体分子的热运动，还可以作以下的统计假设
+\begin{itemize}
+    \item 平衡态时，气体分子均匀的分布在容器中，即分子数密度$n$处处相等。
+    \item 平衡态时，气体分子向各个方向上运动的概率是相同的。
+\end{itemize}
+
+理想气体在各方向上具有均等的运动概率，这就意味着分子速度$\vb*{v}$的各个分量$v_x,v_y,v_z$具有完全相同的概率分布，这里特别在意的是各分量的平方$v_x^2,v_y^2,v_z^2$，显然，它们的均值相等
+\begin{Equation}[理想气体速度概率1]
+    \xbar{v_x^2}=\xbar{v_y^2}=\xbar{v_z^2}
+\end{Equation}
+这里再来考虑分子速度平方的均值$\xbar{v^2}$，代入平均值的定义
+\begin{Equation}[理想气体速度概率2]
+    \xbar{v^2}=\frac{1}{N}\OldSum[i=1][N]{v_i^2}=\frac{1}{N}\OldSum[i=1][N]{v_{ix}^2+v_{iy}^2+v_{iz}^2}=
+    \xbar{v_x^2}+\xbar{v_y^2}+\xbar{v_z^2}
+\end{Equation}
+这样，结合\xref{eq:理想气体速度概率1}和\xref{eq:理想气体速度概率2}，我们就可以得到以下的重要结论
+\begin{OldBoxProperty}[理想气体的速度均值性质]
+    理想气体的分子速度的平方均值间存在以下关系
+    \begin{Equation}
+        \xbar{v_x^2}=\xbar{v_y^2}=\xbar{v_z^2}=\frac{1}{3}\xbar{v^2}
+    \end{Equation}
+    即各个方向的速度分量的平方均值相等，且恰等于速度的平方均值的$(1/3)$。
+\end{OldBoxProperty}
+
+\subsection{理想气体的压强公式}
+\label{subsec:理想气体的压强公式}
+气体的压强等于气体作用在容器壁单位面积上的压力，那么为何气体会产生压力？我们知道，根据力学定律，当容器中某个分子带有一定动量与容器壁碰撞时，就会对器壁施加一个短暂的作用力。尽管单个分子对器壁的冲力有大有小，且在时间上并不连续，但是容器中的气体分子的数量是巨大的，而大量的分子与器壁的相互作用在宏观上就形成了一个持续稳定的均匀压力。就像下雨时密集的雨点打在伞上而使得我们的手臂感受到一个持续向下的压力一样。
+
+气体的压强是大量气体分子对器壁持续不断碰撞的结果，因此，压强这一物理量只有统计上的意义，个别分子的碰撞谈不上压强，只有大量分子的碰撞才能在宏观上产生均匀稳定的压强。
+
+现在具体讨论一下理想气体的压强与理想气体分子运动状态之间的关系。
+\begin{OldFigure}[理想气体的压强]
+    \inputfigure{Chapter11C_Figure01}
+\end{OldFigure}
+依照理想气体的统计假设，其在各个方向上的压强是相同的，因此我们可以考虑一个特殊的情况。我们不妨设容器为长方体，现在考虑理想气体沿$x$轴方向对长方体容器侧壁的压强。
+
+如\xref{fig:理想气体的压强}所示，设容器在$x$轴方向上的边长为$l$，设容器垂直$x$轴方向的侧壁面积为$S$，容器内共有$N$个气体分子，设$m_0$为每个气体分子的质量，第一步我们先考察单个气体分子在一次碰撞中对侧壁$S$的作用，设第$i$个气体分子的速度为$\vb*{v}_i=v_{ix}\vi+v_{iy}\vj+v_{iz}\vk$，我们注意到其与垂直于$x$轴的侧壁$S$的碰撞中起作用的是$v_{ix}$分量，根据碰撞的原理，当分子以$v_{ix}$的速度域侧壁$S$面发生碰撞时，由于碰撞是完全弹性的，故分子将以$-v_{ix}$的速度被弹回。
+
+根据动量定理，该分子取得的冲量为其动量增量，即末动量$-m_0v_{ix}$减去初动量$m_0v_{ix}$，而与之相对应的，容器取得的冲量是该分子取得的冲量的负值，如果我们记容器取得的冲量是$I_i$
+\begin{Equation}
+    I_i=-(-m_0v_{ix}-m_0)=2m_0v_{ix}
+\end{Equation}
+第二步我们考虑单个气体分子在单位时间内对侧壁$S$面的冲量，由于气体分子在两个侧壁间往返一次通过的距离为$2l$，且因为弹性碰撞该过程的速度恒为$v_{ix}$，因此气体分子连续两次与侧壁$S$面碰撞的时间间隔为$\delt{t}=2l/v_{ix}$，或者说单位时间内将碰撞$\delt{t}^{-1}=v_{ix}/2l$次，故
+\begin{Equation}
+    I_{i,t}=\frac{I_{i}}{\delt{t}}=\frac{2m_0v_{ix}}{2l/v_{ix}}=\frac{m_0v_{ix}^2}{l}
+\end{Equation}
+其中$I_{i,t}$表示第$i$个气体分子在单位时间内施予侧壁$S$面的冲量。
+
+第三步考虑大量气体分子对侧壁$S$面的作用，由于侧壁$S$面所受平均冲力$\xbar{F}$的大小等于单位时间内长方体容器内所有分子给予侧壁$S$面冲量的总和（冲量是力在时间上的积累），故
+\begin{Equation}
+    \xbar{F}=\OldSum[i=1][N]{\frac{m_0v_{ix}^2}{l}}=\frac{m_0}{l}\OldSum[i=1][N]{v_{ix}^2}
+\end{Equation}
+而根据压强$P$单位面积上的力的定义，注意到$V=lS$
+\begin{Equation}
+    P=\frac{\xbar{F}}{S}=\frac{m_0}{lS}\OldSum[i=1][N]{v_{ix}^2}=\frac{m_0}{V}\OldSum[i=1][N]{v_{ix}^2}
+\end{Equation}
+在上式中乘除总分子数$N$，构造平均值，注意到$n=N/V$
+\begin{Equation}
+    P=\frac{m_0N}{V}\OldSum[i=1][N]{\frac{v_{ix}^2}{N}}=\frac{m_0N}{V}\xbar{v_{x}^2}=nm_0\xbar{v_{x}^2}
+\end{Equation}
+在上式中代入\fancyref{ppt:理想气体的速度均值性质}，即得
+\begin{OldBoxFormula}[压强第一公式]
+    理想气体的压强$P$与气体分子的平均速度平方$\xbar{v^2}$存在以下关系
+    \begin{Equation}
+        P=\frac{1}{3}nm_0\xbar{v^2}
+    \end{Equation}
+\end{OldBoxFormula}
+如果我们效仿宏观物体的动能，引入分子平均平动动能的概念
+\begin{OldBoxDefinition}[分子平均平动动能]
+    理想气体的\uwave{分子平均平动动能}应被定义为
+    \begin{Equation}
+        \xbar{\varepsilon_\text{kt}}=\frac{1}{2}m_0\xbar{v^2}
+    \end{Equation}
+    这就是说，分子平均平动动能$\xbar{\varepsilon_\text{kt}}$正比于分子质量$m_0$和分子速度平方均值$\xbar{v^2}$。
+\end{OldBoxDefinition}
+\begin{OldBoxFormula}[压强第二公式]
+    理想气体的压强$P$与气体分子的平均平动动能$\xbar{\varepsilon_\text{kt}}$存在以下关系
+    \begin{Equation}
+        P=\frac{2}{3}n\xbar{\varepsilon_{\text{kt}}}
+    \end{Equation}
+\end{OldBoxFormula}
+\xref{fml:压强第一公式}和\xref{fml:压强第二公式}是理想气体的压强公式，我们看到，在它们的推导过程中，对于单个分子我们运用经典力学规律，对于大量分子则运用统计平均的方法，最终将宏观物理量压强与大量分子运动的微观物理量的统计平均值，即平均速度平方$\xbar{v^2}$和平均平动动能$\xbar{\varepsilon_{\text{kt}}}$联系起来。
+
+\xref{fml:压强第一公式}和\xref{fml:压强第二公式}的重要意义在于，其沟通了热力学系统的宏观量和微观量。
+
+\subsection{理想气体的温度公式}
+\label{subsec:理想气体的温度公式}
+根据\fancyref{fml:压强第一公式}和\fancyref{fml:压强第二公式}以及\fancyref{eq:理想气体物态方程的变式}，我们可以由压强和微观量的关系，进一步导出温度和微观量的关系，从而更为深入的阐明温度这一概念的微观实质。为此，我们在两个压强公式中分别代入$P=nkT$
+\begin{Equation}*
+    nkT=\frac{1}{3}nm_0\xbar{v^2}\qquad
+    nkT=\frac{2}{3}n\xbar{\varepsilon_{\text{kt}}}
+\end{Equation}
+在上两式两侧同除以$nk$，我们就可以得到温度与微观量的关系
+\begin{OldBoxFormula}[温度第一公式]
+    理想气体的温度$T$与气体分子的平均速度平方$\xbar{v^2}$存在以下关系
+    \begin{Equation}
+        T=\frac{1}{3}k_B^{-1}m_0\xbar{v^2}
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{OldBoxFormula}[温度第二公式]
+    理想气体的温度$T$与气体分子的平均平动动能$\xbar{\varepsilon_{\text{kt}}}$存在以下关系
+    \begin{Equation}
+        T=\frac{2}{3}k_B^{-1}\xbar{\varepsilon_{\text{kt}}}
+    \end{Equation}
+\end{OldBoxFormula}
+
+\xref{fml:温度第一公式}和\xref{fml:温度第二公式}是理想气体的温度公式，温度公式与压强公式一样，两者均为气体动理论的基本公式。温度公式充分揭示了温度的微观实质，前者指出\empx{气体的热力学温度是分子热运动剧烈程度的标志}，后者指出\empx{气体的热力学温度是分子平均平动动能的量度}，由此我们就充分理解了温度作为一个热学参量的具体意义。此外，温度公式也表明，温度和压强一样均是建立在统计意义上的，因此脱离大量分子和统计平均，谈论单个分子的温度高低是毫无意义的。
+
+\xref{fml:温度第二公式}也可以反过来表述，这是更常用的
+\begin{Equation}&[反]
+    \xbar{\varepsilon_{\text{kt}}}=\frac{3}{2}k_BT
+\end{Equation}
+由此可见，温度和分子平均平动动能是宏观和微观上对同一属性的两种不同描述。除此之外在\xrefpeq{反}中，如果令$T=0\si{K}$则有$\varepsilon_{\text{kt}}=0$，这就指示当热力学温度达到零度时分子的热运动将停止，所以分子热运动是永不停息的，因此热力学温标的零度，只能接近，不能达到，因此我们也将$T=0\si{K}$称之为\uwave{绝对零度}，这也是为何热力学温标将温标的基点选取于此的原因。

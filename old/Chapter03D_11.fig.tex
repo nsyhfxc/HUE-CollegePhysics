@@ -1,0 +1,73 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\tikzset{lig/.style={postaction={decorate},thin}}
+
+\draw[thick,fill=black,fill opacity=0.1] 
+(0,0) coordinate (O)
+-- ++(7,0) coordinate (A)
+-- ++(0,3) coordinate (B)
+-- cycle;
+
+\path 
+($(O)!0.478!(A)$) node[point,name=P]{};
+
+\path[name path=p]
+(O)--(B);
+
+\path[name path=p1]
+(P) -- ++(105:4);
+
+\path[name path=p2]
+(P) -- ++(75:4);
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.3 with {\arrow{latex}}}]
+
+\foreach \x in {0,0.5,...,7}
+{
+
+\path[name path=px] (\x,5)--(\x,0);
+
+\draw[lig,black!50!white,ultra thin,
+name intersections={of=px and p,by=Px}] (\x,5)--(Px);
+}
+\end{scope}
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.5 with {\arrow{latex}}}]
+    
+\path[
+name intersections={of=p1 and p,by=P1'},
+name intersections={of=p2 and p,by=P2'}]
+(P1') node[point,name=P1]{}
+(P2') node[point,name=P2]{};
+
+\draw[lig,blue](P1)--(P);
+\draw[lig,blue](P)--(P2);
+
+\path (0,3.5) coordinate (H);
+
+\draw[lig,red](P1)--(P1|-H)  node[point,name=P1h]{};
+\draw[lig,blue](P2)--(P2|-H) node[point,name=P2h]{};
+
+\draw[dashed] ($(P1h)!-1.5!(P2h)$)--(P1h)--(P2h)--($(P1h)!2.5!(P2h)$);
+
+\end{scope}
+
+\draw[thick] (0,5) coordinate (R1) rectangle (7,5.5) coordinate (R2) ($(R1)!0.5!(R2)$) node {\small 平行光源};
+
+\draw pic["{$\theta$}",
+draw=black,
+angle radius=0.7cm,
+angle eccentricity=1.5] 
+{angle=A--O--B};
+
+\path (A) node[above left] {$n_2$};
+\path (B) node[above left] {$n_1$};
+
+
+\end{tikzpicture}
+\end{document}

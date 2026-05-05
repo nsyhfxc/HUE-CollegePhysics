@@ -1,0 +1,30 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{axi/.style={gray,very thin,->}}
+\tikzset{aux/.style={gray,dotted}}
+\tikzset{plt/.style={thick}}
+
+\draw[axi,name path=ax] (-3,0) coordinate(X1) -- (+7.5,0) coordinate (X2) node[below] {$U$};
+
+\draw[axi] (0,0) coordinate (O) node[point,label=below:$O$] {} -- (0,5.5) coordinate (Y2) node[right] {$I$};
+
+\begin{scope}
+    \clip (X1) rectangle (X2|-Y2);
+
+    \draw[plt] plot[samples=400,domain=-1.8:6,range=0:6.2] (\x,{(-1/(\x+2)+3)}) node[right] {\footnotesize 光强较弱};
+    
+    \draw[plt] plot[samples=400,domain=-1.8:6,range=0:6.2] (\x,{1.5*(-1/(\x+2)+3)})  node[right] {\footnotesize 光强较强};
+\end{scope}
+
+\path[name path=plt1] plot[samples=400,domain=-1.7:6,range=0:6] (\x,{(-1/(\x+2)+3)});
+
+\path[name intersections={of=plt1 and ax,by=U0},axi] (U0) node[point,label=below:$U_0$] {}; 
+
+\draw[aux] (0,3.0) node[point,label=left:$I_{m1}$] {} -- ++(6.0,0);
+\draw[aux] (0,4.5) node[point,label=left:$I_{m2}$] {} -- ++(6.0,0);
+
+\end{tikzpicture}
+\end{document}

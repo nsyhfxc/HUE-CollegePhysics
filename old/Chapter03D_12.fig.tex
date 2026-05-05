@@ -1,0 +1,14 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\fill[black] (-5,-5) rectangle (5,5);
+    
+\foreach \x in {1,0.999,...,0}
+{
+\fill[white!\fpeval{50*(1+cos(2*pi*(5*\x)^2+pi))}!black] (0,0) circle[radius=\fpeval{\x*5}];
+}
+
+\end{tikzpicture}
+\end{document}

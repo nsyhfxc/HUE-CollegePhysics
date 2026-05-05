@@ -1,0 +1,99 @@
+\section{分波面干涉法}
+
+\subsection{双缝干涉}
+在1801年英国物理学家托马斯·杨应用波的干涉原理，首次成功测定了光的波长，该实验理论意义重大，且实验装置设计既巧妙又简单，这就是著名的\uwave{杨氏双缝干涉}实验，它实现光的干涉的实验装置就是本小节将介绍的双缝干涉，而双缝干涉形成相干光的原理就是分波面干涉法。
+\begin{Figure}[双缝干涉]
+    \begin{FigureSub}[双缝干涉的装置图]
+        \includegraphics[scale=0.75]{build/Chapter03C_02.fig.pdf}
+    \end{FigureSub}
+    \hspace{0.5cm}
+    \begin{FigureSub}[双缝干涉的原理图]
+        \includegraphics[scale=0.75]{build/Chapter03C_03.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+双缝干涉的实验装置如\xref{fig:双缝干涉的装置图}所示，单色光源发出的平行光首先入射在单缝$S$上，根据惠更斯原理，\empx{波前的每一点可以认为是产生球面次波的点波源}，因此单缝$S$处就成为了一个点光源。而由单缝$S$发出的光波将经过处于对称位置的双缝$S_1,S_2$，而再次应用惠更斯原理可知双缝$S_1,S_2$也将成为两个点光源，然而我们注意到，在这个光学系统中，虽然最初最左侧的光源不同位置发出的光波之间的相位差可能并不固定，但是经过单缝后，在双缝$S_1,S_2$处的两个点光源完全来自同一点光源的同一波面，因此，\empx{具有完全相同的频率和初相位}，而且即便双缝之间不完全对称，使得两者初相位不同，相位差也是恒定的，因此$S_1,S_2$是相干光源。
+
+双缝干涉产生相干光的方式，是使得同一点光源的波面经过两个对称的狭缝，通过惠更斯原理形成两个相干光源，由于该过程在波面上将光分为了两束，因此形象的称为分波面干涉法。
+
+那么，现在的问题就是，双缝干涉将产生何种光强分布呢？
+\begin{BoxFormula}[双缝干涉的光强]
+    双缝干涉在光屏上距中心$x$处产生的光程差$\delta$为
+    \begin{Equation}
+        \delta=\frac{xd}{D}
+    \end{Equation}
+    双缝干涉在光屏上距中心$x$处产生的光强为
+    \begin{Equation}
+        I=2I_0+2I_0\cos(\frac{2\pi}{\lambda}\frac{xd}{D})
+    \end{Equation}
+    其中，$d$为双缝间距，$D$为双缝至光屏的距离，$I_0$为双缝光强\footnote[2]{这里认为双缝发出的光强相同，是因为它们完全来自同一波源的同一波面上对称的两点。}，$\lambda$为光的波长。
+\end{BoxFormula}
+
+\begin{Proof}
+    双缝干涉的原理如\xref{fig:双缝干涉的原理图}所示，为了简化计算，关注双缝干涉中的主要规律，我们假定光屏参与成像的点偏离中轴线的角度$\theta$很小，进而以$\theta$很小为基础作以下两点的小角度近似
+    \begin{Equation}&[3]
+        S_1X=HX\qquad S_1H\perp CX
+    \end{Equation}
+    其中$X$是当且考虑的成像点，而$H$是由$S_1$向$S_2X$的垂线的垂足。
+
+    设$S_1,S_2$距离成像点$X$的距离分别为$r_1,r_2$，即令$S_1X=r_1$以及$S_2X=r_2$，那么光程差
+    \begin{Equation}&[2]
+        \delta=r_2-r_1
+    \end{Equation}
+    根据$r_1=S_1X=HX$的近似，考虑到$r_2=S_2X=S_2H+HX$，光程差可以表示为
+    \begin{Equation}&[3]
+        \delta=d\sin\theta
+    \end{Equation}
+    这里$\angle XCO$和$\angle S_2S_1H$均可以记为$\theta$是基于$S_1H\perp CX$的垂直近似假设。
+
+    由于$\theta$很小，根据等价无穷小原理
+    \begin{Equation}&[4]
+        \delta=d\tan\theta
+    \end{Equation}
+    而在$\angle XCO=\theta$中我们关注到$\tan\theta=x/D$，这样就有
+    \begin{Equation}*
+        \delta=\frac{xd}{D}
+    \end{Equation}
+    而将上式代入\fancyref{fml:简谐光的干涉光强}即有
+    \begin{Equation}*
+        I=2I_0+2I_0\cos(\frac{2\pi}{\lambda}\frac{xd}{D})\qedhere
+    \end{Equation}
+\end{Proof}
+
+根据\fancyref{fml:双缝干涉的光强}，我们可以绘制光强的函数曲线，如\xref{fig:双缝干涉的光强}所示
+\begin{Figure}[双缝干涉的光强]
+    \includegraphics[scale=0.95]{build/Chapter03C_04.fig.pdf}
+\end{Figure}
+根据函数关系我们可以仿真出双缝干涉的效果\footnote{这里使用白色仅表示单色光的亮度（或许是红光或蓝光），而不代表我们使用白光进行干涉实验，这将导致复杂的彩色纹路。}，如\xref{fig:单缝衍射的光强仿真}所示。
+\begin{Figure}[双缝干涉的光强仿真]
+    \includegraphics[scale=0.95]{build/Chapter03C_01.fig.pdf}
+\end{Figure}
+通过\xref{fig:双缝干涉的光强仿真}对光强的仿真可见，尽管双缝干涉的光强分布从理论上而言是余弦函数，但是就视觉效果而言，可以简单的视为明纹和暗纹的交错，这从实验测量的角度上也是更为务实的。
+\begin{BoxProperty}[双缝干涉的明纹和暗纹]*
+    双缝干涉表现为一系列等距分布的明纹和暗纹，且中央为明纹。
+
+    双缝干涉中，任意两个相邻的明纹或暗纹间的距离均为
+    \begin{Equation}&[]
+        \delt{x}=\frac{D}{d}\lambda
+    \end{Equation}
+
+    当光程差为半波长的偶数倍时产生明纹，其分布为
+    \begin{Equation}&[明纹]
+        x=\pm(2m)\frac{D\lambda}{2d}\qquad
+        m\in\N
+    \end{Equation}
+
+    当光程差为半波长的奇数倍时产生暗纹，其分布为
+    \begin{Equation}&[暗纹]
+        x=\pm(2m-1)\frac{D\lambda}{2d}\qquad
+        m\in\N^{*}
+    \end{Equation}
+    其中\xrefpeq{明纹}和\xrefpeq{暗纹}中的$m$分别称为明纹和暗纹的级次，零级明纹也称为中央明纹。
+\end{BoxProperty}
+
+通过\xref{ppt:双缝干涉的明纹和暗纹}，我们可以看到
+\begin{itemize}
+    \item 欲使干涉条纹更为稀疏，就是要使得相邻明纹或相邻暗纹的间距$\delt{x}$尽可能大，这就应减小双缝间距$d$，并且增大双缝至光屏的距离$D$和波长$\lambda$（可见光范围内即使用红光）。
+    \item 欲使干涉条纹更为密集，就是要使得相邻明纹或相邻暗纹的间距$\delt{x}$尽可能小，这就应增大双缝间距$d$，并且减小双缝至光屏的距离$D$和波长$\lambda$（可见光范围内即使用蓝光）。
+\end{itemize}
+通常来说干涉条纹越稀疏，干涉现象就越明显，干涉就越易于观察，因此干涉常用红光，并且应使$D\gg d$，双缝至光屏的距离$D$通常为$\si{m}$的数量级，双缝间距$d$通常为$\si{mm}$的数量级。

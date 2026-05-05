@@ -1,0 +1,36 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+
+\clip (-0.5,-0.5) rectangle (6.5,5);
+    
+\draw 
+(0,0) coordinate(O)
+to[vsource,v=$U$] ++(6,0) coordinate(A)
+to[rmeter,t=A,i=$I$] ++(0,4) coordinate (B)
+($(O)!0.35!(A)$) coordinate (P1)
+($(O)!0.65!(A)$) coordinate (P2)
+(B)
+to[short] (P2|-B) coordinate (Q2) node[above right] {\footnotesize $+$}
+to[open]  (P1|-B) coordinate (Q1)
+node[above left] {\footnotesize $-$}
+to[short] (O|-B)
+to[short] (O);
+
+\draw[thick] (Q1) ++(0.5,0) ++(150:0.5) arc[radius=0.5,start angle=150,end angle=210];
+
+\draw[thin,fill=red,fill opacity=0.05] (Q1) ++(0,0.5) arc[radius=0.5,start angle=90,end angle=270] coordinate(T) -- (T-|Q2) arc[radius=0.5,start angle=-90,end angle=90]-- cycle;
+
+\path ($(Q2)!0.5!(Q1)$) coordinate (M);
+
+\foreach \x in {0.0,0.2,0.4}
+{
+    \draw[-latex] ($(M)+(0,\fpeval{0.55+\x})$) -- ++(-0.8,-0.8);
+}
+
+\draw (M) circle (0.1) node {\tiny $-$};
+\draw[thin,-latex] (M) ++(0.1,0) -- ++(0.5,0);
+
+\end{tikzpicture}    
+\end{document}

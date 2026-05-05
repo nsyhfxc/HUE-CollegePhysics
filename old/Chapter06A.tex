@@ -1,0 +1,211 @@
+\section{氢原子的波尔模型}
+
+\subsection{原子核式结构模型的问题}
+在1911年，卢瑟福根据$\alpha$粒子散射实验的事实，提出了原子的核式结构模型，在这个模型，原子中央有一个带正电的原子核，原子的电子则在核外绕核作圆周运动，就像行星绕太阳那样，卢瑟福的原子核式结构模型固然可以解释大角度散射的$\alpha$粒子，但是仍存在诸多漏洞。
+
+按照经典物理学理论，当带电粒子作旋转运动时要向外辐射电磁波，辐射的电磁波的频率等同于其作旋转运动的频率，然而，这将导致电子迅速损失能量，最终坠向原子核，这样的原子是不稳定的。另外，由于电子的旋转频率是连续变化的，因此其辐射的电磁波也应为连续谱。
+
+然而，我们观测到的事实却刚好和上述理论预言相反
+\begin{itemize}
+    \item 原子实际是非常稳定的，原子在正常情况下并不向外辐射能量。
+    \item 原子即便受到激发向外辐射电磁波，也并不会形成连续谱，而是一系列分立谱线。
+\end{itemize}
+由此可见，原子的结构并不能通过经典理论来解释。
+
+\subsection{氢原子光谱的规律性}
+原子光谱是原子结构性质的反映，研究原子光谱的规律性是认识原子结构的重要手段，我们知道在所有的原子中，氢原子是最简单的，因此，氢原子的光谱也是最简单的，是一个切入点。
+
+历史上，人类最先观察到的是氢原子在可见光范围内的四条谱线，如\xref{tab:氢原子的四条可见光谱线}所示。
+
+在1885年，巴耳末发现以上四条谱线可以归纳为以下经验公式
+\begin{Equation}[可见光谱线公式]
+    \frac{1}{\lambda}=R\qty(\frac{1}{2^2}-\frac{1}{n^2})\qquad n=3,4,5,6
+\end{Equation}
+这里$n=3,4,5,6$分别将给出$\text{H}_{\alpha},\text{H}_{\beta},\text{H}_{\gamma},\text{H}_{\delta}$的波长，而$R=1.097\times 10^{7}\si{m^{-1}}$为常数。
+
+\begin{Table}[氢原子的四条可见光谱线]{cll}
+<名称&波长&颜色\\>
+$\text{H}_{\alpha}$&$\lambda=656.28\si{nm}$&红色\\
+$\text{H}_{\beta}$&$\lambda=486.13\si{nm}$&蓝色\\
+$\text{H}_{\gamma}$&$\lambda=434.05\si{nm}$&紫色\\
+$\text{H}_{\delta}$&$\lambda=410.17\si{nm}$&紫色\\
+\end{Table}
+而如果在\xref{eq:可见光谱线公式}我们将$2^2$推广为$k^2,k=1,2,\cdots$，并令$n^2,n=k+1,k+2,\cdots$，此时就会得到一个更为一般的公式，当我们取定$k$时就会得到一个谱线系，当我们在$k$确定时依次取定$n$的值就会得到谱线系中的一系列谱线，而这些谱线也确实能在氢原子的光谱中观察到。
+\begin{BoxFormula}[里德堡公式]
+    氢原子的谱线波长满足
+    \begin{Equation}&[]
+        \qquad\qquad
+        \frac{1}{\lambda}=R\qty(\frac{1}{k^2}-\frac{1}{n^2})\qquad
+        k=1,2,3,\cdots\qquad
+        n=k+1,k+2,k+3,\cdots
+        \qquad\qquad
+    \end{Equation}
+    这里的$R$称为氢原子的\uwave{里德堡常量}
+    \begin{Equation}&[常量]
+        R=1.097\times 10^{7}\si{m^{-1}}
+    \end{Equation}
+    这里前五个谱线系依次称为：莱曼系、巴尔末系、帕邢系、布拉格系，蒲芬德系。
+\end{BoxFormula}
+这里我们给出了莱曼系、巴尔末系、帕邢系的谱线分布图，如\xref{fig:氢原子的光谱}所示。
+\begin{Figure}[氢原子的光谱]
+    \includegraphics[width=14.5cm]{build/Chapter06A_01.fig.pdf}
+\end{Figure}
+通过\xref{fig:氢原子的光谱}，我们可以看出
+\begin{itemize}
+    \item 随着$k$的增大，谱线系的波长区间整体右移且区间长度增大，且只有$k=2$巴尔末系恰位于可见光的波段，$k=1$的莱曼系位于紫外波段，$k\geq 3$的帕邢系等位于红外波段。
+    \item 随着$n$的增大，谱线的波长逐渐减小且变得愈发密集，当$n\to\infty$时谱线将最终趋近该谱线系的极限波长$\qty(R/k^2)^{-1}$，形成连续光谱。由于极限波长的存在，谱线系间不会重叠。
+\end{itemize}
+先前的$\text{H}_{\alpha},\text{H}_{\beta},\text{H}_{\gamma},\text{H}_{\delta}$就是巴尔末系的前四条可见光谱线，在\xref{fig:氢原子的光谱}中用相应颜色高亮。
+
+\subsection{氢原子的波尔模型}
+\fancyref{fml:里德堡公式}相当准确的描述了氢原子的光谱，然而它只是一个经验公式罢了，并没有从原理上解释为何原子光谱是分立的。在1913年，波尔在此基础上提出了三项假设。
+\begin{BoxProperty}[定态假设]
+    原子系统存在一系列能量不连续的稳定状态，这些状态中的电子在轨道运动中并不辐射能量，这些状态是原子的稳定状态，简称\uwave{定态}。同时将原子不连续的能量称为\uwave{能级}。
+\end{BoxProperty}
+\begin{BoxProperty}[频率假设]
+    原子可以从某一定态跃迁至另一定态，设原子初态和末态的能量分别为$E_n$和$E_k$
+    \begin{itemize}
+        \item 若$E_n>E_k$，则跃迁过程中原子将放出一个光子。
+        \item 若$E_n<E_k$，则跃迁过程中原子将吸收一个光子。
+    \end{itemize}
+\end{BoxProperty}
+由于能量守恒，假如$E_n>E_k$即电子由高能级跃迁至低能级时，此时减少的能量将完全变为释放出的光子的能量，那么根据\fancyref{fml:光子的能量}，释放的光子的频率就应为
+\begin{Equation}
+    h\nu_{nk}=E_n-E_k
+\end{Equation}
+由于原子的能量是不连续的，因此原子的辐射频率也只能是分立的，这就解释了分立谱线。
+
+那么现在还有一个问题就是，定态轨道对运动电子的性质有何种要求？
+\begin{BoxProperty}[角动量假设]
+    定态轨道运动的电子的角动量$L$只能取一些了分立值
+    \begin{Equation}
+        L=m_evr=n\hbar\qquad n=1,2,3,\cdots
+    \end{Equation}
+    其中
+    \begin{Equation}
+        \hbar=\frac{h}{2\pi}
+    \end{Equation}
+    称为\uwave{约化普朗克常数}，而$n$则称为该定态轨道的量子数。
+\end{BoxProperty}
+
+以上三条假设，就构成了氢原子的玻尔模型。下面，我们将通过这三条假设来演绎其图景。
+
+\begin{BoxFormula}[氢原子的轨道半径]*
+    氢原子量子数为$n$的轨道的半径满足
+    \begin{Equation}&[]
+        r_n=n^2\frac{\varepsilon_0h^2}{\pi m_e e^2}=n^2r_1
+    \end{Equation}
+    这里$r_1$的数值满足
+    \begin{Equation}&[波尔半径]
+        r_1=\frac{\varepsilon_0h^2}{\pi m_e e^2}=5.29\times 10^{-11}\si{m}
+    \end{Equation}
+    称为氢原子的\uwave{波尔半径}，它反映了氢原子最小的轨道半径，也可以认为是氢原子的半径。
+\end{BoxFormula}
+\begin{Proof}
+    设氢原子中，电子绕原子核作半径为$r$的匀速圆周运动，电子的运动速率为$v$，另外，我们也知道电子和质子，即这里的氢原子核均带有$e$的电荷量，故根据库伦定律和牛顿第二定律
+    \begin{Equation}&[1]
+        \frac{e^2}{4\pi\varepsilon_0r^2}=m_e\frac{v^2}{r}
+    \end{Equation}
+    其中$m_e$是电子的质量，而另外一方面，根据\fancyref{ppt:角动量假设}，我们又有
+    \begin{Equation}&[2]
+        L=m_evr=n\hbar\qquad n=1,2,3,\cdots
+    \end{Equation}
+    这里$v,r$是未知量，我们的目的是解得$r$，因此我们应当通过$v$建立等式。
+
+    通过\xrefpeq{1}确定$v^2$的第一组表达式
+    \begin{Equation}&[3]
+        v^2=\frac{e^2}{4\pi\varepsilon_0m_er}
+    \end{Equation}
+    通过\xrefpeq{2}确定$v^2$的第二组表达式
+    \begin{Equation}&[4]
+        v^2=\frac{n^2\hbar^2}{m_e^2r^2}
+    \end{Equation}
+    由\xrefpeq{3}和\xrefpeq{4}易得
+    \begin{Equation}&[5]
+        \frac{e^2}{4\pi\varepsilon_0m_er}=
+        \frac{n^2\hbar^2}{m_e^2r^2}
+    \end{Equation}
+    两端同乘$r^2$
+    \begin{Equation}
+        r\frac{e^2}{4\pi\varepsilon_0m_e}=
+        \frac{n^2\hbar^2}{m_e^2}
+    \end{Equation}
+    这就求得了$r$的表达式，并考虑到$\hbar^2=h^2/4\pi^2$
+    \begin{Equation}
+        r=\frac{4\pi\varepsilon_0m_e}{e^2}\cdot\frac{n^2\hbar^2}{m_e^2}=\frac{4\pi\varepsilon_0n^2\hbar^2}{m_ee^2}=
+        \frac{\varepsilon_0n^2h^2}{\pi m_ee^2}
+    \end{Equation}
+    由于此处半径$r$是关于量子数$n$的量，因此改记为$r_n$，这就得到了\xrefpeq{}。
+\end{Proof}
+
+\begin{BoxFormula}[氢原子的能级公式]
+    氢原子量子数为$n$的轨道的能级满足
+    \begin{Equation}
+        E_n=-\frac{1}{n^2}\frac{m_ee^4}{8\varepsilon_0^2h^2}=-\frac{1}{n^2}E_1
+    \end{Equation}
+    这里$E_1$的数值满足
+    \begin{Equation}
+        E_1=-\frac{m_ee^4}{8\varepsilon_0^2h^2}=-13.6\si{eV}
+    \end{Equation}
+    称为氢原子的\uwave{基态}，相应的将$E_2,E_3,\cdots$等称为氢原子的\uwave{激发态}。
+\end{BoxFormula}
+
+\begin{Proof}
+    氢原子的总能量$E$应为电子的动能和电子与原子核间的电势能（注意其值为负）的和
+    \begin{Equation}&[1]
+        E=\frac{1}{2}m_ev^2-\frac{e^2}{4\pi\varepsilon_0r}
+    \end{Equation}
+    这里我们用前面的\xrefpeq[氢原子的轨道半径]{3}将$v^2$代换为$r$
+    \begin{Equation}&[2]
+        E=\frac{m_e}{2}\frac{e^2}{4\pi\varepsilon_0m_er}-\frac{e^2}{4\pi\varepsilon_0r}
+    \end{Equation}
+    稍作整理，提出$1/r$即有
+    \begin{Equation}&[3]
+        E=\frac{1}{r}\qty[\frac{e^2}{8\pi\varepsilon_0}-\frac{e^2}{4\pi\varepsilon_0}]
+    \end{Equation}
+    或者
+    \begin{Equation}&[4]
+        E=-\frac{1}{r}\qty[\frac{e^2}{8\pi\varepsilon_0}]
+    \end{Equation}
+    代入\fancyref{fml:氢原子的轨道半径}
+    \begin{Equation}&[5]
+        E=-\frac{\pi m_ee^2}{n^2\varepsilon_0h^2}\cdot\frac{e^2}{8\pi\varepsilon_0}
+    \end{Equation}
+    化简即得
+    \begin{Equation}*
+        E=-\frac{1}{n^2}\frac{m_ee^4}{8\varepsilon_0^2h^2}\qedhere
+    \end{Equation}
+\end{Proof}
+我们注意到基态能量$E_1=-13.6\si{eV}$为负值，这表征了原子核对电子的束缚，注意到
+\begin{Equation}
+    E_2=-\frac{13.6}{2^2}\si{eV}=-3.40\si{eV}
+    \qquad
+    E_3=-\frac{13.6}{3^2}\si{eV}=-1.51\si{eV}
+\end{Equation}
+即，各个激发态的能量随着量子数$n$的增加而增加，这就意味着如果我哦们给予氢原子足够的能量，它的电子就会由基态进入量子数$n$越来越高的激发态，而当$n\to\infty$时我们注意到有$E_n\to 0\si{eV}$，因此只要我们给予氢原子的基态电子$13.6\si{eV}$的能量，其电子就可以完全脱离原子核的束缚，成为自由电荷。这一点与基态氢原子的电离能为$13.6\si{eV}$的实验事实相符。
+
+有了\fancyref{fml:氢原子的能级公式}，先前的\fancyref{fml:里德堡公式}就不难理解了
+\begin{Figure}[氢原子的能级与光谱的关系]
+    \includegraphics[scale=0.85]{build/Chapter06A_02.fig.pdf}
+\end{Figure}
+设某个氢原子的电子从能量较高的激发态$E_n$跃迁至能量较低的激发态$E_k$，该过程中，它将放出一个光子，而根据\fancyref{ppt:频率假设}，跃迁所放出的光子的频率$\nu_{nk}$可以表示为
+\begin{Equation}
+    \nu_{nk}=\frac{E_n-E_k}{h}
+\end{Equation}
+我们考虑代入\fancyref{fml:氢原子的能级公式}
+\begin{Equation}
+    \nu_{nk}=\frac{m_ee^4}{8\varepsilon_0^2h^3}\qty(\frac{1}{k^2}-\frac{1}{n^2})
+\end{Equation}
+由于$\lambda_{nk}=c/\nu_{nk}$，这里可以有
+\begin{Equation}
+    \frac{1}{\lambda_{nk}}=\frac{\nu_{nk}}{c}=\frac{m_ee^4}{8\varepsilon_0^2h^3c}\qty(\frac{1}{k^2}-\frac{1}{n^2})
+\end{Equation}
+如果将前面的系数用$R$代换
+\begin{Equation}
+    \frac{1}{\lambda_{nk}}=R\qty(\frac{1}{l^2}-\frac{1}{n^2})
+\end{Equation}
+我们就成功的由波尔模型推出了里德堡公式，并且
+\begin{Equation}
+    R=\frac{m_ee^4}{8\varepsilon_0^2h^3c}
+\end{Equation}
+我们也得到了里德堡常量基于物理常数的确切表达式，我们很容易验证，如果这里代入相关常数，那么也将得到$R=1.097\times 10^{7}\si{m^{-1}}$的结果，即理论值与实验值相符。由此，波尔理论在解释氢原子光谱的规律性上取得了成功，波尔模型为经验的里德堡公式建立了理论依据。

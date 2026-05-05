@@ -1,0 +1,55 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{plane/.style={ultra thin,gray}}
+\tikzset{lig/.style={postaction={decorate},thin}}
+
+\clip (-2,-1.3) rectangle (2,1.0);
+
+\draw[plane]
+(-2,0) coordinate (A1)
+node[above right=0.1cm] {$n_1$}
+node[rotate=-90,above=0.15cm] {$>$}
+--
+(+2,0) coordinate (A2);
+
+\draw[plane]
+($(A1)+(0,-0.8)$) coordinate (B1)
+node[below right=0.1cm] {$n_3$}
+node[rotate=-90,above=0.15cm] {$>$}
+--
+($(A2|-B1)$) coordinate (B2);
+
+\draw[plane] ($(A1)!0.5!(B1)$) node[right=0.1cm] {$n_2$};
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.5 with {\arrow{latex}}}]
+
+\path
+($(A1)!0.3!(A2)$) node[point,name=A]{}
+($(A1)!0.7!(A2)$) node[point,name=C]{}
+($(A)!0.5!(C)$) coordinate (Temp)
+($(Temp|-B2)$)  node[point,name=B]{};
+
+\draw[lig]
+($(A)+(115:1.2)$) -- (A);
+
+\draw[lig,red]
+(A) -- ($(A)+(65:1.2)$) coordinate (A');
+
+\draw[lig,blue]
+(A)--(B);
+
+\draw[lig,blue]
+(B)--(C);
+
+\draw[lig,blue]
+(C)-- ++($(A')-(A)$);
+
+\end{scope}
+
+
+\end{tikzpicture}
+\end{document}

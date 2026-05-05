@@ -1,0 +1,39 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\tikzset{axi/.style={gray,very thin,->}}
+
+\draw[axi] (0,-2.5)--(0,2.5);
+\draw[axi] (0,0)--(3,0) coordinate (X2);
+
+\draw (-2.5,0) node[circle,inner sep=0.15em,draw=black,name=g1] {$\gamma$};
+
+\draw (-0.5,0) node[circle,inner sep=0.35em,draw=black,name=e1] {\Large $e$};
+
+\draw[-latex] (g1)--(e1);
+
+\path (0,0) coordinate (O);
+
+\draw (35:3) node[circle,inner sep=0.15em,draw=black,name=g2] {$\gamma$};
+
+\draw (-55:2) node[circle,inner sep=0.35em,draw=black,name=e2] {\Large $e$};
+
+\draw[-latex] (O) -- (g2);
+\draw[-latex] (O) -- (e2);
+
+\draw pic["{$\phi$}",
+draw=black,
+angle radius=0.4cm,
+angle eccentricity=2] 
+{angle=X2--O--g2};
+
+\draw pic["{$\theta$}",
+draw=black,
+angle radius=0.3cm,
+angle eccentricity=2] 
+{angle=e2--O--X2};
+
+\end{tikzpicture}    
+\end{document}

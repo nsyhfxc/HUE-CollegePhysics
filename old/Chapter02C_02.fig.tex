@@ -1,0 +1,21 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[fill=black!90!white] (0,0) coordinate (O) rectangle (5,3) coordinate (A);
+\draw[fill=white] ($(O)+(0.15,0.15)$) coordinate (O') rectangle ($(A)-(0.15,0.15)$) coordinate (A');
+
+\path ($(O')!0.5!(O'-|A')$) coordinate (B);
+\path ($(A')!0.5!(O'|-A')$) coordinate (C);
+
+\draw[fill=black!90!white] ($(B)+(0.075,0)$) coordinate (B') rectangle ($(C)+(-0.075,0)$) coordinate (C');
+
+\draw[fill=red!10!white] (O') rectangle (C');
+
+\path ($(O')!0.5!(C')$) node {\small $(P_1,V_1,T_1)$};
+
+\path ($(B')!0.5!(A')$) node {\small 真~空};
+    
+\end{tikzpicture}    
+\end{document}

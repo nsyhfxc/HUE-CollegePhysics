@@ -1,0 +1,104 @@
+\section{康普顿效应}
+\label{sec:康普顿效应}
+康普顿在1923年在研究X射线经物质散射后的光谱成分时发现，实验表明，散射的X射线中不仅有与入射线波长相同的射线，而且还有波长大于入射线波长的射线，\empx{这种散射后波长会大于入射波波长的现象}，称为\uwave{康普顿效应}。我们知道，散射意味着在各个方向都有出射的电磁波，实验表明，散射角$\phi$增大时，散射线中波长的改变量也将会随之增加，而在同一散射角下，任何散射物质给出的波长的改变量都相同，实验中观测康普顿效应的仪器如\xref{fig:康普顿效应的实验仪器}所示。\goodbreak
+
+康普顿效应在经典观点下是无法解释的，在经典物理学理论的观念下，波长为$\lambda_0$的X射线进入散射体后，将引起构成物质的带电粒子作受迫振动，每一个作受迫振动的带电粒子将向四周辐射电磁波，这就是散射的X射线。不过，由于受迫振动的频率应该与驱动力的频率一致，这样受迫振动散射X射线应该等于入射X射线的波长$\lambda_0$，即不可能产生康普顿效应。
+\begin{OldFigure}[康普顿效应的实验仪器]
+    \inputfigure{Chapter15B_Figure01}
+\end{OldFigure}
+
+% \subsection{康普顿效应的解释}
+根据爱因斯坦的光子理论，这里的X射线是一些能量较大的光子（X射线是高频电磁波），而当X射线进入散射体后，我们认为光子将与原子中的电子发生弹性碰撞，我们认为在碰撞过程中，光子与电子组成的系统遵循能量和动量的守恒，光子与电子间要发生能量和动量的转移，然而取决于被碰撞电子在原子中的具体位置，这种碰撞可能产生两种截然不同的结果
+\begin{itemize}
+    \item 若电子为外层电子，此时原子对电子的束缚很弱，电子可以视为自由电子，由于X射线的频率较高，在$E=h\nu=mc^2$的意义下其光子具有与电子相当的质量，因此在碰撞时将会有相当的能量从光子转移到电子，而由于光子的能量减少，根据$E=h\nu$其频率也将相应减小，从而波长相应增大，这就是康普顿散射中波长增大的散射光的来源。另外在后续对该过程的定量计算中，由于光子的速度远大于电子，可以认为电子是静止的。
+    \item 若电子为内层电子，此时原子对电子的束缚很强，光子与其相撞时相当于与整个原子实相撞，光子的质量是远小于整个原子实的质量的，因此，光子将直接被反弹，而几乎不会损失能量，因而光子的频率不变，这也就是康普顿散射中波长不变的散射光的来源。
+\end{itemize}
+
+% \subsection{康普顿散射公式}
+现在我们来定量分析康普顿散射，我们的目的就是求出康普顿效应中波长改变的公式。
+\begin{OldBoxFormula}[康普顿散射公式]*
+    设入射波长为$\lambda_0$，则康普顿散射的波长$\lambda$为
+    \begin{Equation}
+        \lambda=\lambda_0+2\frac{h}{m_0c}\sin^2\qty(\frac{\phi}{2})
+    \end{Equation}
+    其中$\phi$为散射角，而$h,m_0,c$分别为普朗克常数、电子静质量、光速。
+\end{OldBoxFormula}\goodbreak
+\begin{Proof}
+    现在我们考虑某个光子与自由电子撞击，自由电子最初静止，如\xref{fig:康普顿效应的原理}所示。
+    \begin{OldFigure}[康普顿效应的原理]
+        \inputfigure[scale=0.85]{Chapter15B_Figure02}
+    \end{OldFigure}
+    碰撞前后，设光子频率$\nu_0\to \nu$，设电子质量$m_0\to m$，其中$m_0$即电子静质量。
+
+    碰撞前后能量守恒，运用了\fancyref{fml:光子的能量}和\fancyref{fml:爱因斯坦质能公式}
+    \begin{Equation}&[1]
+        h\nu_0+m_0c^2=h\nu+mc^2
+    \end{Equation}
+    碰撞前后动量守恒，运用了\fancyref{fml:普朗克--爱因斯坦关系式}
+    \begin{Equation}&[2]
+        \frac{h\nu_0}{c}\vb*{n}_0=\frac{h\nu}{c}\vb*{n}+\vb*{p}
+    \end{Equation}
+    这里$\vb*{n}_0,\vb*{n}$分别是光子的入射方向和散射方向，而$\vb*{p}$为电子动量。
+
+    由表示动量守恒的\xrefpeq{2}的$\vb*{p}$移至一侧，随后两端平方
+    \begin{Equation}&[3]
+        p^2=\frac{h^2\nu_0^2}{c^2}+\frac{h^2\nu^2}{c^2}-2\frac{h^2\nu_0\nu}{c^2}\vb*{n}\cdot\vb*{n}_0
+    \end{Equation}
+    注意到$\vb*{n}\cdot\vb*{n}_0=\cos\phi$，其中$\phi$恰为散射角
+    \begin{Equation}&[4]
+        p^2=\frac{h^2\nu_0^2}{c^2}+\frac{h^2\nu^2}{c^2}-2\frac{h^2\nu_0\nu}{c^2}\cos\phi
+    \end{Equation}
+    由表示能量守恒的\xrefpeq{1}可以得到
+    \begin{Equation}&[5]
+        mc^2=h(\nu_0-\nu)+m_0c^2
+    \end{Equation}
+    根据\fancyref{fml:能量和动量的关系}
+    \begin{Equation}&[6]
+        p^2c^2=E^2-E_0^2=(mc^2)^2-(m_0c^2)^2
+    \end{Equation}
+    将\xrefpeq{5}代入\xrefpeq{6}中，将$(mc^2)$代换
+    \begin{Equation}&[7]
+        p^2c^2=\qty[h(\nu_0-\nu)+m_0c^2]^2-(m_0c^2)^2
+    \end{Equation}
+    但另外一方面，由\xrefpeq{4}又可以得到$p^2c^2$的另一种表示
+    \begin{Equation}&[8]
+        p^2c^2=h^2\nu_0^2+h^2\nu^2-2h^2\nu\nu_0\cos\phi
+    \end{Equation}
+
+    这样，联立\xrefpeq{7}和\xrefpeq{8}，就得到
+    \begin{Equation}&[9]
+        \qty[h(\nu_0-\nu)+m_0c^2]^2-(m_0c^2)^2=h^2\nu_0^2+h^2\nu^2-2h^2\nu_0\nu\cos\phi
+    \end{Equation}
+    将左端的平方展开，注意到左侧$\pm(m_0c^2)^2$被抵消
+    \begin{Equation}&[10]
+        \qquad\qquad\qquad
+        h^2\nu_0^2+h^2\nu^2-2h^2\nu_0\nu+2m_0c^2h(\nu_0-\nu)=h^2\nu_0^2+h^2\nu^2-2h^2\nu_0\nu\cos\phi
+        \qquad\qquad\qquad
+    \end{Equation}
+    两端的$h^2\nu_0^2+h^2\nu^2$是可以被消去的
+    \begin{Equation}&[11]
+        2m_0c^2h(\nu_0-\nu)-2h^2\nu_0\nu=-2h^2\nu_0\nu\cos\phi
+    \end{Equation}
+    两端同除$2$，稍作整理
+    \begin{Equation}&[12]
+        m_0c^2h(\nu_0-\nu)=
+        h^2\nu_0\nu(1-\cos\phi)
+    \end{Equation}
+    约掉一个$h$，将频率转化为波长
+    \begin{Equation}&[13]
+        m_0c^2\qty(\frac{c}{\lambda_0}-\frac{c}{\lambda})=h\frac{c}{\lambda_0}\frac{c}{\lambda}\qty(1-\cos\phi)
+    \end{Equation}
+    稍作整理
+    \begin{Equation}
+        m_0c\frac{\lambda-\lambda_0}{\lambda_0\lambda}=h\frac{1}{\lambda_0\lambda}(1-\cos\phi)
+    \end{Equation}
+    即
+    \begin{Equation}
+        \lambda-\lambda_0=\frac{h}{m_0c}\qty(1-\cos\phi)=\frac{2h}{m_0c}\sin^2\frac{\phi}{2}
+    \end{Equation}
+    或
+    \begin{Equation}*
+        \lambda=\lambda_0+\frac{2h}{m_0c}\sin^2\frac{\phi}{2}\qedhere
+    \end{Equation}
+\end{Proof}
+

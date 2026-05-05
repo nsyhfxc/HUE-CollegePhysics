@@ -1,0 +1,71 @@
+\begin{tikzpicture}
+
+\tikzset{wall/.style={very thick}}
+\tikzset{aux/.style={ultra thin,gray}}
+
+\path (3.5,+1.5) node[point,label=above left:$S_{1}$,name=S1] {};
+\path (3.5,-1.5) node[point,label=below left:$S_{2}$,name=S2] {};
+
+\draw[wall] (3.5,3)--(3.5,1.7) (3.5,1.3)--(3.5,-1.3) (3.5,-1.7)--(3.5,-3)
+node[below] {\small 双缝};
+
+\draw[wall] (8,3) -- (8,-3)
+node[below] {\small 光屏};
+
+\path 
+(8,2) node[point,label=above right:$X$,name=X] {}
+(3.5,0) node[point,label=below left:$C$,name=C]{}
+(8,0) node[point,label=below right:$O$,name=O]{};
+
+\draw[dashed,very thin,name path=cx] (X)--(C);
+
+\draw[dotted,gray] ($(C)!-0.3!(O)$) --(C)--(O) --($(C)!1.3!(O)$);
+
+\draw (S1)--
+node[above]{$r_1$}(X)--
+node[below=0.2cm]{$r_2$}(S2);
+
+\draw[dashed,very thin,name path=s1h] (S1) -- ($(S2)!(S1)!(X)$) node[point,label=below:$H$,name=H]{};
+
+\draw pic[angle radius=0.1cm,draw=black] {right angle=S1--H--X};
+
+\path[name intersections={of=cx and s1h,by=P}]
+    (P) node[point,label=above:$P$] {};
+
+\draw pic["{\tiny $\theta$}",
+draw=black,
+angle radius=0.4cm,
+angle eccentricity=1.5] 
+{angle=O--C--X};
+
+\draw pic["{\tiny $\theta$}",
+draw=black,
+angle radius=0.3cm,
+angle eccentricity=1.5] 
+{angle=C--S1--H};
+
+\draw[aux]
+    (S1)-- ++(-1,0) coordinate(S1')
+    (S2)-- ++(-1,0) coordinate(S2');
+
+\draw[aux,<->] 
+    ($(S1)!0.7!(S1')$)
+    -- node[left,pos=0.42] {$d$}
+    ($(S2)!0.7!(S2')$);
+
+\draw[aux,<->] 
+    (3.5,-2.5)
+    -- node[below] {$D$}
+    (8,-2.5);
+
+\draw[aux]
+    (X)-- ++(0.5,0) coordinate(X')
+    (O)-- ++(0.5,0) coordinate(O');
+
+\draw[aux,<->] 
+    ($(X)!0.7!(X')$)
+    -- node[right] {$x$}
+    ($(O)!0.7!(O')$);
+
+
+\end{tikzpicture}

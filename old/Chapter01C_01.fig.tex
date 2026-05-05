@@ -1,0 +1,36 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+    
+\draw[ultra thin,->](0,0) 
+    -- ++(1.2,0)             coordinate(A)
+    -- ++(0.04,0)            coordinate(B)
+    -- ++(4.5,0)             coordinate(C)
+    -- ++(0.04,0)            coordinate(D)
+    -- ++(1.2,0) node[above] {$x$};
+
+\path ($(D)+(0,3)$) coordinate(Y);
+
+\draw[fill=black!5!white] (A) rectangle (Y);
+\draw[fill=black] (A) rectangle (B|-Y);
+\draw[fill=black] (D) rectangle (C|-Y);
+
+\path ($(D)!0.5!(Y)$) node[right] {$S$};
+
+\draw[ultra thin] (A) -- ++(0,-0.5) coordinate(A');
+
+\draw[ultra thin] (D) -- (A'-|D) coordinate(D');
+
+\draw[<->,ultra thin] ($(A)!0.5!(A')$) -- node[below] {$l$} ($(D)!0.5!(D')$);
+
+\path ($(A)!0.5!(Y)$) coordinate(P) node[point]{} node[left] {$i$};
+
+\draw[-latex] ($(P)+(0.2,+0.4)$)
+    -- node[above]{$m_0v_{ix}$} ++(1.5,0);
+
+\draw[latex-] ($(P)+(0.2,-0.4)$)
+    -- node[below]{$-m_0v_{ix}$} ++(1.5,0);
+    
+\end{tikzpicture}
+\end{document}

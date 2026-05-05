@@ -1,0 +1,52 @@
+\section{气体分子的平均自由程}
+本节我们来研究气体分子间的碰撞规律，根据分子动理论，气体种大量分子都处于永不停息的热运动中，气体分子在热运动中必然要发生分子间的相互碰撞，这种碰撞一般来说是极其频繁的，就个别分子来说，碰撞的过程是无规律的，但是对于大量分子构成的整体来说，分子间的碰撞却服从确定的统计规律。下面我们定义两个概念，作为研究分子碰撞过程的统计量。
+
+\subsection{平均自由程与碰撞频率}
+
+\begin{BoxDefinition}[平均自由程]
+    理想气体分子在连续两次碰撞间通过路程的平均值，称为\uwave{平均自由程}，以$\xbar{\lambda}$表示。
+\end{BoxDefinition}
+
+\begin{BoxDefinition}[平均碰撞频率]
+    理想气体分子在单位时间内受到的平均碰撞次数，称为\uwave{平均碰撞频率}，以$\xbar{z}$表示。
+\end{BoxDefinition}
+
+平均自由程和平均碰撞频率间具有简单数学关系，设平均速率为$\xbar{v}$和平均碰撞频率为$\xbar{z}$，那么在$\delt{t}$的时间内分的平均路程和平均碰撞次数就分别为$\xbar{v}\delt{t}$和$\xbar{z}\delt{t}$，而根据\xref{def:平均自由程}的表述，平均自由程$\xbar{\lambda}$是两次碰撞间的路径，现$\xbar{v}\delt{t}$的路程上共发生了$\xbar{z}\delt{t}$次碰撞，因此就有
+\begin{BoxFormula}[平均自由程与碰撞频率的关系]
+    平均自由程是平均速率与平均碰撞频率的比
+    \begin{Equation}&[]
+        \xbar{\lambda}=\frac{\xbar{v}}{\xbar{z}}
+    \end{Equation}
+\end{BoxFormula}
+现在的问题是如何确定$\xbar{z}$的表达式，为此，我们可以建立一个简化的模型，我们将分子视为半径为$d$的刚性小球，\empx{假想追踪某一个特定分子，而此时认为其他分子静止不动}，设此时追踪的特定分子相对于背景中静止的分子的平均相对速率为$\xbar{u}$，有论文指出\cite{p2}，当我们以上述方式考虑分子的相对运动时，气体的平均相对速率$\xbar{u}$和平均速率$\xbar{v}$间具有以下的数学关系。
+
+\subsection{平均自由程的计算公式}
+\begin{BoxFormula}[平均相对速率与平均速率的关系]
+    平均相对速率总是平均速率的$\sqrt{2}$倍
+    \begin{Equation}&[]
+        \xbar{u}=\sqrt{2}\ \xbar{v}
+    \end{Equation}
+\end{BoxFormula}
+现在我们来考虑我们追踪的特定的分子将如何参与碰撞，记之为分子A，显然，在分子A的运动过程中，由于不断的碰撞，其轨迹将表现为一条折线，很显然，那些能与分子A发生碰撞的分子均位于以折线为轴，以分子直径$d$为半径的曲折圆柱体内，而该圆柱体的截面积$\sigma$显然为$\sigma=\pi d^2$，我们称之为分子的\uwave{碰撞截面}。设气体分子的数密度为$n$，这样在$\delt{t}$的时间内，分子A走过的路程为$\xbar{u}\delt{t}$，分子A轨迹对应的曲折圆柱体的体积为$\sigma u\delt{t}$，而在其中的总分子数就为$n\sigma u\delt{t}$，这也就意味着在$\delt{t}$的时间内分子A发生的碰撞总次数为$n\sigma u\delt{t}$。
+
+由此，根据\xref{def:平均碰撞频率}和\xref{fml:平均相对速率与平均速率的关系}以及$\sigma=\pi d^2$
+\begin{Equation}*
+    \xbar{z}=\frac{n\sigma u\delt{t}}{\delt{t}}=n\sigma\xbar{u}=\sqrt{2}n\sigma\xbar{v}=\sqrt{2}n\pi d^2\xbar{v}
+\end{Equation}
+将上式代入\fancyref{fml:平均自由程与碰撞频率的关系}
+\begin{Equation}*
+    \xbar{\lambda}=\frac{\xbar{v}}{\xbar{z}}=\frac{\xbar{v}}{\sqrt{2}n\pi d^2\xbar{v}}=\frac{1}{\sqrt{2}n\pi d^2}
+\end{Equation}
+这就表明平均自由程与气体分子的平均速率无关。
+
+这样再用\fancyref{eqt:理想气体物态方程的变式}中的$n=P/(k_BT)$作代换
+\begin{Equation}*
+    \xbar{\lambda}=\frac{k_BT}{\sqrt{2}\pi d^2P}
+\end{Equation}
+\begin{BoxFormula}[平均自由程的公式]
+    平均自由程在气体温度$T$一定时，与气体压强$P$成反比
+    \begin{Equation}
+        \xbar{\lambda}=\frac{k_BT}{\sqrt{2}\pi d^2P}
+    \end{Equation}
+\end{BoxFormula}
+

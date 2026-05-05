@@ -1,0 +1,35 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[fill=gray]
+    (0,0) coordinate (O)
+    -- ++ (8,0) coordinate (A)
+    -- ++ (0,0.5) coordinate (B)
+    -- ($(O|-B)+(0.5,0)$) coordinate (C)
+    -- ++ (0,3) coordinate (D)
+    -- (D-|B) coordinate (E)
+    -- ($(E)+(B)-(A)$) coordinate (F)
+    -- (F-|O) coordinate (G)
+    -- cycle;
+
+\draw[fill=gray] ($(B)!0.38!(C)$) coordinate (R) rectangle ($(E)!0.3!(D)$) coordinate (P);
+
+\path (P|-B) coordinate (Q);
+
+\draw[fill=gray] ($(P)!0.4!(Q)$) rectangle ($(P)!0.6!(Q)+(3,0)$);
+
+\fill[black,fill opacity=0.1] (R) rectangle (D);
+
+\foreach \x in {0.1,0.3,...,0.9}
+{
+    \path ($(R)!\x!(R|-P)$) coordinate (X);
+    \draw[-latex] ($(X)+(-1,0)$)--(X);
+}
+
+\draw ($(R)!0.5!(R|-P)$) node[left=1.1cm] {$P$};
+\draw ($(R-|P)!0.25!(P)$) node[right] {$S$};
+
+\end{tikzpicture}    
+\end{document}

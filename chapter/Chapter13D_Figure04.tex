@@ -1,0 +1,87 @@
+\begin{tikzpicture}
+
+\tikzset{plane/.style={thick}}
+\tikzset{lig/.style={postaction={decorate},thin}}
+\tikzset{aux/.style={dashed,thin}}
+
+\draw[plane] 
+(-6,0) coordinate(A1)--
+(+6,0) coordinate(A2)
+node[above left] {$n_1$};
+
+\draw[plane]
+($(A1)+(0,-3)$) coordinate(B1)--
+($(A2|-B1)$)  coordinate(B2)
+node[above left] {$n_2$};
+
+\fill[black,fill opacity=0.1] 
+($(A1)+(0.1,0)$) rectangle ($(B2)-(0.1,0)$);
+
+\begin{scope}[decoration={markings,
+mark=at position 0.5 with {\arrow{latex}}}]
+
+\path
+($(A1)!0.3!(A2)$) node[point,name=A,label=below left:$A$]{}
+($(A1)!0.5!(A2)$) node[point,name=C,label=below right:$C$]{}
+($(B1)!0.4!(B2)$) node[point,name=B,label=below:$B$]{};
+
+\draw[lig]
+($(A)+(145:3)$) coordinate (Alig) -- (A);
+
+\draw[lig,blue] (A)--(B);
+\draw[lig,blue] (B)--(C);
+
+\path
+($(A)+(35:3)$) coordinate(Temp)
+($(Temp)!(C)!(A)$) node[point,name=H,label=above left:$H$]{};
+
+\draw[aux](C)--(H);
+\draw[lig,red] (A)--(H);
+
+\draw pic[angle radius=0.1cm,draw=black] {right angle=A--H--C};
+
+\draw[lig,red] (H) -- node[above] {$1$} ($(A)!2.5!(H)$) coordinate (L1);
+
+\draw[lig,blue] (C) -- node[above] {$2$} ++($(L1)-(H)$) coordinate (L2);
+
+\draw[aux] ($(L1)!-1!(L2)$) -- ($(L2)!-1!(L1)$);
+
+\draw[plane,fill=black,fill opacity=0.1] 
+($(L1)!-0.7!(L2)$) coordinate (O1)
+to[out=-55+15,in=125-15]
+($(L2)!-0.7!(L1)$) coordinate (O2)
+to[in=-55-15,out=125+15] (O1);
+
+\path 
+($(L1)!0.5!(L2)$) coordinate (Cet)
+(Cet) ++($(L1)-(H)$) coordinate (T')
+($(T')!0.4!(Cet)$)
+node[point,name=T,label=above right:$T$]{};
+
+\draw[lig,red] (L1)--(T);
+\draw[lig,blue] (L2)--(T);
+
+\path
+(L1) node[point]{}
+(L2) node[point]{};
+
+\draw[aux]
+($(A)+(0,2.5)$) coordinate (Aaux)
+--(A)--($(A)+(0,-2.5)$);
+
+\draw pic["$i$",angle radius=0.3cm,angle eccentricity=1.9,draw=black] {angle=Aaux--A--Alig};
+
+\draw[aux] (B)--(B|-A2) coordinate (Bp) node[point,label=above:$N$] {};
+
+\draw pic[angle radius=0.1cm,draw=black] {right angle=B--Bp--A2};
+
+\draw pic["$\gamma$",angle radius=0.5cm,angle eccentricity=1.9,draw=black] {angle=Bp--B--A};
+
+\draw[<->,thin] 
+($(A1)!0.05!(A2)$)
+-- node[right] {$e$}
+($(B1)!0.05!(B2)$);
+
+\end{scope}
+
+\end{tikzpicture}

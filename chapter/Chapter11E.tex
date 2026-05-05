@@ -1,0 +1,300 @@
+\section{麦克斯韦速率分布律}
+\label{sec:麦克斯韦速率分布律}
+本节我们来研究一个新的问题，通过\xref{subsec:理想气体的温度公式}我们已经知道分子速度平方的均值$\xbar{v^2}$与宏观的温度间的关系，但有时这样平均值的粗浅描述并不足矣满足我们的研究需要，有些情况下我们需要知道分布在不同速率$v$的分子有多少，本节的麦克斯韦速率分布律将解决这个问题。
+
+\subsection{高斯积分}
+\label{subsec:高斯积分}
+在正式开始前，我们先要做一些数学上的准备。
+\begin{OldBoxFormula}[高斯积分]
+    定义下式的无穷积分为\uwave{高斯积分}，记作$\Gauss[n]$\footnote[2]{其中$\mathscr{G}$是\texttt{mathscr}字体的字母G。}
+    \begin{Equation}&[]
+        \Gauss[n]=\Int[0][\infty]{x^n\e^{-\alpha x^2}\dx}
+    \end{Equation}
+    高斯积分$\Gauss[n]$是关于参量$\alpha$的函数$\Gauss[n](\alpha)$，有以下递推式
+    \begin{Equation}&[递推式]
+        \Gauss[n]=-\dv{\alpha}\Gauss[n-2]
+    \end{Equation}
+    高斯积分在$n=1$时，有
+    \begin{Equation}&[n1]
+        \Gauss[1]=\frac{1}{2\alpha}
+    \end{Equation}
+    高斯积分在$n=0$时，有
+    \begin{Equation}&[n0]
+        \Gauss[0]=\frac{\sqrt{\pi}}{2\alpha^{\frac{1}{2}}}
+    \end{Equation}
+    这样无论$n$的奇偶，高斯积分都可以通过\xrefpeq{递推式}的递推化至$\Gauss[1]$和$\Gauss[0]$求出。
+    
+    这里还特别关心的是$n=2$的情形
+    \begin{Equation}&[n2]
+        \Gauss[2]=\frac{\sqrt{\pi}}{4\alpha^{\frac{3}{2}}}
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    先证明\xrefpeq{递推式}的递推式，我们知道，对含参积分求导相当于对被积函数的参量求偏导
+    \begin{Equation}&[1]
+        \dv{\alpha}\Gauss[n]=\dv{\alpha}\Int[0][\infty]x^n\e^{-\alpha x^2}\dx=
+        \Int[0][\infty]\pdv{\alpha}\qty(x^n\e^{-\alpha x^2})\dx=\Int[0][\infty]-x^nx^2\e^{-\alpha x^2}\dx=-\Gauss[n+2]
+    \end{Equation}
+    将\xrefpeq{1}的$n$用$n-2$代换，即得\xrefpeq{递推式}的结论。
+
+    在微积分中，我们曾通过二重积分的极坐标换元证明过以下积分，这是此处结论的根基
+    \begin{Equation}&[2]
+        \Int[0][\infty]\e^{-x^2}\dx=\frac{\sqrt{\pi}}{2}
+    \end{Equation}
+
+    当$n=0$时的$\Gauss[0]$事实上就是\xrefpeq{2}通过换元的简单推广
+    \begin{Equation}&[3]
+        \Gauss[0]=\Int[0][\infty]\e^{-\alpha x^2}\dx=\frac{1}{\alpha^{\frac{1}{2}}}\Int[0][\infty]\e^{-(\sqrt{\alpha}x)^2}\dd(\sqrt{\alpha}x)=\frac{\sqrt{\pi}}{2\alpha^{\frac{1}{2}}}
+    \end{Equation}
+    当$n=1$时的$\Gauss[1]$的证明是尤其容易的
+    \begin{Equation}&[4]
+        \Gauss[1]=\Int[0][\infty]x\e^{-\alpha x^2}\dx=\frac{1}{2}\Int[0][\infty]\e^{-\alpha x^2}\dd{x^2}=\frac{1}{2\alpha}\eval{\e^{-\alpha x^2}}_0^{\infty}=\frac{1}{2\alpha}
+    \end{Equation}
+    当$n=2$时，结合\xrefpeq{n0}和\xrefpeq{递推式}就可以得出
+    \begin{Equation}*
+        \Gauss[2]=-\dv{\alpha}\Gauss[0]=\dv{\alpha}\frac{\sqrt{\pi}}{2\alpha^{\frac{1}{2}}}=\frac{\sqrt{\pi}}{4\alpha^{\frac{3}{2}}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\subsection{理想气体的麦克斯韦速率分布律}
+\label{subsec:理想气体的麦克斯韦速率分布律}
+现在开始证明麦克斯韦速率分布律。通常我们用$f_M(v)$表示麦克斯韦速率分布函数，其中下标M表示麦克斯韦（Maxwell）。特别注意，\empx{分布函数描述概率密度而不是概率}，这是因为分子速率有无限多可能的取值，其落在任何一个特定速率上的概率都是零，或者更具体的说，如果我们分别用$N$和$N(v)$表示容器中的总分子数和速度小于等于$v$的分子数，那么就有
+\begin{Equation}
+    f_M(v)=\underbrace{\frac{\dd{N(v)}}{N\dd{v}}}_{\text{概率密度}}\qquad\qquad
+    f_M(v)\neq\underbrace{\frac{\dd{N(v)}}{N}}_{\text{概率}}
+\end{Equation}
+概率只有对速率区间$[v_1,v_2]$才有意义，这可以由概率密度$f_M(v)$在$[v_1,v_2]$上的积分给出
+\begin{Equation}
+    P=\Int[v_1][v_2]{f_M(v)\dd{v}}
+\end{Equation}
+现在的问题就是，这个速率分布函数$f_M(v)$的数学表达式是什么？
+\begin{OldBoxTheorem}[麦克斯韦速率分布律]
+    理想气体的速率分布服从以下的\uwave{麦克斯韦速率分布}，记为$f_M(v)$
+    \begin{Equation}&[]
+        f_M(v)=
+        4\pi\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\e^{-m_0v^2/(2k_BT)}v^2
+    \end{Equation}
+\end{OldBoxTheorem}
+\begin{Proof}
+    我们要求的是速率分布函数$f_M(v)$，但是姑且先让我们来考虑一些更一般的东西，即速度分布函数，记作$F_M(v_x,v_y,v_z)$，这两者其实并不是等价，它们的关系将在证明的最后给出。
+
+    根据统计假设“各向同性”，速度分布函数$F_M(v_x,v_y,v_z)$对于$v_x,v_y,v_z$必然具有完全对称的数学形式，这也就意味着可以将$F_M(v_x,v_y,v_z)$写作关于$v^2=v_x^2+v_y^2+v_z^2$的函数，即
+    \begin{Equation}&[1]
+        F_M(v_x,v_y,v_z)=\varphi_0(v^2)=\varphi_0(v_x^2+v_y^2+v_z^2)
+    \end{Equation}
+    根据统计假设“各向独立”，速度的各分量之间是相互独立的，根据独立事件的概率，速度落在$(v_x,v_y,v_z)$的概率密度即为速度的各分量分别取得$v_x,v_y,v_z$的概率密度之积，因此就有
+    \begin{Equation}&[2]
+        F_M(v_x,v_y,v_z)=\varphi(v_x^2)\varphi(v_y^2)\varphi(v_z^2)
+    \end{Equation}
+    其中$\varphi$是分量平方的概率密度函数，由于各向同性，故各分量的概率密度函数相同。
+
+    这样一来，联立\xrefpeq{1}和\xrefpeq{2}即得
+    \begin{Equation}&[3]
+        \varphi_0(v^2)=\varphi(v_x^2)\varphi(v_y^2)\varphi(v_z^2)
+    \end{Equation}
+    这里接下来的几步是整个证明的精华，它将给出$\varphi,\varphi_0$的函数形式。上式两端取对数
+    \begin{Equation}&[4]
+        \ln\varphi_0(v^2)=
+        \ln\varphi(v_x^2)+
+        \ln\varphi(v_y^2)+
+        \ln\varphi(v_z^2)
+    \end{Equation}
+    在\xrefpeq{4}两端求对$v_x$的偏导，注意到$v^2=v_x^2+v_y^2+v_z^2$，因此$\pdv*{v^2}{v_x^2}=1$
+    \begin{Align}*[10pt]
+        \pdv{v_x^2}\qty[\ln\varphi(v_x^2)+
+        \ln\varphi(v_y^2)+
+        \ln\varphi(v_z^2)]&=
+        \pdv{v_x^2}\qty[\ln\varphi(v_x^2)]=\pdv{\ln\varphi_0(v^2)}{v_x^2}\\
+        &=\pdv{\ln\varphi_0(v^2)}{v^2}\cdot\pdv{v^2}{v_x^2}\\
+        &=\pdv{\ln\varphi_0(v^2)}{v^2}\cdot 1
+    \end{Align}
+    效仿以上过程于$v_y,v_z$，我们就可以得到一个关键的等式
+    \begin{Equation}&[5]
+        \pdv{v_x^2}\qty[\ln\varphi(v_x^2)]=
+        \pdv{v_y^2}\qty[\ln\varphi(v_y^2)]=
+        \pdv{v_z^2}\qty[\ln\varphi(v_z^2)]=
+        \pdv{\ln\varphi_0(v^2)}{v^2}
+    \end{Equation}
+    由于各方向之间是独立的，上述等式的结果不可能包含$v_x,v_y,v_z$，因为只要包含一个方向上的速度分量，那么就违背了另外两个分量的表达式的独立性，故结果只能是常数，记为$-\alpha$
+    \begin{Equation}&[6]
+        \pdv{v_i^2}\qty[\ln\varphi(v_i^2)]=-\alpha
+    \end{Equation}
+    将\xrefpeq{6}分别对$v_i^2$积分得$\ln\varphi_0(v_i^2)=-\alpha v_i^2+C$，或者
+    \begin{Equation}&[7]
+        \varphi(v_i^2)=C\e^{-\alpha v_i^2}
+    \end{Equation}
+    至\xrefpeq{7}我们已经完成了证明中最重要的步骤，下面只要求出待定常数$C,\alpha$即可。
+
+    由于$\varphi(v_i^2)$是一个概率密度函数，因此其在$(-\infty,\infty)$上的积分值为$1$
+    \begin{Equation}&[8]
+        \Int[-\infty][\infty]\varphi(v_i^2)\dd{v_i}=1
+    \end{Equation}
+    同时$\varphi(v_i^2)$的上述积分我们也可以直接应用\fancyref{fml:高斯积分}求出
+    \begin{Equation}&[9]
+        \Int[-\infty][\infty]\varphi(v_i^2)\dd{v_i}=
+        C\underbrace{\Int[-\infty][\infty]\e^{-\alpha v_i^2}\dd{v_i}}_{2\cdot\Gauss[0]}=C\sqrt{\frac{\pi}{\alpha}}
+    \end{Equation}
+    联立\xrefpeq{8}和\xrefpeq{9}即解得常数$C$的表达式
+    \begin{Equation}&[10]
+        C=\sqrt{\frac{\alpha}{\pi}}
+    \end{Equation}
+    现在的问题就是$\alpha$了，考虑单个平动自由度上的分子平均动能
+    \begin{Equation}&[11]
+        (\xbar{\varepsilon_\text{k}})_i=\frac{1}{2}m_0\xbar{v_i^2}=\frac{1}{2}k_BT
+    \end{Equation}
+    从\xrefpeq{11}中不难解出$\xbar{v_i^2}$的表达式
+    \begin{Equation}&[12]
+        \xbar{v_i^2}=\frac{k_BT}{m_0}
+    \end{Equation}
+    而另外一方面$\xbar{v_i^2}$作为一个均值，也可以由分布函数$\varphi(v_i^2)$的积分给出
+    \begin{Equation}&[13]
+        \qquad\qquad
+        \xbar{v_i^2}=\Int[-\infty][\infty]{v_i^2\varphi(v_i^2)\dd{v_i}}=
+        C\underbrace{\Int[-\infty][\infty]{v_i^2\varphi(v_i^2)\dd{v_i}}}_{2\Gauss[2]}=\sqrt{\frac{\alpha}{\pi}}\cdot\frac{\sqrt{\pi}}{2\alpha^{\frac{3}{2}}}=\frac{\alpha^{\frac{1}{2}}}{2\alpha^{\frac{3}{2}}}=\frac{1}{2\alpha}
+        \qquad\qquad
+    \end{Equation}
+    其中上式倒数第三步代入了\xrefpeq{10}给出的常数$C$的表达式。
+
+    联立\xrefpeq{12}和\xrefpeq{13}，消去$\xbar{v_i^2}$即得
+    \begin{Equation}&[14]
+        \frac{1}{2\alpha}=\frac{k_BT}{m_0}
+    \end{Equation}
+    由此不难求出$\alpha$的表达式
+    \begin{Equation}&[15]
+        \alpha=\frac{m_0}{2k_BT}
+    \end{Equation}
+    由此常数$C$也可以完全展开了
+    \begin{Equation}&[16]
+        C=\sqrt{\frac{\alpha}{\pi}}=\sqrt{\frac{m_0}{2\pi k_BT}}
+    \end{Equation}
+    根据\xrefpeq{7}，$\varphi(v_i)$就可以表示为
+    \begin{Equation}&[17]
+        \varphi(v_i)=\qty(\frac{m_0}{2\pi k_BT})^{\frac{1}{2}}\e^{-m_0v_i^2/(2k_BT)}
+    \end{Equation}
+    根据\xrefpeq{3}，$\varphi_0(v)$就可以表示为，注意到$v^2=v_x^2+v_y^2+v_z^2$
+    \begin{Equation}&[18]
+        \varphi_0(v^2)=\varphi(v_x^2)\varphi(v_y^2)\varphi(v_z^2)=\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\e^{-m_0v^2/(2k_BT)}
+    \end{Equation}
+    而现在的问题是，这里的$F_M(v_x,v_y,v_z)=\varphi_0(v^2)$与我们待求的$f_M(v)$是否是同一个函数？然而事实是两者并不相同，尽管$F_M(v_x,v_y,v_z)$在形式上可以表示为$v$的函数，但其实质仍然是速度分布函数，或者说是定义在\uwave{速度空间}上的。为了解释问题出在哪里，我们不妨假象两个速率相同但是速度不同的$(v_{x1},v_{y1},v_{z1})$和$(v_{x2},v_{y2},v_{z2})$，它们在速度空间上将分别位于同一球面的不同角度处，它们的概率密度虽然均为$\varphi(v^2)$却是分开的。但是对于$f_M(v)$这样的速率分布函数，既然这两个点或者说整个半径为$v$的球面上的点都是速率为$v$的分子，它们的概率密度应该被累加合并计算，因此$f_M(v)$的值即为$\varphi_0(v^2)$乘以半径$r$的球面表面积$4\pi v^2$，即
+    \begin{Equation}*
+        f_M(v)=4\pi v^2\varphi_0(v^2)=
+        4\pi\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\e^{-m_0v^2/(2k_BT)}v^2\qedhere
+    \end{Equation}
+\end{Proof}
+
+在\xref{fig:麦克斯韦分布律}中，\xref{fig:速率分布}中的$f_M(v)$是速率分布，\xref{fig:速度分布}中的$F_M(v_x,v_y,v_z)$是速度分布，当然由于速度分布是各向同性的，因此$F_M(v_x,v_y,v_z)$也可也表达成速率$v$的函数，故其也可也解读为速率$v$沿径向的分布，在\xref{fig:速度分布}中我们注意到速率沿径向的分布是单调减小的，这是很合理的，因为在无规则的热运动中获取越大的速度显然是越难的。但另外一方面，速率越大时其在速度空间中将具有越大的展开球面（$4\pi v^2$）。而这两种相反的因素共同作用的结果，就是\xref{fig:速率分布}中的麦克斯韦速率分布律，即，\empx{理想气体的分子速率分布集中在某个特定速率附近}。
+\begin{OldFigure}[麦克斯韦分布律]
+    \begin{OldFigureSub}[速率分布]
+        \inputfigure{Chapter11E_Figure01}
+    \end{OldFigureSub}
+    \hspace{0.5cm}
+    \begin{OldFigureSub}[速度分布]
+        \inputfigure{Chapter11E_Figure02}
+    \end{OldFigureSub}
+\end{OldFigure}
+
+在\xref{fig:速率分布}中我们也同时注意到，温度越高（$T_2>T_1$），速率分布曲线就越扁平，这从直观上很好理解，因为越高的温度意味着越剧烈的分子热运动，分子速率整体偏高，分子速率此时取得了更广的分布范围，但另外一方面分布曲线又需满足归一化条件，因此只能变得扁平些。
+
+当然影响分布曲线的不只是温度$T$，气体分子的质量$m_0$也是一个因素，由\xrefpeq{}
+\begin{itemize}
+    \item 温度越低，分子质量越大，速率分布曲线就越尖锐。
+    \item 温度越高，分子质量越小，速率分布曲线就越扁平。
+\end{itemize}
+
+\subsection{理想气体分子的三种统计速率}
+\label{subsec:理想气体分子的三种统计速率}
+运用\fancyref{thm:麦克斯韦速率分布律}，我们可以求出理想气体在平衡态下与分子无规则运动有关的物理量的统计平均值，较典型的有三种速率：最概然速率、平均速率、方均根速率。
+
+\begin{OldBoxFormula}[最概然速率]
+    将速率分布曲线的最大值对应的速率\footnote[2]{这就是说，最概然速率指的是出现概率密度最高的那一速率。}，称为\uwave{最概然速率}，其满足
+    \begin{Equation}
+        v_p=\sqrt{\frac{2RT}{M}}=1.41\sqrt{\frac{RT}{M}}
+    \end{Equation}
+\end{OldBoxFormula}\goodbreak
+\begin{Proof}
+    欲求最概然速率$v_p$，就相当于求麦克斯韦速率分布在何处取最大值
+    \begin{Equation}&[1]
+        f_M(v)=
+        4\pi\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\e^{-m_0v^2/(2k_BT)}v^2
+    \end{Equation}
+    为了简化计算，引入代换常量$a=m_0/2k_BT$，从而
+    \begin{Equation}&[2]
+        f_M(v)=4\pi\qty(\frac{a}{\pi})^{\frac{3}{2}}\e^{-a v^2}v^2        
+    \end{Equation}
+    为了计算$f_M(v)$的极值，我们需要求其导数$f_M'(v)$在何处取到零
+    \begin{Equation}&[3]
+        f'_M(v)=8\pi\qty(\frac{a}{\pi})^{\frac{3}{2}}\e^{-av^2}v-8\pi a\qty(\frac{a}{\pi})^{\frac{3}{2}}\e^{-av^2}v^3=0
+    \end{Equation}
+    提出\xrefpeq{3}的公因子
+    \begin{Equation}&[4]
+        f'_M(v)=8\pi\qty(\frac{a}{\pi})^{\frac{3}{2}}\e^{-av^2}v\qty(1-av^2)=0
+    \end{Equation}
+    注意到$v=0$显然是\xrefpeq{4}的一个解，但并不是我们的解，其另一个解是
+    \begin{Equation}&[5]
+        1-av^2=0
+    \end{Equation}
+    解出$v$，代入$a=m_0/2k_BT$以及\fancyref{def:玻尔兹曼常量}
+    \begin{Equation}*
+        v=\sqrt{\frac{1}{a}\vphantom{\frac{2k_BT}{m_0}}}=
+        \sqrt{\frac{2k_BT}{m_0}}=\sqrt{\frac{2RT}{M}\vphantom{\frac{2k_BT}{m_0}}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{OldBoxFormula}[平均速率]
+    将速率的平均值，称为\uwave{平均速率}，其满足
+    \begin{Equation}&[]
+        \xbar{v}=\sqrt{\frac{8RT}{\pi M}}=1.60\sqrt{\frac{RT}{M}}
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    根据连续函数均值的定义
+    \begin{Equation}&[1]
+        \xbar{v}=\Int[0][\infty]{vf(v)\dd{v}}=4\pi\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\Int[0][\infty]{v^3\e^{-m_0v^2/2k_BT}\dd{v}}
+    \end{Equation}
+    根据\fancyref{fml:高斯积分}
+    \begin{Equation}&[2]
+        \Int[0][\infty]{x^3\e^{-\alpha t}\dd{x}}=\Gauss[3]=-\dv{\alpha}\Gauss[1]=-\dv{\alpha}\qty(\frac{1}{2\alpha})=\frac{1}{2\alpha^2}
+    \end{Equation}
+    将\xrefpeq{2}代入\xrefpeq{1}中，注意到$\alpha=m_0/(2k_BT)$
+    \begin{Equation}*
+        \xbar{v}=2\pi\qty(\frac{m_0}{2\pi k_B T})^{\frac{3}{2}}\qty(\frac{m_0}{2k_BT})^{-2}=\frac{2}{\sqrt{\pi}}\qty(\frac{m_0}{2k_BT})^{-\frac{1}{2}}=\sqrt{\frac{8k_BT}{\pi m_0}}=\sqrt{\frac{8RT}{\pi M}\vphantom{\frac{2k_BT}{m_0}}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{OldBoxFormula}[方均根速率]
+    将速率平方的平均值的开根，称为\uwave{方均根速率}，其满足
+    \begin{Equation}&[]
+        v_{\text{rms}}=\sqrt{\frac{3RT}{M}}=1.73\sqrt{\frac{RT}{M}}
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    根据连续函数均值的定义
+    \begin{Equation}&[1]
+        \xbar{v^2}=\Int[0][\infty]{v^2f(v)\dd{v}}=4\pi\qty(\frac{m_0}{2\pi k_BT})^{\frac{3}{2}}\Int[0][\infty]{v^4\e^{-m_0v^2/2k_BT}\dd{v}}
+    \end{Equation}
+    根据\fancyref{fml:高斯积分}
+    \begin{Equation}&[2]
+        \Int[0][\infty]{x^4\e^{-\alpha t}\dd{x}}=\Gauss[4]=-\dv{\alpha}\Gauss[2]=-\dv{\alpha}\qty(\frac{\sqrt{\pi}}{4\alpha^{\frac{3}{2}}})=\frac{3\sqrt{\pi}}{8\alpha^{\frac{5}{2}}}
+    \end{Equation}
+    将\xrefpeq{2}代入\xrefpeq{1}中，注意到$\alpha=m_0/(2k_BT)$
+    \begin{Equation}&[3]
+        \xbar{v^2}=\frac{3\pi^{\frac{3}{2}}}{2}\qty(\frac{m_0}{2\pi k_B T})^{\frac{3}{2}}\qty(\frac{m_0}{2k_BT})^{-\frac{5}{2}}=\frac{3}{2}\qty(\frac{m_0}{2k_BT})^{-1}=\frac{3k_BT}{m_0}
+    \end{Equation}
+    这里要求的是方均根速率$v_{\text{rms}}$，而由方均根速率的定义$v_{\text{rms}}=\sqrt{\xbar{v^2}}$可得
+    \begin{Equation}*
+        v_{\text{rms}}=\sqrt{\frac{3k_BT}{m_0}}=\sqrt{\frac{3RT}{M}\vphantom{\frac{3k_BT}{m_0}}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+方均根速率$v_{\text{rms}}$的公式也可以由先前\fancyref{fml:温度第一公式}导出。
+
+方均根速率、平均速率、最概然速率是三种含义不同的统计速率，各有用途
+\begin{itemize}
+    \item 在讨论分子无规则运动的平均动能时，常用方均根速率$v_{\text{rms}}$。
+    \item 在讨论分子碰撞频率和平均自由程时，常用平均速率$\xbar{v}$。
+    \item 在讨论分子速率分布状况时，常用最概然速率$v_{p}$。
+\end{itemize}
+\begin{OldFigure}[理想气体分子的三种统计速率]
+    \inputfigure[scale=0.8]{Chapter11E_Figure03}
+\end{OldFigure}
+\xref{fig:理想气体分子的三种统计速率}中可以比较直观的看到三种统计速率$v_p<\xbar{v}<v_{\text{rms}}$的关系。

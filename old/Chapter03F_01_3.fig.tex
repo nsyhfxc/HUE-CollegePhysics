@@ -1,0 +1,49 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{aux/.style={gray,very thin,dotted}}
+
+\clip(-5.8,-0.3) rectangle (5.8,4.3);
+
+\draw[gray] (-5,0) rectangle (5,4);
+
+\foreach \x in {1,2,3}
+{
+    \draw[aux] (-5,\x)--(5,\x);
+}
+
+\path (-5,0) node[left,gray] {\tiny $0$};
+\path (-5,4) node[left,gray] {\tiny $I_0N^2$};
+
+\path (5,0) node[right,gray] {\tiny $0$};
+\path (5,4) node[right,gray] {\tiny $I_0N^2$};
+
+\newcommand{\vN}{3}
+\newcommand{\vA}{1}
+\newcommand{\vD}{4}
+
+\foreach \x in {0,1,2,...,\fpeval{3*\vD/\vA}}
+{
+    \draw[aux](+\x*\vA/\vD*pi/2,0)--(+\x*\vA/\vD*pi/2,4);
+    \draw[aux](-\x*\vA/\vD*pi/2,0)--(-\x*\vA/\vD*pi/2,4);
+    \path(+\x*\vA/\vD*pi/2,0) node[below,gray] {\tiny $\x$};
+    \path(-\x*\vA/\vD*pi/2,0) node[below,gray] {\tiny $\x$};
+}
+
+
+\begin{scope}
+    \clip (-5,0) rectangle (5,4);
+    \draw[thin,gray] plot[domain=-5:5,smooth,samples=1000] (\x,{
+        4*
+        (sin(deg(2*\vA*\x))/(2*\vA*\x))^2*
+        (sin(deg(2*\vD*\x))/sin(deg(2*\vD*\x)))^2});
+    \draw[thick] plot[domain=-5:5,smooth,samples=1000] (\x,{
+        4/(\vN*\vN)*
+        (sin(deg(2*\vA*\x))/(2*\vA*\x))^2*
+        (sin(deg(2*\vN*\vD*\x))/sin(deg(2*\vD*\x)))^2});
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

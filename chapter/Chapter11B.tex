@@ -1,0 +1,66 @@
+\section{理想气体的物态方程}
+\label{sec:理想气体的物态方程}
+描述平衡态下热力学系统各物态参量之间函数关系的方程，称为该系统的\uwave{物态方程}。
+
+根据实验，对于一定质量的气体，当压强相较标准大气压相比不太大，且温度相较室温不太低时，物态参量$P,V,T$之间存在下列关系，其中$C$为一个与气体类型和质量有关的常数
+\begin{Equation}[物态方程基础]
+    \frac{PV}{T}=C
+\end{Equation}
+在\xref{eq:物态方程基础}中，有三类我们在高中物理熟知的特殊情形
+\begin{itemize}
+    \item 当$T$为常数，在\uwave{等温变化}中\xref{eq:物态方程基础}给出$PV=C$，即\uwave{玻易耳定律}。
+    \item 当$V$为常数，在\uwave{等体变化}中\xref{eq:物态方程基础}给出$P/T=C$，即\uwave{查理定律}。
+    \item 当$P$为常数，在\uwave{等压变化}中\xref{eq:物态方程基础}给出$V/T=C$，即\uwave{盖吕萨克定律}。
+\end{itemize}
+该实验定律并不是严格成立的，通常来说其在低压高温部分与实际气体的实验结果符合的比较好，为了使得推理和计算更为简单，我们从中抽象概括出\uwave{理想气体}的概念，即在任何情况下绝对服从\xref{eq:物态方程基础}的一种气体。理想气体可以视为一种气体的理想模型，通常来说，如果我们研究的气体处于接近室温和大气压的环境中，那么我们就可以将其近似视作理想气体来分析。
+
+\begin{OldBoxLaw}[阿伏伽德罗定律]
+    在相同的温度和压强下，摩尔数相等的任意气体所占的体积相同。
+\end{OldBoxLaw}
+基于\fancyref{law:阿伏伽德罗定律}，我们将温度$T_0=273.15\si{K}$和压强$P_0=1\si{atm}$下的状态称为\uwave{气体的标准状态}，此时气体的体积记作$V_0$,而进一步实验指出，任何$1\si{mol}$气体在标准状态下所占的体积都近似为$22.4\si{L}$，我们称为\uwave{气体的摩尔体积}，可以记作$V_\text{m}=22.4\si{L\cdot mol^{-1}}$。
+
+现在让我们来考虑\xref{eq:物态方程基础}中的$C$的表示，设气体质量和摩尔质量分别为$m,M$，则其在标准状态下的体积为$V_0=(m/M)V_m$，并且注意到$C=PV/T$对于标准状态$P_0,V_0,T_0$都成立
+\begin{Equation}[物态方程基础1]
+    C=\frac{PV}{T}=\frac{P_0V_0}{T_0}=\frac{P_0V_m}{T_0}\frac{m}{M}
+\end{Equation}
+在\xref{eq:物态方程基础1}中的$P_0,V_m,T_0$均为与气体无关的物理常数，故可以引入常数来表示$P_0V_m/T$。
+
+\begin{OldBoxDefinition}[摩尔气体常量]
+    定义\uwave{摩尔气体常量}为
+    \begin{Equation}&[]
+        R=\frac{P_0V_m}{T_0}=8.31\si{J\cdot mol^{-1}K^{-1}}
+    \end{Equation}
+\end{OldBoxDefinition}
+
+通过摩尔气体常量，\xref{eq:物态方程基础1}可以进一步简化为
+\begin{Equation}[物态方程基础2]
+    C=R\frac{m}{M}
+\end{Equation}
+将\xref{eq:物态方程基础2}代入\xref{eq:物态方程基础}，即得
+\begin{OldBoxEquation}[理想气体物态方程]
+    理想气体的物态参量满足
+    \begin{Equation}&[]
+        PV=\frac{m}{M}
+        RT\qquad PV=\nu RT
+    \end{Equation}
+    其中$R$为摩尔气体常量，而$\nu,m,M$依次为气体的摩尔数、质量、摩尔质量。
+\end{OldBoxEquation}
+\fancyref{eqt:理想气体物态方程}有一个常用的变式，记气体分子的质量为$m_0$，记气体总分子数为$N$，那么，气体质量$m=m_0N$，气体的摩尔质量$M=m_0N_\text{A}$，\xref{eq:理想气体物态方程}可以改写为
+\begin{Equation}[物态方程基础3]
+    P=\frac{m}{MV}RT=\frac{m_0N}{m_0N_\text{A}V}RT=\frac{N}{V}\frac{R}{N_\text{A}}T
+\end{Equation}
+其中$n=N/V$为单位体积的分子数，即\uwave{分子数密度}，而$R/N_\text{A}$也是一个常量
+\begin{OldBoxDefinition}[玻尔兹曼常量]
+    定义玻尔兹曼常量为
+    \begin{Equation}&[]
+        k_B=\frac{R}{N_\text{A}}=1.38\times 10^{-23}\si{J\cdot K^{-1}}
+    \end{Equation}
+\end{OldBoxDefinition}
+这样\xref{eq:物态方程基础3}就可以写作
+\begin{OldBoxEquation}[理想气体物态方程的变式]
+    理想气体的物态参量满足
+    \begin{Equation}&[]
+        P=nk_BT
+    \end{Equation}
+    其中$k$为玻尔兹曼常量，而$n$为气体的分子数密度。
+\end{OldBoxEquation}

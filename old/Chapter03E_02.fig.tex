@@ -1,0 +1,53 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{aux/.style={gray,very thin,dotted}}
+
+\clip(-5.8,-0.3) rectangle (5.8,4.3);
+
+\draw[gray] (-5,0) rectangle (5,4);
+
+\foreach \x in {-3,-2.5,...,3}
+{
+    \draw[aux](\x*pi/2,0)--(\x*pi/2,4);
+}
+
+\foreach \x in {1,2,3}
+{
+    \draw[aux] (-5,\x)--(5,\x);
+}
+
+\path (-5,0) node[left,gray] {\tiny $0$};
+\path (-5,4) node[left,gray] {\tiny $I_0$};
+
+\path (5,0) node[right,gray] {\tiny $0$};
+\path (5,4) node[right,gray] {\tiny $I_0$};
+
+\foreach \x in {-3,-2,-1,1,2,3}
+{
+    \path(\x*pi/2,4) node[above,gray] {\tiny $\fpeval{abs(\x)}$};
+}
+
+\foreach \x/\t in {0/0,1.43/1,2.46/2}
+{
+    \path(+\x*pi/2,0) node[below,gray] {\tiny $\fpeval{\t}$};
+    \path(-\x*pi/2,0) node[below,gray] {\tiny $\fpeval{\t}$};
+    \draw[red!40!white,very thin,dashed] (+\x*pi/2,0) -- ++(0,4);
+    \draw[red!40!white,very thin,dashed] (-\x*pi/2,0) -- ++(0,4);
+}
+
+\begin{scope}
+    \clip (-5,0) rectangle (5,4);
+    \draw[thick] plot[domain=-5:5,smooth,samples=500] (\x,{4*(sin(deg(2*\x))/(2*\x))^2});
+\end{scope}
+
+\foreach \y/\x in {1/0,0.047/1.43,0.017/2.46}
+{
+    \path (+pi/2*\x,4*\y) node [point=red]{};
+    \path (-pi/2*\x,4*\y) node [point=red]{};
+}
+
+\end{tikzpicture}
+\end{document}

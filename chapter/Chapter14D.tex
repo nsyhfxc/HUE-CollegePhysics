@@ -1,0 +1,172 @@
+\section{狭义相对论的动力学基础}
+\label{sec:狭义相对论的动力学基础}
+我们知道，麦克斯韦电磁学的理论本身就是相对论协变的，但是，牛顿力学则是绝对时空观下的产物，因而，在狭义相对论的时空观下，牛顿力学需要做相应的修正，基本的原则是，我们重新定义的物理量在$v\ll c$时应能自行退化为牛顿力学下的定义，并且，我们希望它们之间的变换规律仍然能遵循能量守恒定律和动量守恒定律，这是科学发展中始终守卫的信条。\vspace{-0.5em}
+
+\subsection{质速关系}
+\label{subsec:质速关系}
+在狭义相对论下，我们仍然按照牛顿力学的方式定义动量和力的概念。
+\begin{OldBoxDefinition}[相对论动量]
+    在狭义相对论下，我们仍然定义动量为质量和速度的乘积
+    \begin{Equation}&[]
+        \vb*{p}=m\vb*{v}
+    \end{Equation}
+\end{OldBoxDefinition}
+\begin{OldBoxDefinition}[相对论力]*
+    在狭义相对论下，我们仍然定义力为动量对时间的导数
+    \begin{Equation}&[]
+        \vb*{F}=\dv{\vb*{p}}{t}=\dv{(m\vb*{v})}{t}
+    \end{Equation}
+\end{OldBoxDefinition}
+这里值得注意的是，所谓的质量$m$到底是什么？在牛顿力学下质量$m$是一个与运动速率无关的常量$m=m_0$，然而，在相对论力学如果我们仍然要保有这一观念，就会产生以下结果
+\begin{Equation}
+    \vb*{F}=\dv{(m\vb*{v})}{t}=\dv{(m_0\vb*{v})}{t}=m_0\dv{\vb*{v}}{t}
+\end{Equation}
+注意到，在恒定力$\vb*{F}$的作用下，物体的加速度$\vb*{a}=\dv*{\vb*{v}}{t}$恒定，这就意味着，只要力的作用时间足够长，物体的速度可以无限制增大并超过光速，这是不符合狭义相对论的时空观的。因此，质量必须要作出修正，那么应该如何修正质量是比较好的呢？比较好是指，首先其给出的结果要符合狭义相对论的时空观，其次这种修正要尽可能多的保证牛顿力学中的结论仍然适用。这是一个很难的问题，我们在此不做详细的讨论，而是直接给出恰当的质量修正公式。
+\begin{OldBoxDefinition}[相对论质量]
+    在狭义相对论，修正质量$m$为
+    \begin{Equation}
+        m=\gamma m_0=\frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+    \end{Equation}
+    其中$v$表示物体的速度，当$v\ll c$时有$m=m_0$，当$v\to c$时有$m\to\infty$。
+
+    其中$m_0$表示物体在速度$v=0$时的质量，称为\uwave{静质量}，而相应的$m$称为\uwave{动质量}。
+\end{OldBoxDefinition}
+\fancyref{def:相对论质量}告诉我们，物体的质量会随着速度趋向于光速而趋于无穷
+\begin{OldFigure}[相对论质量]
+    \inputfigure[scale=0.95]{Chapter14D_Figure01}
+\end{OldFigure}
+因此，当物体的质量接近光速时，由于物体的质量会增大并趋于无穷，相应的使物体进一步加速所需的力也会趋于无穷，这样就说明物体的速度实际并不能达到光速，符合狭义相对论。
+
+另外值得注意的是，如果物体以光速运行，例如光子，此时$v=c$且$\gamma\to\infty$，这样
+\begin{Equation}
+    m=\frac{m_0}{0}
+\end{Equation}
+这时候为了使得质量具有合理值，就必须令静质量$m_0=0$使上式成为$0/0$未定式，因此我们常说，\empx{光子的静质量为零}。静质量为零且以光速运动的粒子仍然可以具有动质量，只不过是因为$0/0$未定式，动质量现在无法通过\fancyref{def:相对论质量}计算了，需要另寻方法。
+
+\subsection{质能关系}
+\label{subsec:质能关系}
+在狭义相对论下，我们仍然按照牛顿力学的方式定义动能的概念。
+\begin{OldBoxDefinition}[相对论动能]
+    在狭义相对论下，我们仍然定义动能为力在空间的积累
+    \begin{Equation}
+        E_k=\Int[0][v]{\vb*{F}\cdot\dd{\vb*{r}}}
+    \end{Equation}
+\end{OldBoxDefinition}
+\begin{OldBoxFormula}[相对论动能的公式]
+    在狭义相对论下，我们有以下的动能公式
+    \begin{Equation}
+        E_k=mc^2-m_0c^2
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    根据\fancyref{def:相对论动能}和\fancyref{def:相对论力}
+    \begin{Equation}&[1]
+        E_k=\Int[0][v]F\dd{r}=\Int[0][v]\dv{(mv)}{t}\dd{r}=\Int[0][v]\dv{x}{t}\dd{(mv)}=\Int[0][v]v\dd{(mv)}
+    \end{Equation}
+    而由\fancyref{def:相对论质量}给出的修正公式
+    \begin{Equation}&[2]
+        m=\frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+    \end{Equation}
+    这样，将\xrefpeq{2}代入\xrefpeq{1}
+    \begin{Equation}&[3]
+        E_k=\Int[0][v]v\dd{\qty(\frac{m_0v}{\sqrt{1-\frac{v^2}{c^2}}})}=\Int[0][v]v\qty(\frac{m_0v}{\sqrt{1-\frac{v^2}{c^2}}})'\dd{v}
+    \end{Equation}
+    这里可以应用分部积分法
+    \begin{Equation}&[4]
+        E_k=
+        \frac{m_0v^2}{\sqrt{1-\frac{v^2}{c^2}}}-\Int[0][v]\frac{m_0v}{\sqrt{1-\frac{v^2}{c^2}}}\dd{v}
+    \end{Equation}
+    现在要计算\xrefpeq{4}中的积分
+    \begin{Equation}&[5]
+        \qquad\qquad
+        \Int[0][v]\frac{m_0v}{\sqrt{1-\frac{v^2}{c^2}}}\dd{v}=\frac{1}{2}\Int[0][v]\frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}\dd{v^2}=-\frac{c^2}{2}\Int[0][v]\frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}\dd{\qty(1-\frac{v^2}{c^2})}
+        \qquad\qquad
+    \end{Equation}
+    完成积分
+    \begin{Equation}&[6]
+        \qquad\qquad\qquad
+        \Int[0][v]\frac{m_0v}{\sqrt{1-\frac{v^2}{c^2}}}\dd{v}=\eval{\qty(m_0c^2\sqrt{1-\frac{v^2}{c^2}})}_0^v=m_0c^2\sqrt{1-\frac{v^2}{c^2}}-m_0c^2
+        \qquad\qquad\qquad
+    \end{Equation}
+    将\xrefpeq{6}代入\xrefpeq{4}，即得
+    \begin{Equation}&[7]
+        E_k=\frac{m_0v^2}{\sqrt{1-\frac{v^2}{c^2}}}+m_0c^2\sqrt{1-\frac{v^2}{c^2}}-m_0c^2
+    \end{Equation}
+    考虑用$\gamma$代换，简化为
+    \begin{Equation}&[8]
+        E_k=\gamma m_0v^2+\gamma^{-1}m_0c^2-m_0c^2
+    \end{Equation}
+    提出一个$\gamma$并考虑到$\gamma^{-2}=1-v^2/c^2$
+    \begin{Equation}&[9]
+        E_k=\gamma\qty[m_0v^2+m_0c^2\qty(1-\frac{v^2}{c^2})]-m_0c^2
+    \end{Equation}
+    或者
+    \begin{Equation}&[10]
+        E_k=\gamma\qty[m_0v^2+m_0c^2-m_0v^2]-m_0c^2=\gamma m_0c^2-m_0c^2
+    \end{Equation}
+    再次使用\fancyref{def:相对论质量}，应用$m=\gamma m_0$
+    \begin{Equation}*
+        E_k=mc^2-m_0c^2\qedhere
+    \end{Equation}
+\end{Proof}
+\fancyref{fml:相对论动能的公式}给出的动能公式和牛顿力学下的动能公式很不相同
+\begin{Equation}&[11]
+    E_k=\qty(\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}-1)m_0c^2
+\end{Equation}
+但是如果我们将\xrefpeq{11}在$v=0$作泰勒展开,可以证明前几项为
+\begin{Equation}
+    E_k=m_0\qty(\frac{v^2}{2}+\frac{3v^4}{8}+\frac{5v^6}{16}+\frac{35v^8}{128}+\cdots)
+\end{Equation}
+因此当$v\ll c$时我们可以仅保留泰勒展开的第一项
+\begin{Equation}
+    E_k=m_0\frac{v^2}{2}
+\end{Equation}
+这就由相对论动能自然退化至了经典力学意义下的动能。
+
+\subsection{质能公式}
+\label{subsec:质能公式}
+如果我们将\fancyref{fml:相对论动能的公式}稍稍换一种写法
+\begin{Equation}&[变式]
+    mc^2=E_k+m_0c^2
+\end{Equation}
+由于$E_k$表示的是动能，这里$mc^2,m_0c^2$也均可以视为某种能量，由于$m_0$是静质量，因此我们将此处的$m_0c^2$称为\uwave{静质能}，它反映的是物体的质量存在蕴含的能量。\xrefpeq{变式}指出$mc^2$是静质能和动能的和，因此，我们可以将$mc^2$视为物体的总能量$E$，这就是著名的\uwave{质能公式}。
+\begin{OldBoxFormula}[爱因斯坦质能公式]
+    物体的能量和质量间存在以下关系
+    \begin{Equation}
+        E=mc^2
+    \end{Equation}
+\end{OldBoxFormula}
+特别需要注意的是，质能公式$E=mc^2$并不是表示质量和能量可以相互转化，相反，它表示的是，\empx{物体的质量和能量本质是看待同一事物的不同角度罢了}，这里的质量特别是指相对论意义下的动质量，而不是通常理解的静质量。所谓的质能转换，其实是指$E=E_k+m_0c^2$的公式，我们可以将其中一部分的静质能转化为动能，从一种比较狭隘的观点上看，该过程将亏损的“质量$\delt{m}_0$”转化为了“能量$\delt{m}_0c^2$”，即所谓的质能转换。值得注意的是，这种转化是非常可观的，我们只需要亏损极小的质量$\delt{m_0}$就可以释放巨大的能量$\delt{m_0}c^2$。这正是原子弹的原理，原子弹爆炸时真正亏损的质量可能只有几克，但是，原子弹爆炸的威力则是我们有目共睹的。但如果从质能公式的观点看，该过程中“亏损的质量”和“爆炸释放的威力”是完全相同的东西，\udotcn{都是能量}，只不过形式由静质能变为了动能罢了，也可以说，\udotcn{都是质量}，只不过形式由静质量变为了动质量罢了。所以，质能公式表达的真正含义是质量和能量的同一性。
+
+质能公式的另外一个重要的用途是，当可以给出诸如光子这类以光速运行的粒子质量
+\begin{Equation}
+    m=\frac{E}{c^2}
+\end{Equation}
+质能公式下，光子的能量就是光子的质量，两者只是不同的表示方法罢了。
+
+\subsection{能量和动量的关系}
+\label{subsec:能量和动量的关系}
+\begin{OldBoxFormula}[能量和动量的关系]
+    在狭义相对论下，能量和动量具有以下关系
+    \begin{Equation}
+        E^2=p^2c^2+m_0^2c^4
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:爱因斯坦质能公式}
+    \begin{Equation}&[1]
+        E^2=m^2c^4=\gamma^2m_0^2c^4=\frac{m_0^2c^4}{1-v^2/c^2}
+    \end{Equation}
+    根据\fancyref{def:相对论动量}
+    \begin{Equation}&[2]
+        p^2=m^2v^2=\gamma^2m_0^2v^2=\frac{m_0^2v^4}{1-v^2/c^2}
+    \end{Equation}
+    这样就有
+    \begin{Equation}&[3]
+        p^2c^2=\frac{m_0c^2v^4}{1-v^2/c^2}
+    \end{Equation}
+    将\xrefpeq{1}和\xrefpeq{3}相减
+    \begin{Equation}*
+        E^2-p^2c^2=\frac{m_0^2c^2(c^2-v^2)}{1-v^2/c^2}=\frac{m_0^2c^4(c^2-v^2)}{c^2-v^2}=m_0^2c^4\qedhere
+    \end{Equation}
+\end{Proof}

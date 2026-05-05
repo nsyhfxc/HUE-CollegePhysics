@@ -1,0 +1,133 @@
+\section{光栅衍射}
+\label{sec:光栅衍射}
+广义的说，具有周期性的空间结构或光学性能的衍射屏，统称为\uwave{光栅}。这里我们考虑的光栅的结构如\xref{fig:光栅}所示，其由$N$条等距分布的狭缝构成，区别于单缝衍射，我们称之为多缝衍射。
+
+这里，取透光部分的宽度为$a$，取遮光部分的宽度为$b$，这样光栅的周期就是$d=a+b$，这就是说每经过$d$的宽度光栅的结构就会重复一次，我们将光栅的空间周期$d$定义为\uwave{光栅常量}。
+
+\begin{OldFigure}[光栅]
+    \inputfigure[scale=0.9]{Chapter13F_Figure10}
+\end{OldFigure}
+
+那么，光栅衍射的结果与单缝衍射的结果有何不同？
+\begin{OldTable}[光栅衍射的成因]{|c|c|}
+<光缝数量$N=2$&光缝数量$N=4$\\>
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure05}}
+&
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure06}}\\
+\hlinelig
+\mc{2}(|c|){光栅衍射的结果}\\
+\hlinemid
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure09}}
+&
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure09}}\\
+\hlinelig
+\mc{2}(|c|){衍射部分}\\
+\hlinemid
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure07}}
+&
+\xcell<c>[0.5ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure08}}\\
+\hlinelig
+\mc{2}(|c|){干涉部分}\\
+\end{OldTable}
+在\xref{tab:光栅衍射的成因}中，我们注意到即便是对于最简单的“双缝衍射”，它的结果相较于单缝衍射就已经复杂很多了，更不要说更复杂的“四缝衍射”。为此我们有必要仔细探究光栅衍射的光学原理。
+
+首先，我们揭示一个重要的实验事实，\empx{单缝衍射图案的形状和位置并不会随着单缝的上下移动而变化}，这就是说，即便单缝偏离了原有的中心位置，衍射图案仍然将会保持在原位，衍射的中央光强仍然在原先的中心位置。这个结果可能很难理解，不过，我们可以这样想，我们知道，在夫琅禾费衍射中，凸透镜对于成像的决定性作用。具体的说，对于衍射角为$\phi$的一组衍射光束的成像点，其实完全取决于以角度$\phi$通过凸透镜光心的光线指向何处，这一条光线是被凸透镜的位置所固定的，而上下移动单缝只会影响这一通过光心的光线到底是由单缝上具体哪一点发出的，而这并不会影响任何衍射角$\phi$时的成像位置，因此不会影响衍射图案。
+
+这样，我们就很容易想象，如果每次只令光栅的$N$条狭缝中的某一条单独工作，而将其他狭缝遮蔽，那么它们光屏上独立产生的衍射图样将是完全相同且重合的，与\xref{sec:光的衍射}中我们熟悉的单缝衍射没有任何的差别。然而，如果我们使得光栅的$N$条狭缝同时工作，我们就会简单的得到一个亮了$N$倍的单缝衍射图案吗？显然不会！因为虽然每一个狭缝产生的单缝衍射图样完全重合，但是它们之间同时是相干光源，光程差取决于缝间距，光强叠加时是适用相干叠加原理，只不过此时的干涉是在衍射光强分布的基础上进行的，当$N=2$时的干涉就是我们前面很熟悉的双缝干涉，当$N\neq 2$时我们称为\uwave{多缝干涉}，它的干涉结果会稍微更复杂一些。
+
+这样一来，我们就可以说，\empx{光栅衍射实质是单缝衍射和多缝干涉共同作用的结果}。由此我们就可以基本定性解释光栅衍射的结果了，我们知道，干涉的明纹周期取决于相邻两条狭缝中央的间距即光栅周期$d$，衍射的明纹周期则取决于狭缝宽度$a$，通常来说，狭缝刻的很细，狭缝的缝宽往往是远小于缝间距的，这就指示$d\gg a$，因此，\empx{光栅衍射的光强分布中，干涉是高频部分，衍射是低频部分}，两者会构成类似波动中的拍现象，即最终光栅的光强分布，是低频的衍射光强分布的包络线下，以高频的干涉光强分布的规律快速波动，基于此，定义以下特征。
+\begin{itemize}
+    \item 以双缝情况为例，当干涉部分达到光强极大值时，我们就称光栅衍射对应位置形成的峰值为\uwave{主极大}，主极大并不仅限于中央的哪一最高的峰值，主极大可能会随着衍射部分的包络线的起伏而上下起伏，但这都无妨，只要复合以上定义，我们就统称为主极大。
+    \item 以双缝情况为例，当干涉部分达到光强极小值时，即光强为零时，此时光栅衍射对应位置的光强也必然为零，形成暗纹，\empx{注意，此处暗纹的来源是干涉部分而不是衍射部分}！
+    \item 如果讨论的是更一般的多缝情形，那么干涉部分会更复杂一点，但总体而言并没有太大的差别，原先的主极大的位置不会改变，主要影响在于，多缝干涉在两个极大值之间还有一些次级的波动，这就会导致所谓\uwave{次极大}的出现，定量的说，\empx{即任意两个主极大之间有$N-1$个暗纹和$N-2$个次极大}，其中$N$为狭缝数量，因此双缝时没有次极大。
+    \item 另外还要一种特别的情况，如果$d$刚好是$a$的整数倍，那么衍射部分的周期和干涉部分的周期是耦合的，由于衍射部分也存在光强为零的位置，这就必然会导致样一种情况的出现，主极大恰好落在了衍射部分光强为零的位置，换言之在该处，主极大的峰值恰好为零。从图像上看，我们就好像是意外的丢失一个主极大一样，因此形象的称之为\uwave{缺级}。
+\end{itemize}
+以上，我们就对光栅衍射中的光强分布现象有了一个基本的理解，下面，我们先不加证明的列出作为绘图依据的光强分布函数，随后给出一系列光栅衍射的光强分布曲线和仿真图像，而在最后，我们将在我们的知识体系范围内半定量的讨论一下主极大的分布规律及其缺级条件。
+
+\begin{OldBoxFormula}[光栅衍射的光强分布]
+    光栅衍射在光屏相对于透镜中心$\phi$处产生的光强为
+    \begin{Equation}
+        I=I_0\qty(\frac{\sin \alpha}{\alpha})^2\qty(\frac{\sin N\beta}{\sin\beta})^2
+    \end{Equation}
+    其中，前一部分是\uwave{衍射因子}，后一部分是\uwave{干涉因子}，代换变量$\alpha,\beta$分别满足
+    \begin{Equation}
+        \alpha=\frac{\pi a}{\lambda}\sin\theta\qquad
+        \beta=\frac{\pi d}{\lambda}\sin\theta
+    \end{Equation}
+    其中，$a$和$d$分别为缝宽度和缝的中央间距（光栅常数），$\lambda$为光的波长。
+\end{OldBoxFormula}
+
+在\xref{tab:光栅衍射}中，我们以狭缝数目$N=1,2,3,4,5$绘制光栅衍射的光强分布曲线和仿真图像，并分别考虑$d/a=2$和$d/a=4$两种情形，这将决定在一个包络内光强上下振荡次数的多少。
+
+\DeclareDocumentCommand{\tabline}{ms}
+{%
+    \xcell<c>[0.2ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure02_#1}}
+    &
+    \xcell<c>[0.2ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure01_#1}}\\*
+    \xcell<c>[0.0ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure04_#1}}
+    &
+    \xcell<c>[0.0ex][0.0ex]{\inputfigure[scale=0.6]{Chapter13F_Figure03_#1}}\\*
+    \hlinelig
+    \mc{2}(|c|){$N=#1$}\\
+    \hlinemid
+}
+
+\begin{OldTableLong}[光栅衍射]{|c|c|}
+<光栅常量与光缝宽度之比$d/a=2$&光栅常量与光缝宽度之比$d/a=4$\\>
+< >( )
+\tabline{1}
+\tabline{2}
+\tabline{3}
+\tabline{4}
+\tabline{5}
+\end{OldTableLong}
+
+需要注意的是，从理论上可以计算，当光栅的狭缝数为$N$时，在中央的主极大处的光强并不是单个狭缝中央明纹的光强$I_0$，而是大的多的$I_0N^2$，定性上说开放的狭缝越多总的光的能量就相应越多，定量的说我们知道在双缝干涉中，如果两个狭缝的光强均为$I_0$，那么两个狭缝的干涉结果的光强极大值为$4I_0$，此处$N=2$恰有$N^2=4$，这就是$N^2$系数的说明。可以预见的是，当$N\to\infty$时，主极大的光强趋于无穷的同时宽度趋于零，即演化为狄拉克函数。
+
+\begin{OldBoxFormula}[光栅的主极大的分布]
+    光栅衍射的主极大的分布如下，其中$\phi$为相对中心的角度
+    \begin{Equation}&[]
+        \phi=\pm(2m)\frac{\lambda}{2d}\qquad m\in\Z
+    \end{Equation}
+\end{OldBoxFormula}
+\begin{Proof}
+    现在证明主极大的公式，所谓主极大，其实就是狭缝间两两的光程差$\delta=d\sin\phi$恰好为半波长的偶数倍，这样各个狭缝在在角度$\phi$下发出的光束就具有完全相同的相位，相干增强
+    \begin{Equation}*
+        \delta=d\sin\phi=\pm(2m)\frac{\lambda}{2}\qquad m\in\Z
+    \end{Equation}
+    作$\sin\phi=\phi$的小角度近似，将$d$移项
+    \begin{Equation}*
+        \phi=\pm(2m)\frac{\lambda}{2d}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{OldBoxFormula}[光栅主极大的缺级条件]
+    光栅主极大的缺级条件为，如果第$m$级主极大满足
+    \begin{Equation}&[]
+        m=\pm \frac{d}{a}m_0\qquad m_0\in\Z
+    \end{Equation}
+    那么第$m$级主极大将会构成缺级，其中$a,d$分别为光栅的缝宽度和缝的中央间距。
+\end{OldBoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:光栅的主极大的分布}，当$\phi$满足下式时，干涉部分取到极大值
+    \begin{Equation}&[1]
+        \phi=\pm(2m)\frac{\lambda}{2d}\qquad m\in\Z
+    \end{Equation}
+    根据\fancyref{fml:单缝衍射的暗纹分布}，当$\phi$满足下式时，衍射部分取到暗纹
+    \begin{Equation}&[2]
+        \phi=\pm(2m_0)\frac{\lambda}{2a}\qquad m_0\in\Z^{+}
+    \end{Equation}
+    假如$\phi$同时满足\xrefpeq{1}和\xrefpeq{2}，那么就有
+    \begin{Equation}&[3]
+        \pm(2m)\frac{\lambda}{2d}=\pm(2m_0)\frac{\lambda}{2a}
+    \end{Equation}
+    约去无关的系数（两侧正负号是独立的）
+    \begin{Equation}
+        \frac{m}{d}=\pm\frac{m_0}{a}
+    \end{Equation}
+    或者
+    \begin{Equation}
+        m=\pm\frac{d}{a}m_0
+    \end{Equation}
+    这就证明了\xrefpeq{}的结论。
+\end{Proof}

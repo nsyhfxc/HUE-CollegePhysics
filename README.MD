@@ -4,10 +4,13 @@
 
 ## 内容概览
 
-讲义目前分为三个部分：
+讲义目前包含以下部分：
 
 - 力学：质点运动学、牛顿运动定律、功和能、动量、刚体的定轴转动、机械振动、机械波。
 - 电磁学：真空中的静电场、电介质中的静电场、真空中的静磁场。
+- 热学：气体动理论、理想气体状态方程、麦克斯韦速率分布、热力学第一定律、循环过程等。
+- 光学：光的电磁理论、干涉、衍射、光栅衍射、偏振等。
+- 近代物理：狭义相对论、波粒二象性、光电效应、康普顿效应、氢原子模型、量子理论基础等。
 - 附录：希腊字母等补充内容。
 
 ## 项目结构
@@ -24,7 +27,12 @@
 │   ├── Chapter01B.tex
 │   ├── ...
 │   ├── Chapter10F.tex
+│   ├── Chapter11.tex     # 热学部分入口
+│   ├── ...
+│   ├── Chapter16B.tex
+│   ├── ReferenceOld.tex  # 迁移自 old 的参考文献
 │   └── AppendixGreek.tex # 附录
+├── old/                  # 旧版热学、光学、近代物理源码归档，保留不改
 └── .gitignore            # LaTeX 辅助文件和编辑器文件忽略规则
 ```
 
@@ -33,6 +41,15 @@
 - `ChapterXX.tex`：对应每章的入口文件，通常包含章标题、导语和若干 `\input`。
 - `ChapterXXA.tex`、`ChapterXXB.tex` 等：对应章节下的具体内容。
 - `ChapterXX*_Figure*.tex`：由 TikZ、CircuitikZ 等维护的图形源码片段。
+- `Chapter13A_Image01.png`：光学部分使用的外部图片资源。
+
+当前章节编号大致对应：
+
+- `Chapter01`--`Chapter07`：力学
+- `Chapter08`--`Chapter10`：电磁学
+- `Chapter11`--`Chapter12`：热学
+- `Chapter13`：光学
+- `Chapter14`--`Chapter16`：近代物理
 
 ## 编译环境
 
@@ -49,8 +66,8 @@
 在项目根目录运行：
 
 ```powershell
-xelatex -interaction=nonstopmode main.tex
-xelatex -interaction=nonstopmode main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
 需要自动处理多次编译时，也可以使用：
@@ -60,6 +77,16 @@ latexmk -xelatex main.tex
 ```
 
 编译完成后会生成或更新 `main.pdf`。若目录、引用或书签未完全更新，重复运行一次 XeLaTeX 即可。
+
+当前仓库已在 Windows + MiKTeX 环境下使用 XeLaTeX 完整编译通过，生成的 `main.pdf` 为 411 页。
+
+## 旧稿迁移说明
+
+`old/` 目录中的热学、光学和近代物理内容已经迁移到 `chapter/` 下的新章节文件中，旧目录作为原始资料归档保留。迁移后的源码不再依赖旧稿中的零散样式文件，而是统一通过根目录的 `config.sty` 提供宏包、环境和兼容命令。
+
+旧稿中的部分图形原来依赖外部生成的 PDF 或高密度 TikZ 采样。迁移后已改为项目内可直接编译的 TikZ 源码；其中光栅衍射仿真图做了降采样处理，以避免整书编译时耗尽 TeX 内存。`Chapter13E_Figure07a.tex` 和 `Chapter13E_Figure07b.tex` 是缺失原始图源的占位图。
+
+目前 `main.log` 仍可能出现少量旧稿遗留的非阻断警告，包括未定义交叉引用、重复标签和个别 overfull/underfull box。这些警告不会阻止 `main.pdf` 生成。
 
 ## 写作和维护说明
 

@@ -1,0 +1,123 @@
+\section{洛伦兹变换}
+绝对时空观的必然结果就是伽利略坐标变换，那么，相对论时空观下，或者说，相对性原理和光速不变原理下，势必将会得到一种不同的坐标变换，这就是本节将要介绍的洛伦兹变换。
+\begin{BoxFormula}[洛伦兹变换]
+    设$S(x,t)$和$S'(x',t')$是两个惯性系，其中$S'$相对$S$沿$x$轴方向以速度$u$运动。
+
+    给出$S\to S'$的变换，是\uwave{洛伦兹变换}
+    \begin{Equation}&[变换]
+        \begin{cases}
+            x'=\gamma(x-ut)\\[3mm]
+            t'\hspace{0.2em}=\gamma\qty(t-\dfrac{ux}{c^2})
+        \end{cases}
+    \end{Equation}
+    给出$S'\to S$的变换，是\uwave{洛伦兹逆变换}
+    \begin{Equation}&[逆变换]
+        \begin{cases}
+            x=\gamma(x+ut)\\[3mm]
+            t\hspace{0.2em}=\gamma\qty(t'+\dfrac{ux}{c^2})
+        \end{cases}
+    \end{Equation}
+    这里$\gamma$是一个与速度$u$有关的常数$\gamma(u)$
+    \begin{Equation}
+        \gamma=\frac{1}{\sqrt{1-\beta^2}}=\frac{1}{\sqrt{1-\frac{u^2}{c^2}}}\qquad
+        \beta=\frac{u}{c}
+    \end{Equation}
+    其中$c$为真空光速。
+\end{BoxFormula}
+\begin{Proof}
+    在伽利略变换下，我们知道空间部分的变换分别是
+    \begin{Equation}&[1]
+        x'=(x-ut)\qquad x=(x'+ut')
+    \end{Equation}
+    在洛伦兹变换下，我们需要让这种变换满足光速不变原理，我们可能会觉得这样一来变换将会有很多的可能性，但实际上，并没有太大的选择空间，因为，\empx{空间和时间是均匀的}，这是合理的假设，这边和那边的$1$米是相同的，过去和未来的$1$秒是相同的，而在这种假设下产生的一个必然结果是，\empx{空间变换必须是线性变换}，换言之，洛伦兹变换必须被限定为以下形式
+    \begin{Equation}&[2]
+        x'=\gamma(u)(x-ut)\qquad x=\gamma(-u)(x'+ut')
+    \end{Equation}
+    这里$\gamma$是无关$x,x',t,t'$的常数，而这里的变换和逆变换，分别可以视为一个关于$u$和$-u$即目标坐标系相对于自己的速度的物理规律，根据\fancyref{pri:相对性原理}，物理规律在不同惯性系中具有相同形式，因此这里关于$u$和$-u$作为系数的函数$\gamma$必然是同一个函数。\goodbreak
+
+    而根据\fancyref{pri:光速不变原理}，我们有
+    \begin{Equation}&[3]
+        c^2t'^2-x'^2-y'^2-z'^2=0\qquad
+        c^2t^2-x^2-y^2-z^2=0
+    \end{Equation}
+    这里不考虑$y,z$，不妨设$y=y'=z=z'=0$，这样简化为
+    \begin{Equation}&[4]
+        c^2t'^2-x^2=0\qquad c^2t^2-x^2=0
+    \end{Equation}
+    或者
+    \begin{Equation}&[5]
+        t'=\frac{x'}{c}\qquad t=\frac{x}{c}
+    \end{Equation}
+    现在的目的是求出$\gamma$，将\xrefpeq{5}交叉代入\xrefpeq{2}，分别得到
+    \begin{Gather}[10pt]
+        x'=\gamma(u)\qty(x-\frac{u}{c}x)=\gamma(u)\qty(1-\frac{u}{c})x\xlabelpeq{6}\\
+        x=\gamma(-u)\qty(x'+\frac{u}{c}x')=\gamma(-u)\qty(1+\frac{u}{c})x'\xlabelpeq{7}
+    \end{Gather}
+    将\xrefpeq{7}再代入\xrefpeq{6}的末端
+    \begin{Equation}&[8]
+        x'=\gamma(u)\gamma(-u)\qty(1-\frac{u}{c})\qty(1+\frac{u}{c})x'
+    \end{Equation}
+    不妨约去两端的$x'$，稍作整理
+    \begin{Equation}&[9]
+        \gamma(u)\gamma(-u)=\frac{1}{1-\frac{u^2}{c^2}}
+    \end{Equation}
+    下一步是比较困难的，在一般情况下$\gamma(u)\neq \gamma(-u)$，但是如果假设$\gamma=\gamma(u)=\gamma(-u)$
+    \begin{Equation}&[10]
+        \gamma=\pm\sqrt{\frac{1}{1-\frac{u^2}{c^2}}}
+    \end{Equation}
+    我们关注到得到的结果只包含$u^2$，这样一来前面$\gamma=\gamma(u)=\gamma(-u)$的猜测就是成立的了。
+
+    我们现在的问题是，这里的正负都需要保留吗？并不是，因为洛伦兹变换必须要在$u\ll c$时自然退化至伽利略变换，因为低速下的伽利略变换是得到大量实验验证的。而这一要求就相当于是要保证\xrefpeq{2}中的$\gamma$在$u\to 0$时满足$\gamma\to 1$，为此，\xrefpeq{10}中只能取正，即
+    \begin{Equation}&[11]
+        \gamma=\sqrt{\frac{1}{1-\frac{u^2}{c^2}}}
+    \end{Equation}
+    或者更简洁的记为
+    \begin{Equation}&[12]
+        \gamma=\sqrt{\frac{1}{1-\beta^2}}\qquad\beta=\frac{u}{c}
+    \end{Equation}
+    至此，我们就通过光速不变原理和相对性原理导出了洛伦兹变换的空间部分。
+
+    接下来的时间部分只剩一些简单的代数计算了，展开\xrefpeq{2}
+    \begin{Equation}&[13]
+        x'=\gamma x-\gamma ut\qquad x=\gamma x'+\gamma ut'
+    \end{Equation}
+    从\xrefpeq{13}中分别解出$t$和$t'$
+    \begin{Equation}&[14]
+        t=-\frac{x'-\gamma x}{\gamma u}\qquad t'=\frac{x-\gamma x'}{\gamma u}
+    \end{Equation}
+    稍做一些整理
+    \begin{Equation}&[15]
+        t=-\frac{1}{u}\qty(\frac{x'}{\gamma}-x)\qquad
+        t'=\frac{1}{u}\qty(\frac{x}{\gamma}-x')
+    \end{Equation}
+    在\xrefpeq{15}中代入\xrefpeq{2}，消去$t,t'$的表达式中的$x,x'$
+    \begin{Equation}&[16]
+        t=-\frac{1}{u}\qty[\frac{x'}{\gamma}-\gamma(x'+ut')]\qquad
+        t'=\frac{1}{u}\qty[\frac{x}{\gamma}-\gamma(x-ut)]
+    \end{Equation}
+    在\xrefpeq{16}的括号内提出一个$1/\gamma$，并打开内层括号
+    \begin{Equation}&[17]
+        t=-\frac{\gamma}{u}\qty[\frac{x'}{\gamma^2}-x'-ut']\qquad
+        t'=\frac{\gamma}{u}\qty[\frac{x}{\gamma^2}-x+ut]
+    \end{Equation}
+    稍作些整理
+    \begin{Equation}&[18]
+        t=-\frac{\gamma}{u}\qty[\qty(\frac{1}{\gamma^2}-1)x'-ut']\qquad
+        t'=\frac{\gamma}{u}\qty[\qty(\frac{1}{\gamma^2}-1)x+ut]
+    \end{Equation}
+    由\xrefpeq{11}我们注意到
+    \begin{Equation}&[19]
+        \frac{1}{\gamma^2}-1=-\frac{u^2}{c^2}
+    \end{Equation}
+    将\xrefpeq{19}代入\xrefpeq{18}中，关注各个正负号的去向
+    \begin{Equation}&[20]
+        t=\frac{\gamma}{u}\qty[ut'+\frac{u^2}{c^2}x']\qquad
+        t'=\frac{\gamma}{u}\qty[ut-\frac{u^2}{c^2}x]
+    \end{Equation}
+    注意到我们可以约掉分子上的$u$
+    \begin{Equation}&[21]
+        t=\gamma\qty(t'+\frac{u}{c}x')\qquad
+        t'=\gamma\qty(t-\frac{u}{c}x)
+    \end{Equation}
+    这就证明了洛伦兹变换在时间部分的结论。
+\end{Proof}

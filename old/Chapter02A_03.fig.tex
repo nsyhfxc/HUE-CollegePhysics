@@ -1,0 +1,32 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{axi/.style={gray,very thin,->}}
+\tikzset{aux/.style={dashed,gray,very thin}}
+
+\draw[axi] (0,0) coordinate (O) -- ++(5,0) node[below]{$V$};
+
+\draw[axi] (O) -- ++(0,4) node[right] {$P$};
+
+\path 
+    (1,3) coordinate (A) node[left] {\Romnum{1}}
+    (4,1) coordinate (B) node[right] {\Romnum{2}};
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.6 with {\arrowreversed{latex}}}]
+    \draw[postaction={decorate},thick] (A) to[out=-60,in=180] (B);
+\end{scope}
+    
+\draw[aux] (A) -- (A|-O) node[below] {$V_1$};
+\draw[aux] (B) -- (B|-O) node[below] {$V_2$};
+
+\fill[red,fill opacity=0.1] (A) to[out=-60,in=180] (B) --(B|-O) --(A|-O)--cycle;
+
+\path ($(A|-O)!0.5!(B|-O)+(0,0.5)$) node {$W(+)$};
+
+\path (A) node[point]{} (B) node[point]{};
+
+\end{tikzpicture}
+\end{document}

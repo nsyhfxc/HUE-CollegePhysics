@@ -1,0 +1,23 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\newcommand{\vN}{5}
+\newcommand{\vA}{1}
+\newcommand{\vD}{2}
+
+\foreach \x in {-5,-4.995,...,5}
+{
+    \path (\x,0) coordinate (C);
+    \fill[white!\fpeval{
+        100*sqrt(
+            1/(\vN*\vN)*
+            (sin(2*\vA*\x)/(2*\vA*\x))^2*
+            (sin(2*\vN*\vD*\x)/sin(2*\vD*\x))^2
+        )}
+        !black] ($(C)+(-0.006,-1)$) rectangle ($(C)+(0.006,1)$);
+}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{axi/.style={gray,very thin,->}}
+\tikzset{aux/.style={dashed,gray,very thin}}
+
+\draw[axi] (0,0) coordinate (O) -- ++(5,0) node[below]{$V$};
+
+\draw[axi] (O) -- ++(0,4) node[right] {$P$};
+
+\path 
+    (1,3) coordinate (A)
+    (4,2) coordinate (B);
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.6 with {\arrow{latex}}}]
+    \draw[postaction={decorate},thick] (A) to[out=-90,in=-90] (B);
+    \draw[postaction={decorate},thick] (B) to[out=90,in=90] (A);
+\end{scope}
+    
+\draw[aux] (A) -- (A|-O);
+\draw[aux] (B) -- (B|-O);
+
+\fill[blue,fill opacity=0.1] (A) to[out=-90,in=-90] (B) to[out=90,in=90] (A);
+
+\path ($(B)!0.5!(A)$) node {$W'<0$};
+
+\path (A) node[point]{} (B) node[point]{};
+
+\draw[<-] (3.3,0.5) node[right] {$Q$}--(3.3,2);
+\end{tikzpicture}
+\end{document}

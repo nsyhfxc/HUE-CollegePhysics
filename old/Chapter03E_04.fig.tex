@@ -1,0 +1,66 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{frame/.style={black!40!white,ultra thin}}
+\tikzset{wall/.style={thick}}
+\tikzset{lig/.style={postaction={decorate},very thin}}
+
+\draw[frame] (-4.7,-3.3) rectangle (4.7,3.3);
+
+\clip (-4.7,-3.3) rectangle (4.7,3.3);
+
+\path (-4,0) node[point,name=S,label=left:$S$]{};
+
+\path (-1,0) coordinate(W);
+
+\draw[wall] ($(W)+(0,+3)$)--($(W)+(0,+1)$)
+    coordinate(W1);
+\draw[wall] ($(W)+(0,-3)$)--($(W)+(0,-1)$)
+    coordinate(W2);
+
+\path (+4.25,0) coordinate (L);
+
+\draw[wall,name path=ls] ($(L)+(0,+3)$)--($(L)+(0,-3)$);
+
+\path ($(L)!0.7!(W)$) coordinate (O);
+
+% \draw[fill=black,fill opacity=0.1] 
+% ($(O)+(0,+2.5)$)
+% to[out=-105,in=105]
+% ($(O)+(0,-2.5)$)
+% to[out=75,in=-75]
+% ($(O)+(0,+2.5)$);
+
+\path[name path=l1] (W1)--($(W1)!4!(O)$);
+\path[name path=l2] (W2)--($(W2)!4!(O)$);
+
+\path[
+    name intersections={of=ls and l1,by=T1},
+    name intersections={of=ls and l2,by=T2}];
+
+\begin{scope}[decoration={markings,
+    mark=at position 0.7 with {\arrow{latex}}}]
+
+    \foreach \x in {0,0.25,...,1}
+    {
+        \draw[lig] (S) -- ($(W1)!\x!(W2)$) coordinate (Wx);
+        \draw[lig,black!30!white] (Wx) -- (T1);
+        \draw[lig,black!30!white] (Wx) -- (T2);
+    }
+
+    \foreach \x in {0,0.25,...,1}
+    {
+        \draw[lig] ($(W1)!\x!(W2)$) -- (L);
+    }
+\end{scope}
+
+\path
+    (L) node[point]{}
+    (T1) node[point]{}
+    (T2) node[point]{};
+
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{xStandalone}
+
+\newcommand{\lne}[1]
+{
+    \draw[-,ultra thin,red] (#1,-0.1)--(#1,0.1);
+}
+
+\newcommand{\pnt}[1]
+{
+    \draw[-,ultra thin,red,fill=red!70!white] (#1,0) circle (0.04);
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\path (0,0) coordinate (O);
+
+\draw[gray,ultra thin] (-4.1,-3.6) rectangle (4.1,3.1);
+
+\draw[black!30!white,ultra thin,dashed] (0,-3.5) coordinate (Y1)--(0,+3) coordinate (Y2);
+
+\draw[gray,very thick] (-4,0) coordinate (X1) --(+4,0) coordinate (X2);
+
+\begin{scope}[decoration={markings,
+    mark=
+    between positions 0.15 and 0.9 step 0.8cm
+    with
+    {
+        \lne{-0.3}
+        \lne{-0.1}
+        \lne{+0.1}
+        \pnt{+0.3}
+    }}]
+    \draw[-latex,thick,postaction={decorate}] 
+    (0,0) -- (146:4) coordinate(C);
+\end{scope}
+
+\begin{scope}[decoration={markings,
+    mark=
+    between positions 0.2 and 0.95 step 0.8cm
+    with
+    {
+        \pnt{-0.3}
+        \pnt{-0.1}
+        \pnt{+0.1}
+        \pnt{+0.3}
+    }}]
+    \draw[-latex,thick,postaction={decorate}] 
+    (0,0)--
+    (-124:4) coordinate(B);
+\end{scope}
+
+\begin{scope}[decoration={markings,
+    mark=
+    between positions 0.2 and 0.95 step 0.8cm
+    with
+    {
+        % \lne{-0.3}
+        % \lne{-0.1}
+        % \lne{+0.1}
+        % \pnt{+0.3}
+    }}]
+    \draw[latex-,thin,gray] 
+    (0,0)-- node[above right] {\tiny 自然光}
+    (-56:4) coordinate(A);
+\end{scope}
+
+\path (0,0) node[point]{};
+
+\path (X2) node[below left] {\tiny 反射光垂直纸面\textbf{完全}偏振};
+\path (X2) node[above left] {\tiny 折射光平行纸面部分偏振};
+
+\draw pic[angle radius=0.15cm,draw=black] {right angle=C--O--B};
+
+\draw pic["$i_B$",angle radius=0.45cm,angle eccentricity=2,draw=black] {angle=Y1--O--A};
+
+\draw pic["$i_B$",angle radius=0.55cm,angle eccentricity=1.8,draw=black] {angle=B--O--Y1};
+
+\draw pic["$r$",angle radius=0.4cm,angle eccentricity=1.5,draw=black] {angle=Y2--O--C};
+
+\path (X1) node[above right] {\tiny 空气};
+\path (X1) node[below right] {\tiny 玻璃};
+
+\path ($(X1)!0.25!(X2)$) node[above=0.1cm] {\small $n_1=1.0$};
+\path ($(X1)!0.25!(X2)$) node[below=0.1cm] {\small $n_2=1.5$};
+
+\end{tikzpicture}    
+\end{document}
+

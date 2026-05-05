@@ -1,0 +1,31 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\clip (-5.9,-0.6) rectangle (+5.9,4.1);
+
+\path (0,0) coordinate (P) ++(0,3) coordinate (P');
+
+\path 
+    ($(P)+(-4,-0.5)$) coordinate (B)
+    ($(P)+(+4,+0.5)$) coordinate (A)
+    ($(P')+(-4,-0.5)$) coordinate (B')
+    ($(P')+(+4,+0.5)$) coordinate (A');
+
+\draw[thick] (A)  rectangle (B);
+\draw[thick] (A') rectangle (B');
+
+\draw[-latex] (A'|-P') -- ++(1.5,0) node[right] {$u$};
+
+\path
+    (P') node[point,label=right:$P'$]{}
+    (A'|-P') node[point,label=left:$B'$] {}
+    (B'|-P') node[point,label=right:$A'$]{};
+
+\path 
+    (A') node[above right] {$S'$}
+    (A)  node[above right] {$S$};
+
+\end{tikzpicture}    
+\end{document}

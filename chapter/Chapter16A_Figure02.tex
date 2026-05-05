@@ -1,0 +1,46 @@
+\begin{tikzpicture}[scale=1.5]
+
+\foreach \y in {1,2,...,20}
+{
+    \draw[gray,ultra thin] (0,\fpeval{-13.6/(\y^2)}) -- ++(6,0);
+}
+
+\foreach \y/\t in {1/-13.60,2/-3.40,3/-1.51,4/-0.85,5/-0.54}
+{
+    \path (0,\fpeval{-13.6/(\y^2)}) node[left] {\y} ++(6,0) node[right] {$\t$};
+}
+
+\foreach \y/\x in {2/0.5,3/1.0,4/1.5,5/2.0}
+{
+    \draw[-latex,very thick] 
+    (\x,\fpeval{-13.6/(\y^2)})
+    --
+    (\x,\fpeval{-13.6/(1^2)});
+}
+
+\foreach \y/\x/\t in {3/3.0/\alpha,4/3.5/\beta,5/4.0/\gamma}
+{
+    \draw[-latex,very thick] 
+    (\x,\fpeval{-13.6/(\y^2)})
+    node[above] {$\text{H}_{\t}$}
+    --
+    (\x,\fpeval{-13.6/(2^2)});
+}
+
+\foreach \y/\x in {4/5.0,5/5.5}
+{
+    \draw[-latex,very thick] 
+    (\x,\fpeval{-13.6/(\y^2)})
+    --
+    (\x,\fpeval{-13.6/(3^2)});
+}
+
+\path (0,0) node[above right] {$n$} node[left] {$\infty$};
+\path (6,0) node[above left] {$E/\si{eV}$} node[right] {$-0.00$};
+
+\path 
+(1.25,-13.6) node[below] {莱曼系}
+(3.50,-3.40) node[below] {巴尔末系}
+(5.25,-1.51) node[below] {帕邢系};
+
+\end{tikzpicture}

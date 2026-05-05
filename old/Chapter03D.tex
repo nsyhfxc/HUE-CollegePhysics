@@ -1,0 +1,316 @@
+\section{分振幅干涉}
+在生活中我们常常会见到这样的现象，在阳光照耀下，肥皂泡或水面上的油膜呈现出复杂的彩色条纹，这很明显就是白光的干涉现象，然而这种情况下，我们并没有看到任何的双缝，这就表明还存在双缝之外可以产生相干光的方法，实际上，这些现象中的干涉来自薄膜的结构。
+
+在开始解释薄膜为何可以产生干涉现象前，我们有必要先补充两项基础知识。
+
+\subsection{光的反射和折射定律}
+光的反射定律和折射定律是几何光学的两项基本定律，我们在此将其总结如下。
+\begin{BoxLaw}[光的反射定律]
+    光在介质表面发生反射时，入射角等于反射角
+    \begin{Equation}&[]
+        \theta_1=\theta_2
+    \end{Equation}
+\end{BoxLaw}
+\begin{BoxLaw}[光的折射定律]
+    光在介质表面发生折射时，入射角与反射角的正弦之比，等同于两者折射率的反比
+    \begin{Equation}&[]
+        n_1\sin\theta_1=n_2\sin\theta_2
+    \end{Equation}
+\end{BoxLaw}
+在习惯上，将折射率较小的介质称为\uwave{光疏介质}，将折射率较大的介质称为\uwave{光密介质}，这一点我们很容易记忆，因为任何介质的折射率都大于$1$，而真空的折射率恰为$1$，显然真空是各种介质中最“稀疏”的了。基于这样的定义，我们可以将\xref{law:光的折射定律}中的数学表达式定性表述为
+\begin{itemize}
+    \item 如\xref{fig:光疏至光密的折射}，当由光疏介质进入光密介质（例如由空气进入玻璃），即当$n_2>n_1$折射率增大时，折射角会比入射角更小，即$\theta_2<\theta_1$，折射光会向内偏转，方向变得更为垂直。
+    \item 如\xref{fig:光疏至光密的折射}，当由光密介质进入光疏介质（例如由玻璃进入空气），即当$n_2<n_1$折射率减小时，折射角会比入射角更大，即$\theta_2>\theta_1$，折射光会向外偏转，方向变得更为水平。
+\end{itemize}
+
+\begin{Figure}[光的反射定律与折射定律]
+    \begin{FigureSub}[光的反射]
+        \includegraphics[scale=1.2]{build/Chapter03D_01.fig.pdf}
+    \end{FigureSub}
+    \hspace{0.5cm}
+    \begin{FigureSub}[光疏至光密的折射]
+        \includegraphics[scale=1.2]{build/Chapter03D_02.fig.pdf}
+    \end{FigureSub}
+    \hspace{0.5cm}
+    \begin{FigureSub}[光密至光疏的折射]
+        \includegraphics[scale=1.2]{build/Chapter03D_03.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+\subsection{光的反射与半波损失}
+我们知道，无论是从光疏介质进入光密介质，还是从光密介质进入光疏介质，光在界面上都会同时发生反射和折射，在几何光学中，两类情况发生的反射是完全相同的，反射定律总是适用的，反射角总是等于入射角度。然而，在波动光学中，由于我们将光视为一种波，那么我们在研究光的行为就要考虑其作为波的性质，这就会涉及到反射时可能发生的\uwave{半波损失}的问题
+\begin{itemize}
+    \item 如\xref{fig:光疏至光密的折射}，当由光疏介质进入光密介质，将发生半波损失（用虚线标识）。
+    \item 如\xref{fig:光密至光疏的折射}，当由光密介质进入光疏介质，不发生半波损失（用实线标识）。
+\end{itemize}
+所谓半波损失就是指反射时波发生了$\pi$的相位跃变，如果对应到波长，就相当于是光额外走过了其半波长$\lambda/2$的空间距离。应注意，只有反射会出现半波损失的问题，而折射不会。
+
+\subsection{薄膜干涉}
+
+现在让我们来正式的讨论薄膜干涉的原理，如\xref{fig:薄膜干涉}，假设光线以入射角$i$由折射率为$n_1$的介质射向折射率为$n_2$的薄膜，此时光线将会在上表面同时发生反射和折射，这将产生两条光路
+\begin{itemize}
+    \item 光线1是由入射光线在薄膜上表面反射形成的。
+    \item 光线2是由入射光纤在薄膜上表明折射形成的，其折射进入薄膜后，第一步将在薄膜下表面发生反射，第二步将通过折射再次穿过薄膜上表面，离开薄膜并与$1$形成平行光。
+\end{itemize}
+
+\begin{Figure}[薄膜干涉]
+    \includegraphics[scale=0.9]{build/Chapter03D_04.fig.pdf}
+\end{Figure}
+
+这里的光线$1$和光线$2$虽然原本是平行光，但是我们可以用透镜使其汇聚在某一点上，而我们看到，此处的两条光线在$A$点分离前是完全属于同一光线，因此两者最初的频率和初相位是等同的，而两者在再次相遇前，具有恒定的光程差，因此，具有恒定的相位差，所以这就可以说明由薄膜上表面反射的光和由薄膜下表面反射的光是一组相干光，由于这两束光的能量均来自最初的入射光，而能量以振幅形式表现于波动，因此薄膜干涉也被称为分振幅干涉。
+
+由于在薄膜干涉中发生了两次反射，取决于是否产生半波损失，有四种情况
+\begin{Table}[薄膜干涉的界面反射条件]{|c|c|c|c|}
+<\mc{2}(|c|){界面反射条件相同}&\mc{2}(|c|){界面反射条件不同}\\>
+\xcell<c>{\includegraphics[scale=0.8]{build/Chapter03D_05.fig.pdf}}&
+\xcell<c>{\includegraphics[scale=0.8]{build/Chapter03D_06.fig.pdf}}&
+\xcell<c>{\includegraphics[scale=0.8]{build/Chapter03D_07.fig.pdf}}&
+\xcell<c>{\includegraphics[scale=0.8]{build/Chapter03D_08.fig.pdf}}\\
+$\delta'=0$&$\delta'=0$&$\delta'=-(\lambda/2)$&$\delta'=+(\lambda/2)$\\
+\end{Table}
+在\xref{tab:薄膜干涉的界面反射条件}中的$\delta'$称为附加光程差，这是比较简单的。而接下来，我们的目标就是要计算两束反射光线因其光路不同导致的光程差$\delta_0$，从而最终计算出薄膜干涉中的总光程差$\delta=\delta_0+\delta'$。
+
+\begin{BoxFormula}[薄膜干涉的光程差]
+    薄膜干涉中，在薄膜上表面和薄膜下表面反射的两束光的光程差为
+    \begin{Equation}&[]
+        \delta=2e\sqrt{n_2^2-n_1^2\sin^2 i}+\delta'
+    \end{Equation}
+    其中$e$为薄膜厚度，$n_1,n_2$分别为薄膜外和薄膜的折射率，$i$为入射角。
+\end{BoxFormula}
+
+\begin{Proof}
+    如\xref{fig:薄膜干涉}所示，作$CH\perp AH$，我们看到两条光线在经过$CH$后直至汇聚前经历的光程是完全相同的，因此两者的光程差仅来自于在$A$点分离后在抵达$CH$前的光路差异，具体的说
+    \begin{itemize}
+        \item 光线1在$n_1$中经过$AH$，记该段的光程为$\Delta_1$。
+        \item 光线2在$n_2$中经过$AB$和$BC$，记该段的光程为$\Delta_2$。
+    \end{itemize}
+    记薄膜中的折射角为$\gamma$，由于薄膜的厚度$BN=e$是已知的，注意到以下的几何关系
+    \begin{Equation}&[1]
+        AN=NC=e\tan\gamma
+        \qquad
+        AB=BC=\frac{e}{\cos\gamma}
+    \end{Equation}
+    故光程$\Delta_1$可以表示为
+    \begin{Equation}&[2]
+        \Delta_1=n_1(AH)=n_1(AC\sin i)=2n_1e\tan\gamma\sin i
+    \end{Equation}
+    故光程$\Delta_2$可以表示为
+    \begin{Equation}&[3]
+        \Delta_2=n_2(AB+BC)=2n_2\frac{e}{\cos\gamma}
+    \end{Equation}
+    记由光路差异（而不包含半波损失）产生的光程差为$\delta_0=\Delta_2-\Delta_1$，因而
+    \begin{Equation}&[4]
+        \delta_0=2n_2\frac{e}{\cos\gamma}-2n_1e\tan\gamma\sin i
+    \end{Equation}
+    根据\fancyref{law:光的折射定律}
+    \begin{Equation}&[5]
+        n_1\sin i=n_2\sin\gamma
+    \end{Equation}
+    以\xrefpeq{5}代换\xrefpeq{4}中第二项的$n_1\sin i$
+    \begin{Equation}&[6]
+        \delta_0=2n_2\frac{e}{\cos\gamma}-2n_2e\tan\gamma\sin\gamma
+    \end{Equation}
+    由于$\tan\gamma=(\sin\gamma/\cos\gamma)$，我们可以将$2n_2(e/\cos\gamma)$提出
+    \begin{Equation}&[7]
+        \delta_0=2n_2\frac{e}{\cos\gamma}\qty(1-\sin^2\gamma)
+    \end{Equation}
+    由于$\cos\gamma=\sqrt{1-\sin^2\gamma}$，分母将被约去
+    \begin{Equation}&[8]
+        \delta_0=2n_2e\sqrt{1-\sin^2\gamma}
+    \end{Equation}\nopagebreak
+    至此$\delta_0$的形式已经简洁了很多，我们可能在疑惑为什么要保留$\sqrt{1-\sin^2\gamma}$而不是用更简单的$\cos\gamma$表示之，这是因为折射角$\gamma$并非已知条件，我们需要将其转化为入射角$i$的表示。\goodbreak
+
+    为此，在\xrefpeq{8}再次代入\xrefpeq{5}，考虑到$\sin^2\gamma=(n_1/n_2)^2\sin^2 i$
+    \begin{Equation}&[9]
+        \delta_0=2n_2e\sqrt{1-\qty(\frac{n_1}{n_2})^2\sin^2 i}
+    \end{Equation}
+    将$n_2$置入根号内
+    \begin{Equation}&[10]
+        \delta_0=2e\sqrt{n_2^2-n_1^2\sin i}
+    \end{Equation}
+    由此就得到了$\delta_0$的表达式，考虑$\delta=\delta_0+\delta'$即得\xrefpeq{}。
+\end{Proof}
+
+\fancyref{fml:薄膜干涉的光程差}讨论的是薄膜干涉的一般性原理，尚未涉及任何的具体的干涉情形，在其中我们看到，薄膜干涉的光程差$\delta=2e\sqrt{n_2^2-n_1^2\sin^2 i}+\delta'$在折射率$n_1,n_2$被确定后是关于薄膜厚度$e$和入射角$i$的二元函数$\delta(e,i)$。对于实际的薄膜干涉过程，这两者可以同时变化，但是通常来说，在实践中我们更多遇到的都是其中一个变量被固定的情形
+\begin{itemize}
+    \item 如果入射角度被固定，称为\uwave{等厚干涉}，此时薄膜厚度相同处将具有相同相位。
+    \item 如果薄膜厚度被固定，称为\uwave{等倾干涉}，此时入射角度相同处将具有相同相位。
+\end{itemize}
+相比之下，等倾干涉较为复杂，我们下面仅就等厚干涉的两类情形进行介绍。
+
+\subsection{劈形膜}
+\uwave{劈形膜}是一个厚度沿一个方向线性增加的薄膜，如\xref{fig:劈形膜的干涉原理}所示，也称为\uwave{劈尖}。我们假设劈形膜的上下表面间的夹角$\theta$很小，以至于，当我们使用垂直向下的平行光束照射时，在上表面反射的光线可以认为是垂直反射，在下表面反射的光线尽管由于折射的缘故偏移了一段距离，但仍然可以认为与上表面反射的光线是重合的，两者在薄膜上表面附近交会，发生干涉现象。
+
+\begin{Figure}[劈形膜的干涉原理]
+    \includegraphics[scale=0.9]{build/Chapter03D_11.fig.pdf}
+\end{Figure}
+
+\begin{BoxFormula}[劈形膜干涉的光程差]
+    劈形膜在高度为$e$的上表面处产生的光程差$\delta$为
+    \begin{Equation}
+        \delta=2en_2+\delta'
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    劈形膜干涉时光线均为垂直入射，因此属于等厚干涉，且$i=0$，故有
+    \begin{Equation}*
+        \delta=2e\sqrt{n_2^2-n_1^2\sin^2 i}+\delta'=2en_2+\delta'\qedhere
+    \end{Equation}
+\end{Proof}
+
+劈形膜的干涉现象仅取决于其自身的折射率，外部环境的折射率只会影响界面反射条件是否相同，进而影响附加光程差$\delta'$是否为零，从而决定劈形膜高度为零的边缘是明纹还是暗纹
+\begin{Figure}[劈形膜的干涉条纹]
+    \begin{FigureSub}[界面反射条件相同]
+        \includegraphics[scale=0.95]{build/Chapter03D_10.fig.pdf}
+    \end{FigureSub}
+    \hspace{0.5cm}
+    \begin{FigureSub}[界面反射条件不同]
+        \includegraphics[scale=0.95]{build/Chapter03D_09.fig.pdf}
+    \end{FigureSub}  
+\end{Figure}
+\begin{BoxProperty}[劈形膜在反射条件相同时的干涉条纹]
+    当界面反射条件相同时，劈形膜的边缘表现为明纹，此时附加光程差$\delta'=0$。
+
+    当光程差为半波长的偶数倍时产生明纹，其分布为
+    \begin{Equation}
+        e=\frac{1}{2n_2}\qty(\frac{\lambda}{2})(2m)\qquad
+        m\in\N
+    \end{Equation}
+    当光程差为半波长的奇数倍时产生暗纹，其分布为
+    \begin{Equation}
+        e=\frac{1}{2n_2}\qty(\frac{\lambda}{2})(2m-1)\qquad
+        m\in\N^{*}
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{BoxProperty}[劈形膜在反射条件不同时的干涉条纹]
+    当界面反射条件不同时，劈形膜的边缘表现为暗纹，此时附加光程差$\delta'=(\lambda/2)$。
+
+    当光程差为半波长的奇数倍时产生暗纹，其分布为
+    \begin{Equation}
+        e=\frac{1}{2n_2}\qty(\frac{\lambda}{2})(2m)\qquad
+        m\in\N
+    \end{Equation}
+
+    当光程差为半波长的偶数倍时产生明纹，其分布为
+    \begin{Equation}
+        e=\frac{1}{2n_2}\qty(\frac{\lambda}{2})(2m-1)\qquad
+        m\in\N^{*}
+    \end{Equation}
+\end{BoxProperty}
+
+在实际的劈形膜干涉中，界面反射条件不同，即带有$(\lambda/2)$的附加光程差且边缘为零级暗纹的情况是较常见的，因为通常产生劈形膜的方式，就是利用两片撑开一个小角度的玻璃片间的空气所形成的空气劈尖，这时空气劈形膜上下的玻璃对其而言均为高折射率材料，因此这属于界面反射条件不同的情况（空气--玻璃、玻璃--空气）。值得注意的是，尽管玻璃片本身好像也可以视作某种厚度均匀的薄膜，但玻璃片实际并不会发生干涉，因为玻璃片很厚以至于从下表面反射的光线额外经历的光程差已经超过单个电子跃迁释放的光波的总长度了，与其在上表面相遇的已经不是原来的光波了。由此可见，薄膜干涉的干涉原理只适用于“薄”膜。
+
+在实际应用中，劈形干涉可以用于检测工件表面的平整度，因为，\empx{劈形膜的干涉条纹实际反映的是其上下表面间的等高线}，只不过其是用明纹和暗纹交替标注罢了，在理想情况下这些明纹和暗纹应该是一系列平行的直线，但如果下表面有凹凸不平之处，那么条纹也将随之弯曲。
+
+\begin{BoxProperty}[劈形膜的条纹间距]
+    劈形膜中，任意两个相邻的明纹或暗纹间的高度差均为
+    \begin{Equation}
+        \delt{e}=\frac{\lambda}{2n_2}
+    \end{Equation}
+    劈形膜上的条纹间距可以表示为（基于$\theta$很小近似）
+    \begin{Equation}
+        L=\frac{\lambda}{2n_2\sin\theta}=\frac{\lambda}{2n_2\theta}
+    \end{Equation}
+\end{BoxProperty}
+
+通过显微镜观察时，我们能观测的是条纹间距$L$，根据\xref{ppt:劈形膜的条纹间距}
+\begin{itemize}
+    \item 劈形膜的角度越小，折射率越小，光的波长越长（使用红光），产生的干涉条纹就越稀疏。
+    \item 劈形膜的角度越大，折射率越大，光的波长越短（使用蓝光），产生的干涉条纹就越密集。
+\end{itemize}
+
+\subsection{牛顿环}
+牛顿环是另外一类常见的薄膜干涉条纹，它的干涉装置由一个置于平板玻璃上的平凸透镜组成，两者间的空气薄膜将对垂直入射的平行光形成一组等厚干涉条纹，而在这种情况下，在相同半径处具有相同的高度，因此这些条纹是以接触点为圆心的一系列同心圆环，称为\uwave{牛顿环}。
+
+牛顿环中的空气薄膜也可以视作上一小节的劈尖薄膜处理，适用\fancyref{fml:劈形膜干涉的光程差}，只不过此时其上表面由平面变为了球面，因此表示牛顿环的光程差表达式不宜再使用薄膜的高度$e$作为自变量，对于薄膜上的点，应该通过其相对于接触点的半径$r$标识位置。
+\begin{BoxFormula}[牛顿环的光程差]*
+    牛顿环在以接触点为圆心的半径$r$处产生的光程差$\delta$为
+    \begin{Equation}
+        \delta=\frac{r^2}{R}n_2+\frac{\lambda}{2}
+    \end{Equation}
+    其中，$R$为透镜曲率半径，$n_2$为空气薄膜的折射率，$\lambda$为光波长。
+\end{BoxFormula}
+
+\begin{Proof}
+    牛顿环的干涉装置如\xref{fig:牛顿环的仪器图}所示
+    \begin{Figure}[牛顿环的仪器图]
+        \includegraphics[scale=0.75]{build/Chapter03D_13.fig.pdf}
+    \end{Figure}
+    牛顿环中光线同样是垂直入射的，属于等厚干涉，适用\fancyref{fml:劈形膜干涉的光程差}
+    \begin{Equation}&[1]
+        \delta=2en_2+\delta'
+    \end{Equation}
+    我们现在要做的只不过是将$e$重新用$r$表示，在\xref{fig:牛顿环的仪器图}的$\triangle OHP$中关注到
+    \begin{Equation}&[2]
+        r^2=R^2-(R-e)^2=2Re-e^2
+    \end{Equation}
+    我们假定透镜的曲率半径远大于薄膜的高度，即总有$R\gg e$，则
+    \begin{Equation}&[3]
+        r^2=2Re
+    \end{Equation}
+    此处的近似实际是等价于将球面透镜视为一个抛物面的透镜，这样
+    \begin{Equation}&[4]
+        e=\frac{r^2}{2R}
+    \end{Equation}
+    将\xrefpeq{4}代入\xrefpeq{1}即得
+    \begin{Equation}&[5]
+        \delta=2\frac{r^2}{2R}n_2+\delta'=\frac{r^2}{R}n_2+\delta'
+    \end{Equation}
+    在牛顿环中$\delta'=(\pi/2)$，因为其装置的结构属于界面反射条件不同的情形。
+\end{Proof}
+牛顿环的干涉装置中，我们将空气薄膜的上表面由球面近似为抛物面（即便不近似对此处讨论也一样），因此很容易想象，随着半径的增加，空气薄膜的高度将平方增加，而根据先前的讨论我们知道，等厚干涉的干涉条纹反映的其实是薄膜的等高线，等高线在高度变化快的地方会显得更为密集，故可以预期，\empx{牛顿环的干涉条纹具有内疏外密的特征}，另外由于牛顿环的干涉中带有半波损失，因此，\empx{牛顿环的中央将呈现暗斑}，如\xref{fig:牛顿环的干涉图样}所示。定量分析也是容易的。
+
+\begin{BoxProperty}[牛顿环的条纹间距]
+    牛顿环表现为一系列内疏外密的同心圆环条纹，且中央为暗斑。
+
+    当光程差为半波长的奇数倍是产生暗环，其分布为
+    \begin{Equation}&[1]
+        r=\sqrt{\frac{\lambda}{2}\frac{R}{n_2}(2m)}=\sqrt{mR\lambda n_2}\qquad m\in\N
+    \end{Equation}
+    当光程差为半波长的偶数倍是产生明环，其分布为
+    \begin{Equation}&[2]
+        r=\sqrt{\frac{\lambda}{2}\frac{R}{n_2}(2m-1)}\qquad m\in\N^{*}
+    \end{Equation}
+\end{BoxProperty}
+
+\begin{Figure}[牛顿环的干涉图样]
+    \includegraphics[scale=0.75]{build/Chapter03D_12.fig.pdf}
+\end{Figure}
+
+牛顿环的一个常见的用途就是用于测定透镜的曲率半径$R$，其利用的是\xrefpeq{1}。
+\begin{BoxFormula}[牛顿环测量透镜曲率半径]
+    若在牛顿环中观察到第$m$级暗环的直径为$d_m=2r_m$，那么透镜半径为\footnote[2]{测定直径而不是半径的原因是，前者在显微镜下是更容易实践的，因为准确找到圆心并不容易。}
+    \begin{Equation}&[1]
+        R=\frac{d_m^2}{4m\lambda n_2}
+    \end{Equation}
+    若分别测得第$x$级和$x+m$级的暗环的直径分别为$d_x$和$d_{x+m}$，那么\footnote[3]{由于牛顿环的中央为暗斑，有时确定暗环的绝对级数是困难的，而该公式只需要确定两个暗环的相对级数差即可。}
+    \begin{Equation}&[2]
+        R=\frac{d_{x+m}^2-d_x^2}{4m\lambda n_2}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    证明是容易的，对于\xrefpeq{1}，应用\xrefpeq[牛顿环的条纹间距]{1}
+    \begin{Equation}
+        d_m^2=4r_m^2=4mR\lambda n_2
+    \end{Equation}
+    移项即得
+    \begin{Equation}
+        R=\frac{d_m^2}{4m\lambda n_2}
+    \end{Equation}
+    而对于\xrefpeq{2}，效仿以上过程
+    \begin{Gather}[6pt]
+        d_x^2=4xR\lambda n_2 \xlabelpeq{3}\\
+        d_{x+m}^2=4(x+m)R\lambda n_2\xlabelpeq{4}
+    \end{Gather}
+    将\xrefpeq{4}与\xrefpeq{3}相减，即得
+    \begin{Equation}
+        d_{x+m}^2-d_x^2=4\qty[(x+m)-x]R\lambda n_2=4mR\lambda n_2
+    \end{Equation}
+    移项即得
+    \begin{Equation}
+        R=\frac{d_{x+m}^2-d_x^2}{4m\lambda n_2}
+    \end{Equation}
+    这就证明了\xrefpeq{1}与\xrefpeq{2}。
+\end{Proof}
